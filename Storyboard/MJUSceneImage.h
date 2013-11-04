@@ -16,4 +16,7 @@
 @property (nonatomic) int32_t order;
 @property (nonatomic, retain) NSManagedObject *scene;
 
+- (void)addImage:(UIImage*)image;
+- (UIImage*)getImage;
+
 @end

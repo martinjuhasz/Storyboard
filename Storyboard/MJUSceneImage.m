@@ -15,4 +15,16 @@
 @dynamic order;
 @dynamic scene;
 
+- (void)addImage:(UIImage*)image
+{
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.8);
+    [self setImage:imageData];
+    
+}
+
+- (UIImage*)getImage
+{
+    return [UIImage imageWithData:self.image];
+}
+
 @end

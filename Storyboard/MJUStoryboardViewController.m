@@ -10,6 +10,7 @@
 #import "MJUProject.h"
 #import "MJUScene.h"
 #import "MJUProjectsDataModel.h"
+#import "MJUSceneViewController.h"
 
 @interface MJUStoryboardViewController ()
 
@@ -60,6 +61,23 @@
     [[[MJUProjectsDataModel sharedDataModel] mainContext] deleteObject:scene];
     [[[MJUProjectsDataModel sharedDataModel] mainContext] save:nil];
     [self saveOrderToItems];
+}
+
+
+#pragma mark -
+#pragma mark UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"SceneDetailSegue" sender:indexPath];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"SceneDetailSegue"]) {
+        MJUSceneViewController *sceneViewController = [segue destinationViewController];
+        sceneViewController.scene = [[self fetchedResultsController] objectAtIndexPath:(NSIndexPath*)sender];
+    }
 }
 
 

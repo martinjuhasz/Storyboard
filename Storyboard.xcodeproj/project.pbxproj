@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A3639BC1827CB1C00B7307B /* MJUSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3639BB1827CB1C00B7307B /* MJUSceneViewController.m */; };
+		7A3639BE1827D72E00B7307B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A3639BD1827D72E00B7307B /* QuickLook.framework */; };
 		7A62B68C18252C1000A2C1B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A62B68B18252C1000A2C1B2 /* Foundation.framework */; };
 		7A62B68E18252C1000A2C1B2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A62B68D18252C1000A2C1B2 /* CoreGraphics.framework */; };
 		7A62B69018252C1000A2C1B2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A62B68F18252C1000A2C1B2 /* UIKit.framework */; };
@@ -45,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A3639BA1827CB1C00B7307B /* MJUSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUSceneViewController.h; sourceTree = "<group>"; };
+		7A3639BB1827CB1C00B7307B /* MJUSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUSceneViewController.m; sourceTree = "<group>"; };
+		7A3639BD1827D72E00B7307B /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		7A62B68818252C1000A2C1B2 /* Storyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A62B68B18252C1000A2C1B2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7A62B68D18252C1000A2C1B2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -88,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A3639BE1827D72E00B7307B /* QuickLook.framework in Frameworks */,
 				7A62B68E18252C1000A2C1B2 /* CoreGraphics.framework in Frameworks */,
 				7A62B69218252C1000A2C1B2 /* CoreData.framework in Frameworks */,
 				7A62B69018252C1000A2C1B2 /* UIKit.framework in Frameworks */,
@@ -109,6 +115,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A3639B91827CAFC00B7307B /* SceneDetail */ = {
+			isa = PBXGroup;
+			children = (
+				7A3639BA1827CB1C00B7307B /* MJUSceneViewController.h */,
+				7A3639BB1827CB1C00B7307B /* MJUSceneViewController.m */,
+			);
+			name = SceneDetail;
+			sourceTree = "<group>";
+		};
 		7A62B67F18252C1000A2C1B2 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +146,7 @@
 		7A62B68A18252C1000A2C1B2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7A3639BD1827D72E00B7307B /* QuickLook.framework */,
 				7A62B68B18252C1000A2C1B2 /* Foundation.framework */,
 				7A62B68D18252C1000A2C1B2 /* CoreGraphics.framework */,
 				7A62B68F18252C1000A2C1B2 /* UIKit.framework */,
@@ -240,6 +256,7 @@
 				7A68C04418264D37004EABD9 /* Project Overview */,
 				7A68C04A18264DB6004EABD9 /* Project Detail */,
 				7A68C04E18265353004EABD9 /* Storyboard */,
+				7A3639B91827CAFC00B7307B /* SceneDetail */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -374,6 +391,7 @@
 				7A62B6A718252C1000A2C1B2 /* Storyboard.xcdatamodeld in Sources */,
 				7A62B69A18252C1000A2C1B2 /* main.m in Sources */,
 				7A62B69E18252C1000A2C1B2 /* MJUAppDelegate.m in Sources */,
+				7A3639BC1827CB1C00B7307B /* MJUSceneViewController.m in Sources */,
 				7A62B6D618253EA500A2C1B2 /* MJUProject.m in Sources */,
 				7A62B6D2182539CC00A2C1B2 /* MJUProjectsDataModel.m in Sources */,
 				7A62B6CE18252E0E00A2C1B2 /* MJUProjectsViewController.m in Sources */,
