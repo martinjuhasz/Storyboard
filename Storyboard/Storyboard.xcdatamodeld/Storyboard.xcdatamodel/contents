@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="MJUAnswer" syncable="YES">
+        <attribute name="questionID" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MJUProject" inverseName="answers" inverseEntity="MJUProject" syncable="YES"/>
+    </entity>
     <entity name="MJUProject" representedClassName="MJUProject" syncable="YES">
-        <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="405169200" defaultValueString="NOW" syncable="YES"/>
+        <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="405342000" defaultValueString="NOW" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
+        <relationship name="answers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MJUAnswer" inverseName="project" inverseEntity="MJUAnswer" syncable="YES"/>
         <relationship name="scenes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MJUScene" inverseName="project" inverseEntity="MJUScene" syncable="YES"/>
     </entity>
     <entity name="MJUScene" representedClassName="MJUScene" syncable="YES">
@@ -20,8 +26,9 @@
         <relationship name="scene" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MJUScene" inverseName="images" inverseEntity="MJUScene" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MJUProject" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="MJUScene" positionX="178" positionY="-18" width="128" height="148"/>
-        <element name="MJUSceneImage" positionX="376" positionY="51" width="128" height="88"/>
+        <element name="MJUProject" positionX="-36" positionY="-157" width="128" height="103"/>
+        <element name="MJUScene" positionX="178" positionY="45" width="128" height="148"/>
+        <element name="MJUSceneImage" positionX="376" positionY="45" width="128" height="88"/>
+        <element name="MJUAnswer" positionX="-227" positionY="-81" width="128" height="88"/>
     </elements>
 </model>
