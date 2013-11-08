@@ -1,16 +1,16 @@
 //
-//  MJUStoryboardViewController.h
+//  MJUScenesTableViewController.h
 //  Storyboard
 //
-//  Created by Martin Juhasz on 03/11/13.
+//  Created by Martin Juhasz on 08/11/13.
 //  Copyright (c) 2013 Martin Juhasz. All rights reserved.
 //
 
-#import "MJUCollectionViewController.h"
+#import <UIKit/UIKit.h>
 
 @class MJUProject;
 
-@interface MJUStoryboardViewController : MJUCollectionViewController<UIGestureRecognizerDelegate>
+@interface MJUScenesTableViewController : UITableViewController<NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) MJUProject *project;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7A3639BC1827CB1C00B7307B /* MJUSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3639BB1827CB1C00B7307B /* MJUSceneViewController.m */; };
 		7A3639BE1827D72E00B7307B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A3639BD1827D72E00B7307B /* QuickLook.framework */; };
+		7A435863182CEE4200534588 /* MJUProjectsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A435862182CEE4200534588 /* MJUProjectsTableViewController.m */; };
+		7A435866182CF40300534588 /* MJUScenesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A435865182CF40300534588 /* MJUScenesTableViewController.m */; };
 		7A62B68C18252C1000A2C1B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A62B68B18252C1000A2C1B2 /* Foundation.framework */; };
 		7A62B68E18252C1000A2C1B2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A62B68D18252C1000A2C1B2 /* CoreGraphics.framework */; };
 		7A62B69018252C1000A2C1B2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A62B68F18252C1000A2C1B2 /* UIKit.framework */; };
@@ -26,12 +28,9 @@
 		7A62B6B918252C1000A2C1B2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A62B69118252C1000A2C1B2 /* CoreData.framework */; };
 		7A62B6C118252C1000A2C1B2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A62B6BF18252C1000A2C1B2 /* InfoPlist.strings */; };
 		7A62B6C318252C1000A2C1B2 /* StoryboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A62B6C218252C1000A2C1B2 /* StoryboardTests.m */; };
-		7A62B6CE18252E0E00A2C1B2 /* MJUProjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A62B6CD18252E0E00A2C1B2 /* MJUProjectsViewController.m */; };
 		7A62B6D2182539CC00A2C1B2 /* MJUProjectsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A62B6D1182539CC00A2C1B2 /* MJUProjectsDataModel.m */; };
 		7A62B6D618253EA500A2C1B2 /* MJUProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A62B6D518253EA500A2C1B2 /* MJUProject.m */; };
 		7A68C04D18264DCD004EABD9 /* MJUProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A68C04C18264DCD004EABD9 /* MJUProjectViewController.m */; };
-		7A68C0541826575E004EABD9 /* MJUCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A68C0531826575E004EABD9 /* MJUCollectionViewController.m */; };
-		7A68C057182659CA004EABD9 /* MJUStoryboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A68C056182659CA004EABD9 /* MJUStoryboardViewController.m */; };
 		7A68C05A18265F70004EABD9 /* MJUSceneImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A68C05918265F70004EABD9 /* MJUSceneImage.m */; };
 		7A68C05D18265F71004EABD9 /* MJUScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A68C05C18265F71004EABD9 /* MJUScene.m */; };
 /* End PBXBuildFile section */
@@ -50,6 +49,10 @@
 		7A3639BA1827CB1C00B7307B /* MJUSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUSceneViewController.h; sourceTree = "<group>"; };
 		7A3639BB1827CB1C00B7307B /* MJUSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUSceneViewController.m; sourceTree = "<group>"; };
 		7A3639BD1827D72E00B7307B /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		7A435861182CEE4200534588 /* MJUProjectsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUProjectsTableViewController.h; sourceTree = "<group>"; };
+		7A435862182CEE4200534588 /* MJUProjectsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUProjectsTableViewController.m; sourceTree = "<group>"; };
+		7A435864182CF40300534588 /* MJUScenesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUScenesTableViewController.h; sourceTree = "<group>"; };
+		7A435865182CF40300534588 /* MJUScenesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUScenesTableViewController.m; sourceTree = "<group>"; };
 		7A62B68818252C1000A2C1B2 /* Storyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A62B68B18252C1000A2C1B2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7A62B68D18252C1000A2C1B2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -70,18 +73,12 @@
 		7A62B6BE18252C1000A2C1B2 /* StoryboardTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StoryboardTests-Info.plist"; sourceTree = "<group>"; };
 		7A62B6C018252C1000A2C1B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7A62B6C218252C1000A2C1B2 /* StoryboardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoryboardTests.m; sourceTree = "<group>"; };
-		7A62B6CC18252E0E00A2C1B2 /* MJUProjectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUProjectsViewController.h; sourceTree = "<group>"; };
-		7A62B6CD18252E0E00A2C1B2 /* MJUProjectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUProjectsViewController.m; sourceTree = "<group>"; };
 		7A62B6D0182539CC00A2C1B2 /* MJUProjectsDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUProjectsDataModel.h; sourceTree = "<group>"; };
 		7A62B6D1182539CC00A2C1B2 /* MJUProjectsDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUProjectsDataModel.m; sourceTree = "<group>"; };
 		7A62B6D418253EA500A2C1B2 /* MJUProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUProject.h; sourceTree = "<group>"; };
 		7A62B6D518253EA500A2C1B2 /* MJUProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUProject.m; sourceTree = "<group>"; };
 		7A68C04B18264DCD004EABD9 /* MJUProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUProjectViewController.h; sourceTree = "<group>"; };
 		7A68C04C18264DCD004EABD9 /* MJUProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUProjectViewController.m; sourceTree = "<group>"; };
-		7A68C0521826575E004EABD9 /* MJUCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUCollectionViewController.h; sourceTree = "<group>"; };
-		7A68C0531826575E004EABD9 /* MJUCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUCollectionViewController.m; sourceTree = "<group>"; };
-		7A68C055182659CA004EABD9 /* MJUStoryboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUStoryboardViewController.h; sourceTree = "<group>"; };
-		7A68C056182659CA004EABD9 /* MJUStoryboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUStoryboardViewController.m; sourceTree = "<group>"; };
 		7A68C05818265F70004EABD9 /* MJUSceneImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUSceneImage.h; sourceTree = "<group>"; };
 		7A68C05918265F70004EABD9 /* MJUSceneImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUSceneImage.m; sourceTree = "<group>"; };
 		7A68C05B18265F71004EABD9 /* MJUScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUScene.h; sourceTree = "<group>"; };
@@ -210,8 +207,8 @@
 		7A68C04418264D37004EABD9 /* Project Overview */ = {
 			isa = PBXGroup;
 			children = (
-				7A62B6CC18252E0E00A2C1B2 /* MJUProjectsViewController.h */,
-				7A62B6CD18252E0E00A2C1B2 /* MJUProjectsViewController.m */,
+				7A435861182CEE4200534588 /* MJUProjectsTableViewController.h */,
+				7A435862182CEE4200534588 /* MJUProjectsTableViewController.m */,
 			);
 			name = "Project Overview";
 			sourceTree = "<group>";
@@ -251,8 +248,6 @@
 		7A68C04818264D63004EABD9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7A68C0521826575E004EABD9 /* MJUCollectionViewController.h */,
-				7A68C0531826575E004EABD9 /* MJUCollectionViewController.m */,
 				7A68C04418264D37004EABD9 /* Project Overview */,
 				7A68C04A18264DB6004EABD9 /* Project Detail */,
 				7A68C04E18265353004EABD9 /* Storyboard */,
@@ -282,8 +277,8 @@
 		7A68C04E18265353004EABD9 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				7A68C055182659CA004EABD9 /* MJUStoryboardViewController.h */,
-				7A68C056182659CA004EABD9 /* MJUStoryboardViewController.m */,
+				7A435864182CF40300534588 /* MJUScenesTableViewController.h */,
+				7A435865182CF40300534588 /* MJUScenesTableViewController.m */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -394,11 +389,10 @@
 				7A3639BC1827CB1C00B7307B /* MJUSceneViewController.m in Sources */,
 				7A62B6D618253EA500A2C1B2 /* MJUProject.m in Sources */,
 				7A62B6D2182539CC00A2C1B2 /* MJUProjectsDataModel.m in Sources */,
-				7A62B6CE18252E0E00A2C1B2 /* MJUProjectsViewController.m in Sources */,
-				7A68C057182659CA004EABD9 /* MJUStoryboardViewController.m in Sources */,
 				7A68C04D18264DCD004EABD9 /* MJUProjectViewController.m in Sources */,
-				7A68C0541826575E004EABD9 /* MJUCollectionViewController.m in Sources */,
+				7A435866182CF40300534588 /* MJUScenesTableViewController.m in Sources */,
 				7A68C05A18265F70004EABD9 /* MJUSceneImage.m in Sources */,
+				7A435863182CEE4200534588 /* MJUProjectsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
