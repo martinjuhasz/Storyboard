@@ -12,8 +12,10 @@
 @implementation MJUProject
 
 @dynamic title;
+@dynamic companyName;
 @dynamic createdAt;
 @dynamic scenes;
+@dynamic companyLogo;
 @synthesize orderedScenes = _orderedScenes;
 
 - (void) awakeFromInsert
@@ -28,6 +30,18 @@
 - (NSArray*)orderedScenes
 {
     return [self.scenes allObjects];
+}
+
+- (void)addCompanyLogo:(UIImage*)image
+{
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.8);
+    [self setCompanyLogo:imageData];
+    
+}
+
+- (UIImage*)getCompanyLogo
+{
+    return [UIImage imageWithData:self.companyLogo];
 }
 
 

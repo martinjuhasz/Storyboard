@@ -14,9 +14,15 @@
 @interface MJUProject : NSManagedObject
 
 @property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * companyName;
+@property (nonatomic, retain) NSData * companyLogo;
 @property (nonatomic, retain) NSDate * createdAt;
 @property (nonatomic, retain) NSSet *scenes;
 @property (nonatomic, retain) NSArray *orderedScenes;
+
+- (void)addCompanyLogo:(UIImage*)image;
+- (UIImage*)getCompanyLogo;
+
 @end
 
 @interface MJUProject (CoreDataGeneratedAccessors)

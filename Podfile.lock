@@ -1,0 +1,10 @@
+PODS:
+  - UITableView-NXEmptyView (0.1.4)
+
+DEPENDENCIES:
+  - UITableView-NXEmptyView
+
+SPEC CHECKSUMS:
+  UITableView-NXEmptyView: 034e5162ce7b8e3584d720d0d925c27ea7711220
+
+COCOAPODS: 0.26.2

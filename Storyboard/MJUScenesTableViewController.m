@@ -12,8 +12,9 @@
 #import "MJUProjectsDataModel.h"
 #import "MJUSceneViewController.h"
 
-@interface MJUScenesTableViewController ()
-
+@interface MJUScenesTableViewController () {
+    bool userDrivenModelChange;
+}
 @end
 
 @implementation MJUScenesTableViewController
@@ -21,6 +22,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    userDrivenModelChange = NO;
+    
+    // Bar Button Items
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonClicked:)];
+    UIBarButtonItem *moveButon = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(moveButtonClicked:)];
+    self.navigationItem.rightBarButtonItems = @[addButton, moveButon];
 }
 
 #pragma mark -
@@ -30,10 +38,21 @@
 {
     NSManagedObjectContext *context = [[MJUProjectsDataModel sharedDataModel] mainContext];
     MJUScene *scene = (MJUScene *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUScene" inManagedObjectContext:context];
+    
+    int lowerBound = 1;
+    int upperBound = 100;
+    int rndValue = lowerBound + arc4random() % (upperBound - lowerBound);
+    
+    scene.imageText = [NSString stringWithFormat:@"%d", rndValue];
     scene.order = [[[self fetchedResultsController] fetchedObjects] count];
     [self.project addScenesObject:scene];
     [context save:nil];
-    [self saveOrderToItems];
+    [self saveOrder];
+}
+
+- (IBAction)moveButtonClicked:(id)sender
+{
+    [self.tableView setEditing:!self.tableView.editing animated:YES];
 }
 
 
@@ -82,21 +101,111 @@
 - (void)updateCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
     MJUScene *currentScene = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"Scene #%d", currentScene.order+1];
+    cell.textLabel.text = [NSString stringWithFormat:@"Scene #%@", currentScene.imageText];
+}
+
+#pragma mark Deleting
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        MJUScene *scene = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        [[[MJUProjectsDataModel sharedDataModel] mainContext] deleteObject:scene];
+        [[[MJUProjectsDataModel sharedDataModel] mainContext] save:nil];
+        [self saveOrder];
+    }
+}
+
+#pragma mark Moving
+
+- (UITableViewCellEditingStyle) tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(self.tableView.editing) {
+        return UITableViewCellEditingStyleNone;
+    }
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (BOOL) tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void) tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    NSMutableArray *things = [[self.fetchedResultsController fetchedObjects] mutableCopy];
+    NSManagedObject *thing = [[self fetchedResultsController] objectAtIndexPath:sourceIndexPath];
+    
+    [things removeObject:thing];
+    [things insertObject:thing atIndex:[destinationIndexPath row]];
+    
+    [self saveOrderToItems:things];
+
+    
+    
+    
+    
+//    NSUInteger fromIndex = sourceIndexPath.row;
+//    NSUInteger toIndex = destinationIndexPath.row;
+//    
+//    if (fromIndex == toIndex) {
+//        return;
+//    }
+//    
+//    MJUScene *affectedObject = [self.fetchedResultsController.fetchedObjects objectAtIndex:fromIndex];
+//    affectedObject.order = toIndex;
+//    
+//    NSUInteger start, end;
+//    int delta;
+//    
+//    if (fromIndex < toIndex) {
+//        // move was down, need to shift up
+//        delta = -1;
+//        start = fromIndex + 1;
+//        end = toIndex;
+//    } else { // fromIndex > toIndex
+//        // move was up, need to shift down
+//        delta = 1;
+//        start = toIndex;
+//        end = fromIndex - 1;
+//    }
+//    
+//    for (NSUInteger i = start; i <= end; i++) {
+//        MJUScene *otherObject = [self.fetchedResultsController.fetchedObjects objectAtIndex:i];
+//        otherObject.order += delta;
+//    }
+//    
+//    userDrivenModelChange = YES;
+//    [[[MJUProjectsDataModel sharedDataModel] mainContext] save:nil];
+//    userDrivenModelChange = NO;
+    
 }
 
 
 #pragma mark -
 #pragma mark Core Data
 
-- (void)saveOrderToItems
+- (void)saveOrder
 {
-    int count = 0;
     NSArray *items = [[self fetchedResultsController] fetchedObjects];
-    for (MJUScene *scene in items) {
-        scene.order = count++;
+    [self saveOrderToItems:items];
+}
+
+- (void)saveOrderToItems:(NSArray*)items
+{
+    int i = 0;
+    for (NSManagedObject *mo in items) {
+        [mo setValue:[NSNumber numberWithInt:i++] forKey:@"order"];
     }
+    userDrivenModelChange = YES;
     [[[MJUProjectsDataModel sharedDataModel] mainContext] save:nil];
+    userDrivenModelChange = NO;
 }
 
 - (NSFetchedResultsController *)fetchedResultsController
@@ -134,14 +243,18 @@
 #pragma mark NSFetchedResultsControllerDelegate
 
 -(void) controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    if(userDrivenModelChange) return;
     [self.tableView beginUpdates];
 }
 
 -(void) controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    if(userDrivenModelChange) return;
     [self.tableView endUpdates];
 }
 
 -(void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    if(userDrivenModelChange) return;
     
     UITableView *tableView = self.tableView;
     
@@ -168,6 +281,7 @@
 }
 
 -(void) controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    if(userDrivenModelChange) return;
     switch (type) {
         case NSFetchedResultsChangeInsert:
             [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];

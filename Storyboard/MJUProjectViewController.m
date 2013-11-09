@@ -7,7 +7,7 @@
 //
 
 #import "MJUProjectViewController.h"
-#import "MJUStoryboardViewController.h"
+#import "MJUScenesTableViewController.h"
 
 @interface MJUProjectViewController ()
 
@@ -35,8 +35,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"StoryboardSegue"]) {
-        MJUStoryboardViewController *storyboardViewController = [segue destinationViewController];
-        storyboardViewController.project = self.project;
+        MJUScenesTableViewController *scenesViewController = [segue destinationViewController];
+        scenesViewController.project = self.project;
     }
 }
 

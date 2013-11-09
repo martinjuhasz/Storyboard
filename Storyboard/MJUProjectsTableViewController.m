@@ -10,6 +10,7 @@
 #import "MJUProjectsDataModel.h"
 #import "MJUProject.h"
 #import "MJUProjectViewController.h"
+#import "UITableView+NXEmptyView.h"
 
 @interface MJUProjectsTableViewController ()
 
@@ -20,6 +21,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // load emtpy view
+    UIView *emptyView = [[[NSBundle mainBundle] loadNibNamed:@"EmptyProjectView" owner:self options:nil] objectAtIndex:0];
+    self.tableView.nxEV_emptyView = emptyView;
 
 }
 
@@ -87,6 +92,24 @@
     MJUProject *currentProject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     cell.textLabel.text = currentProject.title;
 }
+
+# pragma mark Deleting
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        MJUProject *project = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        [[[MJUProjectsDataModel sharedDataModel] mainContext] deleteObject:project];
+        [[[MJUProjectsDataModel sharedDataModel] mainContext] save:nil];
+    }
+}
+
 
 
 #pragma mark -

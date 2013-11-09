@@ -6,7 +6,9 @@
         <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MJUProject" inverseName="answers" inverseEntity="MJUProject" syncable="YES"/>
     </entity>
     <entity name="MJUProject" representedClassName="MJUProject" syncable="YES">
-        <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="405342000" defaultValueString="NOW" syncable="YES"/>
+        <attribute name="companyLogo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="companyName" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="405601200" defaultValueString="NOW" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="answers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MJUAnswer" inverseName="project" inverseEntity="MJUAnswer" syncable="YES"/>
         <relationship name="scenes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MJUScene" inverseName="project" inverseEntity="MJUScene" syncable="YES"/>
@@ -26,9 +28,9 @@
         <relationship name="scene" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MJUScene" inverseName="images" inverseEntity="MJUScene" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MJUProject" positionX="-36" positionY="-157" width="128" height="103"/>
+        <element name="MJUAnswer" positionX="-227" positionY="-81" width="128" height="88"/>
+        <element name="MJUProject" positionX="-36" positionY="-157" width="128" height="133"/>
         <element name="MJUScene" positionX="178" positionY="45" width="128" height="148"/>
         <element name="MJUSceneImage" positionX="376" positionY="45" width="128" height="88"/>
-        <element name="MJUAnswer" positionX="-227" positionY="-81" width="128" height="88"/>
     </elements>
 </model>

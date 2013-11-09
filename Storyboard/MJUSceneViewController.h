@@ -10,8 +10,10 @@
 
 @class MJUScene;
 
-@interface MJUSceneViewController : UITableViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface MJUSceneViewController : UITableViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
 
 @property (strong, nonatomic) MJUScene *scene;
+@property (weak, nonatomic) IBOutlet UITextView *imageText;
+@property (weak, nonatomic) IBOutlet UITextView *soundText;
 
 @end
