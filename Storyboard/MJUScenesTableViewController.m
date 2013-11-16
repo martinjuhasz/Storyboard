@@ -11,6 +11,9 @@
 #import "MJUScene.h"
 #import "MJUProjectsDataModel.h"
 #import "MJUSceneViewController.h"
+#import "MJUSceneCell.h"
+#import "UITableView+Additions.h"
+#import "MJUHelper.h"
 
 @interface MJUScenesTableViewController () {
     bool userDrivenModelChange;
@@ -23,12 +26,47 @@
 {
     [super viewDidLoad];
     
+    [self.tableView hideEmptyCells];
     userDrivenModelChange = NO;
     
     // Bar Button Items
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonClicked:)];
+    addButton.tintColor = [UIColor whiteColor];
     UIBarButtonItem *moveButon = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(moveButtonClicked:)];
-    self.navigationItem.rightBarButtonItems = @[addButton, moveButon];
+    moveButon.tintColor = [UIColor whiteColor];
+    
+    
+    self.totalTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0 , 0.0f, 200.0f, 21.0f)];
+    [self.totalTimeLabel setFont:[UIFont systemFontOfSize:11.0f]];
+    [self.totalTimeLabel setBackgroundColor:[UIColor clearColor]];
+    [self.totalTimeLabel setTextColor:[UIColor whiteColor]];
+    [self updateTimeLabel];
+    
+    UIBarButtonItem *spacerButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    UIBarButtonItem *totalTimeButton = [[UIBarButtonItem alloc] initWithCustomView:self.totalTimeLabel];
+    
+    self.navigationItem.rightBarButtonItems = @[moveButon];
+    self.toolbarItems = @[totalTimeButton, spacerButton, addButton];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setToolbarHidden:NO animated:animated];
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setToolbarHidden:YES animated:animated];
+    [super viewWillDisappear:animated];
+}
+
+- (void)updateTimeLabel
+{
+    int sceneCount = [[self.project scenes] count];
+    NSString *totalTime = [MJUHelper secondsToTimeString:[self.project getTotalTime] includingHours:YES];
+    [self.totalTimeLabel setText:[NSString stringWithFormat:@"%d Szenen | Gesamtlänge: %@", sceneCount, totalTime]];
 }
 
 #pragma mark -
@@ -39,14 +77,13 @@
     NSManagedObjectContext *context = [[MJUProjectsDataModel sharedDataModel] mainContext];
     MJUScene *scene = (MJUScene *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUScene" inManagedObjectContext:context];
     
-    int lowerBound = 1;
-    int upperBound = 100;
-    int rndValue = lowerBound + arc4random() % (upperBound - lowerBound);
-    
-    scene.imageText = [NSString stringWithFormat:@"%d", rndValue];
+    scene.title = @"Scene";
     scene.order = [[[self fetchedResultsController] fetchedObjects] count];
     [self.project addScenesObject:scene];
     [context save:nil];
+    
+    NSLog(@"%@", scene);
+    
     [self saveOrder];
 }
 
@@ -71,6 +108,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"SceneDetailSegue" sender:indexPath];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 70.0f;
 }
 
 #pragma mark -
@@ -101,8 +143,11 @@
 - (void)updateCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
     MJUScene *currentScene = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"Scene #%@", currentScene.imageText];
+    MJUSceneCell *currentCell = (MJUSceneCell*)cell;
+    [currentCell setScene:currentScene];
+    currentCell.numberLabel.text = [NSString stringWithFormat:@"%d", indexPath.row+1];
 }
+
 
 #pragma mark Deleting
 
@@ -124,13 +169,13 @@
 
 #pragma mark Moving
 
-- (UITableViewCellEditingStyle) tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if(self.tableView.editing) {
-        return UITableViewCellEditingStyleNone;
-    }
-    return UITableViewCellEditingStyleDelete;
-}
+//- (UITableViewCellEditingStyle) tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if(self.tableView.editing) {
+//        return UITableViewCellEditingStyleNone;
+//    }
+//    return UITableViewCellEditingStyleDelete;
+//}
 
 - (BOOL) tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -147,10 +192,6 @@
     
     [self saveOrderToItems:things];
 
-    
-    
-    
-    
 //    NSUInteger fromIndex = sourceIndexPath.row;
 //    NSUInteger toIndex = destinationIndexPath.row;
 //    
@@ -250,6 +291,7 @@
 -(void) controllerDidChangeContent:(NSFetchedResultsController *)controller {
     if(userDrivenModelChange) return;
     [self.tableView endUpdates];
+    [self updateTimeLabel];
 }
 
 -(void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {

@@ -10,6 +10,8 @@
 #import <CoreData/CoreData.h>
 
 @class MJUScene;
+@class MJUAnswer;
+@class MJUSubQuestion;
 
 @interface MJUProject : NSManagedObject
 
@@ -18,10 +20,13 @@
 @property (nonatomic, retain) NSData * companyLogo;
 @property (nonatomic, retain) NSDate * createdAt;
 @property (nonatomic, retain) NSSet *scenes;
+@property (nonatomic, retain) NSSet *answers;
 @property (nonatomic, retain) NSArray *orderedScenes;
 
 - (void)addCompanyLogo:(UIImage*)image;
 - (UIImage*)getCompanyLogo;
+- (int)getTotalTime;
+- (MJUAnswer*)getAnswerForQuestion:(MJUSubQuestion*)question;
 
 @end
 
@@ -31,5 +36,10 @@
 - (void)removeScenesObject:(MJUScene *)value;
 - (void)addScenes:(NSSet *)values;
 - (void)removeScenes:(NSSet *)values;
+
+- (void)addAnswersObject:(MJUAnswer *)value;
+- (void)removeAnswersObject:(MJUAnswer *)value;
+- (void)addAnswers:(NSSet *)values;
+- (void)removeAnswers:(NSSet *)values;
 
 @end

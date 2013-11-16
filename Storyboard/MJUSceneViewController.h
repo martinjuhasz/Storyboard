@@ -9,11 +9,19 @@
 #import <UIKit/UIKit.h>
 
 @class MJUScene;
+@class MJUTimeSelectionView;
 
-@interface MJUSceneViewController : UITableViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
+@interface MJUSceneViewController : UITableViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) MJUScene *scene;
-@property (weak, nonatomic) IBOutlet UITextView *imageText;
-@property (weak, nonatomic) IBOutlet UITextView *soundText;
+@property (strong, nonatomic) MJUTimeSelectionView *selectionView;
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *titleCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *timeCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *imageViewCell;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UITableViewCell *imageTextCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *soundTextCell;
+
 
 @end

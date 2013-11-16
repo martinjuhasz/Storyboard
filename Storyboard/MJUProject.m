@@ -8,6 +8,8 @@
 
 #import "MJUProject.h"
 #import "MJUScene.h"
+#import "MJUAnswer.h"
+#import "MJUSubQuestion.h"
 
 @implementation MJUProject
 
@@ -15,6 +17,7 @@
 @dynamic companyName;
 @dynamic createdAt;
 @dynamic scenes;
+@dynamic answers;
 @dynamic companyLogo;
 @synthesize orderedScenes = _orderedScenes;
 
@@ -39,9 +42,33 @@
     
 }
 
+- (int)getTotalTime
+{
+    int total = 0;
+    for (MJUScene* scene in self.scenes) {
+        total += scene.time;
+    }
+    return total;
+}
+
 - (UIImage*)getCompanyLogo
 {
     return [UIImage imageWithData:self.companyLogo];
+}
+
+- (MJUAnswer*)getAnswerForQuestion:(MJUSubQuestion*)question
+{
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MJUAnswer"];
+    
+    NSPredicate *projectPredicate = [NSPredicate predicateWithFormat:@"project == %@", self];
+    NSPredicate *idPredicate = [NSPredicate predicateWithFormat:@"questionID == %@", question.questionID];
+    NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[projectPredicate, idPredicate]];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *array = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (array == nil || error) return nil;
+    return [array objectAtIndex:0];
 }
 
 

@@ -13,6 +13,7 @@
 
 @interface MJUScene : NSManagedObject
 
+@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * imageText;
 @property (nonatomic) int32_t sceneNumber;
 @property (nonatomic, retain) NSString * soundText;
@@ -20,6 +21,10 @@
 @property (nonatomic) int32_t order;
 @property (nonatomic, retain) NSSet *images;
 @property (nonatomic, retain) MJUProject *project;
+
+- (BOOL)hasImage;
+- (UIImage*)getImage;
+
 @end
 
 @interface MJUScene (CoreDataGeneratedAccessors)

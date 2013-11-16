@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="MJUAnswer" syncable="YES">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="MJUAnswer" representedClassName="MJUAnswer" syncable="YES">
         <attribute name="questionID" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="selected" optional="YES" attributeType="Integer 16" defaultValueString="-1" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MJUProject" inverseName="answers" inverseEntity="MJUProject" syncable="YES"/>
     </entity>
     <entity name="MJUProject" representedClassName="MJUProject" syncable="YES">
         <attribute name="companyLogo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="companyName" attributeType="String" syncable="YES"/>
-        <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="405601200" defaultValueString="NOW" syncable="YES"/>
+        <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="406292400" defaultValueString="NOW" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="answers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MJUAnswer" inverseName="project" inverseEntity="MJUAnswer" syncable="YES"/>
         <relationship name="scenes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MJUScene" inverseName="project" inverseEntity="MJUScene" syncable="YES"/>
@@ -19,6 +20,7 @@
         <attribute name="sceneNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="soundText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MJUSceneImage" inverseName="scene" inverseEntity="MJUSceneImage" syncable="YES"/>
         <relationship name="project" maxCount="1" deletionRule="Nullify" destinationEntity="MJUProject" inverseName="scenes" inverseEntity="MJUProject" syncable="YES"/>
     </entity>
@@ -28,9 +30,9 @@
         <relationship name="scene" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MJUScene" inverseName="images" inverseEntity="MJUScene" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MJUAnswer" positionX="-227" positionY="-81" width="128" height="88"/>
+        <element name="MJUAnswer" positionX="-227" positionY="-81" width="128" height="103"/>
         <element name="MJUProject" positionX="-36" positionY="-157" width="128" height="133"/>
-        <element name="MJUScene" positionX="178" positionY="45" width="128" height="148"/>
+        <element name="MJUScene" positionX="178" positionY="45" width="128" height="163"/>
         <element name="MJUSceneImage" positionX="376" positionY="45" width="128" height="88"/>
     </elements>
 </model>

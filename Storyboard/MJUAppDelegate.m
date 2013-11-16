@@ -7,15 +7,22 @@
 //
 
 #import "MJUAppDelegate.h"
+#import "UIColor+Additions.h"
 
 @implementation MJUAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    
+    [self setStyles];
     
     return YES;
+}
+
+- (void)setStyles
+{
+    [[UIToolbar appearance] setBarTintColor:[UIColor colorWithHexString:@"D1D1C1"]];
+    [[UITableView appearance] setBackgroundColor:[UIColor colorWithHexString:@"EDEDE4"]];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

@@ -20,5 +20,15 @@
 @dynamic order;
 @dynamic images;
 @dynamic project;
+@dynamic title;
+
+- (BOOL)hasImage
+{
+    return self.images.count > 0;
+}
+- (UIImage*)getImage
+{
+    return [((MJUSceneImage*)[self.images anyObject]) getImage];
+}
 
 @end

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>Format</string>
+		<key>questions</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>1002</string>
+				<key>title</key>
+				<string>Qualität</string>
+				<key>selections</key>
+				<array>
+					<string>SD</string>
+					<string>HD</string>
+				</array>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>1001</string>
+				<key>title</key>
+				<string>Dateiformat</string>
+				<key>selections</key>
+				<array>
+					<string>AVI</string>
+					<string>MKV</string>
+				</array>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>1003</string>
+				<key>title</key>
+				<string>Anmerkungen</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>was anderes</string>
+		<key>questions</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>1002</string>
+				<key>title</key>
+				<string>Qualität</string>
+				<key>selections</key>
+				<array>
+					<string>SD</string>
+					<string>HD</string>
+				</array>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>1001</string>
+				<key>title</key>
+				<string>Dateiformat</string>
+				<key>selections</key>
+				<array>
+					<string>AVI</string>
+					<string>MKV</string>
+				</array>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>1003</string>
+				<key>title</key>
+				<string>Anmerkungen</string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>

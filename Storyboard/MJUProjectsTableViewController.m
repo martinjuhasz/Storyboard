@@ -11,6 +11,8 @@
 #import "MJUProject.h"
 #import "MJUProjectViewController.h"
 #import "UITableView+NXEmptyView.h"
+#import "UITableView+Additions.h"
+#import "MJUProjectCell.h"
 
 @interface MJUProjectsTableViewController ()
 
@@ -21,6 +23,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.tableView hideEmptyCells];
     
     // load emtpy view
     UIView *emptyView = [[[NSBundle mainBundle] loadNibNamed:@"EmptyProjectView" owner:self options:nil] objectAtIndex:0];
@@ -62,6 +66,11 @@
     [self performSegueWithIdentifier:@"ProjectDetailSegue" sender:selectedProject];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80.0f;
+}
+
 #pragma mark -
 #pragma mark UITableViewDataSource
 
@@ -79,7 +88,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ProjectViewCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    MJUProjectCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
     [self updateCell:cell atIndexPath:indexPath];
@@ -90,7 +99,7 @@
 - (void)updateCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
     MJUProject *currentProject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    cell.textLabel.text = currentProject.title;
+    ((MJUProjectCell*)cell).titleLabel.text = currentProject.title;
 }
 
 # pragma mark Deleting

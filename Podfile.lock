@@ -1,10 +1,16 @@
 PODS:
+  - iOS-htmltopdf (0.0.1)
+  - Reveal-iOS-SDK (1.0.1)
   - UITableView-NXEmptyView (0.1.4)
 
 DEPENDENCIES:
+  - iOS-htmltopdf
+  - Reveal-iOS-SDK
   - UITableView-NXEmptyView
 
 SPEC CHECKSUMS:
+  iOS-htmltopdf: 1950e3b9d29a6e7277c9a20034ee26fcbe97bade
+  Reveal-iOS-SDK: 26eddb779b9aee5b12cde405d01194e827169c02
   UITableView-NXEmptyView: 034e5162ce7b8e3584d720d0d925c27ea7711220
 
-COCOAPODS: 0.26.2
+COCOAPODS: 0.28.0

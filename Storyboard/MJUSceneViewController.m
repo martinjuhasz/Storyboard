@@ -10,9 +10,11 @@
 #import "MJUProjectsDataModel.h"
 #import "MJUSceneImage.h"
 #import "MJUScene.h"
+#import "MJUTextInputViewController.h"
+#import "MJUTimeSelectionView.h"
 
 @interface MJUSceneViewController ()
-
+    
 @end
 
 @implementation MJUSceneViewController
@@ -21,6 +23,78 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.selectionView = [[[NSBundle mainBundle] loadNibNamed:@"TimePickerView" owner:self options:nil] objectAtIndex:0];
+    [self loadContent];
+}
+
+- (void)loadContent
+{
+    if(self.scene.title) {
+        self.titleCell.textLabel.text = self.scene.title;
+    }
+    if(self.scene.images.count > 0) {
+        self.imageView.image = [((MJUSceneImage*)[self.scene.images anyObject]) getImage];
+    }
+    if(self.scene.imageText) {
+        self.imageTextCell.textLabel.text = self.scene.imageText;
+        [self.imageTextCell.textLabel setNumberOfLines:0];
+        [self.imageTextCell.textLabel sizeToFit];
+    }
+    if(self.scene.soundText) {
+        self.soundTextCell.textLabel.text = self.scene.soundText;
+    }
+}
+
+- (NSString*)getPropertyNameForIndexPath:(NSIndexPath*)indexPath
+{
+    NSString *property;
+    if(indexPath.section == 0) {
+        if(indexPath.row == 0) {
+            property = @"title";
+        }
+    } else if(indexPath.section == 1) {
+        if(indexPath.row == 1) {
+            property = @"imageText";
+        }
+    } else if(indexPath.section == 2) {
+        if(indexPath.row == 0) {
+            property = @"soundText";
+        }
+    }
+    return property;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"TextInputSegue"]) {
+        
+        if(![sender isKindOfClass:[NSIndexPath class]]) return;
+        
+        NSIndexPath *indexPath = (NSIndexPath*)sender;
+        NSString *property = [self getPropertyNameForIndexPath:indexPath];
+        
+        MJUTextInputViewController *textViewController = (MJUTextInputViewController*)((UINavigationController*)[segue destinationViewController]).topViewController;
+        textViewController.inputText = [self.scene valueForKey:property];
+        textViewController.saveString = ^(NSString *saveString) {
+            [self.scene setValue:saveString forKey:property];
+            [[[MJUProjectsDataModel sharedDataModel] mainContext] save:nil];
+            [self loadContent];
+        };
+    }
+}
+
+
+#pragma mark -
+#pragma mark Action Sheet
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0) {
+        [self showPhotoPickerForType:UIImagePickerControllerSourceTypePhotoLibrary];
+    } else if(buttonIndex == 1) {
+        [self showPhotoPickerForType:UIImagePickerControllerSourceTypeCamera];
+    }
 }
 
 #pragma mark -
@@ -34,12 +108,13 @@
     NSManagedObjectContext *context = [[MJUProjectsDataModel sharedDataModel] mainContext];
     MJUSceneImage *sceneImage = (MJUSceneImage *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUSceneImage" inManagedObjectContext:context];
     [sceneImage addImage:chosenImage];
+    [self.scene setImages:nil];
     [self.scene addImagesObject:sceneImage];
     [context save:nil];
     
     [picker dismissViewControllerAnimated:YES completion:nil];
     
-    [self.tableView reloadData];
+    [self loadContent];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -61,21 +136,6 @@
     [self presentViewController:picker animated:YES completion:NULL];
 }
 
-- (void) textViewDidChange:(UITextView *)textView
-{
-    [self.tableView beginUpdates];
-    [self.tableView endUpdates];
-    
-    NSIndexPath *indexPath;
-    if(textView == _imageText) {
-        indexPath = [NSIndexPath indexPathForItem:0 inSection:1];
-    } else {
-        indexPath = [NSIndexPath indexPathForItem:0 inSection:2];
-    }
-    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-}
-
-
 #pragma mark -
 #pragma mark UITableViewDataSource
 
@@ -90,91 +150,50 @@
 //}
 //
 //
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if(indexPath.section == 0) {
-//        if(indexPath.row == 0) {
-//            // title - presstop
-//            return 44.0f;
-//        } else if(indexPath.row == 1) {
-//            // image
-//            return 180.0f;
-//        }
-//    } else if(indexPath.section == 1) {
-//        // bildebene
-//        return [self heightForTextView:_imageText containingString:_imageText.text] + 15;
-//    } else if(indexPath.section == 2) {
-//        // tonebene
-//        return [self heightForTextView:_soundText containingString:_soundText.text] + 15;
-//    }
-//    return 44.0f;
-//}
+
+- (CGRect)sizeForLabel:(UILabel*)label
+{
+    CGSize maxSize = CGSizeMake(label.frame.size.width, MAXFLOAT);
+    CGRect labelRect = [label.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:label.font} context:nil];
+    return labelRect;
+}
 
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 1) {
+        if(indexPath.row == 0) {
+            // iamgeview
+            return 180.0f;
+        } else if(indexPath.row == 1) {
+            // image text
+            CGRect size = [self sizeForLabel:self.imageTextCell.textLabel];
+            return (size.size.height > 64.0f) ? size.size.height + 20 : 44.0f;
+        }
+    } else if(indexPath.section == 2) {
+        if(indexPath.row == 0) {
+            CGRect size = [self sizeForLabel:self.soundTextCell.textLabel];
+            return (size.size.height > 64.0f) ? size.size.height + 20 : 44.0f;
+        }
+    }
+    return 44.0f;
+}
 
 
+#pragma mark -
+#pragma mark UITableViewDelegate
 
-
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//    return 2;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//    if(section == 1) return [self.scene.images count];
-//    return 2;
-//}
-//
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if(indexPath.section == 1) {
-//        return 150.0f;
-//    }
-//    return 44.0f;
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    UITableViewCell *cell;
-//    
-//    // Configure the cell...
-//    if(indexPath.section == 0) {
-//        
-//        static NSString *CellIdentifier = @"SceneCell";
-//        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-//        
-//        if(indexPath.row == 0) {
-//            cell.textLabel.text = @"add Photo from Library";
-//        } else if(indexPath.row == 1) {
-//            cell.textLabel.text = @"take Photo";
-//        }
-//    } else if(indexPath.section == 1) {
-//        
-//        static NSString *CellIdentifier = @"ImageCell";
-//        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-//        
-//        UIImageView *imageView = (UIImageView*)[cell viewWithTag:1302];
-//        imageView.image = [[[self.scene.images allObjects] objectAtIndex:indexPath.row] getImage];
-//        
-//    }
-//    
-//    
-//    return cell;
-//}
-//
-//
-//#pragma mark -
-//#pragma mark UITableViewDelegate
-//
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if(indexPath.section == 0) {
-//        if(indexPath.row == 0) {
-//            [self showPhotoPickerForType:UIImagePickerControllerSourceTypePhotoLibrary];
-//        } else if(indexPath.row == 1) {
-//            [self showPhotoPickerForType:UIImagePickerControllerSourceTypeCamera];
-//        }
-//    }
-//}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 0 && indexPath.row == 1) {
+        [self.view addSubview:self.selectionView];
+        
+    } else if(indexPath.section == 1 && indexPath.row == 0) {
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"select a Photo" delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"add Photo from Library", @"take Photo", nil];
+        [actionSheet showInView:self.tableView];
+    } else {
+        [self performSegueWithIdentifier:@"TextInputSegue" sender:indexPath];
+    }
+    
+}
 
 @end

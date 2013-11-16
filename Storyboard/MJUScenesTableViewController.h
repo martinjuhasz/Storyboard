@@ -14,5 +14,6 @@
 
 @property (nonatomic, strong) MJUProject *project;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) UILabel *totalTimeLabel;
 
 @end
