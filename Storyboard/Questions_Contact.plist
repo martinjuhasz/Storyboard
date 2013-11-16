@@ -44,7 +44,7 @@
 		<array>
 			<dict>
 				<key>id</key>
-				<string>1002</string>
+				<string>1004</string>
 				<key>title</key>
 				<string>Qualität</string>
 				<key>selections</key>
@@ -55,7 +55,7 @@
 			</dict>
 			<dict>
 				<key>id</key>
-				<string>1001</string>
+				<string>1005</string>
 				<key>title</key>
 				<string>Dateiformat</string>
 				<key>selections</key>
@@ -66,7 +66,7 @@
 			</dict>
 			<dict>
 				<key>id</key>
-				<string>1003</string>
+				<string>1006</string>
 				<key>title</key>
 				<string>Anmerkungen</string>
 			</dict>

@@ -43,7 +43,6 @@
     [context save:&error];
     
     if(error) NSLog(@"%@", [error localizedDescription]);
-    NSLog(@"%@", self.answer);
     
     [self.navigationController popViewControllerAnimated:YES];
 }

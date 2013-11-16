@@ -100,6 +100,7 @@
 {
     MJUProject *currentProject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     ((MJUProjectCell*)cell).titleLabel.text = currentProject.title;
+    ((MJUProjectCell*)cell).companyLabel.text = currentProject.companyName;
 }
 
 # pragma mark Deleting

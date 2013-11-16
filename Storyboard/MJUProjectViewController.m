@@ -9,6 +9,7 @@
 #import "MJUProjectViewController.h"
 #import "MJUScenesTableViewController.h"
 #import "UITableView+Additions.h"
+#import "MJUQuestionsViewController.h"
 
 @interface MJUProjectViewController ()
 
@@ -35,13 +36,16 @@
 //    [self performSegueWithIdentifier:@"StoryboardSegue" sender:indexPath];
 //}
 //
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if ([[segue identifier] isEqualToString:@"StoryboardSegue"]) {
-//        MJUScenesTableViewController *scenesViewController = [segue destinationViewController];
-//        scenesViewController.project = self.project;
-//    }
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"StoryboardSegue"]) {
+        MJUScenesTableViewController *scenesViewController = [segue destinationViewController];
+        scenesViewController.project = self.project;
+    } else if([[segue identifier] isEqualToString:@"QuestionsSegue"]) {
+        MJUQuestionsViewController *questionsViewController = [segue destinationViewController];
+        questionsViewController.project = self.project;
+    }
+}
 //
 //#pragma mark -
 //#pragma mark UITableViewDataSource

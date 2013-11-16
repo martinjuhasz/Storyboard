@@ -67,7 +67,7 @@
     
     NSError *error = nil;
     NSArray *array = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    if (array == nil || error) return nil;
+    if (array == nil || error || array.count <= 0) return nil;
     return [array objectAtIndex:0];
 }
 

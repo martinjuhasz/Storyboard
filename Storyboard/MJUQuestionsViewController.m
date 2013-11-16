@@ -14,6 +14,7 @@
 #import "MJUAnswer.h"
 #import "MJUQuestionCell.h"
 #import "MJUQuestionSelectionViewController.h"
+#import "MJUProjectsDataModel.h"
 
 @interface MJUQuestionsViewController ()
 
@@ -25,6 +26,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDataModelChange:) name:NSManagedObjectContextObjectsDidChangeNotification object:[[MJUProjectsDataModel sharedDataModel] mainContext]];
+
     
     self.questionHelper = [[MJUQuestionHelper alloc] initWithPList:@"Questions_Contact"];
 }
@@ -47,7 +52,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"QuestionSelectionSegue" sender:indexPath];
+    MJUSubQuestion *question = [self.questionHelper subQuestionForIndexPath:indexPath];
+    if(question.isSelectable) {
+        [self performSegueWithIdentifier:@"QuestionSelectionSegue" sender:indexPath];
+    }
+    
 }
 
 
@@ -98,8 +107,6 @@
     MJUAnswer *answer = [self.project getAnswerForQuestion:subQuestion];
     cell.textLabel.text = subQuestion.title;
     
-    NSLog(@"%@", self.project.answers);
-    
     if(answer) {
         cell.detailTextLabel.text = [subQuestion.selections objectAtIndex:[answer.selected intValue]];
     } else {
@@ -121,6 +128,15 @@
         return 100;
     }
     return 44;
+}
+
+
+#pragma mark -
+#pragma mark CoreData
+
+- (void)handleDataModelChange:(NSNotification *)note
+{
+    [self.tableView reloadData];
 }
 
 
