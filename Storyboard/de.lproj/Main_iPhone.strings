@@ -1,0 +1,78 @@
+
+/* Class = "IBUILabel"; text = "Detail"; ObjectID = "0IB-sJ-fWg"; */
+"0IB-sJ-fWg.text" = "Detail";
+
+/* Class = "IBUILabel"; text = "add Dummy Scenes"; ObjectID = "356-VL-7cx"; */
+"356-VL-7cx.text" = "add Dummy Scenes";
+
+/* Class = "IBUILabel"; text = "00:00"; ObjectID = "6SJ-19-cSs"; */
+"6SJ-19-cSs.text" = "00:00";
+
+/* Class = "IBUILabel"; text = "Project Title"; ObjectID = "FS8-tG-aR6"; */
+"FS8-tG-aR6.text" = "Project Title";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "Jds-Nm-Gw0"; */
+"Jds-Nm-Gw0.text" = "Title";
+
+/* Class = "IBUINavigationItem"; title = "Storyboard"; ObjectID = "Mmo-lA-djZ"; */
+"Mmo-lA-djZ.title" = "Storyboard";
+
+/* Class = "IBUILabel"; text = "1"; ObjectID = "N0V-hX-rbR"; */
+"N0V-hX-rbR.text" = "1";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "N5o-kT-sCV"; */
+"N5o-kT-sCV.text" = "Title";
+
+/* Class = "IBUITextField"; placeholder = "Title"; ObjectID = "OcV-Kq-EQh"; */
+"OcV-Kq-EQh.placeholder" = "Title";
+
+/* Class = "IBUILabel"; text = "Content"; ObjectID = "P1O-EY-YbY"; */
+"P1O-EY-YbY.text" = "Content";
+
+/* Class = "IBUINavigationItem"; title = "new Project"; ObjectID = "SH7-7B-1qH"; */
+"SH7-7B-1qH.title" = "new Project";
+
+/* Class = "IBUILabel"; text = "Parameter"; ObjectID = "SIN-oj-jN7"; */
+"SIN-oj-jN7.text" = "Parameter";
+
+/* Class = "IBUILabel"; text = "Company Name"; ObjectID = "SMg-8V-NsU"; */
+"SMg-8V-NsU.text" = "Company Name";
+
+/* Class = "IBUILabel"; text = "Project Title"; ObjectID = "VyW-AS-30D"; */
+"VyW-AS-30D.text" = "Project Title";
+
+/* Class = "IBUILabel"; text = "Title of the Scene"; ObjectID = "Zhr-I6-5K4"; */
+"Zhr-I6-5K4.text" = "Title of the Scene";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Bildebene"; ObjectID = "adh-oe-1s6"; */
+"adh-oe-1s6.headerTitle" = "Bildebene";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "cGj-Us-Tcc"; */
+"cGj-Us-Tcc.text" = "Title";
+
+/* Class = "IBUILabel"; text = "0:00"; ObjectID = "h27-B3-dU9"; */
+"h27-B3-dU9.text" = "0:00";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "hot-qv-RVi"; */
+"hot-qv-RVi.text" = "Title";
+
+/* Class = "IBUITextField"; placeholder = "Company Name"; ObjectID = "inM-Tv-88B"; */
+"inM-Tv-88B.placeholder" = "Company Name";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Tonebene"; ObjectID = "k08-wH-scl"; */
+"k08-wH-scl.headerTitle" = "Tonebene";
+
+/* Class = "IBUINavigationItem"; title = "Projects"; ObjectID = "lci-wO-rO8"; */
+"lci-wO-rO8.title" = "Projects";
+
+/* Class = "IBUILabel"; text = "Storyboard"; ObjectID = "sve-kb-Dl1"; */
+"sve-kb-Dl1.text" = "Storyboard";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "tvR-lX-uvz"; */
+"tvR-lX-uvz.text" = "Title";
+
+/* Class = "IBUILabel"; text = "Company Name"; ObjectID = "wLO-1B-YgQ"; */
+"wLO-1B-YgQ.text" = "Company Name";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "xVV-EW-rHC"; */
+"xVV-EW-rHC.text" = "Title";
