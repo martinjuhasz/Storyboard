@@ -7,7 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NDHTMLtoPDF.h"
 
-@interface MJUPDFGenerator : NSObject
+
+
+@class MJUProject;
+
+@interface MJUPDFGenerator : NSObject<NDHTMLtoPDFDelegate>
+
+@property (strong, nonatomic) MJUProject * project;
+@property (strong, nonatomic) NDHTMLtoPDF *pdfCreator;
+
+- (id)initWithProject:(MJUProject*)project;
+- (void)generatePDFWithSuccess:(NDHTMLtoPDFCompletionBlock)success error:(NDHTMLtoPDFCompletionBlock)error;
 
 @end

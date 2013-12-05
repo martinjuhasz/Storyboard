@@ -12,5 +12,9 @@
 @interface MJUProjectViewController : UITableViewController
 
 @property (nonatomic, strong) MJUProject *project;
+@property (weak, nonatomic) IBOutlet UILabel *projectTitle;
+@property (weak, nonatomic) IBOutlet UILabel *companyTitle;
+@property (weak, nonatomic) IBOutlet UILabel *lengthLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sceneCountLabel;
 
 @end

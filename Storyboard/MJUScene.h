@@ -24,6 +24,7 @@
 
 - (BOOL)hasImage;
 - (UIImage*)getImage;
+- (MJUSceneImage*)getSceneImage;
 
 @end
 

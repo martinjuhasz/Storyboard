@@ -9,6 +9,8 @@
 #import "MJUSceneCell.h"
 #import "MJUScene.h"
 #import "MJUHelper.h"
+#import "MJUPhoto.h"
+#import "FICImageCache.h"
 
 @implementation MJUSceneCell
 
@@ -25,9 +27,21 @@
 {
     self.titleLabel.text = self.scene.title;
     self.timeLabel.text = [MJUHelper secondsToTimeString:self.scene.time includingHours:NO];
+    self.sceneImageView.image = nil;
+    
     if([self.scene hasImage]) {
         self.accessoryType = UITableViewCellAccessoryNone;
-        self.sceneImageView.image = [self.scene getImage];
+        
+        MJUSceneImage *sceneImage = [self.scene getSceneImage];
+        if(sceneImage) {
+            MJUPhoto *photo = [MJUPhoto photoForSceneImage:[self.scene getSceneImage]];
+            
+            FICImageCacheCompletionBlock completionBlock = ^(id <FICEntity> entity, NSString *formatName, UIImage *image) {
+                self.sceneImageView.image = image;
+                [self.sceneImageView.layer addAnimation:[CATransition animation] forKey:kCATransition];
+            };
+            [[FICImageCache sharedImageCache] retrieveImageForEntity:photo withFormatName:MJUSmallSquareThumbnailImageFormatName completionBlock:completionBlock];
+        }
     } else {
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }

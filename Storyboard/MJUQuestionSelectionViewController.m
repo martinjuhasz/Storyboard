@@ -32,12 +32,10 @@
     NSManagedObjectContext *context = [[MJUProjectsDataModel sharedDataModel] mainContext];
     
     if(!self.answer) {
-        self.answer = (MJUAnswer *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUAnswer" inManagedObjectContext:context];
+        [self.navigationController popViewControllerAnimated:YES];
     }
     
-    self.answer.questionID = self.question.questionID;
     self.answer.selected = [NSNumber numberWithInt:indexPath.row];
-    [self.project addAnswersObject:self.answer];
     
     NSError *error;
     [context save:&error];

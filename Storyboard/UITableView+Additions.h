@@ -12,4 +12,6 @@
 
 - (void)hideEmptyCells;
 
+- (UITableViewCell*)prototypeCellWithReuseIdentifier:(NSString*)reuseIdentifier;
+
 @end

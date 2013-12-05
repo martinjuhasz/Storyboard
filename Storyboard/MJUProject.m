@@ -32,7 +32,9 @@
 
 - (NSArray*)orderedScenes
 {
-    return [self.scenes allObjects];
+    NSMutableArray *scenes = [NSMutableArray arrayWithArray:[self.scenes allObjects]];
+    [scenes sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]]];
+    return scenes;
 }
 
 - (void)addCompanyLogo:(UIImage*)image
@@ -67,7 +69,12 @@
     
     NSError *error = nil;
     NSArray *array = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    if (array == nil || error || array.count <= 0) return nil;
+    if (array == nil || error || array.count <= 0) {
+        MJUAnswer *answer = (MJUAnswer *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUAnswer" inManagedObjectContext:self.managedObjectContext];
+        answer.questionID = question.questionID;
+        [self addAnswersObject:answer];
+        return answer;
+    }
     return [array objectAtIndex:0];
 }
 

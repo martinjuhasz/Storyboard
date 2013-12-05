@@ -13,6 +13,7 @@
 #import "UITableView+NXEmptyView.h"
 #import "UITableView+Additions.h"
 #import "MJUProjectCell.h"
+#import "UIColor+Additions.h"
 
 @interface MJUProjectsTableViewController ()
 
@@ -116,7 +117,11 @@
     {
         MJUProject *project = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         [[[MJUProjectsDataModel sharedDataModel] mainContext] deleteObject:project];
-        [[[MJUProjectsDataModel sharedDataModel] mainContext] save:nil];
+        NSError *error;
+        [[[MJUProjectsDataModel sharedDataModel] mainContext] save:&error];
+        if(error) {
+            NSLog(@"%@", [error localizedDescription]);
+        }
     }
 }
 

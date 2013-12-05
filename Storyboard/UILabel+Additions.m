@@ -10,4 +10,11 @@
 
 @implementation UILabel (Additions)
 
+- (CGRect)expectedSize
+{
+    CGSize maxSize = CGSizeMake(self.frame.size.width, MAXFLOAT);
+    CGRect labelRect = [self.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.font} context:nil];
+    return labelRect;
+}
+
 @end

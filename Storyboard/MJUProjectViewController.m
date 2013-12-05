@@ -10,6 +10,11 @@
 #import "MJUScenesTableViewController.h"
 #import "UITableView+Additions.h"
 #import "MJUQuestionsViewController.h"
+#import "MJUPDFViewController.h"
+#import "MJUProjectsDataModel.h"
+#import "MJUScene.h"
+#import "MJUSceneImage.h"
+#import "MJUHelper.h"
 
 @interface MJUProjectViewController ()
 
@@ -22,9 +27,47 @@
 {
     [super viewDidLoad];
     
+    // Background IMage
+    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ProjectDetailBackground"]];
+    bgImageView.contentMode = UIViewContentModeTop;
+    [self.tableView setBackgroundView:bgImageView];
+    
     [self.tableView hideEmptyCells];
     
     self.title = _project.title;
+    self.projectTitle.text = _project.title;
+    self.companyTitle.text = _project.companyName;
+    self.lengthLabel.text = [MJUHelper secondsToTimeString:[self.project getTotalTime] includingHours:YES];
+    self.sceneCountLabel.text = [NSString stringWithFormat:@"%lu", _project.scenes.count];
+}
+
+
+#pragma mark -
+#pragma mark Button Actions
+
+- (IBAction)pdfButtonClicked:(id)sender
+{
+     [self performSegueWithIdentifier:@"PDFSegue" sender:sender];
+}
+
+- (void)addDummyContent
+{
+    NSManagedObjectContext *context = [[MJUProjectsDataModel sharedDataModel] mainContext];
+    NSUInteger preCount = [[self.project scenes] count] + 1;
+    
+    for(int i = 0; i <50;i++) {
+        
+        MJUScene *scene = (MJUScene *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUScene" inManagedObjectContext:context];
+        scene.title = [NSString stringWithFormat:@"Scene %d", (int)(preCount + i)];
+        scene.order = preCount + i;
+        
+        MJUSceneImage *sceneImage = (MJUSceneImage *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUSceneImage" inManagedObjectContext:context];
+        [sceneImage addImage:[UIImage imageNamed:@"dummyImage.jpg"]];
+        [scene addImagesObject:sceneImage];
+        
+        [self.project addScenesObject:scene];
+    }
+    [context save:nil];
 }
 
 
@@ -44,8 +87,22 @@
     } else if([[segue identifier] isEqualToString:@"QuestionsSegue"]) {
         MJUQuestionsViewController *questionsViewController = [segue destinationViewController];
         questionsViewController.project = self.project;
+    } else if([[segue identifier] isEqualToString:@"PDFSegue"]) {
+        
+        MJUPDFViewController *pdfViewController = [segue destinationViewController];
+        pdfViewController.project = self.project;
+        
     }
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 2) {
+        [self addDummyContent];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+}
+
 //
 //#pragma mark -
 //#pragma mark UITableViewDataSource

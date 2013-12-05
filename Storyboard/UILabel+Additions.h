@@ -10,4 +10,6 @@
 
 @interface UILabel (Additions)
 
+- (CGRect)expectedSize;
+
 @end

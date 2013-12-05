@@ -28,7 +28,12 @@
 }
 - (UIImage*)getImage
 {
-    return [((MJUSceneImage*)[self.images anyObject]) getImage];
+    return [[self getSceneImage] getImage];
+}
+
+- (MJUSceneImage*)getSceneImage
+{
+    return ((MJUSceneImage*)[self.images anyObject]);
 }
 
 @end

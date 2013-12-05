@@ -8,21 +8,34 @@
 
 #import "MJUAppDelegate.h"
 #import "UIColor+Additions.h"
+#import "FICImageCache.h"
+#import "MJUPhoto.h"
+
+@interface MJUAppDelegate(HockeyProtocols) < BITHockeyManagerDelegate, FICImageCacheDelegate> {}
+@end
 
 @implementation MJUAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [[BITHockeyManager sharedHockeyManager] configureWithBetaIdentifier:@"a0e42c8e25c20224ffd7ed9306d8bef8"
+                                                         liveIdentifier:@"a0e42c8e25c20224ffd7ed9306d8bef8"
+                                                               delegate:self];
+    [[BITHockeyManager sharedHockeyManager] startManager];
+    
     [self setStyles];
+    [self initImageCache];
     
     return YES;
 }
 
 - (void)setStyles
 {
-    [[UIToolbar appearance] setBarTintColor:[UIColor colorWithHexString:@"D1D1C1"]];
     [[UITableView appearance] setBackgroundColor:[UIColor colorWithHexString:@"EDEDE4"]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navBarBackground"] forBarMetrics:UIBarMetricsDefault];
+    [[UIToolbar appearance] setBackgroundImage:[UIImage imageNamed:@"ScenesBarBackground"] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -50,6 +63,43 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
 
+}
+
+- (void)initImageCache
+{
+    NSInteger squareImageFormatMaximumCount = 400;
+    FICImageFormatDevices squareImageFormatDevices = FICImageFormatDevicePhone | FICImageFormatDevicePad;
+    
+    FICImageFormat *smallSquareThumbnailImageFormat = [FICImageFormat formatWithName:MJUSmallSquareThumbnailImageFormatName family:MJUDefaultSceneImageFormatName imageSize:MJUSmallSquareThumbnailImageSize style:FICImageFormatStyle32BitBGR maximumCount:squareImageFormatMaximumCount devices:squareImageFormatDevices];
+    
+    FICImageFormat *defaultSceneImageFormat = [FICImageFormat formatWithName:MJUDefaultSceneImageFormatName family:MJUPhotoImageFormatFamily imageSize:MJUDefaultSceneImageSize style:FICImageFormatStyle32BitBGR maximumCount:squareImageFormatMaximumCount devices:squareImageFormatDevices];
+    
+    
+    // Configure the image cache
+    FICImageCache *sharedImageCache = [FICImageCache sharedImageCache];
+    [sharedImageCache setDelegate:self];
+    [sharedImageCache setFormats:@[smallSquareThumbnailImageFormat, defaultSceneImageFormat]];
+    
+}
+
+#pragma mark - FICImageCacheDelegate
+
+- (void)imageCache:(FICImageCache *)imageCache wantsSourceImageForEntity:(id<FICEntity>)entity withFormatName:(NSString *)formatName completionBlock:(FICImageRequestCompletionBlock)completionBlock {
+    // Images typically come from the Internet rather than from the app bundle directly, so this would be the place to fire off a network request to download the image.
+    // For the purposes of this demo app, we'll just access images stored locally on disk.
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIImage *sourceImage = [(MJUPhoto *)entity sourceImage];
+        completionBlock(sourceImage);
+    });
+}
+
+- (BOOL)imageCache:(FICImageCache *)imageCache shouldProcessAllFormatsInFamily:(NSString *)formatFamily forEntity:(id<FICEntity>)entity {
+    return YES;
+}
+
+- (void)imageCache:(FICImageCache *)imageCache errorDidOccurWithMessage:(NSString *)errorMessage {
+    NSLog(@"%@", errorMessage);
 }
 
 @end

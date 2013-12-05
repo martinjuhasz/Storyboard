@@ -32,8 +32,9 @@
     // Bar Button Items
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonClicked:)];
     addButton.tintColor = [UIColor whiteColor];
-    UIBarButtonItem *moveButon = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(moveButtonClicked:)];
-    moveButon.tintColor = [UIColor whiteColor];
+//    UIBarButtonItem *moveButon = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(moveButtonClicked:)];
+//    moveButon.tintColor = [UIColor whiteColor];
+    
     
     
     self.totalTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0 , 0.0f, 200.0f, 21.0f)];
@@ -46,13 +47,16 @@
     
     UIBarButtonItem *totalTimeButton = [[UIBarButtonItem alloc] initWithCustomView:self.totalTimeLabel];
     
-    self.navigationItem.rightBarButtonItems = @[moveButon];
     self.toolbarItems = @[totalTimeButton, spacerButton, addButton];
+    
+    [self setNavBarButtonsToEditMode:NO];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setToolbarHidden:NO animated:animated];
+//    [[self.navigationController toolbar] setTranslucent:NO];
     [super viewWillAppear:animated];
 }
 
@@ -64,13 +68,24 @@
 
 - (void)updateTimeLabel
 {
-    int sceneCount = [[self.project scenes] count];
+    NSUInteger sceneCount = [[self.project scenes] count];
     NSString *totalTime = [MJUHelper secondsToTimeString:[self.project getTotalTime] includingHours:YES];
-    [self.totalTimeLabel setText:[NSString stringWithFormat:@"%d Szenen | Gesamtlänge: %@", sceneCount, totalTime]];
+    [self.totalTimeLabel setText:[NSString stringWithFormat:@"%lu Szenen | Gesamtlänge: %@", (unsigned long)sceneCount, totalTime]];
 }
 
 #pragma mark -
 #pragma mark Button Actions
+
+- (void)setNavBarButtonsToEditMode:(BOOL)editing
+{
+    UIBarButtonItem *button;
+    if(!editing) {
+        button = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"IconEditTable"] style:UIBarButtonItemStylePlain target:self action:@selector(moveButtonClicked:)];
+    } else {
+        button = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"IconCheckmark"] style:UIBarButtonItemStylePlain target:self action:@selector(moveButtonClicked:)];
+    }
+    self.navigationItem.rightBarButtonItems = @[button];
+}
 
 - (IBAction)addButtonClicked:(id)sender
 {
@@ -89,6 +104,7 @@
 
 - (IBAction)moveButtonClicked:(id)sender
 {
+    [self setNavBarButtonsToEditMode:!self.tableView.editing];
     [self.tableView setEditing:!self.tableView.editing animated:YES];
 }
 
@@ -145,7 +161,7 @@
     MJUScene *currentScene = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     MJUSceneCell *currentCell = (MJUSceneCell*)cell;
     [currentCell setScene:currentScene];
-    currentCell.numberLabel.text = [NSString stringWithFormat:@"%d", indexPath.row+1];
+    currentCell.numberLabel.text = [NSString stringWithFormat:@"%d", (int)indexPath.row+1];
 }
 
 

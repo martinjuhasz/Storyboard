@@ -15,6 +15,9 @@
 #import "MJUQuestionCell.h"
 #import "MJUQuestionSelectionViewController.h"
 #import "MJUProjectsDataModel.h"
+#import "MJUTextInputViewController.h"
+#import "UILabel+Additions.h"
+#import "UITableView+Additions.h"
 
 @interface MJUQuestionsViewController ()
 
@@ -47,6 +50,15 @@
         vc.question = question;
         vc.answer = answer;
         vc.project = self.project;
+    } else if([[segue identifier] isEqualToString:@"TextInputSegue"]) {
+        MJUSubQuestion *question = [self.questionHelper subQuestionForIndexPath:(NSIndexPath*)sender];
+        MJUAnswer *answer = [self.project getAnswerForQuestion:question];
+        MJUTextInputViewController *textViewController = (MJUTextInputViewController*)((UINavigationController*)[segue destinationViewController]).topViewController;
+        textViewController.inputText = answer.text;
+        textViewController.saveString = ^(NSString *saveString) {
+            answer.text = saveString;
+            [[[MJUProjectsDataModel sharedDataModel] mainContext] save:nil];
+        };
     }
 }
 
@@ -55,6 +67,8 @@
     MJUSubQuestion *question = [self.questionHelper subQuestionForIndexPath:indexPath];
     if(question.isSelectable) {
         [self performSegueWithIdentifier:@"QuestionSelectionSegue" sender:indexPath];
+    } else {
+        [self performSegueWithIdentifier:@"TextInputSegue" sender:indexPath];
     }
     
 }
@@ -97,6 +111,7 @@
     MJUAnswer *answer = [self.project getAnswerForQuestion:subQuestion];
     MJUQuestionCell *questionCell = (MJUQuestionCell*)cell;
     
+    questionCell.accessoryType = UITableViewCellAccessoryNone;
     questionCell.titleLabel.text = subQuestion.title;
     questionCell.textLabel.text = answer.text;
 }
@@ -106,8 +121,9 @@
     MJUSubQuestion *subQuestion = [self.questionHelper subQuestionForIndexPath:indexPath];
     MJUAnswer *answer = [self.project getAnswerForQuestion:subQuestion];
     cell.textLabel.text = subQuestion.title;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    if(answer) {
+    if(answer && [answer.selected intValue] >= 0) {
         cell.detailTextLabel.text = [subQuestion.selections objectAtIndex:[answer.selected intValue]];
     } else {
         cell.detailTextLabel.text = @"";
@@ -124,8 +140,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MJUSubQuestion *subQuestion = [self.questionHelper subQuestionForIndexPath:indexPath];
+    MJUAnswer *answer = [self.project getAnswerForQuestion:subQuestion];
     if(!subQuestion.isSelectable) {
-        return 100;
+        MJUQuestionCell *cell = (MJUQuestionCell*)[tableView prototypeCellWithReuseIdentifier:@"QuestionCell"];
+        cell.textLabel.text = answer.text;
+        CGRect size = [cell.textLabel expectedSize];
+        
+        return (size.size.height > 100.0f) ? size.size.height + 55 : 100.0f;
     }
     return 44;
 }

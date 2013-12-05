@@ -12,6 +12,9 @@
 #import "MJUScene.h"
 #import "MJUTextInputViewController.h"
 #import "MJUTimeSelectionView.h"
+#import "UILabel+Additions.h"
+#import "MJUPhoto.h"
+#import "FICImageCache.h"
 
 @interface MJUSceneViewController ()
     
@@ -34,7 +37,16 @@
         self.titleCell.textLabel.text = self.scene.title;
     }
     if(self.scene.images.count > 0) {
-        self.imageView.image = [((MJUSceneImage*)[self.scene.images anyObject]) getImage];
+        MJUSceneImage *sceneImage = [self.scene getSceneImage];
+        if(sceneImage) {
+            MJUPhoto *photo = [MJUPhoto photoForSceneImage:[self.scene getSceneImage]];
+            
+            FICImageCacheCompletionBlock completionBlock = ^(id <FICEntity> entity, NSString *formatName, UIImage *image) {
+                self.imageView.image = image;
+                [self.imageView.layer addAnimation:[CATransition animation] forKey:kCATransition];
+            };
+            [[FICImageCache sharedImageCache] retrieveImageForEntity:photo withFormatName:MJUSmallSquareThumbnailImageFormatName completionBlock:completionBlock];
+        }
     }
     if(self.scene.imageText) {
         self.imageTextCell.textLabel.text = self.scene.imageText;
@@ -151,13 +163,6 @@
 //
 //
 
-- (CGRect)sizeForLabel:(UILabel*)label
-{
-    CGSize maxSize = CGSizeMake(label.frame.size.width, MAXFLOAT);
-    CGRect labelRect = [label.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:label.font} context:nil];
-    return labelRect;
-}
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 1) {
@@ -166,12 +171,12 @@
             return 180.0f;
         } else if(indexPath.row == 1) {
             // image text
-            CGRect size = [self sizeForLabel:self.imageTextCell.textLabel];
+            CGRect size = [self.imageTextCell.textLabel expectedSize];
             return (size.size.height > 64.0f) ? size.size.height + 20 : 44.0f;
         }
     } else if(indexPath.section == 2) {
         if(indexPath.row == 0) {
-            CGRect size = [self sizeForLabel:self.soundTextCell.textLabel];
+            CGRect size = [self.soundTextCell.textLabel expectedSize];
             return (size.size.height > 64.0f) ? size.size.height + 20 : 44.0f;
         }
     }

@@ -9,10 +9,10 @@
     <entity name="MJUProject" representedClassName="MJUProject" syncable="YES">
         <attribute name="companyLogo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="companyName" attributeType="String" syncable="YES"/>
-        <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="406292400" defaultValueString="NOW" syncable="YES"/>
+        <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="407674800" defaultValueString="NOW" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
-        <relationship name="answers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MJUAnswer" inverseName="project" inverseEntity="MJUAnswer" syncable="YES"/>
-        <relationship name="scenes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MJUScene" inverseName="project" inverseEntity="MJUScene" syncable="YES"/>
+        <relationship name="answers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MJUAnswer" inverseName="project" inverseEntity="MJUAnswer" syncable="YES"/>
+        <relationship name="scenes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MJUScene" inverseName="project" inverseEntity="MJUScene" syncable="YES"/>
     </entity>
     <entity name="MJUScene" representedClassName="MJUScene" syncable="YES">
         <attribute name="imageText" optional="YES" attributeType="String" syncable="YES"/>

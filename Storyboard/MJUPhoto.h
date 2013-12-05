@@ -7,7 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FICEntity.h"
+#import "MJUSceneImage.h"
 
-@interface MJUPhoto : NSObject
+extern NSString *const MJUPhotoImageFormatFamily;
+
+extern NSString *const MJUSmallSquareThumbnailImageFormatName;
+extern NSString *const MJUDefaultSceneImageFormatName;
+
+extern CGSize const MJUSmallSquareThumbnailImageSize;
+extern CGSize const MJUDefaultSceneImageSize;
+
+@interface MJUPhoto : NSObject <FICEntity>
+
+@property (nonatomic, strong) MJUSceneImage *sceneImage;
+@property (nonatomic, strong, readonly) UIImage *sourceImage;
+
++ (MJUPhoto*)photoForSceneImage:(MJUSceneImage*)aSceneImage;
 
 @end

@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
+#import "MJUProject.h"
 
-@interface MJUPDFViewController : UIViewController
+@class MJUPDFGenerator;
+
+@interface MJUPDFViewController : UIViewController<UIWebViewDelegate, MFMailComposeViewControllerDelegate>
+
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
+@property (strong, nonatomic) MJUProject *project;
+@property (strong, nonatomic) MJUPDFGenerator *pdfGenerator;
 
 @end

@@ -19,11 +19,20 @@
 //    return self;
 //}
 
-//- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-//{
-//    [super setSelected:selected animated:animated];
-//
-//    // Configure the view for the selected state
-//}
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:selected animated:animated];
+    
+//    NSLog(@"%@", NSStringFromCGRect(self.textLabel.bounds));
+//    NSLog(@"%@", NSStringFromCGRect(self.textLabel.frame));
+//    
+//    // TODO: FIX
+//    if(selected) {
+//        self.backgroundColor = [UIColor grayColor];
+//    } else {
+//        self.backgroundColor = [UIColor whiteColor];
+//    }
+    // Configure the view for the selected state
+}
 
 @end
