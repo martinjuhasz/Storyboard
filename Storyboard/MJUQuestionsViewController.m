@@ -18,6 +18,7 @@
 #import "MJUTextInputViewController.h"
 #import "UILabel+Additions.h"
 #import "UITableView+Additions.h"
+#import "MJUTableHeaderView.h"
 
 @interface MJUQuestionsViewController ()
 
@@ -131,12 +132,6 @@
     
 }
 
-- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    MJUQuestion *question = [self.questionHelper.questions objectAtIndex:section];
-    return question.sectionTitle;
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MJUSubQuestion *subQuestion = [self.questionHelper subQuestionForIndexPath:indexPath];
@@ -149,6 +144,19 @@
         return (size.size.height > 100.0f) ? size.size.height + 55 : 100.0f;
     }
     return 44;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    MJUTableHeaderView *aView = [[MJUTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, tableView.frame.size.width, 20.0f)];
+    MJUQuestion *question = [self.questionHelper.questions objectAtIndex:section];
+    aView.titleLabel.text = question.sectionTitle;
+    return aView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 38.0f;
 }
 
 

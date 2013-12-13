@@ -11,6 +11,7 @@
 #import "MJUAnswer.h"
 #import "MJUProject.h"
 #import "MJUProjectsDataModel.h"
+#import "UITableView+Additions.h"
 
 @interface MJUQuestionSelectionViewController ()
 
@@ -21,7 +22,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    [self.tableView hideEmptyCells];
 }
 
 #pragma mark -

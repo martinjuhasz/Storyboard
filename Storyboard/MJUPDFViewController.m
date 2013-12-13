@@ -30,7 +30,8 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    if(animated && self.project) {
+    [super viewDidAppear:animated];
+    if(self.project) {
         [self setConditionsForPDF:NO];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             

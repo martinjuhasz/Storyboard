@@ -8,14 +8,18 @@
 
 #import "MJUPhoto.h"
 #import "FICUtilities.h"
+#import "UIImage+Resizing.h"
 
 NSString *const MJUPhotoImageFormatFamily = @"MJUPhotoImageFormatFamily";
 
-NSString *const MJUSmallSquareThumbnailImageFormatName = @"MJUSmallSquareThumbnailImageFormat";
-NSString *const MJUDefaultSceneImageFormatName = @"MJUDefaultSceneImageFormat";
+NSString *const MJUSmallSquareThumbnailImageFormatName = @"MJUSmallSquareThumbnailImageFormatName";
+NSString *const MJUDefaultLandscapeImageFormatName = @"MJUDefaultLandscapeImageFormatName";
 
 CGSize const MJUSmallSquareThumbnailImageSize = {140, 140};
-CGSize const MJUDefaultSceneImageSize = {640, 320};
+CGSize const MJUDefaultLandscapeIphoneImageSize = {320, 180};
+CGSize const MJUDefaultLandscapeIphone2xIpadImageSize = {640, 360};
+CGSize const MJUDefaultLandscapeIpad2xImageSize = {1280, 720};
+
 
 @interface MJUPhoto () {
     NSString *_UUID;
@@ -80,8 +84,11 @@ CGSize const MJUDefaultSceneImageSize = {640, 320};
             UIGraphicsPopContext();
             
         } else {
+            UIImage *newImage = [image scaleToCoverSize:contextSize];
+            NSLog(@"expected Size: %@", NSStringFromCGSize(contextSize));
+            NSLog(@"result Size: %@", NSStringFromCGSize(newImage.size));
             UIGraphicsPushContext(contextRef);
-            [image drawInRect:contextBounds];
+            [newImage drawInRect:contextBounds];
             UIGraphicsPopContext();
         }
     };

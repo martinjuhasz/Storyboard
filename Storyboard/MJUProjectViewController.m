@@ -37,10 +37,32 @@
     self.title = _project.title;
     self.projectTitle.text = _project.title;
     self.companyTitle.text = _project.companyName;
-    self.lengthLabel.text = [MJUHelper secondsToTimeString:[self.project getTotalTime] includingHours:YES];
-    self.sceneCountLabel.text = [NSString stringWithFormat:@"%lu", _project.scenes.count];
+    [self updateHeader];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDataModelChange:) name:NSManagedObjectContextObjectsDidChangeNotification object:[[MJUProjectsDataModel sharedDataModel] mainContext]];
 }
 
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)updateHeader
+{
+    self.lengthLabel.text = [MJUHelper secondsToTimeString:[self.project getTotalTime] includingHours:YES];
+    self.sceneCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)_project.scenes.count];
+}
+
+
+
+#pragma mark -
+#pragma mark Core Data Changes
+
+- (void)handleDataModelChange:(NSNotification *)note;
+{
+    [self updateHeader];
+}
 
 #pragma mark -
 #pragma mark Button Actions
@@ -84,19 +106,39 @@
     if ([[segue identifier] isEqualToString:@"StoryboardSegue"]) {
         MJUScenesTableViewController *scenesViewController = [segue destinationViewController];
         scenesViewController.project = self.project;
+        
     } else if([[segue identifier] isEqualToString:@"QuestionsSegue"]) {
-        MJUQuestionsViewController *questionsViewController = [segue destinationViewController];
+        
+        MJUQuestionsViewController *questionsViewController;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            UINavigationController *navController =[segue destinationViewController];
+            questionsViewController = (MJUQuestionsViewController*)[navController topViewController];
+        }
+        else {
+            questionsViewController = [segue destinationViewController];
+        }
         questionsViewController.project = self.project;
+        
     } else if([[segue identifier] isEqualToString:@"PDFSegue"]) {
         
-        MJUPDFViewController *pdfViewController = [segue destinationViewController];
+        MJUPDFViewController *pdfViewController;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            UINavigationController *navController =[segue destinationViewController];
+            pdfViewController = (MJUPDFViewController*)[navController topViewController];
+        }
+        else {
+            pdfViewController = [segue destinationViewController];
+        }
         pdfViewController.project = self.project;
-        
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(indexPath.section == 1) {
+        [self performSegueWithIdentifier:@"QuestionsSegue" sender:indexPath];
+    }
+    
     if(indexPath.section == 2) {
         [self addDummyContent];
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJUSpacedTableViewCell.h"
 
-@interface MJUQuestionCell : UITableViewCell
+@interface MJUQuestionCell : MJUSpacedTableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;

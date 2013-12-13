@@ -13,10 +13,12 @@
 extern NSString *const MJUPhotoImageFormatFamily;
 
 extern NSString *const MJUSmallSquareThumbnailImageFormatName;
-extern NSString *const MJUDefaultSceneImageFormatName;
+extern NSString *const MJUDefaultLandscapeImageFormatName;
 
 extern CGSize const MJUSmallSquareThumbnailImageSize;
-extern CGSize const MJUDefaultSceneImageSize;
+extern CGSize const MJUDefaultLandscapeIphoneImageSize;
+extern CGSize const MJUDefaultLandscapeIphone2xIpadImageSize;
+extern CGSize const MJUDefaultLandscapeIpad2xImageSize;
 
 @interface MJUPhoto : NSObject <FICEntity>
 

@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJUTimePickerViewController.h"
+#import "PECropViewController.h"
 
 @class MJUScene;
 @class MJUTimeSelectionView;
 
-@interface MJUSceneViewController : UITableViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UIActionSheetDelegate>
+@interface MJUSceneViewController : UITableViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UIActionSheetDelegate, MJUTimePickerDelegate, PECropViewControllerDelegate>
 
 @property (strong, nonatomic) MJUScene *scene;
 @property (strong, nonatomic) MJUTimeSelectionView *selectionView;

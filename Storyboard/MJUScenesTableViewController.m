@@ -97,8 +97,6 @@
     [self.project addScenesObject:scene];
     [context save:nil];
     
-    NSLog(@"%@", scene);
-    
     [self saveOrder];
 }
 
@@ -116,8 +114,17 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"SceneDetailSegue"]) {
-        MJUSceneViewController *sceneViewController = [segue destinationViewController];
-        sceneViewController.scene = [[self fetchedResultsController] objectAtIndexPath:(NSIndexPath*)sender];
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        {
+            UINavigationController *navigationController = [segue destinationViewController];
+            MJUSceneViewController *sceneViewController = (MJUSceneViewController*)[navigationController topViewController];
+            sceneViewController.scene = [[self fetchedResultsController] objectAtIndexPath:(NSIndexPath*)sender];
+        }
+        else {
+            MJUSceneViewController *sceneViewController = [segue destinationViewController];
+            sceneViewController.scene = [[self fetchedResultsController] objectAtIndexPath:(NSIndexPath*)sender];
+        }
+        
     }
 }
 

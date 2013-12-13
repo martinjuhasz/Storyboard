@@ -19,8 +19,8 @@
 {
     if(scene != _scene) {
         _scene = scene;
-        [self setContent];
     }
+    [self setContent];
 }
 
 - (void)setContent

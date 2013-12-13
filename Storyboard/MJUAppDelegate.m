@@ -70,15 +70,31 @@
     NSInteger squareImageFormatMaximumCount = 400;
     FICImageFormatDevices squareImageFormatDevices = FICImageFormatDevicePhone | FICImageFormatDevicePad;
     
-    FICImageFormat *smallSquareThumbnailImageFormat = [FICImageFormat formatWithName:MJUSmallSquareThumbnailImageFormatName family:MJUDefaultSceneImageFormatName imageSize:MJUSmallSquareThumbnailImageSize style:FICImageFormatStyle32BitBGR maximumCount:squareImageFormatMaximumCount devices:squareImageFormatDevices];
+    // Square Image
+    FICImageFormat *smallSquareThumbnailImageFormat = [FICImageFormat formatWithName:MJUSmallSquareThumbnailImageFormatName family:MJUPhotoImageFormatFamily imageSize:MJUSmallSquareThumbnailImageSize style:FICImageFormatStyle32BitBGR maximumCount:squareImageFormatMaximumCount devices:squareImageFormatDevices];
     
-    FICImageFormat *defaultSceneImageFormat = [FICImageFormat formatWithName:MJUDefaultSceneImageFormatName family:MJUPhotoImageFormatFamily imageSize:MJUDefaultSceneImageSize style:FICImageFormatStyle32BitBGR maximumCount:squareImageFormatMaximumCount devices:squareImageFormatDevices];
+    // Default Landscape Image
+    CGSize defaultLandscapeImageSize;
+    
+    if(!IS_RETINA && UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
+        // nonretina iphone
+        defaultLandscapeImageSize = MJUDefaultLandscapeIphoneImageSize;
+        
+    } else if((IS_RETINA && UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) || (!IS_RETINA && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)) {
+        // retina iPhone or nonretina iPad
+        defaultLandscapeImageSize = MJUDefaultLandscapeIphone2xIpadImageSize;
+    } else {
+        // retina ipad
+        defaultLandscapeImageSize = MJUDefaultLandscapeIpad2xImageSize;
+    }
+    
+    FICImageFormat *defaultLandscapeImageFormat = [FICImageFormat formatWithName:MJUDefaultLandscapeImageFormatName family:MJUPhotoImageFormatFamily imageSize:defaultLandscapeImageSize style:FICImageFormatStyle32BitBGR maximumCount:squareImageFormatMaximumCount devices:squareImageFormatDevices];
     
     
     // Configure the image cache
     FICImageCache *sharedImageCache = [FICImageCache sharedImageCache];
     [sharedImageCache setDelegate:self];
-    [sharedImageCache setFormats:@[smallSquareThumbnailImageFormat, defaultSceneImageFormat]];
+    [sharedImageCache setFormats:@[smallSquareThumbnailImageFormat, defaultLandscapeImageFormat]];
     
 }
 
