@@ -15,6 +15,7 @@
 #import "MJUScene.h"
 #import "MJUSceneImage.h"
 #import "MJUHelper.h"
+#import "MJUAddProjectViewController.h"
 
 @interface MJUProjectViewController ()
 
@@ -38,6 +39,7 @@
     self.projectTitle.text = _project.title;
     self.companyTitle.text = _project.companyName;
     [self updateHeader];
+    [self checkExportButton];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDataModelChange:) name:NSManagedObjectContextObjectsDidChangeNotification object:[[MJUProjectsDataModel sharedDataModel] mainContext]];
 }
@@ -54,6 +56,13 @@
     self.sceneCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)_project.scenes.count];
 }
 
+- (void)checkExportButton
+{
+    BOOL enabled = (self.project.scenes.count > 0);
+    [self.pdfCreateCell setUserInteractionEnabled:enabled];
+    [self.pdfCreateCell.textLabel setEnabled:enabled];
+}
+
 
 
 #pragma mark -
@@ -62,14 +71,15 @@
 - (void)handleDataModelChange:(NSNotification *)note;
 {
     [self updateHeader];
+    [self checkExportButton];
 }
 
 #pragma mark -
 #pragma mark Button Actions
 
-- (IBAction)pdfButtonClicked:(id)sender
+- (IBAction)editButtonClicked:(id)sender
 {
-     [self performSegueWithIdentifier:@"PDFSegue" sender:sender];
+    
 }
 
 - (void)addDummyContent
@@ -77,14 +87,20 @@
     NSManagedObjectContext *context = [[MJUProjectsDataModel sharedDataModel] mainContext];
     NSUInteger preCount = [[self.project scenes] count] + 1;
     
-    for(int i = 0; i <50;i++) {
+    for(int i = 0; i <25;i++) {
         
         MJUScene *scene = (MJUScene *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUScene" inManagedObjectContext:context];
         scene.title = [NSString stringWithFormat:@"Scene %d", (int)(preCount + i)];
         scene.order = preCount + i;
         
         MJUSceneImage *sceneImage = (MJUSceneImage *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUSceneImage" inManagedObjectContext:context];
-        [sceneImage addImage:[UIImage imageNamed:@"dummyImage.jpg"]];
+        
+        NSString *imageURL = [NSString stringWithFormat:@"http://placehold.it/1280x720&text=%d%d%d%d%d",arc4random()%9,arc4random()%9,arc4random()%9,arc4random()%9,arc4random()%9];
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
+        UIImage *resultImage = [UIImage imageWithData:imageData];
+        [sceneImage addImage:resultImage];
+        
+//        [sceneImage addImage:[UIImage imageNamed:@"dummyImage.jpg"]];
         [scene addImagesObject:sceneImage];
         
         [self.project addScenesObject:scene];
@@ -118,18 +134,17 @@
             questionsViewController = [segue destinationViewController];
         }
         questionsViewController.project = self.project;
+        questionsViewController.plist = [self questionFileForIndexPath:(NSIndexPath*)sender];
+        
         
     } else if([[segue identifier] isEqualToString:@"PDFSegue"]) {
-        
         MJUPDFViewController *pdfViewController;
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-            UINavigationController *navController =[segue destinationViewController];
-            pdfViewController = (MJUPDFViewController*)[navController topViewController];
-        }
-        else {
-            pdfViewController = [segue destinationViewController];
-        }
+        UINavigationController *navController =[segue destinationViewController];
+        pdfViewController = (MJUPDFViewController*)[navController topViewController];
         pdfViewController.project = self.project;
+    } else if([[segue identifier] isEqualToString:@"EditProjectSegue"]) {
+        MJUAddProjectViewController *addProjectViewController = (MJUAddProjectViewController*)[[segue destinationViewController] topViewController];
+        addProjectViewController.project = self.project;
     }
 }
 
@@ -137,11 +152,36 @@
 {
     if(indexPath.section == 1) {
         [self performSegueWithIdentifier:@"QuestionsSegue" sender:indexPath];
-    }
-    
-    if(indexPath.section == 2) {
+    } else if(indexPath.section == 2) {
+        [self performSegueWithIdentifier:@"PDFSegue" sender:indexPath];
+    } else if(indexPath.section == 3) {
         [self addDummyContent];
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+}
+
+- (NSString*)questionFileForIndexPath:(NSIndexPath*)indexPath
+{
+    switch (indexPath.row) {
+        case 0:
+            return @"Questions_Contact";
+            break;
+        
+        case 1:
+            return @"Questions_Parameter";
+            break;
+        
+        case 2:
+            return @"Questions_Organisation";
+            break;
+            
+        case 3:
+            return @"Questions_PostProduction";
+            break;
+        
+        default:
+            return nil;
+            break;
     }
 }
 

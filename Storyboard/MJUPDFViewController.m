@@ -45,7 +45,7 @@
                 
             } error:^(NDHTMLtoPDF *htmlToPDF) {
                 dispatch_async(dispatch_get_main_queue(), ^(){
-                    [self.navigationController popViewControllerAnimated:YES];
+                    [self dismissViewControllerAnimated:YES completion:nil];
                 });
             }];
         });
@@ -77,6 +77,11 @@
     UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:@[@"", self.pdfGenerator.pdfCreator.PDFdata] applicationActivities:nil];
     [self presentViewController:controller animated:YES completion:nil];
 }
+
+- (IBAction)doneButtonClicked:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 
 @end

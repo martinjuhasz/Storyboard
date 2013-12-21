@@ -50,6 +50,8 @@
     BOOL isPortrait = UIDeviceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation);
     CGFloat height = isPortrait ? keyboardFrame.size.height : keyboardFrame.size.width;
 
+    NSLog(@"%f", self.view.frame.size.height);
+    
     self.keyboardHeightContraint.constant = height + 10.0f;
     
     [UIView animateWithDuration:animationDuration animations:^{

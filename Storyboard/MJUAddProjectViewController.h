@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJUProject.h"
 
 @interface MJUAddProjectViewController : UITableViewController<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+@property (strong, nonatomic) MJUProject *project;
 @property (weak, nonatomic) IBOutlet UITextField *companyField;
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UIImageView *imageField;

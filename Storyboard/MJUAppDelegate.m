@@ -32,8 +32,13 @@
 
 - (void)setStyles
 {
+    NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                               [UIColor whiteColor],NSForegroundColorAttributeName,
+                                               nil];
+    
     [[UITableView appearance] setBackgroundColor:[UIColor colorWithHexString:@"EDEDE4"]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navBarBackground"] forBarMetrics:UIBarMetricsDefault];
     [[UIToolbar appearance] setBackgroundImage:[UIImage imageNamed:@"ScenesBarBackground"] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
 }
@@ -67,7 +72,7 @@
 
 - (void)initImageCache
 {
-    NSInteger squareImageFormatMaximumCount = 400;
+    NSInteger squareImageFormatMaximumCount = 100;
     FICImageFormatDevices squareImageFormatDevices = FICImageFormatDevicePhone | FICImageFormatDevicePad;
     
     // Square Image

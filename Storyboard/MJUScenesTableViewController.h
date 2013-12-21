@@ -15,5 +15,6 @@
 @property (nonatomic, strong) MJUProject *project;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) UILabel *totalTimeLabel;
+@property (strong, nonatomic) UIBarButtonItem *editModeButton;
 
 @end

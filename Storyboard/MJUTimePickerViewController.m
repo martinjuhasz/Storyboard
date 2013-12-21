@@ -30,7 +30,7 @@
 
 - (void)setTimeLabelTextWithMinutes:(NSUInteger)minutes seconds:(NSUInteger)seconds
 {
-     self.timeLabel.text = [NSString stringWithFormat:@"%02d min %02d sec", minutes, seconds];
+     self.timeLabel.text = [NSString stringWithFormat:@"%02lu min %02lu sec", (unsigned long)minutes, (unsigned long)seconds];
 }
 
 
@@ -71,7 +71,7 @@
         return @"sec";
     }
     
-    return [NSString stringWithFormat:@"%02d", row];
+    return [NSString stringWithFormat:@"%02ld", (long)row];
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component

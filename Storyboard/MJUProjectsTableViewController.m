@@ -33,6 +33,22 @@
 
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if(IS_IPAD) {
+        [self.navigationController performSegueWithIdentifier:@"DefaultDetailSegue" sender:self];
+    }
+}
+
 #pragma mark -
 #pragma mark Button Actions
 
@@ -122,6 +138,12 @@
         if(error) {
             NSLog(@"%@", [error localizedDescription]);
         }
+        
+        if(IS_IPAD) {
+            [self.navigationController performSegueWithIdentifier:@"DefaultDetailSegue" sender:indexPath];
+        }
+        
+        
     }
 }
 

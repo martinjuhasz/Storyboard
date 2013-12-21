@@ -9,6 +9,8 @@
 #import "MJUPDFGenerator.h"
 #import "MJUProject.h"
 #import "MJUScene.h"
+#import "MJUPDFImageURLProtocol.h"
+#import "MJUSceneImage.h"
 
 
 @implementation MJUPDFGenerator
@@ -17,8 +19,14 @@
 {
     if(self) {
         self.project = project;
+        [NSURLProtocol registerClass:[MJUPDFImageURLProtocol class]];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [NSURLProtocol unregisterClass:[MJUPDFImageURLProtocol class]];
 }
 
 - (void)generatePDFWithSuccess:(NDHTMLtoPDFCompletionBlock)success error:(NDHTMLtoPDFCompletionBlock)error
@@ -59,7 +67,7 @@
     NSString *header = [self getFile:@"pdf_header"];
     
     header = [self replace:@"PROJECT_TITLE" to:self.project.title in:header];
-    header = [self insertImage:[self.project getCompanyLogo] replace:@"IMAGE_LOGO" in:header];
+//    header = [self insertImage:[self.project getCompanyLogo] replace:@"IMAGE_LOGO" in:header];
     
     return header;
 }
@@ -94,7 +102,7 @@
 {
     NSString *sceneRow = [self getFile:@"pdf_scene-row"];
     sceneRow = [self replace:@"SCENE_NUMBER" to:[NSString stringWithFormat:@"%d", scene.order+1] in:sceneRow];
-    sceneRow = [self insertImage:[scene getImage] replace:@"IMAGE" in:sceneRow];
+    sceneRow = [self insertImage:[scene getSceneImage] replace:@"IMAGE" in:sceneRow];
     sceneRow = [self replace:@"IMAGE_TEXT" to:scene.imageText in:sceneRow];
     sceneRow = [self replace:@"SOUND_TEXT" to:scene.soundText in:sceneRow];
     
@@ -125,14 +133,14 @@
     return [content stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"###%@###",from] withString:to];
 }
 
-- (NSString*)insertImage:(UIImage*)image replace:(NSString*)replace in:(NSString*)content
+- (NSString*)insertImage:(MJUSceneImage*)image replace:(NSString*)replace in:(NSString*)content
 {
     if(!image) {
         return [content stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"###%@###",replace] withString:@""];
     }
-    NSData *imageData = [NSData dataWithData:UIImageJPEGRepresentation(image, 0.8)];
-    NSString *base64String = [imageData base64EncodedStringWithOptions:0];
-    NSString *htmlImg = [NSString stringWithFormat:@"<img src='data:image/jpg;base64,%@' />", base64String];
+    
+    NSString *imageURL = [[image getObjectIDAsString] stringByReplacingOccurrencesOfString:@"x-coredata://" withString:@""];
+    NSString *htmlImg = [NSString stringWithFormat:@"<img src='mjulocalimage://%@' />", imageURL];
     return [content stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"###%@###",replace] withString:htmlImg];
 }
 

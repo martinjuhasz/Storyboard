@@ -35,7 +35,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDataModelChange:) name:NSManagedObjectContextObjectsDidChangeNotification object:[[MJUProjectsDataModel sharedDataModel] mainContext]];
 
     
-    self.questionHelper = [[MJUQuestionHelper alloc] initWithPList:@"Questions_Contact"];
+    self.questionHelper = [[MJUQuestionHelper alloc] initWithPList:self.plist];
 }
 
 
@@ -101,12 +101,12 @@
         [self updateSelectableCell:cell atIndexPath:indexPath];
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        [self updateCell:cell atIndexPath:indexPath];
+        [self updateCell:(MJUQuestionCell*)cell atIndexPath:indexPath];
     }
     return cell;
 }
 
-- (void)updateCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
+- (void)updateCell:(MJUQuestionCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
     MJUSubQuestion *subQuestion = [self.questionHelper subQuestionForIndexPath:indexPath];
     MJUAnswer *answer = [self.project getAnswerForQuestion:subQuestion];
@@ -114,7 +114,7 @@
     
     questionCell.accessoryType = UITableViewCellAccessoryNone;
     questionCell.titleLabel.text = subQuestion.title;
-    questionCell.textLabel.text = answer.text;
+    questionCell.contentLabel.text = answer.text;
 }
 
 - (void)updateSelectableCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
@@ -134,17 +134,39 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+//    MJUSubQuestion *subQuestion = [self.questionHelper subQuestionForIndexPath:indexPath];
+//    MJUAnswer *answer = [self.project getAnswerForQuestion:subQuestion];
+//    if(!subQuestion.isSelectable) {
+//
+//        MJUQuestionCell *cell = (MJUQuestionCell*)[tableView prototypeCellWithReuseIdentifier:@"QuestionCell"];
+//        cell.textLabel.text = answer.text;
+//        CGRect size = [cell.textLabel expectedSize];
+//        
+//        return (size.size.height > 100.0f) ? size.size.height + 55 : 100.0f;
+//    }
+//    return 44;
+
+    
+    CGFloat height = 44.0f;
+    
     MJUSubQuestion *subQuestion = [self.questionHelper subQuestionForIndexPath:indexPath];
     MJUAnswer *answer = [self.project getAnswerForQuestion:subQuestion];
+    
     if(!subQuestion.isSelectable) {
-        MJUQuestionCell *cell = (MJUQuestionCell*)[tableView prototypeCellWithReuseIdentifier:@"QuestionCell"];
-        cell.textLabel.text = answer.text;
-        CGRect size = [cell.textLabel expectedSize];
+        MJUQuestionCell *metricsCell = (MJUQuestionCell*)[tableView prototypeCellWithReuseIdentifier:@"QuestionCell"];
+        metricsCell.contentLabel.text = answer.text;
+
         
-        return (size.size.height > 100.0f) ? size.size.height + 55 : 100.0f;
+        [metricsCell.contentView setNeedsLayout];
+        [metricsCell.contentView layoutIfNeeded];
+        
+        CGSize size = [metricsCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+        height = size.height + 1.0f;
     }
-    return 44;
+    
+    return height;
 }
+
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {

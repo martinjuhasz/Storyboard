@@ -35,12 +35,18 @@
         MJUSceneImage *sceneImage = [self.scene getSceneImage];
         if(sceneImage) {
             MJUPhoto *photo = [MJUPhoto photoForSceneImage:[self.scene getSceneImage]];
-            
-            FICImageCacheCompletionBlock completionBlock = ^(id <FICEntity> entity, NSString *formatName, UIImage *image) {
-                self.sceneImageView.image = image;
-                [self.sceneImageView.layer addAnimation:[CATransition animation] forKey:kCATransition];
-            };
-            [[FICImageCache sharedImageCache] retrieveImageForEntity:photo withFormatName:MJUSmallSquareThumbnailImageFormatName completionBlock:completionBlock];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                FICImageCacheCompletionBlock completionBlock = ^(id <FICEntity> entity, NSString *formatName, UIImage *image) {
+                    if(photo == entity) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            self.sceneImageView.image = image;
+                        });
+                    }
+                };
+                [[FICImageCache sharedImageCache] retrieveImageForEntity:photo withFormatName:MJUSmallSquareThumbnailImageFormatName completionBlock:completionBlock];
+            });
+        } else {
+            self.imageView.image = nil;
         }
     } else {
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

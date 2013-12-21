@@ -18,5 +18,6 @@
 
 - (void)addImage:(UIImage*)image;
 - (UIImage*)getImage;
+- (NSString*)getObjectIDAsString;
 
 @end

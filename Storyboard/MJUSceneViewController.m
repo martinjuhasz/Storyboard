@@ -16,6 +16,8 @@
 #import "MJUPhoto.h"
 #import "FICImageCache.h"
 #import "MJUTableHeaderView.h"
+#import "MJUImagePickerController.h"
+#import "MJUTextViewCell.h"
 
 
 
@@ -58,14 +60,14 @@
     }
     
     if(self.scene.imageText) {
-        self.imageTextCell.textLabel.text = self.scene.imageText;
-        [self.imageTextCell.textLabel setNumberOfLines:0];
-        [self.imageTextCell.textLabel sizeToFit];
+        self.imageTextCell.contentLabel.text = self.scene.imageText;
     }
     
     if(self.scene.soundText) {
-        self.soundTextCell.textLabel.text = self.scene.soundText;
+        self.soundTextCell.contentLabel.text = self.scene.soundText;
     }
+    
+    [self.tableView reloadData];
 }
 
 - (void)setTimeValue
@@ -146,38 +148,38 @@
     PECropViewController *controller = [[PECropViewController alloc] init];
     controller.delegate = self;
     controller.image = chosenImage;
-    controller.keepingCropAspectRatio = YES;
-//    controller.cropAspectRatio = 3.0f;
-    controller.cropRect = CGRectMake(0.0f, 0.0f, 320.0f, 160.0f);
+    
+    if(IS_IPAD) {
+        controller.cropRect = CGRectMake(0.0f, 0.0f, 640.0f, 360.0f);
+    } else {
+        controller.cropRect = CGRectMake(0.0f, 0.0f, 320.0f, 160.0f);
+    }
+    
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
     
     [picker dismissViewControllerAnimated:YES completion:^{
         [self presentViewController:navigationController animated:YES completion:NULL];
     }];
-    
-    
-
-//    
-//    NSManagedObjectContext *context = [[MJUProjectsDataModel sharedDataModel] mainContext];
-//    MJUSceneImage *sceneImage = (MJUSceneImage *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUSceneImage" inManagedObjectContext:context];
-//    [sceneImage addImage:chosenImage];
-//    [self.scene setImages:nil];
-//    [self.scene addImagesObject:sceneImage];
-//    [context save:nil];
-//    
-//    [picker dismissViewControllerAnimated:YES completion:nil];
-//    
-//    [self loadContent];
 }
 
-- (void)cropViewController:(PECropViewController *)controller didFinishCroppingImage:(UIImage *)croppedImage
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
+- (void)cropViewController:(PECropViewController *)controller didFinishCroppingImage:(UIImage *)chosenImage
 {
     [controller dismissViewControllerAnimated:YES completion:NULL];
     
-    NSLog(@"controller image size: %@", NSStringFromCGSize(croppedImage.size));
+    NSManagedObjectContext *context = [[MJUProjectsDataModel sharedDataModel] mainContext];
+    MJUSceneImage *sceneImage = (MJUSceneImage *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUSceneImage" inManagedObjectContext:context];
+    [sceneImage addImage:chosenImage];
+    [self.scene setImages:nil];
+    [self.scene addImagesObject:sceneImage];
+    [context save:nil];
     
-    self.imageView.image = croppedImage;
+    [self loadContent];
 }
 
 - (void)cropViewControllerDidCancel:(PECropViewController *)controller
@@ -196,7 +198,7 @@
         return;
     }
     
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    MJUImagePickerController *picker = [[MJUImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = NO;
     picker.sourceType = type;
@@ -210,22 +212,28 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 1) {
         if(indexPath.row == 0) {
-            // iamgeview
+            // imageview
             if(IS_IPAD) {
-                return 360.0f;
+                if(UIDeviceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
+                    return 218.0f;
+                } else {
+                    return 360.0f;
+                }
             } else {
                 return 180.0f;
             }
-            
         } else if(indexPath.row == 1) {
             // image text
-            CGRect size = [self.imageTextCell.textLabel expectedSize];
-            return (size.size.height > 64.0f) ? size.size.height + 20 : 44.0f;
+            [self.imageTextCell.contentView setNeedsLayout];
+            [self.imageTextCell.contentView layoutIfNeeded];
+            return [self.imageTextCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
         }
     } else if(indexPath.section == 2) {
         if(indexPath.row == 0) {
-            CGRect size = [self.soundTextCell.textLabel expectedSize];
-            return (size.size.height > 64.0f) ? size.size.height + 20 : 44.0f;
+            // sound text
+            [self.soundTextCell.contentView setNeedsLayout];
+            [self.soundTextCell.contentView layoutIfNeeded];
+            return [self.soundTextCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
         }
     }
     return 44.0f;
@@ -250,15 +258,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if(indexPath.section == 0 && indexPath.row == 1) {
-////        [self.view addSubview:self.selectionView];
-//        [self performSegueWithIdentifier:@"TimerViewSegue" sender:indexPath];
-//        
-//    } else
-    if(indexPath.section == 0) {
-        
-    }
-    else if(indexPath.section == 1 && indexPath.row == 0) {
+    if(indexPath.section == 0 && indexPath.row == 1) {
+        [self performSegueWithIdentifier:@"TimerViewSegue" sender:indexPath];
+    } else if(indexPath.section == 1 && indexPath.row == 0) {
         UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"select a Photo" delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"add Photo from Library", @"take Photo", nil];
         [actionSheet showInView:self.tableView];
     } else {
@@ -274,7 +276,7 @@
 - (void)didSelectTimeWithMinute:(NSUInteger)minute second:(NSUInteger)second
 {
     NSManagedObjectContext *context = [[MJUProjectsDataModel sharedDataModel] mainContext];
-    int time = (minute * 60) + second;
+    NSUInteger time = (minute * 60) + second;
     self.scene.time = time;
     [context save:nil];
     

@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *companyTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lengthLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sceneCountLabel;
+@property (weak, nonatomic) IBOutlet UITableViewCell *pdfCreateCell;
 
 @end

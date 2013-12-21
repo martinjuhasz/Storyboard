@@ -28,10 +28,15 @@
     // Configure the view for the selected state
 }
 
-- (void)setFrame:(CGRect)frame {
-    frame.origin.x += 30;
-    frame.size.width -= 2 * 30;
-    [super setFrame:frame];
+- (void)setFrame:(CGRect)frame
+{
+    if(IS_IPAD) {
+        frame.origin.x += 30;
+        frame.size.width -= 2 * 30;
+        [super setFrame:frame];
+    } else {
+        [super setFrame:frame];
+    }
 }
 
 - (void)drawRect:(CGRect)rect
@@ -39,7 +44,7 @@
     [super drawRect:rect];
     
     // just do on iPad
-    if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) return;
+    if (!IS_IPAD) return;
     
     
     NSPredicate *borderPredicate = [NSPredicate predicateWithFormat:@"name == %@ OR name == %@", @"MJULeftBorderLayer", @"MJURightBorderLayer"];

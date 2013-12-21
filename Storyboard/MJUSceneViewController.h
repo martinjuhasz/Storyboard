@@ -12,18 +12,21 @@
 
 @class MJUScene;
 @class MJUTimeSelectionView;
+@class MJUTextViewCell;
 
 @interface MJUSceneViewController : UITableViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UIActionSheetDelegate, MJUTimePickerDelegate, PECropViewControllerDelegate>
 
 @property (strong, nonatomic) MJUScene *scene;
 @property (strong, nonatomic) MJUTimeSelectionView *selectionView;
+@property (strong, nonatomic) UIPopoverController *imagePopoverController;
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *titleCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *timeCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *imageViewCell;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UITableViewCell *imageTextCell;
-@property (weak, nonatomic) IBOutlet UITableViewCell *soundTextCell;
+@property (weak, nonatomic) IBOutlet MJUTextViewCell *imageTextCell;
+@property (weak, nonatomic) IBOutlet MJUTextViewCell *soundTextCell;
+
 
 
 @end

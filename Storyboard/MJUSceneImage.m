@@ -27,4 +27,9 @@
     return [UIImage imageWithData:self.image];
 }
 
+- (NSString*)getObjectIDAsString
+{
+    return [[[self objectID] URIRepresentation] absoluteString];
+}
+
 @end

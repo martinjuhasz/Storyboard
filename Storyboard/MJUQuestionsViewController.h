@@ -16,5 +16,6 @@
 
 @property (strong, nonatomic) MJUProject *project;
 @property (strong, nonatomic) MJUQuestionHelper *questionHelper;
+@property (strong, nonatomic) NSString *plist;
 
 @end

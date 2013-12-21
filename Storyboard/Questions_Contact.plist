@@ -4,71 +4,113 @@
 <array>
 	<dict>
 		<key>title</key>
-		<string>Format</string>
+		<string>Kontakt</string>
 		<key>questions</key>
 		<array>
 			<dict>
 				<key>id</key>
-				<string>1002</string>
+				<string>1001</string>
 				<key>title</key>
-				<string>Qualität</string>
-				<key>selections</key>
-				<array>
-					<string>SD</string>
-					<string>HD</string>
-				</array>
+				<string>Ansprechpartner</string>
 			</dict>
 			<dict>
 				<key>id</key>
-				<string>1001</string>
+				<string>1002</string>
 				<key>title</key>
-				<string>Dateiformat</string>
-				<key>selections</key>
-				<array>
-					<string>AVI</string>
-					<string>MKV</string>
-				</array>
+				<string>Adresse</string>
 			</dict>
 			<dict>
 				<key>id</key>
 				<string>1003</string>
 				<key>title</key>
-				<string>Anmerkungen</string>
+				<string>E-Mail</string>
 			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>was anderes</string>
-		<key>questions</key>
-		<array>
 			<dict>
 				<key>id</key>
 				<string>1004</string>
 				<key>title</key>
-				<string>Qualität</string>
-				<key>selections</key>
-				<array>
-					<string>SD</string>
-					<string>HD</string>
-				</array>
+				<string>Telefonnummer</string>
 			</dict>
 			<dict>
 				<key>id</key>
 				<string>1005</string>
 				<key>title</key>
-				<string>Dateiformat</string>
-				<key>selections</key>
-				<array>
-					<string>AVI</string>
-					<string>MKV</string>
-				</array>
+				<string>Mobil</string>
 			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Redaktion</string>
+		<key>questions</key>
+		<array>
 			<dict>
 				<key>id</key>
 				<string>1006</string>
 				<key>title</key>
-				<string>Anmerkungen</string>
+				<string>Ansprechpartner</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>1007</string>
+				<key>title</key>
+				<string>E-Mail</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>1008</string>
+				<key>title</key>
+				<string>Telefonnummer</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Terminierung</string>
+		<key>questions</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>1009</string>
+				<key>title</key>
+				<string>Ansprechpartner</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>1010</string>
+				<key>title</key>
+				<string>E-Mail</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>1011</string>
+				<key>title</key>
+				<string>Telefonnummer</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Kamera</string>
+		<key>questions</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>1012</string>
+				<key>title</key>
+				<string>Ansprechpartner</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>1013</string>
+				<key>title</key>
+				<string>E-Mail</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>1014</string>
+				<key>title</key>
+				<string>Telefonnummer</string>
 			</dict>
 		</array>
 	</dict>

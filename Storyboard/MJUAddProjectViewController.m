@@ -21,6 +21,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if(self.project) {
+        _titleField.text = self.project.title;
+        _companyField.text = self.project.companyName;
+        _imageField.image = [self.project getCompanyLogo];
+    }
 
 }
 - (IBAction)didClickImage:(id)sender
@@ -43,13 +49,16 @@
     if([NSString isEmptyString:_companyField.text] || [NSString isEmptyString:_titleField.text]) return;
     
     NSManagedObjectContext *context = [[MJUProjectsDataModel sharedDataModel] mainContext];
-    MJUProject *project = (MJUProject *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUProject" inManagedObjectContext:context];
     
-    project.title = _titleField.text;
-    project.companyName = _companyField.text;
+    if(!self.project) {
+        self.project = (MJUProject *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUProject" inManagedObjectContext:context];
+    }
+    
+    self.project.title = _titleField.text;
+    self.project.companyName = _companyField.text;
     
     if(_imageField.image) {
-        [project addCompanyLogo:_imageField.image];
+        [self.project addCompanyLogo:_imageField.image];
     }
     
     [context save:nil];
@@ -74,7 +83,7 @@
     
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
-    picker.allowsEditing = YES;
+    picker.allowsEditing = NO;
     picker.sourceType = type;
     
     [self presentViewController:picker animated:YES completion:NULL];

@@ -17,9 +17,14 @@
 		7A2A92FB183F660800E58816 /* pdf_content.html in Resources */ = {isa = PBXBuildFile; fileRef = 7A2A92FA183F660800E58816 /* pdf_content.html */; };
 		7A3639BC1827CB1C00B7307B /* MJUSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3639BB1827CB1C00B7307B /* MJUSceneViewController.m */; };
 		7A3639BE1827D72E00B7307B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A3639BD1827D72E00B7307B /* QuickLook.framework */; };
+		7A3F916618632D780019D1E0 /* Questions_Organisation.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A3F916518632D780019D1E0 /* Questions_Organisation.plist */; };
+		7A3F916818632E820019D1E0 /* Questions_PostProduction.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A3F916718632E820019D1E0 /* Questions_PostProduction.plist */; };
+		7A3F916B186338410019D1E0 /* MJUPDFImageURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3F916A186338410019D1E0 /* MJUPDFImageURLProtocol.m */; };
+		7A3F916D18633BF40019D1E0 /* image1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3F916C18633BF40019D1E0 /* image1.png */; };
 		7A41CF46183B68180059B727 /* UILabel+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A41CF45183B68180059B727 /* UILabel+Additions.m */; };
 		7A435863182CEE4200534588 /* MJUProjectsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A435862182CEE4200534588 /* MJUProjectsTableViewController.m */; };
 		7A435866182CF40300534588 /* MJUScenesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A435865182CF40300534588 /* MJUScenesTableViewController.m */; };
+		7A524374185B6B1A0055D40A /* MJUImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A524373185B6B1A0055D40A /* MJUImagePickerController.m */; };
 		7A62B68C18252C1000A2C1B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A62B68B18252C1000A2C1B2 /* Foundation.framework */; };
 		7A62B68E18252C1000A2C1B2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A62B68D18252C1000A2C1B2 /* CoreGraphics.framework */; };
 		7A62B69018252C1000A2C1B2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A62B68F18252C1000A2C1B2 /* UIKit.framework */; };
@@ -42,6 +47,7 @@
 		7A68C04D18264DCD004EABD9 /* MJUProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A68C04C18264DCD004EABD9 /* MJUProjectViewController.m */; };
 		7A68C05A18265F70004EABD9 /* MJUSceneImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A68C05918265F70004EABD9 /* MJUSceneImage.m */; };
 		7A68C05D18265F71004EABD9 /* MJUScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A68C05C18265F71004EABD9 /* MJUScene.m */; };
+		7A788C8C1862FD3E00D9AD12 /* Questions_Parameter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A788C8B1862FD3E00D9AD12 /* Questions_Parameter.plist */; };
 		7A9520271834CFC9002EC307 /* MJUHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9520261834CFC9002EC307 /* MJUHelper.m */; };
 		7A95202A1834D5F3002EC307 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9520291834D5F3002EC307 /* UIColor+Additions.m */; };
 		7A95202D1834D927002EC307 /* UITableView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A95202C1834D927002EC307 /* UITableView+Additions.m */; };
@@ -54,6 +60,7 @@
 		7A9C9E99184DD894008B05C6 /* wheel3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A9C9E95184DD894008B05C6 /* wheel3.png */; };
 		7AA374EF184F3915007309B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AA374EE184F3915007309B2 /* Images.xcassets */; };
 		7AB63F9918312BDB009C3948 /* MJUSceneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB63F9818312BDB009C3948 /* MJUSceneCell.m */; };
+		7AB7B158185CB9C800BF9CEC /* MJUTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB7B157185CB9C800BF9CEC /* MJUTextViewCell.m */; };
 		7AC4A00B183786010027BEAB /* Questions_Contact.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AC4A00A183786010027BEAB /* Questions_Contact.plist */; };
 		7AC4A00F183788D10027BEAB /* MJUQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC4A00E183788D10027BEAB /* MJUQuestionsViewController.m */; };
 		7AC4A01218379A260027BEAB /* MJUQuestionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC4A01118379A260027BEAB /* MJUQuestionHelper.m */; };
@@ -98,12 +105,19 @@
 		7A3639BA1827CB1C00B7307B /* MJUSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUSceneViewController.h; sourceTree = "<group>"; };
 		7A3639BB1827CB1C00B7307B /* MJUSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUSceneViewController.m; sourceTree = "<group>"; };
 		7A3639BD1827D72E00B7307B /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		7A3F916518632D780019D1E0 /* Questions_Organisation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Questions_Organisation.plist; sourceTree = "<group>"; };
+		7A3F916718632E820019D1E0 /* Questions_PostProduction.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Questions_PostProduction.plist; sourceTree = "<group>"; };
+		7A3F9169186338410019D1E0 /* MJUPDFImageURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUPDFImageURLProtocol.h; sourceTree = "<group>"; };
+		7A3F916A186338410019D1E0 /* MJUPDFImageURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUPDFImageURLProtocol.m; sourceTree = "<group>"; };
+		7A3F916C18633BF40019D1E0 /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.png; sourceTree = "<group>"; };
 		7A41CF44183B68180059B727 /* UILabel+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Additions.h"; sourceTree = "<group>"; };
 		7A41CF45183B68180059B727 /* UILabel+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Additions.m"; sourceTree = "<group>"; };
 		7A435861182CEE4200534588 /* MJUProjectsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUProjectsTableViewController.h; sourceTree = "<group>"; };
 		7A435862182CEE4200534588 /* MJUProjectsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUProjectsTableViewController.m; sourceTree = "<group>"; };
 		7A435864182CF40300534588 /* MJUScenesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUScenesTableViewController.h; sourceTree = "<group>"; };
 		7A435865182CF40300534588 /* MJUScenesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUScenesTableViewController.m; sourceTree = "<group>"; };
+		7A524372185B6B1A0055D40A /* MJUImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUImagePickerController.h; sourceTree = "<group>"; };
+		7A524373185B6B1A0055D40A /* MJUImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUImagePickerController.m; sourceTree = "<group>"; };
 		7A62B68818252C1000A2C1B2 /* Storyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A62B68B18252C1000A2C1B2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7A62B68D18252C1000A2C1B2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -133,6 +147,7 @@
 		7A68C05918265F70004EABD9 /* MJUSceneImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUSceneImage.m; sourceTree = "<group>"; };
 		7A68C05B18265F71004EABD9 /* MJUScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUScene.h; sourceTree = "<group>"; };
 		7A68C05C18265F71004EABD9 /* MJUScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUScene.m; sourceTree = "<group>"; };
+		7A788C8B1862FD3E00D9AD12 /* Questions_Parameter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Questions_Parameter.plist; sourceTree = "<group>"; };
 		7A9520251834CFC9002EC307 /* MJUHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUHelper.h; sourceTree = "<group>"; };
 		7A9520261834CFC9002EC307 /* MJUHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUHelper.m; sourceTree = "<group>"; };
 		7A9520281834D5F3002EC307 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
@@ -151,6 +166,8 @@
 		7AA374EE184F3915007309B2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7AB63F9718312BDB009C3948 /* MJUSceneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUSceneCell.h; sourceTree = "<group>"; };
 		7AB63F9818312BDB009C3948 /* MJUSceneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUSceneCell.m; sourceTree = "<group>"; };
+		7AB7B156185CB9C800BF9CEC /* MJUTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUTextViewCell.h; sourceTree = "<group>"; };
+		7AB7B157185CB9C800BF9CEC /* MJUTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUTextViewCell.m; sourceTree = "<group>"; };
 		7AC4A00A183786010027BEAB /* Questions_Contact.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Questions_Contact.plist; sourceTree = "<group>"; };
 		7AC4A00D183788D10027BEAB /* MJUQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUQuestionsViewController.h; sourceTree = "<group>"; };
 		7AC4A00E183788D10027BEAB /* MJUQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUQuestionsViewController.m; sourceTree = "<group>"; };
@@ -235,6 +252,8 @@
 				7A195C4B183E086C00E2F944 /* MJUPDFGenerator.m */,
 				7ADC3D50184CCD4600DABBE5 /* MJUPDFViewController.h */,
 				7ADC3D51184CCD4600DABBE5 /* MJUPDFViewController.m */,
+				7A3F9169186338410019D1E0 /* MJUPDFImageURLProtocol.h */,
+				7A3F916A186338410019D1E0 /* MJUPDFImageURLProtocol.m */,
 			);
 			name = "PDF Generation";
 			sourceTree = "<group>";
@@ -258,6 +277,8 @@
 				7A3639BB1827CB1C00B7307B /* MJUSceneViewController.m */,
 				7AEEAA9E18537403006038DB /* MJUTimePickerViewController.h */,
 				7AEEAA9F18537403006038DB /* MJUTimePickerViewController.m */,
+				7A524372185B6B1A0055D40A /* MJUImagePickerController.h */,
+				7A524373185B6B1A0055D40A /* MJUImagePickerController.m */,
 			);
 			name = SceneDetail;
 			sourceTree = "<group>";
@@ -315,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				7AA374EE184F3915007309B2 /* Images.xcassets */,
+				7A3F916C18633BF40019D1E0 /* image1.png */,
 				7AC74CA6184CEEA50020BC23 /* dummyImage.jpg */,
 				7A62B69518252C1000A2C1B2 /* Storyboard-Info.plist */,
 				7A62B69618252C1000A2C1B2 /* InfoPlist.strings */,
@@ -439,6 +461,9 @@
 			children = (
 				7A62B69418252C1000A2C1B2 /* Supporting Files */,
 				7AC4A00A183786010027BEAB /* Questions_Contact.plist */,
+				7A788C8B1862FD3E00D9AD12 /* Questions_Parameter.plist */,
+				7A3F916518632D780019D1E0 /* Questions_Organisation.plist */,
+				7A3F916718632E820019D1E0 /* Questions_PostProduction.plist */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -486,6 +511,8 @@
 			children = (
 				7A95203918352C3E002EC307 /* MJUTimeSelectionView.h */,
 				7A95203A18352C3E002EC307 /* MJUTimeSelectionView.m */,
+				7AB7B156185CB9C800BF9CEC /* MJUTextViewCell.h */,
+				7AB7B157185CB9C800BF9CEC /* MJUTextViewCell.m */,
 			);
 			name = SceneDetail;
 			sourceTree = "<group>";
@@ -647,18 +674,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AC74CA7184CEEA50020BC23 /* dummyImage.jpg in Resources */,
+				7A3F916D18633BF40019D1E0 /* image1.png in Resources */,
 				7AA374EF184F3915007309B2 /* Images.xcassets in Resources */,
 				7A9C9E97184DD894008B05C6 /* wheel1.png in Resources */,
 				7A62B6A418252C1000A2C1B2 /* Main_iPad.storyboard in Resources */,
 				7A195C51183E096700E2F944 /* pdf_footer.html in Resources */,
 				7A9C9E99184DD894008B05C6 /* wheel3.png in Resources */,
+				7A3F916818632E820019D1E0 /* Questions_PostProduction.plist in Resources */,
 				7A62B6A118252C1000A2C1B2 /* Main_iPhone.storyboard in Resources */,
+				7A788C8C1862FD3E00D9AD12 /* Questions_Parameter.plist in Resources */,
 				7A62B69818252C1000A2C1B2 /* InfoPlist.strings in Resources */,
 				7A195C4F183E095B00E2F944 /* pdf_header.html in Resources */,
 				7AF372B6184E39890098C28D /* EmptyProjectView.xib in Resources */,
 				7A2A92FB183F660800E58816 /* pdf_content.html in Resources */,
 				7A95203718352B73002EC307 /* TimePickerView.xib in Resources */,
 				7A9C9E96184DD894008B05C6 /* loading.html in Resources */,
+				7A3F916618632D780019D1E0 /* Questions_Organisation.plist in Resources */,
 				7AC4A00B183786010027BEAB /* Questions_Contact.plist in Resources */,
 				7A2A92F9183F659F00E58816 /* pdf_scene-row.html in Resources */,
 				7A9C9E98184DD894008B05C6 /* wheel2.png in Resources */,
@@ -723,6 +754,7 @@
 				7AC4A01818379F070027BEAB /* MJUQuestion.m in Sources */,
 				7A62B69A18252C1000A2C1B2 /* main.m in Sources */,
 				7A64FCA5184F7A0300133F39 /* MJUPhoto.m in Sources */,
+				7A524374185B6B1A0055D40A /* MJUImagePickerController.m in Sources */,
 				7AC4A01218379A260027BEAB /* MJUQuestionHelper.m in Sources */,
 				7AE4CEF3185255DC00FCEF1C /* MJUSplitViewController.m in Sources */,
 				7AEFB699182D261800315686 /* MJUAddProjectViewController.m in Sources */,
@@ -730,6 +762,7 @@
 				7A62B69E18252C1000A2C1B2 /* MJUAppDelegate.m in Sources */,
 				7AD16B52182FA0C600201465 /* MJUTextInputViewController.m in Sources */,
 				7A018B1B18560747004E5657 /* MJUTableHeaderView.m in Sources */,
+				7AB7B158185CB9C800BF9CEC /* MJUTextViewCell.m in Sources */,
 				7A95202A1834D5F3002EC307 /* UIColor+Additions.m in Sources */,
 				7ADC3D52184CCD4600DABBE5 /* MJUPDFViewController.m in Sources */,
 				7A3639BC1827CB1C00B7307B /* MJUSceneViewController.m in Sources */,
@@ -744,6 +777,7 @@
 				7A195C4C183E086C00E2F944 /* MJUPDFGenerator.m in Sources */,
 				7A68C05A18265F70004EABD9 /* MJUSceneImage.m in Sources */,
 				7AC4A0251837BEF90027BEAB /* MJUQuestionSelectionViewController.m in Sources */,
+				7A3F916B186338410019D1E0 /* MJUPDFImageURLProtocol.m in Sources */,
 				7AC4A00F183788D10027BEAB /* MJUQuestionsViewController.m in Sources */,
 				7A9520321834E52D002EC307 /* MJUProjectCell.m in Sources */,
 				7A41CF46183B68180059B727 /* UILabel+Additions.m in Sources */,

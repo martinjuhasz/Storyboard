@@ -50,6 +50,7 @@
     self.toolbarItems = @[totalTimeButton, spacerButton, addButton];
     
     [self setNavBarButtonsToEditMode:NO];
+    [self checkEditButton];
     
 }
 
@@ -70,7 +71,21 @@
 {
     NSUInteger sceneCount = [[self.project scenes] count];
     NSString *totalTime = [MJUHelper secondsToTimeString:[self.project getTotalTime] includingHours:YES];
-    [self.totalTimeLabel setText:[NSString stringWithFormat:@"%lu Szenen | Gesamtlänge: %@", (unsigned long)sceneCount, totalTime]];
+    NSString *formatString = (self.project.scenes.count == 1) ? @"%lu Szene | Gesamtlänge: %@" : @"%lu Szenen | Gesamtlänge: %@";
+    [self.totalTimeLabel setText:[NSString stringWithFormat:formatString, (unsigned long)sceneCount, totalTime]];
+}
+
+- (void)checkEditButton
+{
+    if(self.project.scenes.count > 0) {
+        [self.editModeButton setEnabled:YES];
+    } else {
+        if(self.tableView.editing) {
+            self.tableView.editing = NO;
+            [self setNavBarButtonsToEditMode:NO];
+        }
+        [self.editModeButton setEnabled:NO];
+    }
 }
 
 #pragma mark -
@@ -78,13 +93,12 @@
 
 - (void)setNavBarButtonsToEditMode:(BOOL)editing
 {
-    UIBarButtonItem *button;
     if(!editing) {
-        button = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"IconEditTable"] style:UIBarButtonItemStylePlain target:self action:@selector(moveButtonClicked:)];
+        self.editModeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"IconEditTable"] style:UIBarButtonItemStylePlain target:self action:@selector(moveButtonClicked:)];
     } else {
-        button = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"IconCheckmark"] style:UIBarButtonItemStylePlain target:self action:@selector(moveButtonClicked:)];
+        self.editModeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"IconCheckmark"] style:UIBarButtonItemStylePlain target:self action:@selector(moveButtonClicked:)];
     }
-    self.navigationItem.rightBarButtonItems = @[button];
+    self.navigationItem.rightBarButtonItems = @[self.editModeButton];
 }
 
 - (IBAction)addButtonClicked:(id)sender
@@ -93,11 +107,20 @@
     MJUScene *scene = (MJUScene *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUScene" inManagedObjectContext:context];
     
     scene.title = @"Scene";
-    scene.order = [[[self fetchedResultsController] fetchedObjects] count];
+    NSUInteger sceneCount = [[[self fetchedResultsController] fetchedObjects] count];
+    scene.order = sceneCount;
     [self.project addScenesObject:scene];
     [context save:nil];
     
     [self saveOrder];
+    
+    NSIndexPath *insertedIndexPath = [NSIndexPath indexPathForItem:sceneCount inSection:0];
+    if(IS_IPAD) {
+        [self performSegueWithIdentifier:@"SceneDetailSegue" sender:insertedIndexPath];
+        [self.tableView selectRowAtIndexPath:insertedIndexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+    } else {
+        [self.tableView scrollToRowAtIndexPath:insertedIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    }
 }
 
 - (IBAction)moveButtonClicked:(id)sender
@@ -187,6 +210,11 @@
         [[[MJUProjectsDataModel sharedDataModel] mainContext] deleteObject:scene];
         [[[MJUProjectsDataModel sharedDataModel] mainContext] save:nil];
         [self saveOrder];
+        
+        if(IS_IPAD) {
+            [self.navigationController performSegueWithIdentifier:@"DefaultDetailSegue" sender:indexPath];
+        }
+        
     }
 }
 
@@ -214,41 +242,6 @@
     [things insertObject:thing atIndex:[destinationIndexPath row]];
     
     [self saveOrderToItems:things];
-
-//    NSUInteger fromIndex = sourceIndexPath.row;
-//    NSUInteger toIndex = destinationIndexPath.row;
-//    
-//    if (fromIndex == toIndex) {
-//        return;
-//    }
-//    
-//    MJUScene *affectedObject = [self.fetchedResultsController.fetchedObjects objectAtIndex:fromIndex];
-//    affectedObject.order = toIndex;
-//    
-//    NSUInteger start, end;
-//    int delta;
-//    
-//    if (fromIndex < toIndex) {
-//        // move was down, need to shift up
-//        delta = -1;
-//        start = fromIndex + 1;
-//        end = toIndex;
-//    } else { // fromIndex > toIndex
-//        // move was up, need to shift down
-//        delta = 1;
-//        start = toIndex;
-//        end = fromIndex - 1;
-//    }
-//    
-//    for (NSUInteger i = start; i <= end; i++) {
-//        MJUScene *otherObject = [self.fetchedResultsController.fetchedObjects objectAtIndex:i];
-//        otherObject.order += delta;
-//    }
-//    
-//    userDrivenModelChange = YES;
-//    [[[MJUProjectsDataModel sharedDataModel] mainContext] save:nil];
-//    userDrivenModelChange = NO;
-    
 }
 
 
@@ -270,6 +263,7 @@
     userDrivenModelChange = YES;
     [[[MJUProjectsDataModel sharedDataModel] mainContext] save:nil];
     userDrivenModelChange = NO;
+    [self.tableView reloadData];
 }
 
 - (NSFetchedResultsController *)fetchedResultsController
@@ -312,6 +306,7 @@
 }
 
 -(void) controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self checkEditButton];
     if(userDrivenModelChange) return;
     [self.tableView endUpdates];
     [self updateTimeLabel];

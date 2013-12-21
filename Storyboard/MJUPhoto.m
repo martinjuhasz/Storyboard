@@ -84,9 +84,7 @@ CGSize const MJUDefaultLandscapeIpad2xImageSize = {1280, 720};
             UIGraphicsPopContext();
             
         } else {
-            UIImage *newImage = [image scaleToCoverSize:contextSize];
-            NSLog(@"expected Size: %@", NSStringFromCGSize(contextSize));
-            NSLog(@"result Size: %@", NSStringFromCGSize(newImage.size));
+            UIImage *newImage = [image scaleToFillSize:contextSize];
             UIGraphicsPushContext(contextRef);
             [newImage drawInRect:contextBounds];
             UIGraphicsPopContext();
