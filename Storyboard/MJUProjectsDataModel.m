@@ -26,6 +26,7 @@
     static MJUProjectsDataModel *__instance = nil;
     if (__instance == nil) {
         __instance = [[MJUProjectsDataModel alloc] init];
+        [[NSNotificationCenter defaultCenter] addObserver:__instance selector:@selector(mocDidSaveNotification:) name:NSManagedObjectContextDidSaveNotification object:nil];
     }
     
     return __instance;
@@ -99,5 +100,27 @@
     
     return _persistentStoreCoordinator;
 }
+    
+- (void)mocDidSaveNotification:(NSNotification *)notification
+{
+    NSManagedObjectContext *savedContext = [notification object];
+    
+    // ignore change notifications for the main MOC
+    if (_mainContext == savedContext)
+    {
+        return;
+    }
+    
+    if (_mainContext.persistentStoreCoordinator != savedContext.persistentStoreCoordinator)
+    {
+        // that's another database
+        return;
+    }
+    
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [_mainContext mergeChangesFromContextDidSaveNotification:notification];
+    });
+}
+    
 
 @end

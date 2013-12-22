@@ -21,6 +21,7 @@
 @dynamic images;
 @dynamic project;
 @dynamic title;
+@dynamic sceneImageSRC;
 
 - (BOOL)hasImage
 {
@@ -34,6 +35,11 @@
 - (MJUSceneImage*)getSceneImage
 {
     return ((MJUSceneImage*)[self.images anyObject]);
+}
+
+- (NSString*)sceneImageSRC
+{
+    return [[(MJUSceneImage*)[self.images anyObject] getObjectIDAsString] stringByReplacingOccurrencesOfString:@"x-coredata://" withString:@"mjulocalsceneimage://"];
 }
 
 @end

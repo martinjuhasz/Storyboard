@@ -67,6 +67,9 @@ CGSize const MJUDefaultLandscapeIpad2xImageSize = {1280, 720};
 - (FICEntityImageDrawingBlock)drawingBlockForImage:(UIImage *)image withFormatName:(NSString *)formatName {
     FICEntityImageDrawingBlock drawingBlock = ^(CGContextRef contextRef, CGSize contextSize) {
         
+        
+//        UIGraphicsPushContext(contextRef);
+//        UIGraphicsPopContext();
         CGRect contextBounds = CGRectZero;
         contextBounds.size = contextSize;
         CGContextClearRect(contextRef, contextBounds);

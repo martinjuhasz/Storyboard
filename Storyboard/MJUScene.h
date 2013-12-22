@@ -21,6 +21,7 @@
 @property (nonatomic) int32_t order;
 @property (nonatomic, retain) NSSet *images;
 @property (nonatomic, retain) MJUProject *project;
+@property (nonatomic, retain, readonly) NSString *sceneImageSRC;
 
 - (BOOL)hasImage;
 - (UIImage*)getImage;

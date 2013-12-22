@@ -9,6 +9,7 @@
 #import "MJUQuestionHelper.h"
 #import "MJUQuestion.h"
 #import "MJUSubQuestion.h"
+#import "MJUProject.h"
 
 @implementation MJUQuestionHelper
 
@@ -17,6 +18,17 @@
     self = [super init];
     if (self) {
         self.plistPath = [self getPathForFile:plistFile];
+        [self loadQuestions];
+    }
+    return self;
+}
+
+- (id)initWithPList:(NSString*)plistFile project:(MJUProject*)project
+{
+    self = [super init];
+    if (self) {
+        self.plistPath = [self getPathForFile:plistFile];
+        self.project = project;
         [self loadQuestions];
     }
     return self;
@@ -34,7 +46,7 @@
     NSMutableArray *questions = [NSMutableArray array];
     
     for (NSDictionary *questionDict in plistQuestions) {
-        MJUQuestion *question = [[MJUQuestion alloc] initWithDict:questionDict];
+        MJUQuestion *question = [[MJUQuestion alloc] initWithDict:questionDict project:self.project];
         [questions addObject:question];
     }
     self.questions = [NSArray arrayWithArray:questions];

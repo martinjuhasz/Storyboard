@@ -19,4 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *numberLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *sceneImageView;
 
+    
+- (void)setScene:(MJUScene *)scene forIndexPath:(NSIndexPath*)indexPath;
+
 @end

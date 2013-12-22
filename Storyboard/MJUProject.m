@@ -78,6 +78,11 @@
     return [array objectAtIndex:0];
 }
 
+- (NSString*)projectLogoSRC
+{
+    return [[[[self objectID] URIRepresentation] absoluteString] stringByReplacingOccurrencesOfString:@"x-coredata://" withString:@"mjulocalprojectimage://"];
+}
+
 
 
 @end

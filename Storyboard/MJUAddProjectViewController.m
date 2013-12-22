@@ -22,10 +22,16 @@
 {
     [super viewDidLoad];
     
+    [self.imageButton setBackgroundImage:[UIImage imageNamed:@"newProjectAddImage"] forState:UIControlStateNormal];
+    _imageField.image = nil;
+    
     if(self.project) {
         _titleField.text = self.project.title;
         _companyField.text = self.project.companyName;
-        _imageField.image = [self.project getCompanyLogo];
+        if([self.project getCompanyLogo]) {
+            _imageField.image = [self.project getCompanyLogo];
+            [self.imageButton setBackgroundImage:nil forState:UIControlStateNormal];
+        }
     }
 
 }
@@ -91,10 +97,11 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    if(!chosenImage) return;
-    
-    _imageField.image = chosenImage;
+    UIImage *chosenImage = info[UIImagePickerControllerOriginalImage];
+    if(chosenImage) {
+        _imageField.image = chosenImage;
+        [self.imageButton setBackgroundImage:nil forState:UIControlStateNormal];
+    }
     
     [picker dismissViewControllerAnimated:YES completion:nil];
 }

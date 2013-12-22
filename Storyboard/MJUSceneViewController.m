@@ -49,7 +49,7 @@
     if(self.scene.images.count > 0) {
         MJUSceneImage *sceneImage = [self.scene getSceneImage];
         if(sceneImage) {
-            MJUPhoto *photo = [MJUPhoto photoForSceneImage:[self.scene getSceneImage]];
+            MJUPhoto *photo = [MJUPhoto photoForSceneImage:sceneImage];
             
             FICImageCacheCompletionBlock completionBlock = ^(id <FICEntity> entity, NSString *formatName, UIImage *image) {
                 self.imageView.image = image;

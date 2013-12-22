@@ -22,6 +22,7 @@
 @property (nonatomic, retain) NSSet *scenes;
 @property (nonatomic, retain) NSSet *answers;
 @property (nonatomic, retain) NSArray *orderedScenes;
+@property (nonatomic, retain, readonly) NSString *projectLogoSRC;
 
 - (void)addCompanyLogo:(UIImage*)image;
 - (UIImage*)getCompanyLogo;

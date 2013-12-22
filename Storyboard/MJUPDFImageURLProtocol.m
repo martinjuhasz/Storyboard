@@ -11,12 +11,13 @@
 #import "MJUSceneImage.h"
 #import "MJUPhoto.h"
 #import "FICImageCache.h"
+#import "MJUProject.h"
 
 @implementation MJUPDFImageURLProtocol
 
 + (BOOL)canInitWithRequest:(NSURLRequest*)theRequest
 {
-    if ([theRequest.URL.scheme caseInsensitiveCompare:@"mjulocalimage"] == NSOrderedSame) {
+    if ([theRequest.URL.scheme caseInsensitiveCompare:@"mjulocalsceneimage"] == NSOrderedSame || [theRequest.URL.scheme caseInsensitiveCompare:@"mjulocalprojectimage"] == NSOrderedSame) {
         return YES;
     }
     return NO;
@@ -29,10 +30,55 @@
 
 - (void)startLoading
 {
+    if ([self.request.URL.scheme caseInsensitiveCompare:@"mjulocalsceneimage"] == NSOrderedSame) {
+        [self startLoadingSceneImage];
+    } else {
+        [self startLoadingProjectImage];
+    }
+}
+
+- (void)startLoadingProjectImage
+{
     NSURLResponse *response = [[NSURLResponse alloc] initWithURL:self.request.URL MIMEType:@"image/jpg" expectedContentLength:-1 textEncodingName:nil];
     
     
-    NSURL *imageURL = [NSURL URLWithString:[[response.URL absoluteString] stringByReplacingOccurrencesOfString:@"mjulocalimage" withString:@"x-coredata"]];
+    NSURL *imageURL = [NSURL URLWithString:[[response.URL absoluteString] stringByReplacingOccurrencesOfString:@"mjulocalprojectimage" withString:@"x-coredata"]];
+    NSManagedObjectID *imageObjectID;
+    
+    @try {
+        imageObjectID = [[[MJUProjectsDataModel sharedDataModel] persistentStoreCoordinator] managedObjectIDForURIRepresentation:imageURL];
+    }
+    @catch (NSException *exception) {
+        NSError *uriError = [NSError errorWithDomain:@"MJUPDFImageURLProtocol.InvalidCoreDataURIError" code:1 userInfo:nil];
+        [[self client] URLProtocol:self didFailWithError:uriError];
+        return;
+    }
+    
+    NSError *error;
+    MJUProject *project = (MJUProject*)[[[MJUProjectsDataModel sharedDataModel] mainContext] existingObjectWithID:imageObjectID error:&error];
+    
+    if(error) {
+        [[self client] URLProtocol:self didFailWithError:error];
+        return;
+    }
+    
+    if(!project || !project.companyLogo) {
+        NSError *imageError = [NSError errorWithDomain:@"MJUPDFImageURLProtocol.NoSuchImageError" code:1 userInfo:nil];
+        [[self client] URLProtocol:self didFailWithError:imageError];
+        return;
+    }
+    
+    [[self client] URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
+    [[self client] URLProtocol:self didLoadData:project.companyLogo];
+    [[self client] URLProtocolDidFinishLoading:self];
+    
+}
+
+- (void)startLoadingSceneImage
+{
+    NSURLResponse *response = [[NSURLResponse alloc] initWithURL:self.request.URL MIMEType:@"image/jpg" expectedContentLength:-1 textEncodingName:nil];
+    
+    NSURL *imageURL = [NSURL URLWithString:[[response.URL absoluteString] stringByReplacingOccurrencesOfString:@"mjulocalsceneimage" withString:@"x-coredata"]];
     NSManagedObjectID *imageObjectID;
     
     @try {

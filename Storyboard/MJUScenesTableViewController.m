@@ -14,6 +14,8 @@
 #import "MJUSceneCell.h"
 #import "UITableView+Additions.h"
 #import "MJUHelper.h"
+#import "MJUPhoto.h"
+#import "FICImageCache.h"
 
 @interface MJUScenesTableViewController () {
     bool userDrivenModelChange;
@@ -181,6 +183,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    cell.tag = indexPath.row;
     [self updateCell:cell atIndexPath:indexPath];
     
     return cell;
@@ -190,7 +193,7 @@
 {
     MJUScene *currentScene = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     MJUSceneCell *currentCell = (MJUSceneCell*)cell;
-    [currentCell setScene:currentScene];
+    [currentCell setScene:currentScene forIndexPath:indexPath];
     currentCell.numberLabel.text = [NSString stringWithFormat:@"%d", (int)indexPath.row+1];
 }
 

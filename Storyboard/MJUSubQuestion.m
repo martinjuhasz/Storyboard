@@ -7,6 +7,7 @@
 //
 
 #import "MJUSubQuestion.h"
+#import "MJUProject.h"
 
 @implementation MJUSubQuestion
 
@@ -19,9 +20,27 @@
     return self;
 }
 
+- (id)initWithDict:(NSDictionary*)dict project:(MJUProject*)project
+{
+    self = [super init];
+    if (self) {
+        self.project = project;
+        [self loadDict:dict];
+    }
+    return self;
+}
+
 - (BOOL)isSelectable
 {
     return !!self.selections;
+}
+
+- (MJUAnswer*)answer
+{
+    if(self.project) {
+        return [self.project getAnswerForQuestion:self];
+    }
+    return nil;
 }
 
 - (void)loadDict:(NSDictionary*)dict

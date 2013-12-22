@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *companyField;
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UIImageView *imageField;
+    @property (weak, nonatomic) IBOutlet UIButton *imageButton;
 
 @end

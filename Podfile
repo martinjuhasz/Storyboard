@@ -8,6 +8,7 @@ pod 'HockeySDK'
 pod 'FastImageCache'
 pod 'PEPhotoCropEditor', :podspec => 'https://raw.github.com/martinjuhasz/PEPhotoCropEditor/master/PEPhotoCropEditor.podspec'
 pod 'NYXImagesKit'
+pod 'GRMustache'
 
 # debug
 pod 'Reveal-iOS-SDK'

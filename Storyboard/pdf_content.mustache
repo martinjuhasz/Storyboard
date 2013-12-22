@@ -1,0 +1,228 @@
+{{% CONTENT_TYPE:HTML }}
+<html>
+    <head>
+        <style type="text/css">
+
+            body {
+                padding: 20px;
+                font-family: HelveticaNeue;
+                font-weight: normal;
+                font-size: 12px;
+                color: #545454;
+                line-height: 18px;
+            }
+
+            h1 {
+                line-height: 28px;
+                font-size: 24px;
+                margin-top: 10px;
+                margin-bottom: 70px;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            h2 {
+                width: 100%;
+                text-align: center;
+                color: #D8D8D8;
+                font-weight: normal;
+            }
+
+            #logo {
+                width: 100%;
+                text-align: center;
+                margin-top: 150px;
+            }
+
+            #logo img {
+                width: 100%;
+                width: 300px;
+                display: inline-block;
+            }
+
+            h3 {
+                margin-bottom: 30px;
+                font-size: 18px;
+                margin-top: 20px;
+            }
+
+            fieldset {
+                padding: 0 15px 15px;
+                margin-top: 25px;
+                border: 1px solid #D8D8D8;
+            }
+
+            fieldset legend {
+                font-weight: bold;
+                font-size: 14px;
+            }
+
+            .question {
+                font-weight: bold;
+                margin-top: 15px;
+            }
+        
+            #scenes .scene {
+                border-top: 1px solid #D8D8D8;
+                margin-top: 30px;
+                min-height: 230px;
+            }
+
+            #scenes .scene h4 {
+                font-family: HelveticaNeue-Bold;
+                font-size: 18px;
+                color: #000000;
+                line-height: 23px;
+                margin: 15px 0 20px;
+            }
+
+            #scenes .scene .scene_image {
+                float: left;
+                width: 45%;
+            }
+
+            #scenes .scene .scene_image img {
+                width: 92%;
+            }
+
+            #scenes .scene .text {
+                float: right;
+                width: 53%;
+                padding-left: 2%;
+                margin-bottom: 20px;
+            }
+
+            #scenes .scene .text h5 {
+                color: #D8D8D8;
+                font-size: 12px;
+                line-height: 14px;
+                text-transform: uppercase;
+                font-weight: normal;
+                margin: 0px 0px 10px 0px;
+            }
+
+            #scenes .scene.without_image .text.image {
+                width: 45%;
+                float: left;
+                padding-left: 0%;
+            }
+
+            .cf:before,
+            .cf:after {
+                content: " ";
+                display: table;
+            }
+
+            .cf:after {
+                clear: both;
+            }
+
+            .break {
+                page-break-before: always;
+            }
+
+            #scenes  { page-break-inside:auto }
+            #scenes .scene { page-break-inside:avoid; page-break-after:auto }
+        </style>
+    </head>
+    
+    <body>
+        <h1>{{project.title}}</h1>
+        <h2>{{project.companyName}}</h2>
+        {{# project.companyLogo}}
+            <div id="logo"><img src="{{project.projectLogoSRC}}" alt="" /></div>
+        {{/ project.companyLogo}}
+
+
+        <div class="break"></div>
+        
+        <h3>Kontaktdaten</h3>
+        {{#contactQuestionHelper.questions}}
+            <fieldset class="section">
+                <legend>{{sectionTitle}}</legend>
+                {{#subQuestions}}
+                        <div class="question">{{title}}</div>
+                        <div class="answer">{{answer.text}}</div>
+            {{/subQuestions}}
+            </fieldset>
+        {{/contactQuestionHelper.questions}}
+
+        <div class="break"></div>
+        
+        <h3>Parameter</h3>
+        {{#parameterQuestionHelper.questions}}
+            <fieldset class="section">
+                <legend>{{sectionTitle}}</legend>
+                {{#subQuestions}}
+                        <div class="question">{{title}}</div>
+                        <div class="answer">{{answer.text}}</div>
+            {{/subQuestions}}
+            </fieldset>
+        {{/parameterQuestionHelper.questions}}
+
+        <div class="break"></div>
+        
+        <h3>Organisation</h3>
+        {{#organisationQuestionHelper.questions}}
+            <fieldset class="section">
+                <legend>{{sectionTitle}}</legend>
+                {{#subQuestions}}
+                        <div class="question">{{title}}</div>
+                        <div class="answer">{{answer.text}}</div>
+            {{/subQuestions}}
+            </fieldset>
+        {{/organisationQuestionHelper.questions}}
+
+        <div class="break"></div>
+        
+        <h3>Post Production</h3>
+        {{#postProductionQuestionHelper.questions}}
+            <fieldset class="section">
+                <legend>{{sectionTitle}}</legend>
+                {{#subQuestions}}
+                        <div class="question">{{title}}</div>
+                        <div class="answer">{{answer.text}}</div>
+            {{/subQuestions}}
+            </fieldset>
+        {{/postProductionQuestionHelper.questions}}
+
+        <div class="break"></div>
+
+        <h3>Scenes</h3>
+        <div id="scenes">
+        {{#project.orderedScenes}}
+            {{# hasImage}}
+                <div class="scene cf">
+                    <h4>{{title}}</h4>
+                    <div class="scene_image">
+                        <img src="{{sceneImageSRC}}" />
+                    </div>
+                    <div class="text image">
+                        <h5>Bildebene</h5>
+                        {{imageText}}
+                    </div>
+                    <div class="text sound">
+                        <h5>Bildebene</h5>
+                        {{soundText}}
+                    </div>
+                </div>
+            {{^ hasImage}}
+                <div class="scene without_image cf">
+                    <h4>{{title}}</h4>
+                    <div class="text image">
+                        <h5>Bildebene</h5>
+                        {{imageText}}
+                    </div>
+                    <div class="text sound">
+                        <h5>Bildebene</h5>
+                        {{soundText}}
+                    </div>
+                </div>
+            {{/ hasImage}}
+
+        {{/project.orderedScenes}}
+        </div>
+
+    </body>
+</html>

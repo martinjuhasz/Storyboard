@@ -19,7 +19,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.textView.textContainerInset = UIEdgeInsetsMake(15.0f, 10.0f, 0.0f, 10.0f);
+    self.textView.textContainerInset = UIEdgeInsetsMake(15.0f, 10.0f, 15.0f, 10.0f);
     self.textView.text = self.inputText;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
@@ -50,12 +50,14 @@
     BOOL isPortrait = UIDeviceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation);
     CGFloat height = isPortrait ? keyboardFrame.size.height : keyboardFrame.size.width;
 
-    NSLog(@"%f", self.view.frame.size.height);
     
-    self.keyboardHeightContraint.constant = height + 10.0f;
+    self.keyboardHeightContraint.constant = height + 1.0f;
     
     [UIView animateWithDuration:animationDuration animations:^{
         [self.view layoutIfNeeded];
+    }completion:^(BOOL finished) {
+        self.textView.scrollEnabled = NO;
+        self.textView.scrollEnabled = YES;
     }];
 }
 

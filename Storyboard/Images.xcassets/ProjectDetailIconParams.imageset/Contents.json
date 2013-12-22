@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "ProjectDetailIconParams.png"
+      "filename" : "icon-parameter.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "ProjectDetailIconParams@2x.png"
+      "filename" : "icon-parameter@2x.png"
     }
   ],
   "info" : {

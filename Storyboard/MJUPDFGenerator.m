@@ -11,7 +11,8 @@
 #import "MJUScene.h"
 #import "MJUPDFImageURLProtocol.h"
 #import "MJUSceneImage.h"
-
+#import "GRMustache.h"
+#import "MJUQuestionHelper.h"
 
 @implementation MJUPDFGenerator
 
@@ -31,7 +32,27 @@
 
 - (void)generatePDFWithSuccess:(NDHTMLtoPDFCompletionBlock)success error:(NDHTMLtoPDFCompletionBlock)error
 {
-    NSString *htmlContent = [self generateHTML];
+//    NSString *htmlContent = [self generateHTML];
+    
+    MJUQuestionHelper *contactQuestionHelper = [[MJUQuestionHelper alloc] initWithPList:@"Questions_Contact" project:self.project];
+    MJUQuestionHelper *parameterQuestionHelper = [[MJUQuestionHelper alloc] initWithPList:@"Questions_Parameter" project:self.project];
+    MJUQuestionHelper *organisationQuestionHelper = [[MJUQuestionHelper alloc] initWithPList:@"Questions_Organisation" project:self.project];
+    MJUQuestionHelper *postProductionQuestionHelper = [[MJUQuestionHelper alloc] initWithPList:@"Questions_PostProduction" project:self.project];
+    
+    id data = @{ @"project": self.project,
+                 @"contactQuestionHelper": contactQuestionHelper,
+                 @"parameterQuestionHelper": parameterQuestionHelper,
+                 @"organisationQuestionHelper": organisationQuestionHelper,
+                 @"postProductionQuestionHelper": postProductionQuestionHelper
+            };
+    
+    
+    GRMustacheTemplate *template = [GRMustacheTemplate templateFromResource:@"pdf_content" bundle:nil error:nil];
+    NSString *htmlContent = [template renderObject:data error:nil];
+    
+    
+    
+    
     
     dispatch_async(dispatch_get_main_queue(), ^(){
         self.pdfCreator = [NDHTMLtoPDF createPDFWithHTML:htmlContent pathForPDF:nil pageSize:kPaperSizeA4 margins:UIEdgeInsetsMake(10, 5, 10, 5) successBlock:success errorBlock:error];
@@ -140,7 +161,7 @@
     }
     
     NSString *imageURL = [[image getObjectIDAsString] stringByReplacingOccurrencesOfString:@"x-coredata://" withString:@""];
-    NSString *htmlImg = [NSString stringWithFormat:@"<img src='mjulocalimage://%@' />", imageURL];
+    NSString *htmlImg = [NSString stringWithFormat:@"<img src='mjulocalsceneimage://%@' />", imageURL];
     return [content stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"###%@###",replace] withString:htmlImg];
 }
 
