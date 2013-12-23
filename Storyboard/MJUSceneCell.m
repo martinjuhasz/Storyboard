@@ -33,16 +33,24 @@
         self.accessoryType = UITableViewCellAccessoryNone;
         
         MJUSceneImage *sceneImage = [_scene getSceneImage];
+        
+        
+        
+        
+        
         if(sceneImage) {
-            MJUPhoto *photo = [MJUPhoto photoForSceneImage:sceneImage];
-            FICImageCacheCompletionBlock completionBlock = ^(id <FICEntity> entity, NSString *formatName, UIImage *image) {
-                if(photo == entity && self.tag == indexPath.row) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        self.sceneImageView.image = image;
-                    });
-                }
-            };
-            [[FICImageCache sharedImageCache] retrieveImageForEntity:photo withFormatName:MJUSmallSquareThumbnailImageFormatName completionBlock:completionBlock];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                MJUPhoto *photo = [MJUPhoto photoForSceneImage:sceneImage];
+                FICImageCacheCompletionBlock completionBlock = ^(id <FICEntity> entity, NSString *formatName, UIImage *image) {
+                    if(photo == entity && self.tag == indexPath.row) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            self.sceneImageView.image = image;
+                        });
+                    }
+                };
+                //            [[FICImageCache sharedImageCache] retrieveImageForEntity:photo withFormatName:MJUSmallSquareThumbnailImageFormatName completionBlock:completionBlock];
+                [[FICImageCache sharedImageCache] asynchronouslyRetrieveImageForEntity:photo withFormatName:MJUSmallSquareThumbnailImageFormatName completionBlock:completionBlock];
+            });
         } else {
             self.imageView.image = nil;
         }

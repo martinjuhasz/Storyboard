@@ -109,6 +109,7 @@
     // Images typically come from the Internet rather than from the app bundle directly, so this would be the place to fire off a network request to download the image.
     // For the purposes of this demo app, we'll just access images stored locally on disk.
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        UIImage *sourceImage = [UIImage imageNamed:@"dummyImage.jpg"];
         dispatch_async(dispatch_get_main_queue(), ^{
             UIImage *sourceImage = [(MJUPhoto *)entity sourceImage];
             completionBlock(sourceImage);
