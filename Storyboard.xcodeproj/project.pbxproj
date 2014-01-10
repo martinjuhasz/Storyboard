@@ -39,7 +39,6 @@
 		7A62B6C318252C1000A2C1B2 /* StoryboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A62B6C218252C1000A2C1B2 /* StoryboardTests.m */; };
 		7A62B6D2182539CC00A2C1B2 /* MJUProjectsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A62B6D1182539CC00A2C1B2 /* MJUProjectsDataModel.m */; };
 		7A62B6D618253EA500A2C1B2 /* MJUProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A62B6D518253EA500A2C1B2 /* MJUProject.m */; };
-		7A64FCA5184F7A0300133F39 /* MJUPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A64FCA4184F7A0300133F39 /* MJUPhoto.m */; };
 		7A68C04D18264DCD004EABD9 /* MJUProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A68C04C18264DCD004EABD9 /* MJUProjectViewController.m */; };
 		7A68C05A18265F70004EABD9 /* MJUSceneImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A68C05918265F70004EABD9 /* MJUSceneImage.m */; };
 		7A68C05D18265F71004EABD9 /* MJUScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A68C05C18265F71004EABD9 /* MJUScene.m */; };
@@ -132,8 +131,6 @@
 		7A62B6D1182539CC00A2C1B2 /* MJUProjectsDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUProjectsDataModel.m; sourceTree = "<group>"; };
 		7A62B6D418253EA500A2C1B2 /* MJUProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUProject.h; sourceTree = "<group>"; };
 		7A62B6D518253EA500A2C1B2 /* MJUProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUProject.m; sourceTree = "<group>"; };
-		7A64FCA3184F7A0300133F39 /* MJUPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUPhoto.h; sourceTree = "<group>"; };
-		7A64FCA4184F7A0300133F39 /* MJUPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUPhoto.m; sourceTree = "<group>"; };
 		7A68C04B18264DCD004EABD9 /* MJUProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUProjectViewController.h; sourceTree = "<group>"; };
 		7A68C04C18264DCD004EABD9 /* MJUProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUProjectViewController.m; sourceTree = "<group>"; };
 		7A68C05818265F70004EABD9 /* MJUSceneImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUSceneImage.h; sourceTree = "<group>"; };
@@ -426,8 +423,6 @@
 				7AC4A01C1837AEAF0027BEAB /* MJUAnswer.h */,
 				7AC4A01D1837AEAF0027BEAB /* MJUAnswer.m */,
 				7A62B6CF182539B300A2C1B2 /* CoreData */,
-				7A64FCA3184F7A0300133F39 /* MJUPhoto.h */,
-				7A64FCA4184F7A0300133F39 /* MJUPhoto.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -749,7 +744,6 @@
 				7A95202D1834D927002EC307 /* UITableView+Additions.m in Sources */,
 				7AC4A01818379F070027BEAB /* MJUQuestion.m in Sources */,
 				7A62B69A18252C1000A2C1B2 /* main.m in Sources */,
-				7A64FCA5184F7A0300133F39 /* MJUPhoto.m in Sources */,
 				7A524374185B6B1A0055D40A /* MJUImagePickerController.m in Sources */,
 				7AC4A01218379A260027BEAB /* MJUQuestionHelper.m in Sources */,
 				7AE4CEF3185255DC00FCEF1C /* MJUSplitViewController.m in Sources */,
@@ -942,13 +936,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Storyboard/Storyboard-Prefix.pch";
 				INFOPLIST_FILE = "Storyboard/Storyboard-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "FB73DB8F-148E-4985-8018-B54A0AA979E5";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

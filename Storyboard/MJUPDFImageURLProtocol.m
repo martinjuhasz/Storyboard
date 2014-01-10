@@ -9,8 +9,6 @@
 #import "MJUPDFImageURLProtocol.h"
 #import "MJUProjectsDataModel.h"
 #import "MJUSceneImage.h"
-#import "MJUPhoto.h"
-#import "FICImageCache.h"
 #import "MJUProject.h"
 
 @implementation MJUPDFImageURLProtocol
@@ -104,15 +102,10 @@
         return;
     }
     
-    MJUPhoto *photo = [MJUPhoto photoForSceneImage:sceneImage];
+    [[self client] URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
+    [[self client] URLProtocol:self didLoadData:sceneImage.image];
+    [[self client] URLProtocolDidFinishLoading:self];
     
-    FICImageCacheCompletionBlock completionBlock = ^(id <FICEntity> entity, NSString *formatName, UIImage *image) {
-        [[self client] URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
-        NSData *data = UIImageJPEGRepresentation(image, 0.8);
-        [[self client] URLProtocol:self didLoadData:data];
-        [[self client] URLProtocolDidFinishLoading:self];
-    };
-    [[FICImageCache sharedImageCache] retrieveImageForEntity:photo withFormatName:MJUDefaultLandscapeImageFormatName completionBlock:completionBlock];
 }
 
 - (void)stopLoading

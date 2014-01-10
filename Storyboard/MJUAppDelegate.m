@@ -8,10 +8,8 @@
 
 #import "MJUAppDelegate.h"
 #import "UIColor+Additions.h"
-#import "FICImageCache.h"
-#import "MJUPhoto.h"
 
-@interface MJUAppDelegate(HockeyProtocols) < BITHockeyManagerDelegate, FICImageCacheDelegate> {}
+@interface MJUAppDelegate(HockeyProtocols) < BITHockeyManagerDelegate> {}
 @end
 
 @implementation MJUAppDelegate
@@ -25,7 +23,6 @@
     [[BITHockeyManager sharedHockeyManager] startManager];
     
     [self setStyles];
-    [self initImageCache];
     
     return YES;
 }
@@ -68,61 +65,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
 
-}
-
-- (void)initImageCache
-{
-    NSInteger squareImageFormatMaximumCount = 100;
-    FICImageFormatDevices squareImageFormatDevices = FICImageFormatDevicePhone | FICImageFormatDevicePad;
-    
-    // Square Image
-    FICImageFormat *smallSquareThumbnailImageFormat = [FICImageFormat formatWithName:MJUSmallSquareThumbnailImageFormatName family:MJUPhotoImageFormatFamily imageSize:MJUSmallSquareThumbnailImageSize style:FICImageFormatStyle32BitBGR maximumCount:squareImageFormatMaximumCount devices:squareImageFormatDevices];
-    
-    // Default Landscape Image
-    CGSize defaultLandscapeImageSize;
-    
-    if(!IS_RETINA && UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
-        // nonretina iphone
-        defaultLandscapeImageSize = MJUDefaultLandscapeIphoneImageSize;
-        
-    } else if((IS_RETINA && UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) || (!IS_RETINA && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)) {
-        // retina iPhone or nonretina iPad
-        defaultLandscapeImageSize = MJUDefaultLandscapeIphone2xIpadImageSize;
-    } else {
-        // retina ipad
-        defaultLandscapeImageSize = MJUDefaultLandscapeIpad2xImageSize;
-    }
-    
-    FICImageFormat *defaultLandscapeImageFormat = [FICImageFormat formatWithName:MJUDefaultLandscapeImageFormatName family:MJUPhotoImageFormatFamily imageSize:defaultLandscapeImageSize style:FICImageFormatStyle32BitBGR maximumCount:squareImageFormatMaximumCount devices:squareImageFormatDevices];
-    
-    
-    // Configure the image cache
-    FICImageCache *sharedImageCache = [FICImageCache sharedImageCache];
-    [sharedImageCache setDelegate:self];
-    [sharedImageCache setFormats:@[smallSquareThumbnailImageFormat, defaultLandscapeImageFormat]];
-    
-}
-
-#pragma mark - FICImageCacheDelegate
-
-- (void)imageCache:(FICImageCache *)imageCache wantsSourceImageForEntity:(id<FICEntity>)entity withFormatName:(NSString *)formatName completionBlock:(FICImageRequestCompletionBlock)completionBlock {
-    // Images typically come from the Internet rather than from the app bundle directly, so this would be the place to fire off a network request to download the image.
-    // For the purposes of this demo app, we'll just access images stored locally on disk.
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        UIImage *sourceImage = [UIImage imageNamed:@"dummyImage.jpg"];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            UIImage *sourceImage = [(MJUPhoto *)entity sourceImage];
-            completionBlock(sourceImage);
-        });
-    });
-}
-
-- (BOOL)imageCache:(FICImageCache *)imageCache shouldProcessAllFormatsInFamily:(NSString *)formatFamily forEntity:(id<FICEntity>)entity {
-    return YES;
-}
-
-- (void)imageCache:(FICImageCache *)imageCache errorDidOccurWithMessage:(NSString *)errorMessage {
-    NSLog(@"%@", errorMessage);
 }
 
 @end

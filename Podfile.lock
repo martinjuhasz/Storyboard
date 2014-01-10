@@ -1,5 +1,4 @@
 PODS:
-  - FastImageCache (1.2)
   - GRMustache (6.8.3):
     - JRSwizzle (~> 1.0)
   - HockeySDK (3.5.0)
@@ -11,7 +10,6 @@ PODS:
   - UITableView-NXEmptyView (0.1.4)
 
 DEPENDENCIES:
-  - FastImageCache
   - GRMustache
   - HockeySDK
   - iOS-htmltopdf (from `https://raw.github.com/martinjuhasz/iOS-htmltopdf/master/iOS-htmltopdf.podspec`)
@@ -27,7 +25,6 @@ EXTERNAL SOURCES:
     :podspec: https://raw.github.com/martinjuhasz/PEPhotoCropEditor/master/PEPhotoCropEditor.podspec
 
 SPEC CHECKSUMS:
-  FastImageCache: 3e0a72dd96394bb36759dab9764b219934fa7ea4
   GRMustache: 90fc77ae45a5b8b5a4cf13874cae811461a1c930
   HockeySDK: 685e6ca0b78668ef8b595fba17fe087ea6074b05
   iOS-htmltopdf: 690a3a27b668065211329002522209903b5c66c4

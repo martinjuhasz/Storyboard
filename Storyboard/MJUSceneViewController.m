@@ -13,8 +13,6 @@
 #import "MJUTextInputViewController.h"
 #import "MJUTimeSelectionView.h"
 #import "UILabel+Additions.h"
-#import "MJUPhoto.h"
-#import "FICImageCache.h"
 #import "MJUTableHeaderView.h"
 #import "MJUImagePickerController.h"
 #import "MJUTextViewCell.h"
@@ -49,13 +47,7 @@
     if(self.scene.images.count > 0) {
         MJUSceneImage *sceneImage = [self.scene getSceneImage];
         if(sceneImage) {
-            MJUPhoto *photo = [MJUPhoto photoForSceneImage:sceneImage];
-            
-            FICImageCacheCompletionBlock completionBlock = ^(id <FICEntity> entity, NSString *formatName, UIImage *image) {
-                self.imageView.image = image;
-                [self.imageView.layer addAnimation:[CATransition animation] forKey:kCATransition];
-            };
-            [[FICImageCache sharedImageCache] retrieveImageForEntity:photo withFormatName:MJUDefaultLandscapeImageFormatName completionBlock:completionBlock];
+            self.imageView.image = [sceneImage getImage];
         }
     }
     

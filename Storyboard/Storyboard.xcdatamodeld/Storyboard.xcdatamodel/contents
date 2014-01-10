@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="MJUAnswer" representedClassName="MJUAnswer" syncable="YES">
         <attribute name="questionID" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="selected" optional="YES" attributeType="Integer 16" defaultValueString="-1" syncable="YES"/>
@@ -9,7 +9,7 @@
     <entity name="MJUProject" representedClassName="MJUProject" syncable="YES">
         <attribute name="companyLogo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="companyName" attributeType="String" syncable="YES"/>
-        <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="407674800" defaultValueString="NOW" syncable="YES"/>
+        <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="409489200" defaultValueString="NOW" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="answers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MJUAnswer" inverseName="project" inverseEntity="MJUAnswer" syncable="YES"/>
         <relationship name="scenes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MJUScene" inverseName="project" inverseEntity="MJUScene" syncable="YES"/>
@@ -27,12 +27,13 @@
     <entity name="MJUSceneImage" representedClassName="MJUSceneImage" syncable="YES">
         <attribute name="image" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="thumbnail" attributeType="Binary" syncable="YES"/>
         <relationship name="scene" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MJUScene" inverseName="images" inverseEntity="MJUScene" syncable="YES"/>
     </entity>
     <elements>
         <element name="MJUAnswer" positionX="-227" positionY="-81" width="128" height="103"/>
         <element name="MJUProject" positionX="-36" positionY="-157" width="128" height="133"/>
         <element name="MJUScene" positionX="178" positionY="45" width="128" height="163"/>
-        <element name="MJUSceneImage" positionX="376" positionY="45" width="128" height="88"/>
+        <element name="MJUSceneImage" positionX="376" positionY="45" width="128" height="103"/>
     </elements>
 </model>

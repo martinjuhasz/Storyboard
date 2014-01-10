@@ -14,8 +14,6 @@
 #import "MJUSceneCell.h"
 #import "UITableView+Additions.h"
 #import "MJUHelper.h"
-#import "MJUPhoto.h"
-#import "FICImageCache.h"
 
 @interface MJUScenesTableViewController () {
     bool userDrivenModelChange;

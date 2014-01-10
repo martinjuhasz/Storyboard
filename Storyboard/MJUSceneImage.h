@@ -13,11 +13,13 @@
 @interface MJUSceneImage : NSManagedObject
 
 @property (nonatomic, retain) NSData * image;
+@property (nonatomic, retain) NSData * thumbnail;
 @property (nonatomic) int32_t order;
 @property (nonatomic, retain) NSManagedObject *scene;
 
 - (void)addImage:(UIImage*)image;
 - (UIImage*)getImage;
+- (UIImage*)getThumbnail;
 - (NSString*)getObjectIDAsString;
 
 @end

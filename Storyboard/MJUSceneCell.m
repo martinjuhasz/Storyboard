@@ -9,8 +9,7 @@
 #import "MJUSceneCell.h"
 #import "MJUScene.h"
 #import "MJUHelper.h"
-#import "MJUPhoto.h"
-#import "FICImageCache.h"
+#import "MJUSceneImage.h"
 
 @implementation MJUSceneCell
 
@@ -34,25 +33,10 @@
         
         MJUSceneImage *sceneImage = [_scene getSceneImage];
         
-        
-        
-        
-        
         if(sceneImage) {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                MJUPhoto *photo = [MJUPhoto photoForSceneImage:sceneImage];
-                FICImageCacheCompletionBlock completionBlock = ^(id <FICEntity> entity, NSString *formatName, UIImage *image) {
-                    if(photo == entity && self.tag == indexPath.row) {
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            self.sceneImageView.image = image;
-                        });
-                    }
-                };
-                //            [[FICImageCache sharedImageCache] retrieveImageForEntity:photo withFormatName:MJUSmallSquareThumbnailImageFormatName completionBlock:completionBlock];
-                [[FICImageCache sharedImageCache] asynchronouslyRetrieveImageForEntity:photo withFormatName:MJUSmallSquareThumbnailImageFormatName completionBlock:completionBlock];
-            });
+            self.sceneImageView.image = [sceneImage getThumbnail];
         } else {
-            self.imageView.image = nil;
+            self.sceneImageView.image = nil;
         }
     } else {
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
