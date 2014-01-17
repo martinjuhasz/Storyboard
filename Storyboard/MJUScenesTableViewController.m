@@ -71,7 +71,16 @@
 {
     NSUInteger sceneCount = [[self.project scenes] count];
     NSString *totalTime = [MJUHelper secondsToTimeString:[self.project getTotalTime] includingHours:YES];
-    NSString *formatString = (self.project.scenes.count == 1) ? @"%lu Szene | Gesamtlänge: %@" : @"%lu Szenen | Gesamtlänge: %@";
+    
+    NSString *sceneString;
+    if(self.project.scenes.count == 1) {
+        sceneString = NSLocalizedString(@"%lu scene", nil);
+    } else {
+        sceneString = NSLocalizedString(@"%lu scenes", nil);
+    }
+    NSString *lengthString = NSLocalizedString(@"total length: %@", nil);
+    
+    NSString *formatString = [NSString stringWithFormat:@"%@ | %@", sceneString, lengthString];
     [self.totalTimeLabel setText:[NSString stringWithFormat:formatString, (unsigned long)sceneCount, totalTime]];
 }
 
@@ -106,7 +115,7 @@
     NSManagedObjectContext *context = [[MJUProjectsDataModel sharedDataModel] mainContext];
     MJUScene *scene = (MJUScene *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUScene" inManagedObjectContext:context];
     
-    scene.title = @"Scene";
+    scene.title = NSLocalizedString(@"Scene", nil);
     NSUInteger sceneCount = [[[self fetchedResultsController] fetchedObjects] count];
     scene.order = sceneCount;
     [self.project addScenesObject:scene];

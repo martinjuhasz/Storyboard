@@ -10,25 +10,22 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Projects yet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pmk-j7-M2u">
-                    <rect key="frame" x="101" y="195" width="118" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="noch keine Projekte" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pmk-j7-M2u">
+                    <rect key="frame" x="84" y="195" width="152" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="projectEmptyIcon" translatesAutoresizingMaskIntoConstraints="NO" id="VFZ-eP-oKU">
-                    <rect key="frame" x="125" y="91" width="71" height="71"/>
+                    <rect key="frame" x="125" y="93" width="71" height="71"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="174" translatesAutoresizingMaskIntoConstraints="NO" id="FRg-35-qmE">
-                    <rect key="frame" x="73" y="212" width="174" height="51"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="FRg-35-qmE">
+                    <rect key="frame" x="85" y="224" width="150" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="51" id="N88-kd-OyN"/>
-                    </constraints>
                     <attributedString key="attributedText">
-                        <fragment content="Tap ">
+                        <fragment content="Tappe ">
                             <attributes>
                                 <color key="NSColor" red="0.58431372549019611" green="0.58431372549019611" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                                 <font key="NSFont" size="14" name="HelveticaNeue-Light"/>
@@ -42,7 +39,7 @@
                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                             </attributes>
                         </fragment>
-                        <fragment content=", to add a new project.">
+                        <fragment content=", um ein Projekt hinzuzufügen">
                             <attributes>
                                 <color key="NSColor" red="0.58431372549019611" green="0.58431372549019611" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                                 <font key="NSFont" size="14" name="HelveticaNeue-Light"/>
@@ -55,13 +52,12 @@
             </subviews>
             <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.89411764705882357" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="FRg-35-qmE" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="73" id="2dW-7o-Deh"/>
-                <constraint firstItem="FRg-35-qmE" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="6FA-eU-htK"/>
-                <constraint firstItem="Pmk-j7-M2u" firstAttribute="top" secondItem="VFZ-eP-oKU" secondAttribute="bottom" constant="33" id="GW8-d4-vTO"/>
-                <constraint firstItem="VFZ-eP-oKU" firstAttribute="centerX" secondItem="Pmk-j7-M2u" secondAttribute="centerX" id="JOG-g4-TOu"/>
-                <constraint firstItem="FRg-35-qmE" firstAttribute="top" secondItem="VFZ-eP-oKU" secondAttribute="bottom" constant="50" id="SvB-xM-x7a"/>
-                <constraint firstItem="Pmk-j7-M2u" firstAttribute="centerX" secondItem="FRg-35-qmE" secondAttribute="centerX" id="ZNZ-xa-wir"/>
-                <constraint firstItem="VFZ-eP-oKU" firstAttribute="top" secondItem="1" secondAttribute="top" constant="91" id="ryg-zT-IBG"/>
+                <constraint firstItem="Pmk-j7-M2u" firstAttribute="centerX" secondItem="FRg-35-qmE" secondAttribute="centerX" id="Juf-mh-PaY"/>
+                <constraint firstItem="VFZ-eP-oKU" firstAttribute="top" secondItem="1" secondAttribute="top" constant="93" id="aAr-bf-deY"/>
+                <constraint firstItem="Pmk-j7-M2u" firstAttribute="top" secondItem="VFZ-eP-oKU" secondAttribute="bottom" constant="31" id="bzR-uP-wu5"/>
+                <constraint firstItem="VFZ-eP-oKU" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="cc4-UO-HgZ"/>
+                <constraint firstItem="FRg-35-qmE" firstAttribute="top" secondItem="Pmk-j7-M2u" secondAttribute="bottom" constant="8" symbolic="YES" id="sTg-ht-43s"/>
+                <constraint firstItem="Pmk-j7-M2u" firstAttribute="centerX" secondItem="VFZ-eP-oKU" secondAttribute="centerX" id="wM4-l4-Ohk"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

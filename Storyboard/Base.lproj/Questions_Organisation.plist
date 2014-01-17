@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>customer statement</string>
+		<key>questions</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>1026</string>
+				<key>title</key>
+				<string>time exposure in hours</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>1027</string>
+				<key>title</key>
+				<string>fair weather shooting</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>main filming spot</string>
+		<key>questions</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>1028</string>
+				<key>title</key>
+				<string>address</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>side filming spot</string>
+		<key>questions</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>1029</string>
+				<key>title</key>
+				<string>address</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>1030</string>
+				<key>title</key>
+				<string>distance to main filming spot</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string></string>
+		<key>questions</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>1031</string>
+				<key>title</key>
+				<string>filming approval</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>1032</string>
+				<key>title</key>
+				<string>properties (organized by customer)</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>background actors</string>
+		<key>questions</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>1033</string>
+				<key>title</key>
+				<string>internal persons</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>1034</string>
+				<key>title</key>
+				<string>external persons</string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>

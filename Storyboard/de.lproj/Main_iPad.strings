@@ -1,0 +1,111 @@
+
+/* Class = "IBUILabel"; text = "Organisation"; ObjectID = "1XT-0d-SIo"; */
+"1XT-0d-SIo.text" = "Organisation";
+
+/* Class = "IBUILabel"; text = "Project Title"; ObjectID = "1ja-Tw-82C"; */
+"1ja-Tw-82C.text" = "Projekttitel";
+
+/* Class = "IBUILabel"; text = "Place your sound related text here"; ObjectID = "5ni-y2-cYx"; */
+"5ni-y2-cYx.text" = "Füge hier Text bezüglich der Tonebene ein";
+
+/* Class = "IBUILabel"; text = "Title of the Scene"; ObjectID = "9Fg-jS-YlL"; */
+"9Fg-jS-YlL.text" = "Titel des Szene";
+
+/* Class = "IBUILabel"; text = "create PDF"; ObjectID = "Cse-ue-qv4"; */
+"Cse-ue-qv4.text" = "PDF erstellen";
+
+/* Class = "IBUITableViewSection"; headerTitle = "SOUND"; ObjectID = "DhR-Qg-27e"; */
+"DhR-Qg-27e.headerTitle" = "TONEBENE";
+
+/* Class = "IBUILabel"; text = "00:00:00"; ObjectID = "Eiz-k5-5gb"; */
+"Eiz-k5-5gb.text" = "00:00:00";
+
+/* Class = "IBUILabel"; text = "Place your image text here"; ObjectID = "FNb-bK-IDb"; */
+"FNb-bK-IDb.text" = "Füge hier Text bezüglich der Bildebene ein";
+
+/* Class = "IBUITextField"; placeholder = "Company Name"; ObjectID = "Gox-jZ-QhH"; */
+"Gox-jZ-QhH.placeholder" = "Firmenname";
+
+/* Class = "IBUILabel"; text = "Parameters"; ObjectID = "JfC-as-fu7"; */
+"JfC-as-fu7.text" = "Parameter";
+
+/* Class = "IBUITextField"; placeholder = "Title"; ObjectID = "KI8-n8-scT"; */
+"KI8-n8-scT.placeholder" = "Titel";
+
+/* Class = "IBUILabel"; text = "0:00"; ObjectID = "KXL-y2-J2F"; */
+"KXL-y2-J2F.text" = "0:00";
+
+/* Class = "IBUILabel"; text = "1"; ObjectID = "NPI-oS-bkY"; */
+"NPI-oS-bkY.text" = "1";
+
+/* Class = "IBUILabel"; text = "Imagefilm"; ObjectID = "NsU-kT-6I6"; */
+"NsU-kT-6I6.text" = "Imagefilm";
+
+/* Class = "IBUILabel"; text = "add Dummy Scenes"; ObjectID = "RPp-us-vOa"; */
+"RPp-us-vOa.text" = "add Dummy Scenes";
+
+/* Class = "IBUINavigationItem"; title = "Storyboard"; ObjectID = "SJs-r9-QL4"; */
+"SJs-r9-QL4.title" = "Storyboard";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "SPM-ex-DKI"; */
+"SPM-ex-DKI.text" = "Titel";
+
+/* Class = "IBUINavigationItem"; title = "new Project"; ObjectID = "T8j-7D-XeV"; */
+"T8j-7D-XeV.title" = "neues Projekt";
+
+/* Class = "IBUILabel"; text = "Post Production"; ObjectID = "UTO-kK-n6Y"; */
+"UTO-kK-n6Y.text" = "Post Production";
+
+/* Class = "IBUILabel"; text = "Detail"; ObjectID = "X52-Xs-ydM"; */
+"X52-Xs-ydM.text" = "Detail";
+
+/* Class = "IBUILabel"; text = "Contact Data"; ObjectID = "YqJ-pp-UFH"; */
+"YqJ-pp-UFH.text" = "Kontaktdaten";
+
+/* Class = "IBUILabel"; text = "0"; ObjectID = "c5e-WO-0kl"; */
+"c5e-WO-0kl.text" = "0";
+
+/* Class = "IBUILabel"; text = "Content"; ObjectID = "cC2-XA-dmw"; */
+"cC2-XA-dmw.text" = "Inhalt";
+
+/* Class = "IBUILabel"; text = "SCENE COUNT"; ObjectID = "cL1-3e-Ogc"; */
+"cL1-3e-Ogc.text" = "SZENENANZAHL";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "dxH-bJ-Nl4"; */
+"dxH-bJ-Nl4.text" = "Titel";
+
+/* Class = "IBUILabel"; text = "00:00"; ObjectID = "faA-a1-n6c"; */
+"faA-a1-n6c.text" = "00:00";
+
+/* Class = "IBUILabel"; text = "TOTAL LENGTH"; ObjectID = "gzx-YL-PRh"; */
+"gzx-YL-PRh.text" = "GESAMTLÄNGE";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "ih7-D7-IEM"; */
+"ih7-D7-IEM.text" = "Titel";
+
+/* Class = "IBUILabel"; text = "Company Name"; ObjectID = "kwn-YG-xiW"; */
+"kwn-YG-xiW.text" = "Firmenname";
+
+/* Class = "IBUITableViewSection"; headerTitle = "PICTURE"; ObjectID = "l1v-Lc-kZv"; */
+"l1v-Lc-kZv.headerTitle" = "BILDEBENE";
+
+/* Class = "IBUILabel"; text = "Storyboard"; ObjectID = "mJa-SQ-h9D"; */
+"mJa-SQ-h9D.text" = "Storyboard";
+
+/* Class = "IBUINavigationItem"; title = "Projects"; ObjectID = "ozn-AU-I7F"; */
+"ozn-AU-I7F.title" = "Projekte";
+
+/* Class = "IBUILabel"; text = "Apple Computers Inc."; ObjectID = "pJY-rv-oaC"; */
+"pJY-rv-oaC.text" = "Apple Computers Inc.";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "pLv-fG-nLz"; */
+"pLv-fG-nLz.text" = "Titel";
+
+/* Class = "IBUILabel"; text = "Project Title"; ObjectID = "rT6-7M-RLT"; */
+"rT6-7M-RLT.text" = "Projekt Titel";
+
+/* Class = "IBUILabel"; text = "Company Name"; ObjectID = "xRI-8s-TFa"; */
+"xRI-8s-TFa.text" = "Firmenname";
+
+/* Class = "IBUILabel"; text = "00 min 00 sec"; ObjectID = "yPB-Bm-YGS"; */
+"yPB-Bm-YGS.text" = "00 min 00 sek";

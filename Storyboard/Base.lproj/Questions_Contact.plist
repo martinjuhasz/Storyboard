@@ -4,113 +4,113 @@
 <array>
 	<dict>
 		<key>title</key>
-		<string>Kontakt</string>
+		<string>Contact</string>
 		<key>questions</key>
 		<array>
 			<dict>
 				<key>id</key>
 				<string>1001</string>
 				<key>title</key>
-				<string>Ansprechpartner</string>
+				<string>contact</string>
 			</dict>
 			<dict>
 				<key>id</key>
 				<string>1002</string>
 				<key>title</key>
-				<string>Adresse</string>
+				<string>address</string>
 			</dict>
 			<dict>
 				<key>id</key>
 				<string>1003</string>
 				<key>title</key>
-				<string>E-Mail</string>
+				<string>e-mail</string>
 			</dict>
 			<dict>
 				<key>id</key>
 				<string>1004</string>
 				<key>title</key>
-				<string>Telefonnummer</string>
+				<string>telephone</string>
 			</dict>
 			<dict>
 				<key>id</key>
 				<string>1005</string>
 				<key>title</key>
-				<string>Mobil</string>
+				<string>mobile</string>
 			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Redaktion</string>
+		<string>editorial staff</string>
 		<key>questions</key>
 		<array>
 			<dict>
 				<key>id</key>
 				<string>1006</string>
 				<key>title</key>
-				<string>Ansprechpartner</string>
+				<string>contact</string>
 			</dict>
 			<dict>
 				<key>id</key>
 				<string>1007</string>
 				<key>title</key>
-				<string>E-Mail</string>
+				<string>e-mail</string>
 			</dict>
 			<dict>
 				<key>id</key>
 				<string>1008</string>
 				<key>title</key>
-				<string>Telefonnummer</string>
+				<string>telephone</string>
 			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Terminierung</string>
+		<string>scheduling</string>
 		<key>questions</key>
 		<array>
 			<dict>
 				<key>id</key>
 				<string>1009</string>
 				<key>title</key>
-				<string>Ansprechpartner</string>
+				<string>contact</string>
 			</dict>
 			<dict>
 				<key>id</key>
 				<string>1010</string>
 				<key>title</key>
-				<string>E-Mail</string>
+				<string>e-mail</string>
 			</dict>
 			<dict>
 				<key>id</key>
 				<string>1011</string>
 				<key>title</key>
-				<string>Telefonnummer</string>
+				<string>telephone</string>
 			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Kamera</string>
+		<string>camera</string>
 		<key>questions</key>
 		<array>
 			<dict>
 				<key>id</key>
 				<string>1012</string>
 				<key>title</key>
-				<string>Ansprechpartner</string>
+				<string>contact</string>
 			</dict>
 			<dict>
 				<key>id</key>
 				<string>1013</string>
 				<key>title</key>
-				<string>E-Mail</string>
+				<string>e-mail</string>
 			</dict>
 			<dict>
 				<key>id</key>
 				<string>1014</string>
 				<key>title</key>
-				<string>Telefonnummer</string>
+				<string>telephone</string>
 			</dict>
 		</array>
 	</dict>

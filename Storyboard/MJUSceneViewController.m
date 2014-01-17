@@ -235,9 +235,9 @@
 {
     MJUTableHeaderView *aView = [[MJUTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, tableView.frame.size.width, 20.0f)];
     if(section == 1) {
-        aView.titleLabel.text = @"BILDEBENE";
+        aView.titleLabel.text = NSLocalizedString(@"PICTURE", nil);
     } else if(section == 2) {
-        aView.titleLabel.text = @"TONEBENE";
+        aView.titleLabel.text =NSLocalizedString(@"SOUND", nil);
     } else {
         return nil;
     }
@@ -253,7 +253,7 @@
     if(indexPath.section == 0 && indexPath.row == 1) {
         [self performSegueWithIdentifier:@"TimerViewSegue" sender:indexPath];
     } else if(indexPath.section == 1 && indexPath.row == 0) {
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"select a Photo" delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"add Photo from Library", @"take Photo", nil];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"select a Photo", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"add Photo from Library", nil), NSLocalizedString(@"take Photo", nil), nil];
         [actionSheet showInView:self.tableView];
     } else {
         [self performSegueWithIdentifier:@"TextInputSegue" sender:indexPath];
