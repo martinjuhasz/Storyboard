@@ -67,7 +67,11 @@
         [self.project addCompanyLogo:_imageField.image];
     }
     
-    [context save:nil];
+    NSError *error;
+    [context save:&error];
+    if(error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

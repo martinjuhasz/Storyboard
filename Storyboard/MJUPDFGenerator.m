@@ -12,7 +12,7 @@
 #import "MJUPDFImageURLProtocol.h"
 #import "MJUSceneImage.h"
 #import "GRMustache.h"
-#import "MJUQuestionHelper.h"
+
 
 @implementation MJUPDFGenerator
 
@@ -34,21 +34,22 @@
 {
 //    NSString *htmlContent = [self generateHTML];
     
-    MJUQuestionHelper *contactQuestionHelper = [[MJUQuestionHelper alloc] initWithPList:@"Questions_Contact" project:self.project];
-    MJUQuestionHelper *parameterQuestionHelper = [[MJUQuestionHelper alloc] initWithPList:@"Questions_Parameter" project:self.project];
-    MJUQuestionHelper *organisationQuestionHelper = [[MJUQuestionHelper alloc] initWithPList:@"Questions_Organisation" project:self.project];
-    MJUQuestionHelper *postProductionQuestionHelper = [[MJUQuestionHelper alloc] initWithPList:@"Questions_PostProduction" project:self.project];
-    
-    id data = @{ @"project": self.project,
-                 @"contactQuestionHelper": contactQuestionHelper,
-                 @"parameterQuestionHelper": parameterQuestionHelper,
-                 @"organisationQuestionHelper": organisationQuestionHelper,
-                 @"postProductionQuestionHelper": postProductionQuestionHelper
-            };
+//    MJUQuestionHelper *contactQuestionHelper = [[MJUQuestionHelper alloc] initWithPList:@"Questions_Contact" project:self.project];
+//    MJUQuestionHelper *parameterQuestionHelper = [[MJUQuestionHelper alloc] initWithPList:@"Questions_Parameter" project:self.project];
+//    MJUQuestionHelper *organisationQuestionHelper = [[MJUQuestionHelper alloc] initWithPList:@"Questions_Organisation" project:self.project];
+//    MJUQuestionHelper *postProductionQuestionHelper = [[MJUQuestionHelper alloc] initWithPList:@"Questions_PostProduction" project:self.project];
+//    
+//    id data = @{ @"project": self.project,
+//                 @"contactQuestionHelper": contactQuestionHelper,
+//                 @"parameterQuestionHelper": parameterQuestionHelper,
+//                 @"organisationQuestionHelper": organisationQuestionHelper,
+//                 @"postProductionQuestionHelper": postProductionQuestionHelper
+//            };
     
     
     GRMustacheTemplate *template = [GRMustacheTemplate templateFromResource:@"pdf_content" bundle:nil error:nil];
-    NSString *htmlContent = [template renderObject:data error:nil];
+//    NSString *htmlContent = [template renderObject:data error:nil];
+    NSString *htmlContent = @"";
     
     
     

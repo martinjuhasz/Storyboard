@@ -119,7 +119,11 @@
     NSUInteger sceneCount = [[[self fetchedResultsController] fetchedObjects] count];
     scene.order = sceneCount;
     [self.project addScenesObject:scene];
-    [context save:nil];
+    NSError *error;
+    [context save:&error];
+    if(error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
     
     [self saveOrder];
     
@@ -218,7 +222,11 @@
     {
         MJUScene *scene = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         [[[MJUProjectsDataModel sharedDataModel] mainContext] deleteObject:scene];
-        [[[MJUProjectsDataModel sharedDataModel] mainContext] save:nil];
+        NSError *error;
+        [[[MJUProjectsDataModel sharedDataModel] mainContext] save:&error];
+        if(error) {
+            NSLog(@"%@", [error localizedDescription]);
+        }
         [self saveOrder];
         
         if(IS_IPAD) {
@@ -271,7 +279,11 @@
         [mo setValue:[NSNumber numberWithInt:i++] forKey:@"order"];
     }
     userDrivenModelChange = YES;
-    [[[MJUProjectsDataModel sharedDataModel] mainContext] save:nil];
+    NSError *error;
+    [[[MJUProjectsDataModel sharedDataModel] mainContext] save:&error];
+    if(error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
     userDrivenModelChange = NO;
     [self.tableView reloadData];
 }

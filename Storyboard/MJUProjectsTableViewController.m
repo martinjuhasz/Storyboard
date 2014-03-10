@@ -59,7 +59,11 @@
     
     project.title = [NSString stringWithFormat:@"Project #%d", ((int)[[[self fetchedResultsController] fetchedObjects] count]) + 1];
     
-    [context save:nil];
+    NSError *error;
+    [context save:&error];
+    if(error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
 }
 
 

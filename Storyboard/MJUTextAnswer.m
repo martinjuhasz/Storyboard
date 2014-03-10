@@ -1,17 +1,17 @@
 //
-//  MJUAnswer.m
+//  MJUTextAnswer.m
 //  Storyboard
 //
 //  Created by Martin Juhasz on 10/03/14.
 //  Copyright (c) 2014 Martin Juhasz. All rights reserved.
 //
 
-#import "MJUAnswer.h"
-#import "MJUProject.h"
+#import "MJUTextAnswer.h"
 
 
-@implementation MJUAnswer
+@implementation MJUTextAnswer
 
-@dynamic project;
+@dynamic text;
+@dynamic question;
 
 @end

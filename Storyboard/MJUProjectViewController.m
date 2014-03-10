@@ -105,7 +105,11 @@
         
         [self.project addScenesObject:scene];
     }
-    [context save:nil];
+    NSError *error;
+    [context save:&error];
+    if(error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
 }
 
 

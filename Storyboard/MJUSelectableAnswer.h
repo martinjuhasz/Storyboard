@@ -1,5 +1,5 @@
 //
-//  MJUQuestion.h
+//  MJUSelectableAnswer.h
 //  Storyboard
 //
 //  Created by Martin Juhasz on 10/03/14.
@@ -8,12 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "MJUAnswer.h"
 
-@class MJUQuestionSection;
-//
-@interface MJUQuestion : NSManagedObject
 
-@property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) MJUQuestionSection *section;
+@interface MJUSelectableAnswer : MJUAnswer
+
+@property (nonatomic, retain) NSManagedObject *selected;
 
 @end

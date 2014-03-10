@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="MJUAnswer" representedClassName="MJUAnswer" syncable="YES">
-        <attribute name="questionID" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="selected" optional="YES" attributeType="Integer 16" defaultValueString="-1" syncable="YES"/>
-        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="project" maxCount="1" deletionRule="Nullify" destinationEntity="MJUProject" inverseName="answers" inverseEntity="MJUProject" syncable="YES"/>
     </entity>
     <entity name="MJUProject" representedClassName="MJUProject" syncable="YES">
         <attribute name="companyLogo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="companyName" attributeType="String" syncable="YES"/>
-        <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="409489200" defaultValueString="NOW" syncable="YES"/>
+        <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="416142000" defaultValueString="NOW" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="answers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MJUAnswer" inverseName="project" inverseEntity="MJUAnswer" syncable="YES"/>
         <relationship name="scenes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MJUScene" inverseName="project" inverseEntity="MJUScene" syncable="YES"/>
+    </entity>
+    <entity name="MJUQuestion" representedClassName="MJUQuestion" syncable="YES">
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="section" maxCount="1" deletionRule="Nullify" destinationEntity="MJUQuestionSection" inverseName="questions" inverseEntity="MJUQuestionSection" syncable="YES"/>
+    </entity>
+    <entity name="MJUQuestionCategory" representedClassName="MJUQuestionCategory" syncable="YES">
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sections" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MJUQuestionSection" inverseName="category" inverseEntity="MJUQuestionSection" syncable="YES"/>
+    </entity>
+    <entity name="MJUQuestionSection" representedClassName="MJUQuestionSection" syncable="YES">
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="category" maxCount="1" deletionRule="Nullify" destinationEntity="MJUQuestionCategory" inverseName="sections" inverseEntity="MJUQuestionCategory" syncable="YES"/>
+        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MJUQuestion" inverseName="section" inverseEntity="MJUQuestion" syncable="YES"/>
     </entity>
     <entity name="MJUScene" representedClassName="MJUScene" syncable="YES">
         <attribute name="imageText" optional="YES" attributeType="String" syncable="YES"/>
@@ -30,10 +40,36 @@
         <attribute name="thumbnail" attributeType="Binary" syncable="YES"/>
         <relationship name="scene" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MJUScene" inverseName="images" inverseEntity="MJUScene" syncable="YES"/>
     </entity>
+    <entity name="MJUSelectable" representedClassName="MJUSelectable" syncable="YES">
+        <attribute name="text" attributeType="String" syncable="YES"/>
+        <relationship name="answers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MJUSelectableAnswer" inverseName="selected" inverseEntity="MJUSelectableAnswer" syncable="YES"/>
+        <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MJUSelectableQuestion" inverseName="selectables" inverseEntity="MJUSelectableQuestion" syncable="YES"/>
+    </entity>
+    <entity name="MJUSelectableAnswer" representedClassName="MJUSelectableAnswer" parentEntity="MJUAnswer" syncable="YES">
+        <relationship name="selected" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MJUSelectable" inverseName="answers" inverseEntity="MJUSelectable" syncable="YES"/>
+    </entity>
+    <entity name="MJUSelectableQuestion" representedClassName="MJUSelectableQuestion" parentEntity="MJUQuestion" syncable="YES">
+        <relationship name="selectables" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MJUSelectable" inverseName="question" inverseEntity="MJUSelectable" syncable="YES"/>
+    </entity>
+    <entity name="MJUTextAnswer" representedClassName="MJUTextAnswer" parentEntity="MJUAnswer" syncable="YES">
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MJUTextQuestion" inverseName="answers" inverseEntity="MJUTextQuestion" syncable="YES"/>
+    </entity>
+    <entity name="MJUTextQuestion" representedClassName="MJUTextQuestion" parentEntity="MJUQuestion" syncable="YES">
+        <relationship name="answers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MJUTextAnswer" inverseName="question" inverseEntity="MJUTextAnswer" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="MJUAnswer" positionX="-227" positionY="-81" width="128" height="103"/>
-        <element name="MJUProject" positionX="-36" positionY="-157" width="128" height="133"/>
+        <element name="MJUAnswer" positionX="-270" positionY="54" width="128" height="58"/>
+        <element name="MJUProject" positionX="-47" positionY="-36" width="128" height="133"/>
+        <element name="MJUQuestion" positionX="-711" positionY="-18" width="128" height="73"/>
+        <element name="MJUQuestionCategory" positionX="-1170" positionY="36" width="128" height="73"/>
+        <element name="MJUQuestionSection" positionX="-954" positionY="36" width="128" height="88"/>
         <element name="MJUScene" positionX="178" positionY="45" width="128" height="163"/>
         <element name="MJUSceneImage" positionX="376" positionY="45" width="128" height="103"/>
+        <element name="MJUSelectable" positionX="-711" positionY="326" width="128" height="88"/>
+        <element name="MJUSelectableAnswer" positionX="-414" positionY="248" width="128" height="58"/>
+        <element name="MJUSelectableQuestion" positionX="-720" positionY="171" width="128" height="58"/>
+        <element name="MJUTextAnswer" positionX="-342" positionY="-63" width="128" height="73"/>
+        <element name="MJUTextQuestion" positionX="-567" positionY="-108" width="128" height="58"/>
     </elements>
 </model>

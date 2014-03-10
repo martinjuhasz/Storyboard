@@ -106,7 +106,11 @@
         textViewController.inputText = [self.scene valueForKey:property];
         textViewController.saveString = ^(NSString *saveString) {
             [self.scene setValue:saveString forKey:property];
-            [[[MJUProjectsDataModel sharedDataModel] mainContext] save:nil];
+            NSError *error;
+            [[[MJUProjectsDataModel sharedDataModel] mainContext] save:&error];
+            if(error) {
+                NSLog(@"%@", [error localizedDescription]);
+            }
             [self loadContent];
         };
     } else if ([[segue identifier] isEqualToString:@"TimerViewSegue"]) {
@@ -169,7 +173,11 @@
     [sceneImage addImage:chosenImage];
     [self.scene setImages:nil];
     [self.scene addImagesObject:sceneImage];
-    [context save:nil];
+    NSError *error;
+    [context save:&error];
+    if(error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
     
     [self loadContent];
 }
@@ -270,7 +278,11 @@
     NSManagedObjectContext *context = [[MJUProjectsDataModel sharedDataModel] mainContext];
     NSUInteger time = (minute * 60) + second;
     self.scene.time = time;
-    [context save:nil];
+    NSError *error;
+    [context save:&error];
+    if(error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
     
     [self setTimeValue];
 }

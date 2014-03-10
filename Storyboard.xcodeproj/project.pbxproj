@@ -11,6 +11,9 @@
 		7A018B181855E5CD004E5657 /* MJUSpacedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A018B171855E5CD004E5657 /* MJUSpacedTableViewCell.m */; };
 		7A018B1B18560747004E5657 /* MJUTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A018B1A18560747004E5657 /* MJUTableHeaderView.m */; };
 		7A195C4C183E086C00E2F944 /* MJUPDFGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A195C4B183E086C00E2F944 /* MJUPDFGenerator.m */; };
+		7A22303D18CC8D9900E11035 /* MJUTextInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A22303C18CC8D9900E11035 /* MJUTextInputCell.m */; };
+		7A22304018CC925500E11035 /* MJUEditSectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A22303F18CC925500E11035 /* MJUEditSectionsViewController.m */; };
+		7A22304318CC97B000E11035 /* MJUEditQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A22304218CC97B000E11035 /* MJUEditQuestionsViewController.m */; };
 		7A3639BC1827CB1C00B7307B /* MJUSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3639BB1827CB1C00B7307B /* MJUSceneViewController.m */; };
 		7A3639BE1827D72E00B7307B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A3639BD1827D72E00B7307B /* QuickLook.framework */; };
 		7A3F916B186338410019D1E0 /* MJUPDFImageURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3F916A186338410019D1E0 /* MJUPDFImageURLProtocol.m */; };
@@ -40,6 +43,14 @@
 		7A68C04D18264DCD004EABD9 /* MJUProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A68C04C18264DCD004EABD9 /* MJUProjectViewController.m */; };
 		7A68C05A18265F70004EABD9 /* MJUSceneImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A68C05918265F70004EABD9 /* MJUSceneImage.m */; };
 		7A68C05D18265F71004EABD9 /* MJUScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A68C05C18265F71004EABD9 /* MJUScene.m */; };
+		7A7BE10318CDB654001DFC72 /* MJUTextAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7BE10218CDB654001DFC72 /* MJUTextAnswer.m */; };
+		7A7BE10618CDB655001DFC72 /* MJUSelectableAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7BE10518CDB655001DFC72 /* MJUSelectableAnswer.m */; };
+		7A7BE10918CDB655001DFC72 /* MJUAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7BE10818CDB655001DFC72 /* MJUAnswer.m */; };
+		7A7BE10C18CDB655001DFC72 /* MJUTextQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7BE10B18CDB655001DFC72 /* MJUTextQuestion.m */; };
+		7A7BE10F18CDB655001DFC72 /* MJUSelectableQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7BE10E18CDB655001DFC72 /* MJUSelectableQuestion.m */; };
+		7A7BE11218CDB655001DFC72 /* MJUQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7BE11118CDB655001DFC72 /* MJUQuestion.m */; };
+		7A7BE11518CDB655001DFC72 /* MJUSelectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7BE11418CDB655001DFC72 /* MJUSelectable.m */; };
+		7A7BE11818CDC51A001DFC72 /* MJUEditSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7BE11718CDC51A001DFC72 /* MJUEditSelectionViewController.m */; };
 		7A835F26188041AA002A30AD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A835F24188041A7002A30AD /* Localizable.strings */; };
 		7A9520271834CFC9002EC307 /* MJUHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9520261834CFC9002EC307 /* MJUHelper.m */; };
 		7A95202A1834D5F3002EC307 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9520291834D5F3002EC307 /* UIColor+Additions.m */; };
@@ -52,6 +63,10 @@
 		7A9C9E98184DD894008B05C6 /* wheel2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A9C9E94184DD894008B05C6 /* wheel2.png */; };
 		7A9C9E99184DD894008B05C6 /* wheel3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A9C9E95184DD894008B05C6 /* wheel3.png */; };
 		7AA374EF184F3915007309B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AA374EE184F3915007309B2 /* Images.xcassets */; };
+		7AAD4D2D188941D60012D6A8 /* MJUEditCategoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAD4D2C188941D60012D6A8 /* MJUEditCategoriesTableViewController.m */; };
+		7AAD4D36188948750012D6A8 /* MJUQuestionCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAD4D35188948750012D6A8 /* MJUQuestionCategory.m */; };
+		7AAD4D3C188948750012D6A8 /* MJUQuestionSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAD4D3B188948750012D6A8 /* MJUQuestionSection.m */; };
+		7AAD4D4818894C570012D6A8 /* MJUTitleInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAD4D4718894C570012D6A8 /* MJUTitleInputViewController.m */; };
 		7AB63F9918312BDB009C3948 /* MJUSceneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB63F9818312BDB009C3948 /* MJUSceneCell.m */; };
 		7AB7B158185CB9C800BF9CEC /* MJUTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB7B157185CB9C800BF9CEC /* MJUTextViewCell.m */; };
 		7ABEB95B18802CA500D92F20 /* Questions_Contact.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ABEB95D18802CA500D92F20 /* Questions_Contact.plist */; };
@@ -59,12 +74,7 @@
 		7ABEB96318802E3D00D92F20 /* Questions_Organisation.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ABEB96518802E3D00D92F20 /* Questions_Organisation.plist */; };
 		7ABEB96718802F3700D92F20 /* Questions_PostProduction.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ABEB96918802F3700D92F20 /* Questions_PostProduction.plist */; };
 		7AC4A00F183788D10027BEAB /* MJUQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC4A00E183788D10027BEAB /* MJUQuestionsViewController.m */; };
-		7AC4A01218379A260027BEAB /* MJUQuestionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC4A01118379A260027BEAB /* MJUQuestionHelper.m */; };
-		7AC4A01818379F070027BEAB /* MJUQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC4A01718379F070027BEAB /* MJUQuestion.m */; };
-		7AC4A01B18379F550027BEAB /* MJUSubQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC4A01A18379F550027BEAB /* MJUSubQuestion.m */; };
-		7AC4A01E1837AEAF0027BEAB /* MJUAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC4A01D1837AEAF0027BEAB /* MJUAnswer.m */; };
 		7AC4A0221837B4030027BEAB /* MJUQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC4A0211837B4030027BEAB /* MJUQuestionCell.m */; };
-		7AC4A0251837BEF90027BEAB /* MJUQuestionSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC4A0241837BEF90027BEAB /* MJUQuestionSelectionViewController.m */; };
 		7AC74CA7184CEEA50020BC23 /* dummyImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7AC74CA6184CEEA50020BC23 /* dummyImage.jpg */; };
 		7AD16B52182FA0C600201465 /* MJUTextInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD16B51182FA0C600201465 /* MJUTextInputViewController.m */; };
 		7ADC3D52184CCD4600DABBE5 /* MJUPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC3D51184CCD4600DABBE5 /* MJUPDFViewController.m */; };
@@ -95,6 +105,12 @@
 		7A018B1A18560747004E5657 /* MJUTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUTableHeaderView.m; sourceTree = "<group>"; };
 		7A195C4A183E086C00E2F944 /* MJUPDFGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUPDFGenerator.h; sourceTree = "<group>"; };
 		7A195C4B183E086C00E2F944 /* MJUPDFGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUPDFGenerator.m; sourceTree = "<group>"; };
+		7A22303B18CC8D9900E11035 /* MJUTextInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUTextInputCell.h; sourceTree = "<group>"; };
+		7A22303C18CC8D9900E11035 /* MJUTextInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUTextInputCell.m; sourceTree = "<group>"; };
+		7A22303E18CC925500E11035 /* MJUEditSectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUEditSectionsViewController.h; sourceTree = "<group>"; };
+		7A22303F18CC925500E11035 /* MJUEditSectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUEditSectionsViewController.m; sourceTree = "<group>"; };
+		7A22304118CC97B000E11035 /* MJUEditQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUEditQuestionsViewController.h; sourceTree = "<group>"; };
+		7A22304218CC97B000E11035 /* MJUEditQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUEditQuestionsViewController.m; sourceTree = "<group>"; };
 		7A3639BA1827CB1C00B7307B /* MJUSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUSceneViewController.h; sourceTree = "<group>"; };
 		7A3639BB1827CB1C00B7307B /* MJUSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUSceneViewController.m; sourceTree = "<group>"; };
 		7A3639BD1827D72E00B7307B /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
@@ -136,6 +152,22 @@
 		7A68C05918265F70004EABD9 /* MJUSceneImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUSceneImage.m; sourceTree = "<group>"; };
 		7A68C05B18265F71004EABD9 /* MJUScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUScene.h; sourceTree = "<group>"; };
 		7A68C05C18265F71004EABD9 /* MJUScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUScene.m; sourceTree = "<group>"; };
+		7A7BE10118CDB654001DFC72 /* MJUTextAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUTextAnswer.h; sourceTree = "<group>"; };
+		7A7BE10218CDB654001DFC72 /* MJUTextAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUTextAnswer.m; sourceTree = "<group>"; };
+		7A7BE10418CDB655001DFC72 /* MJUSelectableAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUSelectableAnswer.h; sourceTree = "<group>"; };
+		7A7BE10518CDB655001DFC72 /* MJUSelectableAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUSelectableAnswer.m; sourceTree = "<group>"; };
+		7A7BE10718CDB655001DFC72 /* MJUAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUAnswer.h; sourceTree = "<group>"; };
+		7A7BE10818CDB655001DFC72 /* MJUAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUAnswer.m; sourceTree = "<group>"; };
+		7A7BE10A18CDB655001DFC72 /* MJUTextQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUTextQuestion.h; sourceTree = "<group>"; };
+		7A7BE10B18CDB655001DFC72 /* MJUTextQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUTextQuestion.m; sourceTree = "<group>"; };
+		7A7BE10D18CDB655001DFC72 /* MJUSelectableQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUSelectableQuestion.h; sourceTree = "<group>"; };
+		7A7BE10E18CDB655001DFC72 /* MJUSelectableQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUSelectableQuestion.m; sourceTree = "<group>"; };
+		7A7BE11018CDB655001DFC72 /* MJUQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUQuestion.h; sourceTree = "<group>"; };
+		7A7BE11118CDB655001DFC72 /* MJUQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUQuestion.m; sourceTree = "<group>"; };
+		7A7BE11318CDB655001DFC72 /* MJUSelectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUSelectable.h; sourceTree = "<group>"; };
+		7A7BE11418CDB655001DFC72 /* MJUSelectable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUSelectable.m; sourceTree = "<group>"; };
+		7A7BE11618CDC51A001DFC72 /* MJUEditSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUEditSelectionViewController.h; sourceTree = "<group>"; };
+		7A7BE11718CDC51A001DFC72 /* MJUEditSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUEditSelectionViewController.m; sourceTree = "<group>"; };
 		7A835F25188041A7002A30AD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7A9520251834CFC9002EC307 /* MJUHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUHelper.h; sourceTree = "<group>"; };
 		7A9520261834CFC9002EC307 /* MJUHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUHelper.m; sourceTree = "<group>"; };
@@ -153,6 +185,14 @@
 		7A9C9E94184DD894008B05C6 /* wheel2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wheel2.png; sourceTree = "<group>"; };
 		7A9C9E95184DD894008B05C6 /* wheel3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wheel3.png; sourceTree = "<group>"; };
 		7AA374EE184F3915007309B2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7AAD4D2B188941D60012D6A8 /* MJUEditCategoriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUEditCategoriesTableViewController.h; sourceTree = "<group>"; };
+		7AAD4D2C188941D60012D6A8 /* MJUEditCategoriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUEditCategoriesTableViewController.m; sourceTree = "<group>"; };
+		7AAD4D34188948750012D6A8 /* MJUQuestionCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUQuestionCategory.h; sourceTree = "<group>"; };
+		7AAD4D35188948750012D6A8 /* MJUQuestionCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUQuestionCategory.m; sourceTree = "<group>"; };
+		7AAD4D3A188948750012D6A8 /* MJUQuestionSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUQuestionSection.h; sourceTree = "<group>"; };
+		7AAD4D3B188948750012D6A8 /* MJUQuestionSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUQuestionSection.m; sourceTree = "<group>"; };
+		7AAD4D4618894C570012D6A8 /* MJUTitleInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUTitleInputViewController.h; sourceTree = "<group>"; };
+		7AAD4D4718894C570012D6A8 /* MJUTitleInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUTitleInputViewController.m; sourceTree = "<group>"; };
 		7AB63F9718312BDB009C3948 /* MJUSceneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUSceneCell.h; sourceTree = "<group>"; };
 		7AB63F9818312BDB009C3948 /* MJUSceneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUSceneCell.m; sourceTree = "<group>"; };
 		7AB7B156185CB9C800BF9CEC /* MJUTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUTextViewCell.h; sourceTree = "<group>"; };
@@ -170,18 +210,8 @@
 		7ABEB972188037E300D92F20 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
 		7AC4A00D183788D10027BEAB /* MJUQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUQuestionsViewController.h; sourceTree = "<group>"; };
 		7AC4A00E183788D10027BEAB /* MJUQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUQuestionsViewController.m; sourceTree = "<group>"; };
-		7AC4A01018379A260027BEAB /* MJUQuestionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUQuestionHelper.h; sourceTree = "<group>"; };
-		7AC4A01118379A260027BEAB /* MJUQuestionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUQuestionHelper.m; sourceTree = "<group>"; };
-		7AC4A01618379F070027BEAB /* MJUQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUQuestion.h; sourceTree = "<group>"; };
-		7AC4A01718379F070027BEAB /* MJUQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUQuestion.m; sourceTree = "<group>"; };
-		7AC4A01918379F550027BEAB /* MJUSubQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUSubQuestion.h; sourceTree = "<group>"; };
-		7AC4A01A18379F550027BEAB /* MJUSubQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUSubQuestion.m; sourceTree = "<group>"; };
-		7AC4A01C1837AEAF0027BEAB /* MJUAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUAnswer.h; sourceTree = "<group>"; };
-		7AC4A01D1837AEAF0027BEAB /* MJUAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUAnswer.m; sourceTree = "<group>"; };
 		7AC4A0201837B4030027BEAB /* MJUQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUQuestionCell.h; sourceTree = "<group>"; };
 		7AC4A0211837B4030027BEAB /* MJUQuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUQuestionCell.m; sourceTree = "<group>"; };
-		7AC4A0231837BEF90027BEAB /* MJUQuestionSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUQuestionSelectionViewController.h; sourceTree = "<group>"; };
-		7AC4A0241837BEF90027BEAB /* MJUQuestionSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUQuestionSelectionViewController.m; sourceTree = "<group>"; };
 		7AC74CA6184CEEA50020BC23 /* dummyImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dummyImage.jpg; sourceTree = "<group>"; };
 		7AD16B50182FA0C600201465 /* MJUTextInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUTextInputViewController.h; sourceTree = "<group>"; };
 		7AD16B51182FA0C600201465 /* MJUTextInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUTextInputViewController.m; sourceTree = "<group>"; };
@@ -371,11 +401,29 @@
 			name = CoreData;
 			sourceTree = "<group>";
 		};
-		7A64FCA6184F87B500133F39 /* New Group */ = {
+		7A64FCA6184F87B500133F39 /* Questions */ = {
 			isa = PBXGroup;
 			children = (
+				7AAD4D34188948750012D6A8 /* MJUQuestionCategory.h */,
+				7AAD4D35188948750012D6A8 /* MJUQuestionCategory.m */,
+				7AAD4D3A188948750012D6A8 /* MJUQuestionSection.h */,
+				7AAD4D3B188948750012D6A8 /* MJUQuestionSection.m */,
+				7A7BE11018CDB655001DFC72 /* MJUQuestion.h */,
+				7A7BE11118CDB655001DFC72 /* MJUQuestion.m */,
+				7A7BE10A18CDB655001DFC72 /* MJUTextQuestion.h */,
+				7A7BE10B18CDB655001DFC72 /* MJUTextQuestion.m */,
+				7A7BE10118CDB654001DFC72 /* MJUTextAnswer.h */,
+				7A7BE10218CDB654001DFC72 /* MJUTextAnswer.m */,
+				7A7BE10718CDB655001DFC72 /* MJUAnswer.h */,
+				7A7BE10818CDB655001DFC72 /* MJUAnswer.m */,
+				7A7BE10418CDB655001DFC72 /* MJUSelectableAnswer.h */,
+				7A7BE10518CDB655001DFC72 /* MJUSelectableAnswer.m */,
+				7A7BE11318CDB655001DFC72 /* MJUSelectable.h */,
+				7A7BE11418CDB655001DFC72 /* MJUSelectable.m */,
+				7A7BE10D18CDB655001DFC72 /* MJUSelectableQuestion.h */,
+				7A7BE10E18CDB655001DFC72 /* MJUSelectableQuestion.m */,
 			);
-			name = "New Group";
+			name = Questions;
 			sourceTree = "<group>";
 		};
 		7A68C04418264D37004EABD9 /* Project Overview */ = {
@@ -418,19 +466,13 @@
 		7A68C04718264D5F004EABD9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7A64FCA6184F87B500133F39 /* New Group */,
+				7A64FCA6184F87B500133F39 /* Questions */,
 				7A62B6D418253EA500A2C1B2 /* MJUProject.h */,
 				7A62B6D518253EA500A2C1B2 /* MJUProject.m */,
 				7A68C05B18265F71004EABD9 /* MJUScene.h */,
 				7A68C05C18265F71004EABD9 /* MJUScene.m */,
 				7A68C05818265F70004EABD9 /* MJUSceneImage.h */,
 				7A68C05918265F70004EABD9 /* MJUSceneImage.m */,
-				7AC4A01618379F070027BEAB /* MJUQuestion.h */,
-				7AC4A01718379F070027BEAB /* MJUQuestion.m */,
-				7AC4A01918379F550027BEAB /* MJUSubQuestion.h */,
-				7AC4A01A18379F550027BEAB /* MJUSubQuestion.m */,
-				7AC4A01C1837AEAF0027BEAB /* MJUAnswer.h */,
-				7AC4A01D1837AEAF0027BEAB /* MJUAnswer.m */,
 				7A62B6CF182539B300A2C1B2 /* CoreData */,
 			);
 			name = Model;
@@ -439,6 +481,7 @@
 		7A68C04818264D63004EABD9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7AAD4D2A188941910012D6A8 /* Settings */,
 				7AE4CEF0185255C600FCEF1C /* SplitViewController */,
 				7A195C49183E084E00E2F944 /* PDF Generation */,
 				7AC4A00C183788B70027BEAB /* Questions */,
@@ -486,8 +529,6 @@
 			children = (
 				7A9520251834CFC9002EC307 /* MJUHelper.h */,
 				7A9520261834CFC9002EC307 /* MJUHelper.m */,
-				7AC4A01018379A260027BEAB /* MJUQuestionHelper.h */,
-				7AC4A01118379A260027BEAB /* MJUQuestionHelper.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -523,6 +564,25 @@
 			name = loading;
 			sourceTree = "<group>";
 		};
+		7AAD4D2A188941910012D6A8 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7AAD4D2B188941D60012D6A8 /* MJUEditCategoriesTableViewController.h */,
+				7AAD4D2C188941D60012D6A8 /* MJUEditCategoriesTableViewController.m */,
+				7AAD4D4618894C570012D6A8 /* MJUTitleInputViewController.h */,
+				7AAD4D4718894C570012D6A8 /* MJUTitleInputViewController.m */,
+				7A22303B18CC8D9900E11035 /* MJUTextInputCell.h */,
+				7A22303C18CC8D9900E11035 /* MJUTextInputCell.m */,
+				7A22303E18CC925500E11035 /* MJUEditSectionsViewController.h */,
+				7A22303F18CC925500E11035 /* MJUEditSectionsViewController.m */,
+				7A22304118CC97B000E11035 /* MJUEditQuestionsViewController.h */,
+				7A22304218CC97B000E11035 /* MJUEditQuestionsViewController.m */,
+				7A7BE11618CDC51A001DFC72 /* MJUEditSelectionViewController.h */,
+				7A7BE11718CDC51A001DFC72 /* MJUEditSelectionViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		7AB63F9618312BBD009C3948 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,8 +597,6 @@
 			children = (
 				7AC4A00D183788D10027BEAB /* MJUQuestionsViewController.h */,
 				7AC4A00E183788D10027BEAB /* MJUQuestionsViewController.m */,
-				7AC4A0231837BEF90027BEAB /* MJUQuestionSelectionViewController.h */,
-				7AC4A0241837BEF90027BEAB /* MJUQuestionSelectionViewController.m */,
 			);
 			name = Questions;
 			sourceTree = "<group>";
@@ -746,38 +804,48 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A68C05D18265F71004EABD9 /* MJUScene.m in Sources */,
-				7AC4A01B18379F550027BEAB /* MJUSubQuestion.m in Sources */,
 				7A95203B18352C3E002EC307 /* MJUTimeSelectionView.m in Sources */,
+				7AAD4D36188948750012D6A8 /* MJUQuestionCategory.m in Sources */,
 				7A62B6A718252C1000A2C1B2 /* Storyboard.xcdatamodeld in Sources */,
+				7A22304318CC97B000E11035 /* MJUEditQuestionsViewController.m in Sources */,
+				7A7BE11818CDC51A001DFC72 /* MJUEditSelectionViewController.m in Sources */,
 				7AEEAAA018537403006038DB /* MJUTimePickerViewController.m in Sources */,
 				7A9520271834CFC9002EC307 /* MJUHelper.m in Sources */,
+				7A7BE10318CDB654001DFC72 /* MJUTextAnswer.m in Sources */,
+				7A22303D18CC8D9900E11035 /* MJUTextInputCell.m in Sources */,
 				7A95202D1834D927002EC307 /* UITableView+Additions.m in Sources */,
-				7AC4A01818379F070027BEAB /* MJUQuestion.m in Sources */,
 				7A62B69A18252C1000A2C1B2 /* main.m in Sources */,
+				7AAD4D3C188948750012D6A8 /* MJUQuestionSection.m in Sources */,
+				7A7BE10C18CDB655001DFC72 /* MJUTextQuestion.m in Sources */,
 				7A524374185B6B1A0055D40A /* MJUImagePickerController.m in Sources */,
-				7AC4A01218379A260027BEAB /* MJUQuestionHelper.m in Sources */,
+				7A22304018CC925500E11035 /* MJUEditSectionsViewController.m in Sources */,
 				7AE4CEF3185255DC00FCEF1C /* MJUSplitViewController.m in Sources */,
 				7AEFB699182D261800315686 /* MJUAddProjectViewController.m in Sources */,
 				7AB63F9918312BDB009C3948 /* MJUSceneCell.m in Sources */,
 				7A62B69E18252C1000A2C1B2 /* MJUAppDelegate.m in Sources */,
+				7A7BE11518CDB655001DFC72 /* MJUSelectable.m in Sources */,
 				7AD16B52182FA0C600201465 /* MJUTextInputViewController.m in Sources */,
 				7A018B1B18560747004E5657 /* MJUTableHeaderView.m in Sources */,
 				7AB7B158185CB9C800BF9CEC /* MJUTextViewCell.m in Sources */,
 				7A95202A1834D5F3002EC307 /* UIColor+Additions.m in Sources */,
+				7A7BE10618CDB655001DFC72 /* MJUSelectableAnswer.m in Sources */,
 				7ADC3D52184CCD4600DABBE5 /* MJUPDFViewController.m in Sources */,
 				7A3639BC1827CB1C00B7307B /* MJUSceneViewController.m in Sources */,
 				7A62B6D618253EA500A2C1B2 /* MJUProject.m in Sources */,
 				7A018B181855E5CD004E5657 /* MJUSpacedTableViewCell.m in Sources */,
 				7AC4A0221837B4030027BEAB /* MJUQuestionCell.m in Sources */,
+				7A7BE11218CDB655001DFC72 /* MJUQuestion.m in Sources */,
 				7AEFB6A0182D2EF400315686 /* NSString+Additions.m in Sources */,
+				7A7BE10918CDB655001DFC72 /* MJUAnswer.m in Sources */,
 				7A62B6D2182539CC00A2C1B2 /* MJUProjectsDataModel.m in Sources */,
 				7A68C04D18264DCD004EABD9 /* MJUProjectViewController.m in Sources */,
 				7A435866182CF40300534588 /* MJUScenesTableViewController.m in Sources */,
-				7AC4A01E1837AEAF0027BEAB /* MJUAnswer.m in Sources */,
 				7A195C4C183E086C00E2F944 /* MJUPDFGenerator.m in Sources */,
 				7A68C05A18265F70004EABD9 /* MJUSceneImage.m in Sources */,
-				7AC4A0251837BEF90027BEAB /* MJUQuestionSelectionViewController.m in Sources */,
 				7A3F916B186338410019D1E0 /* MJUPDFImageURLProtocol.m in Sources */,
+				7A7BE10F18CDB655001DFC72 /* MJUSelectableQuestion.m in Sources */,
+				7AAD4D4818894C570012D6A8 /* MJUTitleInputViewController.m in Sources */,
+				7AAD4D2D188941D60012D6A8 /* MJUEditCategoriesTableViewController.m in Sources */,
 				7AC4A00F183788D10027BEAB /* MJUQuestionsViewController.m in Sources */,
 				7A9520321834E52D002EC307 /* MJUProjectCell.m in Sources */,
 				7A41CF46183B68180059B727 /* UILabel+Additions.m in Sources */,
