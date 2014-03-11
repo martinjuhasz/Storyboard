@@ -76,6 +76,7 @@
 		7AC4A00F183788D10027BEAB /* MJUQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC4A00E183788D10027BEAB /* MJUQuestionsViewController.m */; };
 		7AC4A0221837B4030027BEAB /* MJUQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC4A0211837B4030027BEAB /* MJUQuestionCell.m */; };
 		7AC74CA7184CEEA50020BC23 /* dummyImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7AC74CA6184CEEA50020BC23 /* dummyImage.jpg */; };
+		7AC869E318CF1AC4001F81AB /* MJUQuestionSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC869E218CF1AC4001F81AB /* MJUQuestionSelectionViewController.m */; };
 		7AD16B52182FA0C600201465 /* MJUTextInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD16B51182FA0C600201465 /* MJUTextInputViewController.m */; };
 		7ADC3D52184CCD4600DABBE5 /* MJUPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC3D51184CCD4600DABBE5 /* MJUPDFViewController.m */; };
 		7AE48FAF184CE41200AA693E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE48FAE184CE41200AA693E /* MessageUI.framework */; };
@@ -213,6 +214,8 @@
 		7AC4A0201837B4030027BEAB /* MJUQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUQuestionCell.h; sourceTree = "<group>"; };
 		7AC4A0211837B4030027BEAB /* MJUQuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUQuestionCell.m; sourceTree = "<group>"; };
 		7AC74CA6184CEEA50020BC23 /* dummyImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dummyImage.jpg; sourceTree = "<group>"; };
+		7AC869E118CF1AC4001F81AB /* MJUQuestionSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUQuestionSelectionViewController.h; sourceTree = "<group>"; };
+		7AC869E218CF1AC4001F81AB /* MJUQuestionSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUQuestionSelectionViewController.m; sourceTree = "<group>"; };
 		7AD16B50182FA0C600201465 /* MJUTextInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUTextInputViewController.h; sourceTree = "<group>"; };
 		7AD16B51182FA0C600201465 /* MJUTextInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUTextInputViewController.m; sourceTree = "<group>"; };
 		7ADC3D50184CCD4600DABBE5 /* MJUPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUPDFViewController.h; sourceTree = "<group>"; };
@@ -595,6 +598,8 @@
 		7AC4A00C183788B70027BEAB /* Questions */ = {
 			isa = PBXGroup;
 			children = (
+				7AC869E118CF1AC4001F81AB /* MJUQuestionSelectionViewController.h */,
+				7AC869E218CF1AC4001F81AB /* MJUQuestionSelectionViewController.m */,
 				7AC4A00D183788D10027BEAB /* MJUQuestionsViewController.h */,
 				7AC4A00E183788D10027BEAB /* MJUQuestionsViewController.m */,
 			);
@@ -811,6 +816,7 @@
 				7A7BE11818CDC51A001DFC72 /* MJUEditSelectionViewController.m in Sources */,
 				7AEEAAA018537403006038DB /* MJUTimePickerViewController.m in Sources */,
 				7A9520271834CFC9002EC307 /* MJUHelper.m in Sources */,
+				7AC869E318CF1AC4001F81AB /* MJUQuestionSelectionViewController.m in Sources */,
 				7A7BE10318CDB654001DFC72 /* MJUTextAnswer.m in Sources */,
 				7A22303D18CC8D9900E11035 /* MJUTextInputCell.m in Sources */,
 				7A95202D1834D927002EC307 /* UITableView+Additions.m in Sources */,

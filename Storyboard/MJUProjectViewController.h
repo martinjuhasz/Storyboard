@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MJUProject.h"
 
-@interface MJUProjectViewController : UITableViewController
+@interface MJUProjectViewController : UITableViewController<NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) MJUProject *project;
 @property (weak, nonatomic) IBOutlet UILabel *projectTitle;
@@ -17,5 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lengthLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sceneCountLabel;
 @property (weak, nonatomic) IBOutlet UITableViewCell *pdfCreateCell;
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end

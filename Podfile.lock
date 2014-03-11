@@ -6,7 +6,6 @@ PODS:
   - JRSwizzle (1.0)
   - NYXImagesKit (2.3)
   - PEPhotoCropEditor (1.2.1)
-  - Reveal-iOS-SDK (1.0.1)
   - UITableView-NXEmptyView (0.1.4)
 
 DEPENDENCIES:
@@ -15,7 +14,6 @@ DEPENDENCIES:
   - iOS-htmltopdf (from `https://raw.github.com/martinjuhasz/iOS-htmltopdf/master/iOS-htmltopdf.podspec`)
   - NYXImagesKit
   - PEPhotoCropEditor (from `https://raw.github.com/martinjuhasz/PEPhotoCropEditor/master/PEPhotoCropEditor.podspec`)
-  - Reveal-iOS-SDK
   - UITableView-NXEmptyView
 
 EXTERNAL SOURCES:
@@ -31,7 +29,6 @@ SPEC CHECKSUMS:
   JRSwizzle: 6242ff38485d870fc2636899048ee1ab883ae587
   NYXImagesKit: bdcd82ed61e55ad95a2e95675c2f6b84f039c423
   PEPhotoCropEditor: a412a037992dd785fdc6281442c24f5722eb387f
-  Reveal-iOS-SDK: 46150c4842289e303a5da32b092686ef3c6737f5
   UITableView-NXEmptyView: 034e5162ce7b8e3584d720d0d925c27ea7711220
 
-COCOAPODS: 0.28.0
+COCOAPODS: 0.29.0

@@ -16,6 +16,7 @@
 #import "MJUSceneImage.h"
 #import "MJUHelper.h"
 #import "MJUAddProjectViewController.h"
+#import "MJUQuestionCategory.h"
 
 @interface MJUProjectViewController ()
 
@@ -99,8 +100,6 @@
         NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
         UIImage *resultImage = [UIImage imageWithData:imageData];
         [sceneImage addImage:resultImage];
-        
-//        [sceneImage addImage:[UIImage imageNamed:@"dummyImage.jpg"]];
         [scene addImagesObject:sceneImage];
         
         [self.project addScenesObject:scene];
@@ -116,11 +115,6 @@
 #pragma mark -
 #pragma mark UITableViewDelegate
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    [self performSegueWithIdentifier:@"StoryboardSegue" sender:indexPath];
-//}
-//
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"StoryboardSegue"]) {
@@ -128,7 +122,6 @@
         scenesViewController.project = self.project;
         
     } else if([[segue identifier] isEqualToString:@"QuestionsSegue"]) {
-        
         MJUQuestionsViewController *questionsViewController;
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
             UINavigationController *navController =[segue destinationViewController];
@@ -138,8 +131,8 @@
             questionsViewController = [segue destinationViewController];
         }
         questionsViewController.project = self.project;
-        questionsViewController.plist = [self questionFileForIndexPath:(NSIndexPath*)sender];
-        
+        NSIndexPath *indexPath = (NSIndexPath*)sender;
+        questionsViewController.category = [self getCategoryForRow:indexPath.row];
         
     } else if([[segue identifier] isEqualToString:@"PDFSegue"]) {
         MJUPDFViewController *pdfViewController;
@@ -154,7 +147,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 1) {
+    if(indexPath.section == 0) {
+        [self performSegueWithIdentifier:@"StoryboardSegue" sender:indexPath];
+    }else if(indexPath.section == 1) {
         [self performSegueWithIdentifier:@"QuestionsSegue" sender:indexPath];
     } else if(indexPath.section == 2) {
         [self performSegueWithIdentifier:@"PDFSegue" sender:indexPath];
@@ -164,52 +159,83 @@
     }
 }
 
-- (NSString*)questionFileForIndexPath:(NSIndexPath*)indexPath
+
+#pragma mark -
+#pragma mark UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    switch (indexPath.row) {
-        case 0:
-            return @"Questions_Contact";
-            break;
-        
-        case 1:
-            return @"Questions_Parameter";
-            break;
-        
-        case 2:
-            return @"Questions_Organisation";
-            break;
-            
-        case 3:
-            return @"Questions_PostProduction";
-            break;
-        
-        default:
-            return nil;
-            break;
-    }
+    return 3;
 }
 
-//
-//#pragma mark -
-//#pragma mark UITableViewDataSource
-//
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//    return 1;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//    return 1;
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    static NSString *CellIdentifier = @"StoryboardCell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-//    
-//    return cell;
-//}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if(section == 1) {
+        id<NSFetchedResultsSectionInfo> sectionInfo = [[[self fetchedResultsController] sections] objectAtIndex:0];
+        return [sectionInfo numberOfObjects];
+    }
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"StoryboardCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    if(indexPath.section == 0) {
+        cell.textLabel.text = NSLocalizedString(@"Storyboard", nil);
+    }else if(indexPath.section == 1) {
+        [self configureCell:cell atIndexPath:indexPath];
+    } else if(indexPath.section == 2) {
+        cell.textLabel.text = NSLocalizedString(@"generate PDF", nil);
+    }
+    
+    return cell;
+}
+
+- (void)configureCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    MJUQuestionCategory *category = [self getCategoryForRow:indexPath.row];
+    cell.textLabel.text = category.title;
+}
+
+
+#pragma mark -
+#pragma mark Core Data
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if (_fetchedResultsController == nil)
+    {
+        _fetchedResultsController = [self newFetchedResultsController];
+    }
+    return _fetchedResultsController;
+}
+
+- (NSFetchedResultsController *)newFetchedResultsController
+{
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MJUQuestionCategory"];
+    NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortByName]];
+    
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[[MJUProjectsDataModel sharedDataModel] mainContext] sectionNameKeyPath:Nil cacheName:nil];
+    
+    aFetchedResultsController.delegate = self;
+    
+    NSError *error = nil;
+    if (![aFetchedResultsController performFetch:&error]) {
+        NSLog(@"%@, %@", error, [error userInfo]);
+    }
+    
+    return aFetchedResultsController;
+}
+
+- (MJUQuestionCategory*)getCategoryForRow:(NSInteger)row
+{
+    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:row inSection:0];
+    MJUQuestionCategory *category = [self.fetchedResultsController objectAtIndexPath:newIndexPath];
+    return category;
+}
 
 
 

@@ -1,5 +1,5 @@
 //
-//  MJUQuestionsViewController.h
+//  MJUQuestionSelectionViewController.h
 //  Storyboard
 //
 //  Created by Martin Juhasz on 16/11/13.
@@ -7,16 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+
+@class MJUSelectableQuestion;
+@class MJUAnswer;
 @class MJUProject;
-@class MJUQuestionCategory;
 
+@interface MJUQuestionSelectionViewController : UITableViewController<NSFetchedResultsControllerDelegate>
 
-@interface MJUQuestionsViewController : UITableViewController<NSFetchedResultsControllerDelegate>
-
+@property (strong, nonatomic) MJUSelectableQuestion *question;
 @property (strong, nonatomic) MJUProject *project;
-@property (strong, nonatomic) MJUQuestionCategory *category;
-@property (strong, nonatomic) NSString *plist;
-
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end

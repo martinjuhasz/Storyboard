@@ -11,5 +11,5 @@ pod 'NYXImagesKit'
 pod 'GRMustache'
 
 # debug
-pod 'Reveal-iOS-SDK'
+#pod 'Reveal-iOS-SDK'
 
