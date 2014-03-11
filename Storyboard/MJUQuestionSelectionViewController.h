@@ -11,11 +11,13 @@
 @class MJUSelectableQuestion;
 @class MJUAnswer;
 @class MJUProject;
+@class MJUSelectableAnswer;
 
 @interface MJUQuestionSelectionViewController : UITableViewController<NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) MJUSelectableQuestion *question;
 @property (strong, nonatomic) MJUProject *project;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) MJUSelectableAnswer *selectedAnswer;
 
 @end

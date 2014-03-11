@@ -16,7 +16,10 @@
 @property (nonatomic, retain) NSString * text;
 @property (nonatomic, retain) NSSet *answers;
 @property (nonatomic, retain) MJUSelectableQuestion *question;
+
 @end
+
+
 
 @interface MJUSelectable (CoreDataGeneratedAccessors)
 

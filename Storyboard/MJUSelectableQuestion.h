@@ -10,6 +10,9 @@
 #import <CoreData/CoreData.h>
 #import "MJUQuestion.h"
 
+@class MJUSelectableAnswer;
+@class MJUProject;
+
 
 @interface MJUSelectableQuestion : MJUQuestion
 
@@ -22,5 +25,7 @@
 - (void)removeSelectablesObject:(NSManagedObject *)value;
 - (void)addSelectables:(NSSet *)values;
 - (void)removeSelectables:(NSSet *)values;
+
+- (MJUSelectableAnswer*)getSelectedAnswerForProject:(MJUProject*)project;
 
 @end

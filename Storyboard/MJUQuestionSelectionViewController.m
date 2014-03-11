@@ -12,6 +12,8 @@
 #import "MJUProjectsDataModel.h"
 #import "UITableView+Additions.h"
 #import "MJUSelectable.h"
+#import "MJUSelectableAnswer.h"
+#import "MJUSelectableQuestion.h"
 
 @interface MJUQuestionSelectionViewController ()
 
@@ -26,6 +28,7 @@
     [self.tableView hideEmptyCells];
 }
 
+
 #pragma mark -
 #pragma mark UITableViewDelegate
 
@@ -34,6 +37,26 @@
     NSManagedObjectContext *context = [[MJUProjectsDataModel sharedDataModel] mainContext];
     MJUSelectable *selectable = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
+    // delete old answer
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MJUSelectableAnswer"];
+    
+    NSPredicate *projectPredicate = [NSPredicate predicateWithFormat:@"project = %@", self.project];
+    NSPredicate *questionPredicate = [NSPredicate predicateWithFormat:@"selected.question = %@", selectable.question];
+    
+    NSPredicate *compoundPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[projectPredicate, questionPredicate]];
+    [fetchRequest setPredicate:compoundPredicate];
+    
+    NSError *fetchError = nil;
+    NSArray *results = [context executeFetchRequest:fetchRequest error:&fetchError];
+    if(results) {
+        for (NSManagedObject *answer in results) {
+            [context deleteObject:answer];
+        }
+    } else {
+        NSLog(@"Error: %@", [fetchError localizedDescription]);
+    }
+    
+    // insert new object
     MJUSelectableAnswer *answer = (MJUSelectableAnswer *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUSelectableAnswer" inManagedObjectContext:context];
     [selectable addAnswersObject:answer];
     [self.project addAnswersObject:(MJUAnswer*)answer];
@@ -41,7 +64,7 @@
     NSError *error;
     [context save:&error];
     
-    if(error) NSLog(@"%@", [error localizedDescription]);
+    if(error) NSLog(@"test: %@", [error localizedDescription]);
     
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -76,6 +99,13 @@
 - (void)updateCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
     MJUSelectable *selectable = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    MJUSelectableAnswer *answer = [self.question getSelectedAnswerForProject:self.project];
+    if(answer && answer.selected == selectable) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     
     cell.textLabel.text = selectable.text;
 }

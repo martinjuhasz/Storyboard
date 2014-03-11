@@ -77,6 +77,7 @@
 		7AC4A0221837B4030027BEAB /* MJUQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC4A0211837B4030027BEAB /* MJUQuestionCell.m */; };
 		7AC74CA7184CEEA50020BC23 /* dummyImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7AC74CA6184CEEA50020BC23 /* dummyImage.jpg */; };
 		7AC869E318CF1AC4001F81AB /* MJUQuestionSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC869E218CF1AC4001F81AB /* MJUQuestionSelectionViewController.m */; };
+		7AC869E618CF246F001F81AB /* NSError+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC869E518CF246F001F81AB /* NSError+Additions.m */; };
 		7AD16B52182FA0C600201465 /* MJUTextInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD16B51182FA0C600201465 /* MJUTextInputViewController.m */; };
 		7ADC3D52184CCD4600DABBE5 /* MJUPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC3D51184CCD4600DABBE5 /* MJUPDFViewController.m */; };
 		7AE48FAF184CE41200AA693E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE48FAE184CE41200AA693E /* MessageUI.framework */; };
@@ -216,6 +217,8 @@
 		7AC74CA6184CEEA50020BC23 /* dummyImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dummyImage.jpg; sourceTree = "<group>"; };
 		7AC869E118CF1AC4001F81AB /* MJUQuestionSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUQuestionSelectionViewController.h; sourceTree = "<group>"; };
 		7AC869E218CF1AC4001F81AB /* MJUQuestionSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUQuestionSelectionViewController.m; sourceTree = "<group>"; };
+		7AC869E418CF246F001F81AB /* NSError+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Additions.h"; sourceTree = "<group>"; };
+		7AC869E518CF246F001F81AB /* NSError+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Additions.m"; sourceTree = "<group>"; };
 		7AD16B50182FA0C600201465 /* MJUTextInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUTextInputViewController.h; sourceTree = "<group>"; };
 		7AD16B51182FA0C600201465 /* MJUTextInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUTextInputViewController.m; sourceTree = "<group>"; };
 		7ADC3D50184CCD4600DABBE5 /* MJUPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUPDFViewController.h; sourceTree = "<group>"; };
@@ -644,6 +647,8 @@
 				7A95202C1834D927002EC307 /* UITableView+Additions.m */,
 				7A41CF44183B68180059B727 /* UILabel+Additions.h */,
 				7A41CF45183B68180059B727 /* UILabel+Additions.m */,
+				7AC869E418CF246F001F81AB /* NSError+Additions.h */,
+				7AC869E518CF246F001F81AB /* NSError+Additions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -820,6 +825,7 @@
 				7A7BE10318CDB654001DFC72 /* MJUTextAnswer.m in Sources */,
 				7A22303D18CC8D9900E11035 /* MJUTextInputCell.m in Sources */,
 				7A95202D1834D927002EC307 /* UITableView+Additions.m in Sources */,
+				7AC869E618CF246F001F81AB /* NSError+Additions.m in Sources */,
 				7A62B69A18252C1000A2C1B2 /* main.m in Sources */,
 				7AAD4D3C188948750012D6A8 /* MJUQuestionSection.m in Sources */,
 				7A7BE10C18CDB655001DFC72 /* MJUTextQuestion.m in Sources */,
