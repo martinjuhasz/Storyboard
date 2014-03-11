@@ -19,6 +19,9 @@
 #import "MJUSelectableQuestion.h"
 #import "MJUTextQuestion.h"
 #import "MJUQuestionSelectionViewController.h"
+#import "MJUTextAnswer.h"
+#import "MJUSelectableAnswer.h"
+#import "MJUSelectable.h"
 
 @interface MJUQuestionsViewController ()
 
@@ -42,20 +45,32 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSIndexPath *indexPath = (NSIndexPath*)sender;
+    NSManagedObjectContext *context = [[MJUProjectsDataModel sharedDataModel] mainContext];
     if([segue.identifier isEqualToString:@"QuestionSelectionSegue"]) {
         MJUQuestionSelectionViewController *vc = (MJUQuestionSelectionViewController*)segue.destinationViewController;
         MJUSelectableQuestion *question = [self.fetchedResultsController objectAtIndexPath:indexPath];
         vc.question = question;
         vc.project = self.project;
     } else if([[segue identifier] isEqualToString:@"TextInputSegue"]) {
-//        MJUSubQuestion *question = [self.questionHelper subQuestionForIndexPath:(NSIndexPath*)sender];
-//        MJUAnswer *answer = [self.project getAnswerForQuestion:question];
-//        MJUTextInputViewController *textViewController = (MJUTextInputViewController*)((UINavigationController*)[segue destinationViewController]).topViewController;
-//        textViewController.inputText = answer.text;
-//        textViewController.saveString = ^(NSString *saveString) {
-//            answer.text = saveString;
-//            [[[MJUProjectsDataModel sharedDataModel] mainContext] save:nil];
-//        };
+        MJUTextQuestion *question = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        __block MJUTextAnswer *answer;
+        answer = [question getSelectedAnswerForProject:self.project];
+        
+        MJUTextInputViewController *textViewController = (MJUTextInputViewController*)((UINavigationController*)[segue destinationViewController]).topViewController;
+        if(answer) {
+            textViewController.inputText = answer.text;
+        }
+        
+        textViewController.saveString = ^(NSString *saveString) {
+            if(!answer) {
+                answer = (MJUTextAnswer *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUTextAnswer" inManagedObjectContext:context];
+                [question addAnswersObject:answer];
+                [self.project addAnswersObject:answer];
+            }
+            
+            answer.text = saveString;
+            [[[MJUProjectsDataModel sharedDataModel] mainContext] save:nil];
+        };
     }
 }
 
@@ -105,39 +120,30 @@
 
 - (void)updateCell:(MJUQuestionCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
-    MJUSelectableQuestion *question = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    MJUTextQuestion *question = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    MJUTextAnswer *answer = [question getSelectedAnswerForProject:self.project];
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.titleLabel.text = question.title;
-    cell.contentLabel.text = @"antwort";
-
-//    MJUSubQuestion *subQuestion = [self.questionHelper subQuestionForIndexPath:indexPath];
-//    MJUAnswer *answer = [self.project getAnswerForQuestion:subQuestion];
-//    MJUQuestionCell *questionCell = (MJUQuestionCell*)cell;
-//    
-//    questionCell.accessoryType = UITableViewCellAccessoryNone;
-//    questionCell.titleLabel.text = subQuestion.title;
-//    questionCell.contentLabel.text = answer.text;
+    
+    if(answer) {
+        cell.contentLabel.text = answer.text;
+    } else {
+        cell.contentLabel.text = @"";
+    }
 }
 
 - (void)updateSelectableCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
-    MJUTextQuestion *question = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    MJUSelectableQuestion *question = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    MJUSelectableAnswer *answer = [question getSelectedAnswerForProject:self.project];
     cell.textLabel.text = question.title;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    cell.detailTextLabel.text = @"antwort";
-    
-//    MJUSubQuestion *subQuestion = [self.questionHelper subQuestionForIndexPath:indexPath];
-//    MJUAnswer *answer = [self.project getAnswerForQuestion:subQuestion];
-//    cell.textLabel.text = subQuestion.title;
-//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//    
-//    if(answer && [answer.selected intValue] >= 0) {
-//        cell.detailTextLabel.text = [subQuestion.selections objectAtIndex:[answer.selected intValue]];
-//    } else {
-//        cell.detailTextLabel.text = @"";
-//    }
-//    
+    if(answer) {
+        cell.detailTextLabel.text = ((MJUSelectable*)answer.selected).text;
+    } else {
+        cell.detailTextLabel.text = @"";
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -155,25 +161,6 @@
         height = size.height + 1.0f;
     }
     return height;
-
-//    CGFloat height = 44.0f;
-//    
-//    MJUSubQuestion *subQuestion = [self.questionHelper subQuestionForIndexPath:indexPath];
-//    MJUAnswer *answer = [self.project getAnswerForQuestion:subQuestion];
-//    
-//    if(!subQuestion.isSelectable) {
-//        MJUQuestionCell *metricsCell = (MJUQuestionCell*)[tableView prototypeCellWithReuseIdentifier:@"QuestionCell"];
-//        metricsCell.contentLabel.text = answer.text;
-//
-//        
-//        [metricsCell.contentView setNeedsLayout];
-//        [metricsCell.contentView layoutIfNeeded];
-//        
-//        CGSize size = [metricsCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-//        height = size.height + 1.0f;
-//    }
-//    
-//    return height;
 }
 
 

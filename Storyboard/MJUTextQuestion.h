@@ -11,10 +11,14 @@
 #import "MJUQuestion.h"
 
 @class MJUTextAnswer;
+@class MJUProject;
 
 @interface MJUTextQuestion : MJUQuestion
 
 @property (nonatomic, retain) NSSet *answers;
+
+- (MJUTextAnswer*)getSelectedAnswerForProject:(MJUProject*)project;
+
 @end
 
 @interface MJUTextQuestion (CoreDataGeneratedAccessors)

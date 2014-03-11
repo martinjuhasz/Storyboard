@@ -8,10 +8,31 @@
 
 #import "MJUTextQuestion.h"
 #import "MJUTextAnswer.h"
-
+#import "MJUProject.h"
 
 @implementation MJUTextQuestion
 
 @dynamic answers;
+
+- (MJUTextAnswer*)getSelectedAnswerForProject:(MJUProject*)project
+{
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MJUTextAnswer"];
+    [fetchRequest setFetchLimit:1];
+    
+    NSPredicate *projectPredicate = [NSPredicate predicateWithFormat:@"project = %@", project];
+    NSPredicate *questionPredicate = [NSPredicate predicateWithFormat:@"question = %@", self];
+    
+    NSPredicate *compoundPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[projectPredicate, questionPredicate]];
+    [fetchRequest setPredicate:compoundPredicate];
+    
+    NSError *fetchError = nil;
+    NSArray *results = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&fetchError];
+    if(results && results.count > 0) {
+        return [results objectAtIndex:0];
+    } else if(fetchError) {
+        NSLog(@"Error: %@", [fetchError localizedDescription]);
+    }
+    return nil;
+}
 
 @end
