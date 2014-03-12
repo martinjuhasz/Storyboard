@@ -8,20 +8,14 @@
 		<key>questions</key>
 		<array>
 			<dict>
-				<key>id</key>
-				<string>1035</string>
 				<key>title</key>
 				<string>Musik</string>
 			</dict>
 			<dict>
-				<key>id</key>
-				<string>1036</string>
 				<key>title</key>
 				<string>Genre</string>
 			</dict>
 			<dict>
-				<key>id</key>
-				<string>1037</string>
 				<key>title</key>
 				<string>Tempo</string>
 			</dict>
@@ -33,26 +27,18 @@
 		<key>questions</key>
 		<array>
 			<dict>
-				<key>id</key>
-				<string>1038</string>
 				<key>title</key>
 				<string>Fotos</string>
 			</dict>
 			<dict>
-				<key>id</key>
-				<string>1039</string>
 				<key>title</key>
 				<string>Videos</string>
 			</dict>
 			<dict>
-				<key>id</key>
-				<string>1040</string>
 				<key>title</key>
 				<string>Grafiken / Animationen</string>
 			</dict>
 			<dict>
-				<key>id</key>
-				<string>1041</string>
 				<key>title</key>
 				<string>Ton</string>
 			</dict>

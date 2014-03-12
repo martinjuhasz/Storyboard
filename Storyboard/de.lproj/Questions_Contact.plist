@@ -8,32 +8,22 @@
             <key>questions</key>
             <array>
                 <dict>
-                    <key>id</key>
-                    <string>1001</string>
                     <key>title</key>
                     <string>Ansprechpartner</string>
                 </dict>
                 <dict>
-                    <key>id</key>
-                    <string>1002</string>
                     <key>title</key>
                     <string>Adresse</string>
                 </dict>
                 <dict>
-                    <key>id</key>
-                    <string>1003</string>
                     <key>title</key>
                     <string>E-Mail</string>
                 </dict>
                 <dict>
-                    <key>id</key>
-                    <string>1004</string>
                     <key>title</key>
                     <string>Telefonnummer</string>
                 </dict>
                 <dict>
-                    <key>id</key>
-                    <string>1005</string>
                     <key>title</key>
                     <string>Mobil</string>
                 </dict>
@@ -45,20 +35,14 @@
             <key>questions</key>
             <array>
                 <dict>
-                    <key>id</key>
-                    <string>1006</string>
                     <key>title</key>
                     <string>Ansprechpartner</string>
                 </dict>
                 <dict>
-                    <key>id</key>
-                    <string>1007</string>
                     <key>title</key>
                     <string>E-Mail</string>
                 </dict>
                 <dict>
-                    <key>id</key>
-                    <string>1008</string>
                     <key>title</key>
                     <string>Telefonnummer</string>
                 </dict>
@@ -70,20 +54,14 @@
             <key>questions</key>
             <array>
                 <dict>
-                    <key>id</key>
-                    <string>1009</string>
                     <key>title</key>
                     <string>Ansprechpartner</string>
                 </dict>
                 <dict>
-                    <key>id</key>
-                    <string>1010</string>
                     <key>title</key>
                     <string>E-Mail</string>
                 </dict>
                 <dict>
-                    <key>id</key>
-                    <string>1011</string>
                     <key>title</key>
                     <string>Telefonnummer</string>
                 </dict>
@@ -95,20 +73,14 @@
             <key>questions</key>
             <array>
                 <dict>
-                    <key>id</key>
-                    <string>1012</string>
                     <key>title</key>
                     <string>Ansprechpartner</string>
                 </dict>
                 <dict>
-                    <key>id</key>
-                    <string>1013</string>
                     <key>title</key>
                     <string>E-Mail</string>
                 </dict>
                 <dict>
-                    <key>id</key>
-                    <string>1014</string>
                     <key>title</key>
                     <string>Telefonnummer</string>
                 </dict>

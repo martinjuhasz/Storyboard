@@ -8,10 +8,8 @@
 		<key>questions</key>
 		<array>
 			<dict>
-				<key>id</key>
-				<string>1015</string>
 				<key>title</key>
-				<string></string>
+				<string>Statement</string>
 			</dict>
 		</array>
 	</dict>
@@ -21,14 +19,10 @@
 		<key>questions</key>
 		<array>
 			<dict>
-				<key>id</key>
-				<string>1016</string>
 				<key>title</key>
 				<string>Off-Sprecher</string>
 			</dict>
 			<dict>
-				<key>id</key>
-				<string>1017</string>
 				<key>title</key>
 				<string>Geschlecht Off-Sprecher</string>
 				<key>selections</key>
@@ -38,8 +32,6 @@
 				</array>
 			</dict>
 			<dict>
-				<key>id</key>
-				<string>1018</string>
 				<key>title</key>
 				<string>Off-Text erstellt</string>
 				<key>selections</key>
@@ -49,20 +41,14 @@
 				</array>
 			</dict>
 			<dict>
-				<key>id</key>
-				<string>1019</string>
 				<key>title</key>
 				<string>Sprachversionen</string>
 			</dict>
 			<dict>
-				<key>id</key>
-				<string>1020</string>
 				<key>title</key>
 				<string>Was soll im Film vorkommen</string>
 			</dict>
 			<dict>
-				<key>id</key>
-				<string>1021</string>
 				<key>title</key>
 				<string>Was nicht zeigen</string>
 			</dict>
@@ -74,14 +60,10 @@
 		<key>questions</key>
 		<array>
 			<dict>
-				<key>id</key>
-				<string>1022</string>
 				<key>title</key>
 				<string>Clipdauer</string>
 			</dict>
 			<dict>
-				<key>id</key>
-				<string>1023</string>
 				<key>title</key>
 				<string>Drehformat</string>
 				<key>selections</key>
@@ -91,14 +73,10 @@
 				</array>
 			</dict>
 			<dict>
-				<key>id</key>
-				<string>1024</string>
 				<key>title</key>
 				<string>Einsatzmedien</string>
 			</dict>
 			<dict>
-				<key>id</key>
-				<string>1025</string>
 				<key>title</key>
 				<string>Telefonnummer</string>
 			</dict>

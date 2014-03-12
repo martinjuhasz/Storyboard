@@ -8,14 +8,10 @@
 		<key>questions</key>
 		<array>
 			<dict>
-				<key>id</key>
-				<string>1026</string>
 				<key>title</key>
 				<string>Zeitaufwand in Stunden</string>
 			</dict>
 			<dict>
-				<key>id</key>
-				<string>1027</string>
 				<key>title</key>
 				<string>Schönwetterdreh</string>
 			</dict>
@@ -27,8 +23,6 @@
 		<key>questions</key>
 		<array>
 			<dict>
-				<key>id</key>
-				<string>1028</string>
 				<key>title</key>
 				<string>Adresse</string>
 			</dict>
@@ -40,14 +34,10 @@
 		<key>questions</key>
 		<array>
 			<dict>
-				<key>id</key>
-				<string>1029</string>
 				<key>title</key>
 				<string>Adresse</string>
 			</dict>
 			<dict>
-				<key>id</key>
-				<string>1030</string>
 				<key>title</key>
 				<string>Entfernung vom Hauptdrehort</string>
 			</dict>
@@ -55,18 +45,14 @@
 	</dict>
 	<dict>
 		<key>title</key>
-		<string></string>
+		<string>Sonstiges</string>
 		<key>questions</key>
 		<array>
 			<dict>
-				<key>id</key>
-				<string>1031</string>
 				<key>title</key>
 				<string>Drehgenehmigungen</string>
 			</dict>
 			<dict>
-				<key>id</key>
-				<string>1032</string>
 				<key>title</key>
 				<string>Requisiten (vom Kunden organisiert)</string>
 			</dict>
@@ -78,14 +64,10 @@
 		<key>questions</key>
 		<array>
 			<dict>
-				<key>id</key>
-				<string>1033</string>
 				<key>title</key>
 				<string>betriebsinterne Personen</string>
 			</dict>
 			<dict>
-				<key>id</key>
-				<string>1034</string>
 				<key>title</key>
 				<string>betriebsfremde Personen</string>
 			</dict>

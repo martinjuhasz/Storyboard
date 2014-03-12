@@ -8,6 +8,8 @@
 
 #import "MJUAppDelegate.h"
 #import "UIColor+Additions.h"
+#import "MJUQuestionsImporter.h"
+#import "MJUProjectsDataModel.h"
 
 @interface MJUAppDelegate(HockeyProtocols) < BITHockeyManagerDelegate> {}
 @end
@@ -22,9 +24,28 @@
                                                                delegate:self];
     [[BITHockeyManager sharedHockeyManager] startManager];
     
+    [self seedDatabase];
     [self setStyles];
     
     return YES;
+}
+
+- (void)seedDatabase
+{
+    NSString *seedKey = @"de.storyboard.db_seeded";
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    BOOL alreadySeeded = [userDefaults boolForKey:seedKey];
+    if(alreadySeeded) {
+        return;
+    }
+    
+    MJUQuestionsImporter *importer = [[MJUQuestionsImporter alloc] initWithContext:[[MJUProjectsDataModel sharedDataModel] mainContext]];
+    BOOL imported = [importer import];
+    
+    if(imported) {
+        [userDefaults setBool:YES forKey:seedKey];
+    }
 }
 
 - (void)setStyles
