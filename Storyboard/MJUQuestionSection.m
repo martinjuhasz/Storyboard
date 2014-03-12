@@ -18,4 +18,13 @@
 @dynamic questions;
 @dynamic order;
 
+- (NSArray*)sortedQuestions
+{
+    [self willAccessValueForKey: @"questions"];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:YES];
+    NSArray *returnArray = [self.questions sortedArrayUsingDescriptors:@[sortDescriptor]];
+    [self didAccessValueForKey: @"questions"];
+    return returnArray;
+}
+
 @end

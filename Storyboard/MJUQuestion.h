@@ -10,11 +10,14 @@
 #import <CoreData/CoreData.h>
 
 @class MJUQuestionSection;
-//
+@class MJUProject;
+
 @interface MJUQuestion : NSManagedObject
 
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) MJUQuestionSection *section;
 @property (nonatomic) int32_t order;
+
+- (BOOL)hasAnswerForProject:(MJUProject*)project;
 
 @end

@@ -12,7 +12,15 @@
 #import "MJUPDFImageURLProtocol.h"
 #import "MJUSceneImage.h"
 #import "GRMustache.h"
-
+#import "MJUPDFQuestions.h"
+#import "MJUQuestionCategory.h"
+#import "MJUProjectsDataModel.h"
+#import "MJUQuestion.h"
+#import "MJUTextQuestion.h"
+#import "MJUTextAnswer.h"
+#import "MJUSelectableQuestion.h"
+#import "MJUSelectableAnswer.h"
+#import "MJUSelectable.h"
 
 @implementation MJUPDFGenerator
 
@@ -32,24 +40,61 @@
 
 - (void)generatePDFWithSuccess:(NDHTMLtoPDFCompletionBlock)success error:(NDHTMLtoPDFCompletionBlock)error
 {
-//    NSString *htmlContent = [self generateHTML];
+//    MJUPDFQuestions *questions = [[MJUPDFQuestions alloc] initWithProject:self.project];
     
-//    MJUQuestionHelper *contactQuestionHelper = [[MJUQuestionHelper alloc] initWithPList:@"Questions_Contact" project:self.project];
-//    MJUQuestionHelper *parameterQuestionHelper = [[MJUQuestionHelper alloc] initWithPList:@"Questions_Parameter" project:self.project];
-//    MJUQuestionHelper *organisationQuestionHelper = [[MJUQuestionHelper alloc] initWithPList:@"Questions_Organisation" project:self.project];
-//    MJUQuestionHelper *postProductionQuestionHelper = [[MJUQuestionHelper alloc] initWithPList:@"Questions_PostProduction" project:self.project];
-//    
-//    id data = @{ @"project": self.project,
-//                 @"contactQuestionHelper": contactQuestionHelper,
-//                 @"parameterQuestionHelper": parameterQuestionHelper,
-//                 @"organisationQuestionHelper": organisationQuestionHelper,
-//                 @"postProductionQuestionHelper": postProductionQuestionHelper
-//            };
     
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MJUQuestionCategory"];
+    NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortByName]];
+
+    NSError *fetchError = nil;
+    NSArray *categories = [[[MJUProjectsDataModel sharedDataModel] mainContext] executeFetchRequest:fetchRequest error:&fetchError];
+    if(fetchError) {
+        NSLog(@"Error: %@", [fetchError localizedDescription]);
+    }
+    
+    id data = @{ @"project": self.project,
+                 @"categories": categories
+            };
+    
+    id extraKeys = @{
+                     @"answerForProject": [GRMustache renderingObjectWithBlock:^NSString *(GRMustacheTag *tag, GRMustacheContext *context, BOOL *HTMLSafe, NSError **error) {
+        // load the question, and the project from the context stack
+        MJUProject *project = [context valueForMustacheKey:@"project"];
+        MJUQuestion *question = [context topMustacheObject];
+        
+        //if(!project || !question || ![project isKindOfClass:[MJUProject class]])
+        
+        NSString *answerString = nil;
+        if([question isKindOfClass:[MJUTextQuestion class]]) {
+            MJUTextAnswer *answer = [(MJUTextQuestion*)question getSelectedAnswerForProject:project];
+            if(!answer) return nil;
+            answerString = answer.text;
+        } else if([question isKindOfClass:[MJUSelectableQuestion class]]) {
+            MJUSelectableAnswer *answer = [(MJUSelectableQuestion*)question getSelectedAnswerForProject:project];
+            if(!answer) return nil;
+            answerString = ((MJUSelectable*)answer.selected).text;
+        }
+        return answerString;
+    }],
+                 @"projectHasAnswer": [GRMustache renderingObjectWithBlock:^NSString *(GRMustacheTag *tag, GRMustacheContext *context, BOOL *HTMLSafe, NSError **error) {
+                     // load the question, and the project from the context stack
+                     MJUProject *project = [context valueForMustacheKey:@"project"];
+                     MJUQuestion *question = [context topMustacheObject];
+                     
+                     //if(!project || !question || ![project isKindOfClass:[MJUProject class]])
+                     
+                     if([question hasAnswerForProject:project]) {
+                         NSLog(@"asdasdasdasds");
+                         return @"test";
+                     };
+                     return nil;
+                 }]
+    };
     
     GRMustacheTemplate *template = [GRMustacheTemplate templateFromResource:@"pdf_content" bundle:nil error:nil];
-//    NSString *htmlContent = [template renderObject:data error:nil];
-    NSString *htmlContent = @"";
+    NSString *htmlContent = [template renderObjectsFromArray:@[data, extraKeys] error:nil];
+
     
     
     

@@ -82,6 +82,7 @@
 		7AC869EB18CFB004001F81AB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC869EA18CFB004001F81AB /* AVFoundation.framework */; };
 		7AC869EE18D05D42001F81AB /* MJUSortedDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC869ED18D05D42001F81AB /* MJUSortedDataTableViewController.m */; };
 		7AC869F118D06EBB001F81AB /* MJUQuestionsImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC869F018D06EBA001F81AB /* MJUQuestionsImporter.m */; };
+		7AC869F418D09931001F81AB /* MJUPDFQuestions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC869F318D09931001F81AB /* MJUPDFQuestions.m */; };
 		7AD16B52182FA0C600201465 /* MJUTextInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD16B51182FA0C600201465 /* MJUTextInputViewController.m */; };
 		7ADC3D52184CCD4600DABBE5 /* MJUPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC3D51184CCD4600DABBE5 /* MJUPDFViewController.m */; };
 		7AE48FAF184CE41200AA693E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE48FAE184CE41200AA693E /* MessageUI.framework */; };
@@ -230,6 +231,8 @@
 		7AC869ED18D05D42001F81AB /* MJUSortedDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUSortedDataTableViewController.m; sourceTree = "<group>"; };
 		7AC869EF18D06EBA001F81AB /* MJUQuestionsImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUQuestionsImporter.h; sourceTree = "<group>"; };
 		7AC869F018D06EBA001F81AB /* MJUQuestionsImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUQuestionsImporter.m; sourceTree = "<group>"; };
+		7AC869F218D09931001F81AB /* MJUPDFQuestions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUPDFQuestions.h; sourceTree = "<group>"; };
+		7AC869F318D09931001F81AB /* MJUPDFQuestions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUPDFQuestions.m; sourceTree = "<group>"; };
 		7AD16B50182FA0C600201465 /* MJUTextInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUTextInputViewController.h; sourceTree = "<group>"; };
 		7AD16B51182FA0C600201465 /* MJUTextInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUTextInputViewController.m; sourceTree = "<group>"; };
 		7ADC3D50184CCD4600DABBE5 /* MJUPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUPDFViewController.h; sourceTree = "<group>"; };
@@ -295,6 +298,8 @@
 		7A195C49183E084E00E2F944 /* PDF Generation */ = {
 			isa = PBXGroup;
 			children = (
+				7AC869F218D09931001F81AB /* MJUPDFQuestions.h */,
+				7AC869F318D09931001F81AB /* MJUPDFQuestions.m */,
 				7A195C4A183E086C00E2F944 /* MJUPDFGenerator.h */,
 				7A195C4B183E086C00E2F944 /* MJUPDFGenerator.m */,
 				7ADC3D50184CCD4600DABBE5 /* MJUPDFViewController.h */,
@@ -874,6 +879,7 @@
 				7A62B6D2182539CC00A2C1B2 /* MJUProjectsDataModel.m in Sources */,
 				7A68C04D18264DCD004EABD9 /* MJUProjectViewController.m in Sources */,
 				7A435866182CF40300534588 /* MJUScenesTableViewController.m in Sources */,
+				7AC869F418D09931001F81AB /* MJUPDFQuestions.m in Sources */,
 				7A195C4C183E086C00E2F944 /* MJUPDFGenerator.m in Sources */,
 				7A68C05A18265F70004EABD9 /* MJUSceneImage.m in Sources */,
 				7A3F916B186338410019D1E0 /* MJUPDFImageURLProtocol.m in Sources */,

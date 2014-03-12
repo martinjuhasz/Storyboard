@@ -16,6 +16,8 @@
 @property (nonatomic, retain) NSSet *sections;
 @property (nonatomic) int32_t order;
 
+- (NSArray*)sortedSections;
+
 @end
 
 @interface MJUQuestionCategory (CoreDataGeneratedAccessors)

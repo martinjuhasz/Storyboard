@@ -8,12 +8,16 @@
 
 #import "MJUQuestion.h"
 #import "MJUQuestionSection.h"
-
+#import "MJUProject.h"
 
 @implementation MJUQuestion
 
 @dynamic title;
 @dynamic section;
 @dynamic order;
+
+- (BOOL)hasAnswerForProject:(MJUProject*)project {
+    return NO;
+}
 
 @end

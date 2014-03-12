@@ -27,5 +27,6 @@
 - (void)removeSelectables:(NSSet *)values;
 
 - (MJUSelectableAnswer*)getSelectedAnswerForProject:(MJUProject*)project;
+- (BOOL)hasAnswerForProject:(MJUProject*)project;
 
 @end

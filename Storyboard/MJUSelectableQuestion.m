@@ -15,6 +15,12 @@
 
 @dynamic selectables;
 
+- (BOOL)hasAnswerForProject:(MJUProject*)project
+{
+    MJUSelectableAnswer *answer = [self getSelectedAnswerForProject:project];
+    return (answer != nil);
+}
+
 - (MJUSelectableAnswer*)getSelectedAnswerForProject:(MJUProject*)project
 {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MJUSelectableAnswer"];

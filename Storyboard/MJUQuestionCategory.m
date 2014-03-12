@@ -15,4 +15,13 @@
 @dynamic sections;
 @dynamic order;
 
+- (NSArray*)sortedSections
+{
+    [self willAccessValueForKey: @"sections"];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:YES];
+    NSArray *returnArray = [self.sections sortedArrayUsingDescriptors:@[sortDescriptor]];
+    [self didAccessValueForKey: @"sections"];
+    return returnArray;
+}
+
 @end

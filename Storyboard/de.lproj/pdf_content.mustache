@@ -136,7 +136,27 @@
 
 
         <div class="break"></div>
+        {{#categories}}
+            <h3>{{title}}</h3>
+            {{#sortedSections}}
+                <fieldset class="section">
+                    <legend>{{title}}</legend>
+                    {{#sortedQuestions}}
+                        {{#projectHasAnswer}}
+                            ATATATTATA
+                            <div class="question">{{title}}</div>
+                            <div class="answer">{{answerForProject}}</div>
+                        {{/projectHasAnswer}}
+                    {{/sortedQuestions}}
+                </fieldset>
+            {{/sortedSections}}
+
+            <div class="break"></div>
+        {{/categories}}
+
         
+
+        <!--
         <h3>Kontaktdaten</h3>
         {{#contactQuestionHelper.questions}}
             <fieldset class="section">
@@ -188,6 +208,8 @@
         {{/postProductionQuestionHelper.questions}}
 
         <div class="break"></div>
+        -->
+
 
         <h3>Scenes</h3>
         <div id="scenes">
