@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSString * text;
 @property (nonatomic, retain) NSSet *answers;
 @property (nonatomic, retain) MJUSelectableQuestion *question;
+@property (nonatomic) int32_t order;
 
 @end
 

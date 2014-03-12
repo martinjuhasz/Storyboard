@@ -16,5 +16,6 @@
 @dynamic title;
 @dynamic category;
 @dynamic questions;
+@dynamic order;
 
 @end

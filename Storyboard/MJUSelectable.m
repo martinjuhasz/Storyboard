@@ -16,5 +16,6 @@
 @dynamic text;
 @dynamic answers;
 @dynamic question;
+@dynamic order;
 
 @end

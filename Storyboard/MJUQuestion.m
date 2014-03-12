@@ -14,5 +14,6 @@
 
 @dynamic title;
 @dynamic section;
+@dynamic order;
 
 @end

@@ -78,6 +78,9 @@
 		7AC74CA7184CEEA50020BC23 /* dummyImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7AC74CA6184CEEA50020BC23 /* dummyImage.jpg */; };
 		7AC869E318CF1AC4001F81AB /* MJUQuestionSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC869E218CF1AC4001F81AB /* MJUQuestionSelectionViewController.m */; };
 		7AC869E618CF246F001F81AB /* NSError+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC869E518CF246F001F81AB /* NSError+Additions.m */; };
+		7AC869E918CFADED001F81AB /* MJUSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC869E818CFADED001F81AB /* MJUSettingsTableViewController.m */; };
+		7AC869EB18CFB004001F81AB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC869EA18CFB004001F81AB /* AVFoundation.framework */; };
+		7AC869EE18D05D42001F81AB /* MJUSortedDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC869ED18D05D42001F81AB /* MJUSortedDataTableViewController.m */; };
 		7AD16B52182FA0C600201465 /* MJUTextInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD16B51182FA0C600201465 /* MJUTextInputViewController.m */; };
 		7ADC3D52184CCD4600DABBE5 /* MJUPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC3D51184CCD4600DABBE5 /* MJUPDFViewController.m */; };
 		7AE48FAF184CE41200AA693E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE48FAE184CE41200AA693E /* MessageUI.framework */; };
@@ -219,6 +222,11 @@
 		7AC869E218CF1AC4001F81AB /* MJUQuestionSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUQuestionSelectionViewController.m; sourceTree = "<group>"; };
 		7AC869E418CF246F001F81AB /* NSError+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Additions.h"; sourceTree = "<group>"; };
 		7AC869E518CF246F001F81AB /* NSError+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Additions.m"; sourceTree = "<group>"; };
+		7AC869E718CFADED001F81AB /* MJUSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUSettingsTableViewController.h; sourceTree = "<group>"; };
+		7AC869E818CFADED001F81AB /* MJUSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUSettingsTableViewController.m; sourceTree = "<group>"; };
+		7AC869EA18CFB004001F81AB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7AC869EC18D05D42001F81AB /* MJUSortedDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUSortedDataTableViewController.h; sourceTree = "<group>"; };
+		7AC869ED18D05D42001F81AB /* MJUSortedDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUSortedDataTableViewController.m; sourceTree = "<group>"; };
 		7AD16B50182FA0C600201465 /* MJUTextInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUTextInputViewController.h; sourceTree = "<group>"; };
 		7AD16B51182FA0C600201465 /* MJUTextInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUTextInputViewController.m; sourceTree = "<group>"; };
 		7ADC3D50184CCD4600DABBE5 /* MJUPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUPDFViewController.h; sourceTree = "<group>"; };
@@ -245,6 +253,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AC869EB18CFB004001F81AB /* AVFoundation.framework in Frameworks */,
 				7AE48FAF184CE41200AA693E /* MessageUI.framework in Frameworks */,
 				7A3639BE1827D72E00B7307B /* QuickLook.framework in Frameworks */,
 				7A62B68E18252C1000A2C1B2 /* CoreGraphics.framework in Frameworks */,
@@ -338,6 +347,7 @@
 		7A62B68A18252C1000A2C1B2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7AC869EA18CFB004001F81AB /* AVFoundation.framework */,
 				7AE48FAE184CE41200AA693E /* MessageUI.framework */,
 				7A3639BD1827D72E00B7307B /* QuickLook.framework */,
 				7A62B68B18252C1000A2C1B2 /* Foundation.framework */,
@@ -573,6 +583,10 @@
 		7AAD4D2A188941910012D6A8 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				7AC869E718CFADED001F81AB /* MJUSettingsTableViewController.h */,
+				7AC869E818CFADED001F81AB /* MJUSettingsTableViewController.m */,
+				7AC869EC18D05D42001F81AB /* MJUSortedDataTableViewController.h */,
+				7AC869ED18D05D42001F81AB /* MJUSortedDataTableViewController.m */,
 				7AAD4D2B188941D60012D6A8 /* MJUEditCategoriesTableViewController.h */,
 				7AAD4D2C188941D60012D6A8 /* MJUEditCategoriesTableViewController.m */,
 				7AAD4D4618894C570012D6A8 /* MJUTitleInputViewController.h */,
@@ -839,6 +853,7 @@
 				7AD16B52182FA0C600201465 /* MJUTextInputViewController.m in Sources */,
 				7A018B1B18560747004E5657 /* MJUTableHeaderView.m in Sources */,
 				7AB7B158185CB9C800BF9CEC /* MJUTextViewCell.m in Sources */,
+				7AC869E918CFADED001F81AB /* MJUSettingsTableViewController.m in Sources */,
 				7A95202A1834D5F3002EC307 /* UIColor+Additions.m in Sources */,
 				7A7BE10618CDB655001DFC72 /* MJUSelectableAnswer.m in Sources */,
 				7ADC3D52184CCD4600DABBE5 /* MJUPDFViewController.m in Sources */,
@@ -846,6 +861,7 @@
 				7A62B6D618253EA500A2C1B2 /* MJUProject.m in Sources */,
 				7A018B181855E5CD004E5657 /* MJUSpacedTableViewCell.m in Sources */,
 				7AC4A0221837B4030027BEAB /* MJUQuestionCell.m in Sources */,
+				7AC869EE18D05D42001F81AB /* MJUSortedDataTableViewController.m in Sources */,
 				7A7BE11218CDB655001DFC72 /* MJUQuestion.m in Sources */,
 				7AEFB6A0182D2EF400315686 /* NSString+Additions.m in Sources */,
 				7A7BE10918CDB655001DFC72 /* MJUAnswer.m in Sources */,
@@ -1061,6 +1077,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E712C88D0B244666A07D6027 /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1078,6 +1095,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E712C88D0B244666A07D6027 /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -1086,7 +1104,7 @@
 				GCC_PREFIX_HEADER = "Storyboard/Storyboard-Prefix.pch";
 				INFOPLIST_FILE = "Storyboard/Storyboard-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "FB73DB8F-148E-4985-8018-B54A0AA979E5";
+				PROVISIONING_PROFILE = "09090B8D-CC0B-4D77-A00D-B69D1F274806";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

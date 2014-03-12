@@ -14,6 +14,8 @@
 
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSSet *sections;
+@property (nonatomic) int32_t order;
+
 @end
 
 @interface MJUQuestionCategory (CoreDataGeneratedAccessors)

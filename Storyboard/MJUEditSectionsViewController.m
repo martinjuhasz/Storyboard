@@ -18,22 +18,6 @@
 
 @implementation MJUEditSectionsViewController
 
-
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDataModelChange:) name:NSManagedObjectContextObjectsDidChangeNotification object:[[MJUProjectsDataModel sharedDataModel] mainContext]];
-
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"TitleInputSegue"]) {
@@ -53,6 +37,8 @@
             if(!editMode || ![sender isKindOfClass:[NSIndexPath class]]) {
                 section = (MJUQuestionSection *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUQuestionSection" inManagedObjectContext:context];
                 [self.category addSectionsObject:section];
+                NSUInteger count = [[[self fetchedResultsController] fetchedObjects] count];
+                section.order = count;
             }
             [section setValue:saveString forKey:@"title"];
             NSError *error;
@@ -60,6 +46,11 @@
             if(error) {
                 NSLog(@"%@", [error localizedDescription]);
             }
+            
+            if(!editMode || ![sender isKindOfClass:[NSIndexPath class]]) {
+                [self saveOrder];
+            }
+            
         };
     } else if([segue.identifier isEqualToString:@"EditQuestionsSegue"]) {
         MJUEditQuestionsViewController *vc = (MJUEditQuestionsViewController*)[segue destinationViewController];
@@ -94,14 +85,13 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     if(!_category) return 0;
-    return [[[self fetchedResultsController] sections] count];
+    return [super numberOfSectionsInTableView:tableView];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(!_category) return 0;
-    id<NSFetchedResultsSectionInfo> sectionInfo = [[[self fetchedResultsController] sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
+    return [super tableView:tableView numberOfRowsInSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -109,25 +99,14 @@
     static NSString *CellIdentifier = @"SectionEditCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    MJUQuestionSection *currentSection = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    
-    // Configure the cell...
-    cell.textLabel.text = currentSection.title;
+    [self updateCell:cell atIndexPath:indexPath];
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)updateCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete)
-    {
-        MJUQuestionSection *section = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        [[[MJUProjectsDataModel sharedDataModel] mainContext] deleteObject:section];
-        NSError *error;
-        [[[MJUProjectsDataModel sharedDataModel] mainContext] save:&error];
-        if(error) {
-            NSLog(@"%@", [error localizedDescription]);
-        }
-    }
+    MJUQuestionSection *currentSection = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    cell.textLabel.text = currentSection.title;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -142,21 +121,12 @@
 #pragma mark -
 #pragma mark Core Data
 
-- (NSFetchedResultsController *)fetchedResultsController
-{
-    if (_fetchedResultsController == nil)
-    {
-        _fetchedResultsController = [self newFetchedResultsController];
-    }
-    return _fetchedResultsController;
-}
-
 - (NSFetchedResultsController *)newFetchedResultsController
 {
     if(!self.category) return nil;
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MJUQuestionSection"];
-    NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
+    NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortByName]];
     
     NSPredicate *projectPredicate = [NSPredicate predicateWithFormat:@"category == %@", self.category];
@@ -172,16 +142,6 @@
     }
     
     return aFetchedResultsController;
-}
-
-#pragma mark -
-#pragma mark CoreData
-
-- (void)handleDataModelChange:(NSNotification *)note
-{
-    // TODO: why doesnt fetchedResultsController update itself?
-    _fetchedResultsController = nil;
-    [self.tableView reloadData];
 }
 
 @end

@@ -15,5 +15,6 @@
 
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) MJUQuestionSection *section;
+@property (nonatomic) int32_t order;
 
 @end

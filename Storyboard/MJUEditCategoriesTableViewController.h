@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJUSortedDataTableViewController.h"
 
-@interface MJUEditCategoriesTableViewController : UITableViewController<NSFetchedResultsControllerDelegate, UIActionSheetDelegate>
-
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@interface MJUEditCategoriesTableViewController : MJUSortedDataTableViewController<UIActionSheetDelegate>
 
 @end

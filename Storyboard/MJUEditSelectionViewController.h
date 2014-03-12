@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJUSortedDataTableViewController.h"
 
 @class MJUSelectableQuestion;
 
-@interface MJUEditSelectionViewController : UITableViewController<NSFetchedResultsControllerDelegate, UIActionSheetDelegate>
+@interface MJUEditSelectionViewController : MJUSortedDataTableViewController<UIActionSheetDelegate>
 
 @property (strong, nonatomic) MJUSelectableQuestion *question;
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end

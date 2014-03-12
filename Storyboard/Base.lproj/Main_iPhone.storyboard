@@ -236,10 +236,10 @@
             </objects>
             <point key="canvasLocation" x="1654" y="-651"/>
         </scene>
-        <!--Table View Controller - Settings-->
+        <!--Settings Table View Controller - Settings-->
         <scene sceneID="yPN-Ww-ecU">
             <objects>
-                <tableViewController id="ns7-PS-0k9" sceneMemberID="viewController">
+                <tableViewController id="ns7-PS-0k9" customClass="MJUSettingsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1Xm-tT-gwd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -267,19 +267,17 @@
                                             <segue destination="3nK-X5-BZI" kind="push" id="l88-V4-2MV"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="RMY-bg-uhU">
-                                        <rect key="frame" x="0.0" y="108" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RMY-bg-uhU" id="s8F-09-fGu">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="wlj-Ga-y19"/>
+                    <navigationItem key="navigationItem" title="Settings" id="wlj-Ga-y19">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="Jzg-63-Wgg">
+                            <connections>
+                                <action selector="doneButtonClicked:" destination="ns7-PS-0k9" id="CZG-ht-XbL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xcf-vj-NEH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

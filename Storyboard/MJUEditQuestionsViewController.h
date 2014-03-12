@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJUSortedDataTableViewController.h"
 
 @class MJUQuestionSection;
 
-@interface MJUEditQuestionsViewController : UITableViewController<NSFetchedResultsControllerDelegate, UIActionSheetDelegate>
+@interface MJUEditQuestionsViewController : MJUSortedDataTableViewController<UIActionSheetDelegate>
 
 @property (strong, nonatomic) MJUQuestionSection *section;
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end

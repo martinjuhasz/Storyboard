@@ -22,6 +22,7 @@
 #import "MJUTextAnswer.h"
 #import "MJUSelectableAnswer.h"
 #import "MJUSelectable.h"
+#import "MJUQuestionSection.h"
 
 @interface MJUQuestionsViewController ()
 
@@ -168,7 +169,8 @@
 {
     MJUTableHeaderView *aView = [[MJUTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, tableView.frame.size.width, 20.0f)];
     id<NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController.sections objectAtIndex:section];
-    aView.titleLabel.text = [sectionInfo name];
+    MJUQuestion *question = [[sectionInfo objects] objectAtIndex:0];
+    aView.titleLabel.text = question.section.title;
     return aView;
 }
 
@@ -193,13 +195,14 @@
 - (NSFetchedResultsController *)newFetchedResultsController
 {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MJUQuestion"];
-    NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortByName]];
+    NSSortDescriptor *sortBySectionOrder = [NSSortDescriptor sortDescriptorWithKey:@"section.order" ascending:YES];
+    NSSortDescriptor *sortByOrder = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortBySectionOrder, sortByOrder]];
 
     NSPredicate *categoryPredicate = [NSPredicate predicateWithFormat:@"section.category = %@", self.category];
     [fetchRequest setPredicate:categoryPredicate];
     
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[[MJUProjectsDataModel sharedDataModel] mainContext] sectionNameKeyPath:@"section.title" cacheName:nil];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[[MJUProjectsDataModel sharedDataModel] mainContext] sectionNameKeyPath:@"section.order" cacheName:nil];
     
     aFetchedResultsController.delegate = self;
     

@@ -127,7 +127,7 @@
     if(!self.question) return nil;
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MJUSelectable"];
-    NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"text" ascending:YES];
+    NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortByName]];
     
     NSPredicate *categoryPredicate = [NSPredicate predicateWithFormat:@"question = %@", self.question];

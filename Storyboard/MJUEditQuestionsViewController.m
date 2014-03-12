@@ -21,20 +21,6 @@
 
 @implementation MJUEditQuestionsViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDataModelChange:) name:NSManagedObjectContextObjectsDidChangeNotification object:[[MJUProjectsDataModel sharedDataModel] mainContext]];
-    
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"TitleInputSegue"]) {
@@ -51,6 +37,7 @@
         }
         
         vc.saveBlock = ^(NSString *saveString) {
+            
             if(!editMode || ![sender isKindOfClass:[NSIndexPath class]]) {
                 NSNumber *selectedOption = (NSNumber*)sender;
                 if([selectedOption integerValue] == 0) {
@@ -58,36 +45,24 @@
                 } else if([selectedOption integerValue] == 1) {
                     question = (MJUSelectableQuestion *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUSelectableQuestion" inManagedObjectContext:context];
                 }
+                NSUInteger count = [[[self fetchedResultsController] fetchedObjects] count];
+                question.order = count;
                 [self.section addQuestionsObject:question];
             }
+            
             [question setValue:saveString forKey:@"title"];
             NSError *error;
             [[[MJUProjectsDataModel sharedDataModel] mainContext] save:&error];
+            
             if(error) {
                 NSLog(@"%@", [error localizedDescription]);
             }
+            
+            if(!editMode || ![sender isKindOfClass:[NSIndexPath class]]) {
+                [self saveOrder];
+            }
+            
         };
-        
-//        MJUTitleInputViewController *vc = (MJUTitleInputViewController*)[((UINavigationController*)segue.destinationViewController) topViewController];
-//        if([sender isKindOfClass:[NSNumber class]]) {
-//            NSNumber *selectedOption = (NSNumber*)sender;
-//            vc.saveBlock = ^(NSString *saveString) {
-//                NSManagedObjectContext *context = [[MJUProjectsDataModel sharedDataModel] mainContext];
-//                MJUQuestion *question;
-//                if([selectedOption integerValue] == 0) {
-//                    question = (MJUTextQuestion *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUTextQuestion" inManagedObjectContext:context];
-//                } else if([selectedOption integerValue] == 1) {
-//                    question = (MJUSelectableQuestion *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUSelectableQuestion" inManagedObjectContext:context];
-//                }
-//                [question setValue:saveString forKey:@"title"];
-//                [self.section addQuestionsObject:question];
-//                NSError *error;
-//                [[[MJUProjectsDataModel sharedDataModel] mainContext] save:&error];
-//                if(error) {
-//                    NSLog(@"%@", [error localizedDescription]);
-//                }
-//            };
-//        }
     } else if([segue.identifier isEqualToString:@"EditSelectablesSegue"]) {
         MJUEditSelectionViewController *vc = (MJUEditSelectionViewController*)[segue destinationViewController];
         NSIndexPath *indexPath = (NSIndexPath*)sender;
@@ -121,14 +96,13 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     if(!_section) return 0;
-    return [[[self fetchedResultsController] sections] count];
+    return [super numberOfSectionsInTableView:tableView];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(!_section) return 0;
-    id<NSFetchedResultsSectionInfo> sectionInfo = [[[self fetchedResultsController] sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
+    return [super tableView:tableView numberOfRowsInSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -136,33 +110,20 @@
     static NSString *CellIdentifier = @"QuestionEditCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    MJUQuestion *currentQuestion = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    
-    // Configure the cell...
-    cell.textLabel.text = currentQuestion.title;
-    if([currentQuestion class] == [MJUSelectableQuestion class]) {
-        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-        //cell.userInteractionEnabled = YES;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    } else {
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        //cell.userInteractionEnabled = NO;
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
+    [self updateCell:cell atIndexPath:indexPath];
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)updateCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete)
-    {
-        MJUQuestion *question = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        [[[MJUProjectsDataModel sharedDataModel] mainContext] deleteObject:question];
-        NSError *error;
-        [[[MJUProjectsDataModel sharedDataModel] mainContext] save:&error];
-        if(error) {
-            NSLog(@"%@", [error localizedDescription]);
-        }
+    MJUQuestion *currentQuestion = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    cell.textLabel.text = currentQuestion.title;
+    if([currentQuestion class] == [MJUSelectableQuestion class]) {
+        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    } else {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
 }
 
@@ -182,21 +143,12 @@
 #pragma mark -
 #pragma mark Core Data
 
-- (NSFetchedResultsController *)fetchedResultsController
-{
-    if (_fetchedResultsController == nil)
-    {
-        _fetchedResultsController = [self newFetchedResultsController];
-    }
-    return _fetchedResultsController;
-}
-
 - (NSFetchedResultsController *)newFetchedResultsController
 {
     if(!_section) return nil;
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MJUQuestion"];
-    NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
+    NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortByName]];
     
     NSPredicate *projectPredicate = [NSPredicate predicateWithFormat:@"section == %@", self.section];
@@ -212,16 +164,6 @@
     }
     
     return aFetchedResultsController;
-}
-
-#pragma mark -
-#pragma mark CoreData
-
-- (void)handleDataModelChange:(NSNotification *)note
-{
-    // TODO: why doesnt fetchedResultsController update itself?
-    _fetchedResultsController = nil;
-    [self.tableView reloadData];
 }
 
 @end

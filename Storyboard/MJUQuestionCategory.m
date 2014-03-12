@@ -13,5 +13,6 @@
 
 @dynamic title;
 @dynamic sections;
+@dynamic order;
 
 @end
