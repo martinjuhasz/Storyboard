@@ -4,96 +4,96 @@
 <array>
 	<dict>
 		<key>title</key>
-		<string>Contact</string>
+		<string>Kontakt</string>
 		<key>icon</key>
 		<integer>0</integer>
 		<key>section</key>
 		<array>
-			<dict>
-				<key>title</key>
-				<string>Contact</string>
-				<key>questions</key>
-				<array>
-					<dict>
-						<key>title</key>
-						<string>contact</string>
-					</dict>
-					<dict>
-						<key>title</key>
-						<string>address</string>
-					</dict>
-					<dict>
-						<key>title</key>
-						<string>e-mail</string>
-					</dict>
-					<dict>
-						<key>title</key>
-						<string>telephone</string>
-					</dict>
-					<dict>
-						<key>title</key>
-						<string>mobile</string>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>title</key>
-				<string>editorial staff</string>
-				<key>questions</key>
-				<array>
-					<dict>
-						<key>title</key>
-						<string>contact</string>
-					</dict>
-					<dict>
-						<key>title</key>
-						<string>e-mail</string>
-					</dict>
-					<dict>
-						<key>title</key>
-						<string>telephone</string>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>title</key>
-				<string>scheduling</string>
-				<key>questions</key>
-				<array>
-					<dict>
-						<key>title</key>
-						<string>contact</string>
-					</dict>
-					<dict>
-						<key>title</key>
-						<string>e-mail</string>
-					</dict>
-					<dict>
-						<key>title</key>
-						<string>telephone</string>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>title</key>
-				<string>camera</string>
-				<key>questions</key>
-				<array>
-					<dict>
-						<key>title</key>
-						<string>contact</string>
-					</dict>
-					<dict>
-						<key>title</key>
-						<string>e-mail</string>
-					</dict>
-					<dict>
-						<key>title</key>
-						<string>telephone</string>
-					</dict>
-				</array>
-			</dict>
-		</array>
+	        <dict>
+	            <key>title</key>
+	            <string>Kontakt</string>
+	            <key>questions</key>
+	            <array>
+	                <dict>
+	                    <key>title</key>
+	                    <string>Ansprechpartner</string>
+	                </dict>
+	                <dict>
+	                    <key>title</key>
+	                    <string>Adresse</string>
+	                </dict>
+	                <dict>
+	                    <key>title</key>
+	                    <string>E-Mail</string>
+	                </dict>
+	                <dict>
+	                    <key>title</key>
+	                    <string>Telefonnummer</string>
+	                </dict>
+	                <dict>
+	                    <key>title</key>
+	                    <string>Mobil</string>
+	                </dict>
+	            </array>
+	        </dict>
+	        <dict>
+	            <key>title</key>
+	            <string>Redaktion</string>
+	            <key>questions</key>
+	            <array>
+	                <dict>
+	                    <key>title</key>
+	                    <string>Ansprechpartner</string>
+	                </dict>
+	                <dict>
+	                    <key>title</key>
+	                    <string>E-Mail</string>
+	                </dict>
+	                <dict>
+	                    <key>title</key>
+	                    <string>Telefonnummer</string>
+	                </dict>
+	            </array>
+	        </dict>
+	        <dict>
+	            <key>title</key>
+	            <string>Terminierung</string>
+	            <key>questions</key>
+	            <array>
+	                <dict>
+	                    <key>title</key>
+	                    <string>Ansprechpartner</string>
+	                </dict>
+	                <dict>
+	                    <key>title</key>
+	                    <string>E-Mail</string>
+	                </dict>
+	                <dict>
+	                    <key>title</key>
+	                    <string>Telefonnummer</string>
+	                </dict>
+	            </array>
+	        </dict>
+	        <dict>
+	            <key>title</key>
+	            <string>Kamera</string>
+	            <key>questions</key>
+	            <array>
+	                <dict>
+	                    <key>title</key>
+	                    <string>Ansprechpartner</string>
+	                </dict>
+	                <dict>
+	                    <key>title</key>
+	                    <string>E-Mail</string>
+	                </dict>
+	                <dict>
+	                    <key>title</key>
+	                    <string>Telefonnummer</string>
+	                </dict>
+	            </array>
+	        </dict>
+	    </array>
 	</dict>
 	<dict>
 		<key>title</key>
@@ -104,68 +104,68 @@
 		<array>
 			<dict>
 				<key>title</key>
-				<string>customer statement</string>
+				<string>Kundenstatement</string>
 				<key>questions</key>
 				<array>
 					<dict>
 						<key>title</key>
-						<string>statement</string>
+						<string>Statement</string>
 					</dict>
 				</array>
 			</dict>
 			<dict>
 				<key>title</key>
-				<string>editorial staff</string>
+				<string>Redaktion</string>
 				<key>questions</key>
 				<array>
 					<dict>
 						<key>title</key>
-						<string>off-speaker</string>
+						<string>Off-Sprecher</string>
 					</dict>
 					<dict>
 						<key>title</key>
-						<string>gender off-speaker</string>
+						<string>Geschlecht Off-Sprecher</string>
 						<key>selections</key>
 						<array>
-							<string>male</string>
-							<string>female</string>
+							<string>männlich</string>
+							<string>weiblich</string>
 						</array>
 					</dict>
 					<dict>
 						<key>title</key>
-						<string>off-text created</string>
+						<string>Off-Text erstellt</string>
 						<key>selections</key>
 						<array>
-							<string>yes</string>
-							<string>no</string>
+							<string>Ja</string>
+							<string>Nein</string>
 						</array>
 					</dict>
 					<dict>
 						<key>title</key>
-						<string>language version</string>
+						<string>Sprachversionen</string>
 					</dict>
 					<dict>
 						<key>title</key>
-						<string>what to show in the movie</string>
+						<string>Was soll im Film vorkommen</string>
 					</dict>
 					<dict>
 						<key>title</key>
-						<string>what not to show</string>
+						<string>Was nicht zeigen</string>
 					</dict>
 				</array>
 			</dict>
 			<dict>
 				<key>title</key>
-				<string>scheduling</string>
+				<string>Terminierung</string>
 				<key>questions</key>
 				<array>
 					<dict>
 						<key>title</key>
-						<string>clip length</string>
+						<string>Clipdauer</string>
 					</dict>
 					<dict>
 						<key>title</key>
-						<string>film format</string>
+						<string>Drehformat</string>
 						<key>selections</key>
 						<array>
 							<string>16:9</string>
@@ -174,11 +174,11 @@
 					</dict>
 					<dict>
 						<key>title</key>
-						<string>operating media</string>
+						<string>Einsatzmedien</string>
 					</dict>
 					<dict>
 						<key>title</key>
-						<string>telephone</string>
+						<string>Telefonnummer</string>
 					</dict>
 				</array>
 			</dict>
@@ -193,72 +193,72 @@
 		<array>
 			<dict>
 				<key>title</key>
-				<string>customer statement</string>
+				<string>Kundenstatement</string>
 				<key>questions</key>
 				<array>
 					<dict>
 						<key>title</key>
-						<string>time exposure in hours</string>
+						<string>Zeitaufwand in Stunden</string>
 					</dict>
 					<dict>
 						<key>title</key>
-						<string>fair weather shooting</string>
+						<string>Schönwetterdreh</string>
 					</dict>
 				</array>
 			</dict>
 			<dict>
 				<key>title</key>
-				<string>main filming spot</string>
+				<string>Hauptdrehort</string>
 				<key>questions</key>
 				<array>
 					<dict>
 						<key>title</key>
-						<string>address</string>
+						<string>Adresse</string>
 					</dict>
 				</array>
 			</dict>
 			<dict>
 				<key>title</key>
-				<string>side filming spot</string>
+				<string>Nebendrehort</string>
 				<key>questions</key>
 				<array>
 					<dict>
 						<key>title</key>
-						<string>address</string>
+						<string>Adresse</string>
 					</dict>
 					<dict>
 						<key>title</key>
-						<string>distance to main filming spot</string>
+						<string>Entfernung vom Hauptdrehort</string>
 					</dict>
 				</array>
 			</dict>
 			<dict>
 				<key>title</key>
-				<string>Other</string>
+				<string>Sonstiges</string>
 				<key>questions</key>
 				<array>
 					<dict>
 						<key>title</key>
-						<string>filming approval</string>
+						<string>Drehgenehmigungen</string>
 					</dict>
 					<dict>
 						<key>title</key>
-						<string>properties (organized by customer)</string>
+						<string>Requisiten (vom Kunden organisiert)</string>
 					</dict>
 				</array>
 			</dict>
 			<dict>
 				<key>title</key>
-				<string>background actors</string>
+				<string>Statisterie</string>
 				<key>questions</key>
 				<array>
 					<dict>
 						<key>title</key>
-						<string>internal persons</string>
+						<string>betriebsinterne Personen</string>
 					</dict>
 					<dict>
 						<key>title</key>
-						<string>external persons</string>
+						<string>betriebsfremde Personen</string>
 					</dict>
 				</array>
 			</dict>
@@ -266,54 +266,55 @@
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Post Production</string>
+		<string>Post Produktion</string>
 		<key>icon</key>
 		<integer>3</integer>
 		<key>section</key>
 		<array>
 			<dict>
 				<key>title</key>
-				<string>music</string>
+				<string>Musik</string>
 				<key>questions</key>
 				<array>
 					<dict>
 						<key>title</key>
-						<string>music</string>
+						<string>Musik</string>
 					</dict>
 					<dict>
 						<key>title</key>
-						<string>genre</string>
+						<string>Genre</string>
 					</dict>
 					<dict>
 						<key>title</key>
-						<string>speed</string>
+						<string>Tempo</string>
 					</dict>
 				</array>
 			</dict>
 			<dict>
 				<key>title</key>
-				<string>external material</string>
+				<string>Fremdmaterial</string>
 				<key>questions</key>
 				<array>
 					<dict>
 						<key>title</key>
-						<string>photos</string>
+						<string>Fotos</string>
 					</dict>
 					<dict>
 						<key>title</key>
-						<string>videos</string>
+						<string>Videos</string>
 					</dict>
 					<dict>
 						<key>title</key>
-						<string>graphics / animations</string>
+						<string>Grafiken / Animationen</string>
 					</dict>
 					<dict>
 						<key>title</key>
-						<string>sound</string>
+						<string>Ton</string>
 					</dict>
 				</array>
 			</dict>
 		</array>
 	</dict>
+	
 </array>
 </plist>

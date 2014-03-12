@@ -28,14 +28,9 @@
 
 - (BOOL)import
 {
-    NSArray *plistsToImport = @[
-        @{ @"title" : NSLocalizedString(@"Contact", nil), @"plist" : @"Questions_Contact" },
-        @{ @"title" : NSLocalizedString(@"Parameter", nil), @"plist" : @"Questions_Parameter" },
-        @{ @"title" : NSLocalizedString(@"Organisation", nil), @"plist" : @"Questions_Organisation" },
-        @{ @"title" : NSLocalizedString(@"Post Production", nil), @"plist" : @"Questions_PostProduction" }
-    ];
+    NSArray *categories = [[NSMutableArray alloc] initWithContentsOfFile:[self getPathForFile:@"questions"]];
     
-    [self importCategories:plistsToImport];
+    [self importCategories:categories];
     
     NSError *error;
     [self.context save:&error];
@@ -54,8 +49,8 @@
         MJUQuestionCategory *category = (MJUQuestionCategory *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUQuestionCategory" inManagedObjectContext:self.context];
         category.order = idx;
         category.title = [categoryDict objectForKey:@"title"];
-        NSArray *plistQuestions = [[NSMutableArray alloc] initWithContentsOfFile:[self getPathForFile:[categoryDict objectForKey:@"plist"]]];
-        [self importSections:plistQuestions intoCategory:category];
+        category.iconID = [(NSNumber*)[categoryDict objectForKey:@"icon"] intValue];
+        [self importSections:[categoryDict objectForKey:@"section"] intoCategory:category];
     }];
 }
 

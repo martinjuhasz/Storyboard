@@ -14,6 +14,7 @@
 @dynamic title;
 @dynamic sections;
 @dynamic order;
+@dynamic iconID;
 
 - (NSArray*)sortedSections
 {
@@ -22,6 +23,27 @@
     NSArray *returnArray = [self.sections sortedArrayUsingDescriptors:@[sortDescriptor]];
     [self didAccessValueForKey: @"sections"];
     return returnArray;
+}
+
+- (UIImage*)icon
+{
+    switch (self.iconID) {
+        case 0:
+            return [UIImage imageNamed:@"ProjectDetailIconContact"];
+            break;
+        case 1:
+            return [UIImage imageNamed:@"ProjectDetailIconOrganisation"];
+            break;
+        case 2:
+            return [UIImage imageNamed:@"ProjectDetailIconParams"];
+            break;
+        case 3:
+            return [UIImage imageNamed:@"ProjectDetailIconPostProduction"];
+            break;
+        default:
+            break;
+    }
+    return nil;
 }
 
 @end

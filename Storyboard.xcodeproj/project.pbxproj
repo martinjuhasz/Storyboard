@@ -69,10 +69,6 @@
 		7AAD4D4818894C570012D6A8 /* MJUTitleInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAD4D4718894C570012D6A8 /* MJUTitleInputViewController.m */; };
 		7AB63F9918312BDB009C3948 /* MJUSceneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB63F9818312BDB009C3948 /* MJUSceneCell.m */; };
 		7AB7B158185CB9C800BF9CEC /* MJUTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB7B157185CB9C800BF9CEC /* MJUTextViewCell.m */; };
-		7ABEB95B18802CA500D92F20 /* Questions_Contact.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ABEB95D18802CA500D92F20 /* Questions_Contact.plist */; };
-		7ABEB95F18802D4900D92F20 /* Questions_Parameter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ABEB96118802D4900D92F20 /* Questions_Parameter.plist */; };
-		7ABEB96318802E3D00D92F20 /* Questions_Organisation.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ABEB96518802E3D00D92F20 /* Questions_Organisation.plist */; };
-		7ABEB96718802F3700D92F20 /* Questions_PostProduction.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ABEB96918802F3700D92F20 /* Questions_PostProduction.plist */; };
 		7AC4A00F183788D10027BEAB /* MJUQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC4A00E183788D10027BEAB /* MJUQuestionsViewController.m */; };
 		7AC4A0221837B4030027BEAB /* MJUQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC4A0211837B4030027BEAB /* MJUQuestionCell.m */; };
 		7AC74CA7184CEEA50020BC23 /* dummyImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7AC74CA6184CEEA50020BC23 /* dummyImage.jpg */; };
@@ -83,6 +79,7 @@
 		7AC869EE18D05D42001F81AB /* MJUSortedDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC869ED18D05D42001F81AB /* MJUSortedDataTableViewController.m */; };
 		7AC869F118D06EBB001F81AB /* MJUQuestionsImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC869F018D06EBA001F81AB /* MJUQuestionsImporter.m */; };
 		7AC869F418D09931001F81AB /* MJUPDFQuestions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC869F318D09931001F81AB /* MJUPDFQuestions.m */; };
+		7AC869F918D0D156001F81AB /* questions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AC869FB18D0D156001F81AB /* questions.plist */; };
 		7AD16B52182FA0C600201465 /* MJUTextInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD16B51182FA0C600201465 /* MJUTextInputViewController.m */; };
 		7ADC3D52184CCD4600DABBE5 /* MJUPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC3D51184CCD4600DABBE5 /* MJUPDFViewController.m */; };
 		7AE48FAF184CE41200AA693E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE48FAE184CE41200AA693E /* MessageUI.framework */; };
@@ -204,14 +201,6 @@
 		7AB63F9818312BDB009C3948 /* MJUSceneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUSceneCell.m; sourceTree = "<group>"; };
 		7AB7B156185CB9C800BF9CEC /* MJUTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUTextViewCell.h; sourceTree = "<group>"; };
 		7AB7B157185CB9C800BF9CEC /* MJUTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUTextViewCell.m; sourceTree = "<group>"; };
-		7ABEB95C18802CA500D92F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Questions_Contact.plist; sourceTree = "<group>"; };
-		7ABEB95E18802CAD00D92F20 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/Questions_Contact.plist; sourceTree = "<group>"; };
-		7ABEB96018802D4900D92F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Questions_Parameter.plist; sourceTree = "<group>"; };
-		7ABEB96218802D4E00D92F20 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/Questions_Parameter.plist; sourceTree = "<group>"; };
-		7ABEB96418802E3D00D92F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Questions_Organisation.plist; sourceTree = "<group>"; };
-		7ABEB96618802E4100D92F20 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/Questions_Organisation.plist; sourceTree = "<group>"; };
-		7ABEB96818802F3700D92F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Questions_PostProduction.plist; sourceTree = "<group>"; };
-		7ABEB96A18802F3A00D92F20 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/Questions_PostProduction.plist; sourceTree = "<group>"; };
 		7ABEB96D1880342700D92F20 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/EmptyProjectView.xib; sourceTree = "<group>"; };
 		7ABEB9701880377300D92F20 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main_iPad.strings; sourceTree = "<group>"; };
 		7ABEB972188037E300D92F20 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
@@ -233,6 +222,8 @@
 		7AC869F018D06EBA001F81AB /* MJUQuestionsImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUQuestionsImporter.m; sourceTree = "<group>"; };
 		7AC869F218D09931001F81AB /* MJUPDFQuestions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUPDFQuestions.h; sourceTree = "<group>"; };
 		7AC869F318D09931001F81AB /* MJUPDFQuestions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUPDFQuestions.m; sourceTree = "<group>"; };
+		7AC869FA18D0D156001F81AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/questions.plist; sourceTree = "<group>"; };
+		7AC869FC18D0D15A001F81AB /* de */ = {isa = PBXFileReference; lastKnownFileType = file; name = de; path = de.lproj/questions.plist; sourceTree = "<group>"; };
 		7AD16B50182FA0C600201465 /* MJUTextInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUTextInputViewController.h; sourceTree = "<group>"; };
 		7AD16B51182FA0C600201465 /* MJUTextInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUTextInputViewController.m; sourceTree = "<group>"; };
 		7ADC3D50184CCD4600DABBE5 /* MJUPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUPDFViewController.h; sourceTree = "<group>"; };
@@ -524,10 +515,7 @@
 			isa = PBXGroup;
 			children = (
 				7A62B69418252C1000A2C1B2 /* Supporting Files */,
-				7ABEB95D18802CA500D92F20 /* Questions_Contact.plist */,
-				7ABEB96118802D4900D92F20 /* Questions_Parameter.plist */,
-				7ABEB96518802E3D00D92F20 /* Questions_Organisation.plist */,
-				7ABEB96918802F3700D92F20 /* Questions_PostProduction.plist */,
+				7AC869FB18D0D156001F81AB /* questions.plist */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -775,16 +763,13 @@
 				7A62B6A418252C1000A2C1B2 /* Main_iPad.storyboard in Resources */,
 				7A9C9E99184DD894008B05C6 /* wheel3.png in Resources */,
 				7AF2210C1880483800AB6DF2 /* pdf_content.mustache in Resources */,
-				7ABEB96718802F3700D92F20 /* Questions_PostProduction.plist in Resources */,
 				7A62B6A118252C1000A2C1B2 /* Main_iPhone.storyboard in Resources */,
-				7ABEB95F18802D4900D92F20 /* Questions_Parameter.plist in Resources */,
 				7A62B69818252C1000A2C1B2 /* InfoPlist.strings in Resources */,
+				7AC869F918D0D156001F81AB /* questions.plist in Resources */,
 				7AF372B6184E39890098C28D /* EmptyProjectView.xib in Resources */,
 				7A95203718352B73002EC307 /* TimePickerView.xib in Resources */,
 				7A835F26188041AA002A30AD /* Localizable.strings in Resources */,
 				7A9C9E96184DD894008B05C6 /* loading.html in Resources */,
-				7ABEB96318802E3D00D92F20 /* Questions_Organisation.plist in Resources */,
-				7ABEB95B18802CA500D92F20 /* Questions_Contact.plist in Resources */,
 				7A9C9E98184DD894008B05C6 /* wheel2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -954,40 +939,13 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		7ABEB95D18802CA500D92F20 /* Questions_Contact.plist */ = {
+		7AC869FB18D0D156001F81AB /* questions.plist */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7ABEB95C18802CA500D92F20 /* Base */,
-				7ABEB95E18802CAD00D92F20 /* de */,
+				7AC869FA18D0D156001F81AB /* Base */,
+				7AC869FC18D0D15A001F81AB /* de */,
 			);
-			name = Questions_Contact.plist;
-			sourceTree = "<group>";
-		};
-		7ABEB96118802D4900D92F20 /* Questions_Parameter.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7ABEB96018802D4900D92F20 /* Base */,
-				7ABEB96218802D4E00D92F20 /* de */,
-			);
-			name = Questions_Parameter.plist;
-			sourceTree = "<group>";
-		};
-		7ABEB96518802E3D00D92F20 /* Questions_Organisation.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7ABEB96418802E3D00D92F20 /* Base */,
-				7ABEB96618802E4100D92F20 /* de */,
-			);
-			name = Questions_Organisation.plist;
-			sourceTree = "<group>";
-		};
-		7ABEB96918802F3700D92F20 /* Questions_PostProduction.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7ABEB96818802F3700D92F20 /* Base */,
-				7ABEB96A18802F3A00D92F20 /* de */,
-			);
-			name = Questions_PostProduction.plist;
+			name = questions.plist;
 			sourceTree = "<group>";
 		};
 		7AF2210E1880483800AB6DF2 /* pdf_content.mustache */ = {

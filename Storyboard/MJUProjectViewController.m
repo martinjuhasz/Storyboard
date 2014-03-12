@@ -197,6 +197,7 @@
 {
     MJUQuestionCategory *category = [self getCategoryForRow:indexPath.row];
     cell.textLabel.text = category.title;
+    cell.imageView.image = category.icon;
 }
 
 

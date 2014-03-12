@@ -17,6 +17,7 @@
         <relationship name="section" maxCount="1" deletionRule="Nullify" destinationEntity="MJUQuestionSection" inverseName="questions" inverseEntity="MJUQuestionSection" syncable="YES"/>
     </entity>
     <entity name="MJUQuestionCategory" representedClassName="MJUQuestionCategory" syncable="YES">
+        <attribute name="iconID" optional="YES" attributeType="Integer 32" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="sections" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MJUQuestionSection" inverseName="category" inverseEntity="MJUQuestionSection" syncable="YES"/>
@@ -66,7 +67,7 @@
         <element name="MJUAnswer" positionX="-270" positionY="54" width="128" height="58"/>
         <element name="MJUProject" positionX="-47" positionY="-36" width="128" height="133"/>
         <element name="MJUQuestion" positionX="-711" positionY="-18" width="128" height="88"/>
-        <element name="MJUQuestionCategory" positionX="-1170" positionY="36" width="128" height="88"/>
+        <element name="MJUQuestionCategory" positionX="-1170" positionY="36" width="128" height="103"/>
         <element name="MJUQuestionSection" positionX="-954" positionY="36" width="128" height="103"/>
         <element name="MJUScene" positionX="178" positionY="45" width="128" height="163"/>
         <element name="MJUSceneImage" positionX="376" positionY="45" width="128" height="103"/>

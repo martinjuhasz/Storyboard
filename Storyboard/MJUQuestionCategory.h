@@ -9,14 +9,22 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+typedef NS_ENUM(NSInteger, MJUQuestionCategoryIcon) {
+    MJUQuestionCategoryIconPerson,
+    MJUQuestionCategoryIconCalendar,
+    MJUQuestionCategoryIconQuestion,
+    MJUQuestionCategoryIconStick
+};
 
 @interface MJUQuestionCategory : NSManagedObject
 
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSSet *sections;
 @property (nonatomic) int32_t order;
+@property (nonatomic) int32_t iconID;
 
 - (NSArray*)sortedSections;
+- (UIImage*)icon;
 
 @end
 
