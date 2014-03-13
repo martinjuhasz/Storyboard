@@ -38,7 +38,12 @@
 
 - (UIImage*)icon
 {
-    switch (self.iconID) {
+    return [MJUQuestionCategory icon:self.iconID];
+}
+
++ (UIImage*)icon:(MJUQuestionCategoryIcon)icon
+{
+    switch (icon) {
         case 0:
             return [UIImage imageNamed:@"ProjectDetailIconContact"];
             break;

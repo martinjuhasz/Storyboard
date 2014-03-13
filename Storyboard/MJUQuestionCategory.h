@@ -27,6 +27,7 @@ typedef NS_ENUM(NSInteger, MJUQuestionCategoryIcon) {
 
 - (NSArray*)sortedSections;
 - (UIImage*)icon;
++ (UIImage*)icon:(MJUQuestionCategoryIcon)icon;
 - (BOOL)hasAnswersForCategoryInProject:(MJUProject*)project;
 
 @end

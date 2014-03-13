@@ -88,6 +88,7 @@
 		7AEFB6A0182D2EF400315686 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEFB69F182D2EF400315686 /* NSString+Additions.m */; };
 		7AF2210C1880483800AB6DF2 /* pdf_content.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 7AF2210E1880483800AB6DF2 /* pdf_content.mustache */; };
 		7AF372B6184E39890098C28D /* EmptyProjectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF372B8184E39890098C28D /* EmptyProjectView.xib */; };
+		7AF7D72118D1B74600A7A984 /* MJUCategoryInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF7D72018D1B74600A7A984 /* MJUCategoryInputViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -239,6 +240,8 @@
 		7AF372B4184E39750098C28D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7AF372B5184E39750098C28D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7AF372B7184E39890098C28D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EmptyProjectView.xib; sourceTree = "<group>"; };
+		7AF7D71F18D1B74600A7A984 /* MJUCategoryInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUCategoryInputViewController.h; sourceTree = "<group>"; };
+		7AF7D72018D1B74600A7A984 /* MJUCategoryInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUCategoryInputViewController.m; sourceTree = "<group>"; };
 		E712C88D0B244666A07D6027 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -584,6 +587,8 @@
 				7AAD4D2C188941D60012D6A8 /* MJUEditCategoriesTableViewController.m */,
 				7AAD4D4618894C570012D6A8 /* MJUTitleInputViewController.h */,
 				7AAD4D4718894C570012D6A8 /* MJUTitleInputViewController.m */,
+				7AF7D71F18D1B74600A7A984 /* MJUCategoryInputViewController.h */,
+				7AF7D72018D1B74600A7A984 /* MJUCategoryInputViewController.m */,
 				7A22303B18CC8D9900E11035 /* MJUTextInputCell.h */,
 				7A22303C18CC8D9900E11035 /* MJUTextInputCell.m */,
 				7A22303E18CC925500E11035 /* MJUEditSectionsViewController.h */,
@@ -842,6 +847,7 @@
 				7A62B69E18252C1000A2C1B2 /* MJUAppDelegate.m in Sources */,
 				7A7BE11518CDB655001DFC72 /* MJUSelectable.m in Sources */,
 				7AD16B52182FA0C600201465 /* MJUTextInputViewController.m in Sources */,
+				7AF7D72118D1B74600A7A984 /* MJUCategoryInputViewController.m in Sources */,
 				7A018B1B18560747004E5657 /* MJUTableHeaderView.m in Sources */,
 				7AB7B158185CB9C800BF9CEC /* MJUTextViewCell.m in Sources */,
 				7AC869E918CFADED001F81AB /* MJUSettingsTableViewController.m in Sources */,

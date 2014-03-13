@@ -11,6 +11,7 @@
 #import "MJUTitleInputViewController.h"
 #import "MJUQuestionCategory.h"
 #import "MJUEditSectionsViewController.h"
+#import "MJUCategoryInputViewController.h"
 
 @interface MJUEditCategoriesTableViewController ()
 
@@ -22,7 +23,7 @@
 {
     if([segue.identifier isEqualToString:@"TitleInputSegue"]) {
         
-        MJUTitleInputViewController *vc = (MJUTitleInputViewController*)[((UINavigationController*)segue.destinationViewController) topViewController];
+        MJUCategoryInputViewController *vc = (MJUCategoryInputViewController*)[((UINavigationController*)segue.destinationViewController) topViewController];
         NSManagedObjectContext *context = [[MJUProjectsDataModel sharedDataModel] mainContext];
         BOOL editMode = self.tableView.editing;
         __block MJUQuestionCategory *category;
@@ -31,9 +32,10 @@
             NSIndexPath *indexPath = (NSIndexPath*)sender;
             category = [self.fetchedResultsController objectAtIndexPath:indexPath];
             vc.inputText = category.title;
+            vc.categoryIcon = category.iconID;
         }
-        
-        vc.saveBlock = ^(NSString *saveString) {
+
+        vc.saveCategoryBlock = ^(NSString *saveString, MJUQuestionCategoryIcon icon) {
             
             if(!editMode || ![sender isKindOfClass:[NSIndexPath class]]) {
                 category = (MJUQuestionCategory *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUQuestionCategory" inManagedObjectContext:context];
@@ -41,6 +43,7 @@
                 category.order = count;
             }
             
+            category.iconID = icon;
             [category setValue:saveString forKey:@"title"];
             NSError *error;
             [[[MJUProjectsDataModel sharedDataModel] mainContext] save:&error];
@@ -95,6 +98,7 @@
 - (void)updateCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
     MJUQuestionCategory *currentCategory = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    cell.imageView.image = currentCategory.icon;
     cell.textLabel.text = currentCategory.title;
 }
 
