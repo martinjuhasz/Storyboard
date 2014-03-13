@@ -184,10 +184,12 @@
     
     if(indexPath.section == 0) {
         cell.textLabel.text = NSLocalizedString(@"Storyboard", nil);
+        cell.imageView.image = [UIImage imageNamed:@"ProjectDetailIconStoryboard"];
     }else if(indexPath.section == 1) {
         [self configureCell:cell atIndexPath:indexPath];
     } else if(indexPath.section == 2) {
         cell.textLabel.text = NSLocalizedString(@"generate PDF", nil);
+        cell.imageView.image = [UIImage imageNamed:@"ProjectDetailIconPDF"];
     }
     
     return cell;

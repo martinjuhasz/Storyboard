@@ -32,6 +32,7 @@
             _imageField.image = [self.project getCompanyLogo];
             [self.imageButton setBackgroundImage:nil forState:UIControlStateNormal];
         }
+        self.title = NSLocalizedString(@"edit Project", nil);
     }
 
 }
