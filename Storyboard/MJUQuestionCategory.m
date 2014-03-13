@@ -7,6 +7,8 @@
 //
 
 #import "MJUQuestionCategory.h"
+#import "MJUProject.h"
+#import "MJUQuestionSection.h"
 
 
 @implementation MJUQuestionCategory
@@ -23,6 +25,15 @@
     NSArray *returnArray = [self.sections sortedArrayUsingDescriptors:@[sortDescriptor]];
     [self didAccessValueForKey: @"sections"];
     return returnArray;
+}
+
+- (BOOL)hasAnswersForCategoryInProject:(MJUProject*)project
+{
+    for (MJUQuestionSection *section in self.sections) {
+        BOOL hasAnswer = [section hasAnswersForSectionInProject:project];
+        if(hasAnswer) return YES;
+    }
+    return NO;
 }
 
 - (UIImage*)icon

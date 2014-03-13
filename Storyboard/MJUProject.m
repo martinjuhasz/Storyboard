@@ -28,6 +28,11 @@
     self.createdAt = [NSDate date];
 }
 
+- (BOOL)hasScenes
+{
+    return (self.scenes.count > 0);
+}
+
 - (NSArray*)orderedScenes
 {
     NSMutableArray *scenes = [NSMutableArray arrayWithArray:[self.scenes allObjects]];

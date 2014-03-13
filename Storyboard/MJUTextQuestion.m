@@ -14,6 +14,12 @@
 
 @dynamic answers;
 
+- (BOOL)hasAnswerForProject:(MJUProject*)project
+{
+    MJUTextAnswer *answer = [self getSelectedAnswerForProject:project];
+    return (answer != nil);
+}
+
 - (MJUTextAnswer*)getSelectedAnswerForProject:(MJUProject*)project
 {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MJUTextAnswer"];

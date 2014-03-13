@@ -27,7 +27,7 @@
 - (void)addCompanyLogo:(UIImage*)image;
 - (UIImage*)getCompanyLogo;
 - (int)getTotalTime;
-- (MJUAnswer*)getAnswerForQuestion:(MJUSubQuestion*)question;
+- (BOOL)hasScenes;
 
 @end
 

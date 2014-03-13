@@ -21,6 +21,8 @@
 #import "MJUSelectableQuestion.h"
 #import "MJUSelectableAnswer.h"
 #import "MJUSelectable.h"
+#import "MJUQuestionSection.h"
+#import "MJUQuestionCategory.h"
 
 @implementation MJUPDFGenerator
 
@@ -63,7 +65,9 @@
         MJUProject *project = [context valueForMustacheKey:@"project"];
         MJUQuestion *question = [context topMustacheObject];
         
-        //if(!project || !question || ![project isKindOfClass:[MJUProject class]])
+        if(!project || !question || ![project isKindOfClass:[MJUProject class]] || ![question isKindOfClass:[MJUQuestion class]]) {
+            return nil;
+        }
         
         NSString *answerString = nil;
         if([question isKindOfClass:[MJUTextQuestion class]]) {
@@ -77,19 +81,56 @@
         }
         return answerString;
     }],
-                 @"projectHasAnswer": [GRMustache renderingObjectWithBlock:^NSString *(GRMustacheTag *tag, GRMustacheContext *context, BOOL *HTMLSafe, NSError **error) {
-                     // load the question, and the project from the context stack
-                     MJUProject *project = [context valueForMustacheKey:@"project"];
-                     MJUQuestion *question = [context topMustacheObject];
-                     
-                     //if(!project || !question || ![project isKindOfClass:[MJUProject class]])
-                     
-                     if([question hasAnswerForProject:project]) {
-                         NSLog(@"asdasdasdasds");
-                         return @"test";
-                     };
-                     return nil;
-                 }]
+                     @"hasTextAnswer": [GRMustacheFilter variadicFilterWithBlock:^id(NSArray *arguments) {
+                         MJUQuestion *question = arguments[0];
+                         MJUProject *project = arguments[1];
+                         
+                         if(!project || !question || ![project isKindOfClass:[MJUProject class]] || ![question isKindOfClass:[MJUTextQuestion class]]) {
+                             return nil;
+                         }
+                         
+                         MJUTextAnswer *answer = [(MJUTextQuestion*)question getSelectedAnswerForProject:project];
+                         return answer;
+                     }],
+                     @"hasSelectableAnswer": [GRMustacheFilter variadicFilterWithBlock:^id(NSArray *arguments) {
+                         MJUQuestion *question = arguments[0];
+                         MJUProject *project = arguments[1];
+                         
+                         if(!project || !question || ![project isKindOfClass:[MJUProject class]] || ![question isKindOfClass:[MJUSelectableQuestion class]]) {
+                             return nil;
+                         }
+                         
+                         MJUSelectableAnswer *answer = [(MJUSelectableQuestion*)question getSelectedAnswerForProject:project];
+                         return answer;
+                     }],
+                     @"sectionHasAnswer": [GRMustacheFilter variadicFilterWithBlock:^id(NSArray *arguments) {
+                         MJUQuestionSection *section = arguments[0];
+                         MJUProject *project = arguments[1];
+                         
+                         if(!project || !section || ![project isKindOfClass:[MJUProject class]] || ![section isKindOfClass:[MJUQuestionSection class]]) {
+                             return nil;
+                         }
+                         
+                         BOOL hasAnswer = [section hasAnswersForSectionInProject:project];
+                         if(hasAnswer) {
+                             return section;
+                         }
+                         return nil;
+                     }],
+                     @"categoryHasAnswer": [GRMustacheFilter variadicFilterWithBlock:^id(NSArray *arguments) {
+                         MJUQuestionCategory *category = arguments[0];
+                         MJUProject *project = arguments[1];
+                         
+                         if(!project || !category || ![project isKindOfClass:[MJUProject class]] || ![category isKindOfClass:[MJUQuestionCategory class]]) {
+                             return nil;
+                         }
+                         
+                         BOOL hasAnswer = [category hasAnswersForCategoryInProject:project];
+                         if(hasAnswer) {
+                             return category;
+                         }
+                         return nil;
+                     }]
     };
     
     GRMustacheTemplate *template = [GRMustacheTemplate templateFromResource:@"pdf_content" bundle:nil error:nil];

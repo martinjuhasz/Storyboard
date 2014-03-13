@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class MJUQuestion, MJUQuestionCategory;
+@class MJUQuestion, MJUQuestionCategory, MJUProject;
 
 @interface MJUQuestionSection : NSManagedObject
 
@@ -19,6 +19,7 @@
 @property (nonatomic) int32_t order;
 
 - (NSArray*)sortedQuestions;
+- (BOOL)hasAnswersForSectionInProject:(MJUProject*)project;
 
 @end
 

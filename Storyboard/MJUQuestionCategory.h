@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class MJUProject;
+
 typedef NS_ENUM(NSInteger, MJUQuestionCategoryIcon) {
     MJUQuestionCategoryIconPerson,
     MJUQuestionCategoryIconCalendar,
@@ -25,6 +27,7 @@ typedef NS_ENUM(NSInteger, MJUQuestionCategoryIcon) {
 
 - (NSArray*)sortedSections;
 - (UIImage*)icon;
+- (BOOL)hasAnswersForCategoryInProject:(MJUProject*)project;
 
 @end
 
