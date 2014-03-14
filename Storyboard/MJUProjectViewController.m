@@ -45,6 +45,15 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDataModelChange:) name:NSManagedObjectContextObjectsDidChangeNotification object:[[MJUProjectsDataModel sharedDataModel] mainContext]];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if(IS_IPAD) {
+        [self.navigationController performSegueWithIdentifier:@"DefaultDetailSegue" sender:self];
+    }
+}
+
 
 - (void)dealloc
 {
@@ -149,6 +158,9 @@
 {
     if(indexPath.section == 0) {
         [self performSegueWithIdentifier:@"StoryboardSegue" sender:indexPath];
+        if(IS_IPAD) {
+            [self.navigationController performSegueWithIdentifier:@"DefaultDetailSegue" sender:self];
+        }
     }else if(indexPath.section == 1) {
         [self performSegueWithIdentifier:@"QuestionsSegue" sender:indexPath];
     } else if(indexPath.section == 2) {

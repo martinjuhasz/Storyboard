@@ -45,6 +45,7 @@
     
     if(imported) {
         [userDefaults setBool:YES forKey:seedKey];
+        [userDefaults synchronize];
     }
 }
 
