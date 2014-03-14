@@ -67,10 +67,10 @@
     if(self.scene.time > 0) {
         int minutes = self.scene.time / 60;
         int seconds = self.scene.time % 60;
-        NSString *time = [NSString stringWithFormat:@"%02d min, %02d sec", minutes, seconds];
+        NSString *time = [NSString stringWithFormat:NSLocalizedString(@"%02d min, %02d %@", nil), minutes, seconds, NSLocalizedString(@"sec", nil)];
         self.timeCell.textLabel.text = time;
     } else {
-        self.timeCell.textLabel.text = @"00 min, 00 sec";
+        self.timeCell.textLabel.text = [NSString stringWithFormat:@"00 min, 00 %@", NSLocalizedString(@"sec", nil)];
     }
 }
 

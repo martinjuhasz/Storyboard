@@ -115,6 +115,7 @@
 		7A22303F18CC925500E11035 /* MJUEditSectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUEditSectionsViewController.m; sourceTree = "<group>"; };
 		7A22304118CC97B000E11035 /* MJUEditQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUEditQuestionsViewController.h; sourceTree = "<group>"; };
 		7A22304218CC97B000E11035 /* MJUEditQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUEditQuestionsViewController.m; sourceTree = "<group>"; };
+		7A2BBAD418D3086E004861C4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
 		7A3639BA1827CB1C00B7307B /* MJUSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUSceneViewController.h; sourceTree = "<group>"; };
 		7A3639BB1827CB1C00B7307B /* MJUSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUSceneViewController.m; sourceTree = "<group>"; };
 		7A3639BD1827D72E00B7307B /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
@@ -203,7 +204,6 @@
 		7AB7B157185CB9C800BF9CEC /* MJUTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUTextViewCell.m; sourceTree = "<group>"; };
 		7ABEB96D1880342700D92F20 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/EmptyProjectView.xib; sourceTree = "<group>"; };
 		7ABEB9701880377300D92F20 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main_iPad.strings; sourceTree = "<group>"; };
-		7ABEB972188037E300D92F20 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
 		7AC4A00D183788D10027BEAB /* MJUQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUQuestionsViewController.h; sourceTree = "<group>"; };
 		7AC4A00E183788D10027BEAB /* MJUQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJUQuestionsViewController.m; sourceTree = "<group>"; };
 		7AC4A0201837B4030027BEAB /* MJUQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJUQuestionCell.h; sourceTree = "<group>"; };
@@ -909,7 +909,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7A62B6A018252C1000A2C1B2 /* Base */,
-				7ABEB972188037E300D92F20 /* de */,
+				7A2BBAD418D3086E004861C4 /* de */,
 			);
 			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";

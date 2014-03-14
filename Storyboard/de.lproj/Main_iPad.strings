@@ -109,3 +109,21 @@
 
 /* Class = "IBUILabel"; text = "00 min 00 sec"; ObjectID = "yPB-Bm-YGS"; */
 "yPB-Bm-YGS.text" = "00 min 00 sek";
+
+/* Class = "IBUINavigationItem"; title = "Settings"; ObjectID = "8hb-AN-O5q"; */
+"8hb-AN-O5q.title" = "Einstellungen";
+
+/* Class = "IBUILabel"; text = "edit Questions"; ObjectID = "Aru-fW-lqH"; */
+"Aru-fW-lqH.text" = "Fragenkatalog bearbeiten";
+
+/* Class = "IBUINavigationItem"; title = "Answers"; ObjectID = "PFL-N9-xsd"; */
+"PFL-N9-xsd.title" = "Antworten";
+
+/* Class = "IBUINavigationItem"; title = "Questions"; ObjectID = "aHA-7W-REh"; */
+"aHA-7W-REh.title" = "Fragen";
+
+/* Class = "IBUINavigationItem"; title = "Categories"; ObjectID = "eX3-Fu-mQj"; */
+"eX3-Fu-mQj.title" = "Kategorien";
+
+/* Class = "IBUINavigationItem"; title = "Sections"; ObjectID = "rCJ-Dw-XNp"; */
+"rCJ-Dw-XNp.title" = "Abschnitte";
