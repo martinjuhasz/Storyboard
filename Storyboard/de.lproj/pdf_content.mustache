@@ -146,7 +146,7 @@
                             {{#sortedQuestions}}
                                 {{# hasTextAnswer(., project) }}
                                     <div class="question">{{title}}</div>
-                                    <div class="answer">{{text}}</div>
+                                    <div class="answer">{{# nl2br }}{{text}}{{/ nl2br }}</div>
                                 {{/ }}
                                 {{# hasSelectableAnswer(., project) }}
                                     <div class="question">{{title}}</div>

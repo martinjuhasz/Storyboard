@@ -22,12 +22,16 @@
     [super viewDidLoad];
     
     userDrivenModelChange = NO;
-    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDataModelChange:) name:NSManagedObjectContextObjectsDidChangeNotification object:[[MJUProjectsDataModel sharedDataModel] mainContext]];
 }
 
--(void) dealloc {
-//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if(self.tableView.editing) {
+        self.tableView.editing = NO;
+    }
 }
 
 
@@ -103,13 +107,6 @@
 {
     return nil;
 }
-
-//- (void)handleDataModelChange:(NSNotification *)note
-//{
-//    // TODO: why doesnt fetchedResultsController update itself?
-//    _fetchedResultsController = nil;
-//    [self.tableView reloadData];
-//}
 
 
 
