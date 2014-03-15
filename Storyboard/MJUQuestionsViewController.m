@@ -111,20 +111,28 @@
     
     if([question isKindOfClass:[MJUSelectableQuestion class]]) {
         cell = [tableView dequeueReusableCellWithIdentifier:SelectableCellIdentifier forIndexPath:indexPath];
-        [self updateSelectableCell:cell atIndexPath:indexPath];
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        [self updateCell:(MJUQuestionCell*)cell atIndexPath:indexPath];
     }
+    [self updateCell:cell withQuestion:question atIndexPath:indexPath];
     return cell;
 }
 
-- (void)updateCell:(MJUQuestionCell*)cell atIndexPath:(NSIndexPath*)indexPath
+- (void)updateCell:(UITableViewCell*)cell withQuestion:(MJUQuestion*)question atIndexPath:(NSIndexPath*)indexPath
 {
-    MJUTextQuestion *question = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    MJUTextAnswer *answer = [question getSelectedAnswerForProject:self.project];
+    if([question isKindOfClass:[MJUSelectableQuestion class]]) {
+        [self updateSelectableCell:cell withQuestion:question atIndexPath:indexPath];
+    } else {
+        [self updateTextCell:(MJUQuestionCell*)cell withQuestion:question atIndexPath:indexPath];
+    }
+}
+
+- (void)updateTextCell:(MJUQuestionCell*)cell withQuestion:(MJUQuestion*)question atIndexPath:(NSIndexPath*)indexPath
+{
+    MJUTextQuestion *textQuestion = (MJUTextQuestion*)question;
+    MJUTextAnswer *answer = [textQuestion getSelectedAnswerForProject:self.project];
     cell.accessoryType = UITableViewCellAccessoryNone;
-    cell.titleLabel.text = question.title;
+    cell.titleLabel.text = textQuestion.title;
     
     if(answer) {
         cell.contentLabel.text = answer.text;
@@ -133,11 +141,11 @@
     }
 }
 
-- (void)updateSelectableCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
+- (void)updateSelectableCell:(UITableViewCell*)cell withQuestion:(MJUQuestion*)question atIndexPath:(NSIndexPath*)indexPath
 {
-    MJUSelectableQuestion *question = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    MJUSelectableAnswer *answer = [question getSelectedAnswerForProject:self.project];
-    cell.textLabel.text = question.title;
+    MJUSelectableQuestion *selectableQuestion = (MJUSelectableQuestion*)question;
+    MJUSelectableAnswer *answer = [selectableQuestion getSelectedAnswerForProject:self.project];
+    cell.textLabel.text = selectableQuestion.title;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     if(answer) {
@@ -155,7 +163,8 @@
     
     if(![question isKindOfClass:[MJUSelectableQuestion class]]) {
         MJUQuestionCell *metricsCell = (MJUQuestionCell*)[tableView prototypeCellWithReuseIdentifier:@"QuestionCell"];
-        metricsCell.contentLabel.text = @"Antwort";
+        MJUQuestion *question = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [self updateTextCell:metricsCell withQuestion:question atIndexPath:indexPath];
         [metricsCell.contentView setNeedsLayout];
         [metricsCell.contentView layoutIfNeeded];
         CGSize size = [metricsCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
