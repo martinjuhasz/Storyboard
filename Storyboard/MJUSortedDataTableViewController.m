@@ -8,6 +8,7 @@
 
 #import "MJUSortedDataTableViewController.h"
 #import "MJUProjectsDataModel.h"
+#import "UIAlertView+BlocksKit.h"
 
 @interface MJUSortedDataTableViewController () {
     bool userDrivenModelChange;
@@ -54,14 +55,29 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        [[[MJUProjectsDataModel sharedDataModel] mainContext] deleteObject:selectedObject];
-        NSError *error;
-        [[[MJUProjectsDataModel sharedDataModel] mainContext] save:&error];
-        if(error) {
-            NSLog(@"%@", [error localizedDescription]);
-        }
-        [self saveOrder];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Delete", nil)
+                                                            message:NSLocalizedString(@"After deletation all related answers in all projects will be irrevocably deleted. Are you sure you want to delete?", nil)
+                                                           delegate:nil
+                                                  cancelButtonTitle:NSLocalizedString(@"cancel", nil)
+                                                  otherButtonTitles:NSLocalizedString(@"delete", nil), nil];
+        
+        [alertView bk_setDidDismissBlock:^(UIAlertView *av, NSInteger i) {
+            self.tableView.editing = NO;
+        }];
+        
+        [alertView bk_setHandler:^{
+            NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+            [[[MJUProjectsDataModel sharedDataModel] mainContext] deleteObject:selectedObject];
+            NSError *error;
+            [[[MJUProjectsDataModel sharedDataModel] mainContext] save:&error];
+            if(error) {
+                NSLog(@"%@", [error localizedDescription]);
+            }
+            [self saveOrder];
+        } forButtonAtIndex:1];
+        
+        [alertView show];
+
     }
 }
 
