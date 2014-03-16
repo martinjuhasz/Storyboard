@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "icon-organisation.png"
+      "filename" : "icon-audio.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "icon-organisation@2x.png"
+      "filename" : "icon-audio@2x.png"
     }
   ],
   "info" : {
