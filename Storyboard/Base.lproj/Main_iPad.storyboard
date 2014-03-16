@@ -107,7 +107,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Projects" id="ozn-AU-I7F">
-                        <barButtonItem key="leftBarButtonItem" systemItem="compose" id="YVJ-hZ-NKt">
+                        <barButtonItem key="leftBarButtonItem" image="IconSettings" id="YVJ-hZ-NKt">
                             <connections>
                                 <segue destination="MTs-Z3-T7X" kind="modal" modalPresentationStyle="formSheet" id="xRc-Rc-Kfi"/>
                             </connections>
@@ -480,7 +480,7 @@
                                 <action selector="doneButtonClicked:" destination="aXa-58-ylZ" id="uSw-gS-vgQ"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="gPc-nS-Dy3">
+                        <barButtonItem key="rightBarButtonItem" image="IconShare" id="gPc-nS-Dy3">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="emaiButtonClicked:" destination="aXa-58-ylZ" id="qri-Gf-QNX"/>
@@ -1054,7 +1054,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Categories" id="eX3-Fu-mQj">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="442-9R-1b2">
+                        <barButtonItem key="rightBarButtonItem" image="IconActions" id="442-9R-1b2">
                             <connections>
                                 <action selector="actionButtonClicked:" destination="lRR-E2-yhd" id="LRm-vC-YLE"/>
                             </connections>
@@ -1094,7 +1094,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Sections" id="rCJ-Dw-XNp">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zqz-UU-8E4">
+                        <barButtonItem key="rightBarButtonItem" image="IconActions" id="Zqz-UU-8E4">
                             <connections>
                                 <action selector="actionButtonClicked:" destination="aeY-WN-4jm" id="QMB-40-yuC"/>
                             </connections>
@@ -1134,7 +1134,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Questions" id="aHA-7W-REh">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2Ju-wJ-wW8">
+                        <barButtonItem key="rightBarButtonItem" image="IconActions" id="2Ju-wJ-wW8">
                             <connections>
                                 <action selector="actionButtonClicked:" destination="U1f-HJ-lSb" id="U3h-gD-8KA"/>
                             </connections>
@@ -1265,7 +1265,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Answers" id="PFL-N9-xsd">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="e89-Zm-vf6">
+                        <barButtonItem key="rightBarButtonItem" image="IconActions" id="e89-Zm-vf6">
                             <connections>
                                 <action selector="actionButtonClicked:" destination="Pnh-jr-qDI" id="J1G-qa-KMM"/>
                             </connections>
@@ -1325,61 +1325,82 @@
                                             <rect key="frame" x="0.0" y="0.0" width="1024" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProjectDetailIconContact" translatesAutoresizingMaskIntoConstraints="NO" id="fta-0K-Zyv">
-                                                    <rect key="frame" x="20" y="20" width="29" height="29"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProjectDetailIconContact" translatesAutoresizingMaskIntoConstraints="NO" id="Nyx-pe-jlH">
+                                                    <rect key="frame" x="21" y="21" width="29" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProjectDetailIconOrganisation" translatesAutoresizingMaskIntoConstraints="NO" id="eo8-X7-ZyZ">
-                                                    <rect key="frame" x="91" y="20" width="29" height="29"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProjectDetailIconCalendar" translatesAutoresizingMaskIntoConstraints="NO" id="Ysm-29-E9P">
+                                                    <rect key="frame" x="64" y="21" width="29" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProjectDetailIconParams" translatesAutoresizingMaskIntoConstraints="NO" id="VsM-ff-TgR">
-                                                    <rect key="frame" x="181" y="20" width="29" height="29"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProjectDetailIconParams" translatesAutoresizingMaskIntoConstraints="NO" id="1je-y0-tXG">
+                                                    <rect key="frame" x="107" y="21" width="29" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProjectDetailIconPostProduction" translatesAutoresizingMaskIntoConstraints="NO" id="2dE-Yr-CAg">
-                                                    <rect key="frame" x="271" y="20" width="29" height="29"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProjectDetailIconPostProduction" translatesAutoresizingMaskIntoConstraints="NO" id="Asa-Ct-H7P">
+                                                    <rect key="frame" x="150" y="21" width="29" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
-                                                <button opaque="NO" tag="3100" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzV-Cv-sY9">
-                                                    <rect key="frame" x="19" y="19" width="31" height="31"/>
+                                                <button opaque="NO" tag="3100" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8S-Nf-D03">
+                                                    <rect key="frame" x="20" y="20" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="didSelectIcon:" destination="U5x-4P-0wI" eventType="touchUpInside" id="LOG-xI-qX8"/>
-                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" tag="3101" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVo-kq-aOG">
-                                                    <rect key="frame" x="90" y="19" width="31" height="31"/>
+                                                <button opaque="NO" tag="3101" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNT-xG-Hhm">
+                                                    <rect key="frame" x="63" y="20" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="didSelectIcon:" destination="U5x-4P-0wI" eventType="touchUpInside" id="8Df-4s-ixd"/>
-                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" tag="3102" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07y-Wj-BtH">
-                                                    <rect key="frame" x="180" y="19" width="31" height="31"/>
+                                                <button opaque="NO" tag="3102" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdF-de-4fM">
+                                                    <rect key="frame" x="106" y="20" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="didSelectIcon:" destination="U5x-4P-0wI" eventType="touchUpInside" id="kvo-I3-bWl"/>
-                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" tag="3103" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wab-ml-D4b">
-                                                    <rect key="frame" x="270" y="19" width="31" height="31"/>
+                                                <button opaque="NO" tag="3103" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2q-cU-zhY">
+                                                    <rect key="frame" x="152" y="20" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="didSelectIcon:" destination="U5x-4P-0wI" eventType="touchUpInside" id="BRg-rm-2cU"/>
-                                                    </connections>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProjectDetailIconAudio" translatesAutoresizingMaskIntoConstraints="NO" id="1o4-dj-shO">
+                                                    <rect key="frame" x="193" y="21" width="29" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <button opaque="NO" tag="3104" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MrH-SK-sRQ">
+                                                    <rect key="frame" x="192" y="20" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProjectDetailIconOrganisation" translatesAutoresizingMaskIntoConstraints="NO" id="OKp-dI-68H">
+                                                    <rect key="frame" x="236" y="21" width="29" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <button opaque="NO" tag="3105" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWW-3g-qDP">
+                                                    <rect key="frame" x="235" y="20" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProjectDetailIconPhotos" translatesAutoresizingMaskIntoConstraints="NO" id="aV9-w5-CAJ">
+                                                    <rect key="frame" x="279" y="21" width="29" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <button opaque="NO" tag="3106" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N1P-qV-YlS">
+                                                    <rect key="frame" x="278" y="20" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -1432,10 +1453,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="IconEditTable" width="20" height="21"/>
+        <image name="IconActions" width="24" height="24"/>
+        <image name="IconEditTable" width="24" height="24"/>
+        <image name="IconSettings" width="24" height="24"/>
+        <image name="IconShare" width="24" height="24"/>
+        <image name="ProjectDetailIconAudio" width="29" height="29"/>
+        <image name="ProjectDetailIconCalendar" width="29" height="29"/>
         <image name="ProjectDetailIconContact" width="29" height="29"/>
         <image name="ProjectDetailIconOrganisation" width="29" height="29"/>
         <image name="ProjectDetailIconParams" width="29" height="29"/>
+        <image name="ProjectDetailIconPhotos" width="29" height="29"/>
         <image name="ProjectDetailIconPostProduction" width="29" height="29"/>
         <image name="ProjectDetailIconStoryboard" width="29" height="29"/>
         <image name="SceneDetailImageOverlayNew" width="290" height="130"/>

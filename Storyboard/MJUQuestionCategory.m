@@ -44,17 +44,26 @@
 + (UIImage*)icon:(MJUQuestionCategoryIcon)icon
 {
     switch (icon) {
-        case 0:
+        case MJUQuestionCategoryIconContact:
             return [UIImage imageNamed:@"ProjectDetailIconContact"];
             break;
-        case 1:
-            return [UIImage imageNamed:@"ProjectDetailIconOrganisation"];
+        case MJUQuestionCategoryIconCalendar:
+            return [UIImage imageNamed:@"ProjectDetailIconCalendar"];
             break;
-        case 2:
+        case MJUQuestionCategoryIconQuestionMark:
             return [UIImage imageNamed:@"ProjectDetailIconParams"];
             break;
-        case 3:
+        case MJUQuestionCategoryIconStick:
             return [UIImage imageNamed:@"ProjectDetailIconPostProduction"];
+            break;
+        case MJUQuestionCategoryIconAudio:
+            return [UIImage imageNamed:@"ProjectDetailIconAudio"];
+            break;
+        case MJUQuestionCategoryIconPaperClip:
+            return [UIImage imageNamed:@"ProjectDetailIconOrganisation"];
+            break;
+        case MJUQuestionCategoryIconPhoto:
+            return [UIImage imageNamed:@"ProjectDetailIconPhotos"];
             break;
         default:
             break;

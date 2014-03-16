@@ -12,10 +12,13 @@
 @class MJUProject;
 
 typedef NS_ENUM(NSInteger, MJUQuestionCategoryIcon) {
-    MJUQuestionCategoryIconPerson,
+    MJUQuestionCategoryIconContact,
     MJUQuestionCategoryIconCalendar,
-    MJUQuestionCategoryIconQuestion,
-    MJUQuestionCategoryIconStick
+    MJUQuestionCategoryIconQuestionMark,
+    MJUQuestionCategoryIconStick,
+    MJUQuestionCategoryIconAudio,
+    MJUQuestionCategoryIconPaperClip,
+    MJUQuestionCategoryIconPhoto
 };
 
 @interface MJUQuestionCategory : NSManagedObject

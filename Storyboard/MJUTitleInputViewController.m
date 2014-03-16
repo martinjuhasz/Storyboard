@@ -32,6 +32,12 @@
     }
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.titleCell.textInput becomeFirstResponder];
+}
+
 - (IBAction)saveButtonClicked:(id)sender
 {
     if(self.saveBlock) {
