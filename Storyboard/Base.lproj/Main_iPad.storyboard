@@ -8,7 +8,7 @@
         <scene sceneID="rSt-yD-jej">
             <objects>
                 <navigationController definesPresentationContext="YES" id="4qq-Vk-1Su" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9dX-wi-Zor">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="9dX-wi-Zor">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.2784313725" green="0.66274509800000003" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -16,7 +16,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
                     </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Th2-9u-hzH">
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" id="Th2-9u-hzH">
                         <rect key="frame" x="0.0" y="416" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
@@ -34,13 +34,13 @@
             <objects>
                 <tableViewController id="XLh-6Q-f8H" customClass="MJUProjectsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" id="1GH-JD-Uo0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProjectViewCellBackup" rowHeight="80" id="bpW-0N-tmr" customClass="MJUProjectCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="80"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bpW-0N-tmr" id="mWQ-95-yJc">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="79"/>
@@ -73,7 +73,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProjectViewCell" rowHeight="80" id="gXC-XP-h8g" customClass="MJUProjectCell">
-                                <rect key="frame" x="0.0" y="166" width="320" height="80"/>
+                                <rect key="frame" x="0.0" y="102" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gXC-XP-h8g" id="oEE-83-mhq">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="79"/>
@@ -146,12 +146,12 @@
             <objects>
                 <tableViewController id="VFB-gF-ZHH" customClass="MJUAddProjectViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="v7N-KD-pug">
-                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <rect key="frame" x="0.0" y="44" width="540" height="576"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="ehw-Rx-Aa4">
-                            <rect key="frame" x="0.0" y="44" width="540" height="150"/>
+                            <rect key="frame" x="0.0" y="0.0" width="540" height="150"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="newProjectAddImage" translatesAutoresizingMaskIntoConstraints="NO" id="kke-8H-zWr">
@@ -175,7 +175,7 @@
                             <tableViewSection id="IXW-MB-ada">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Y2c-Ka-cDq">
-                                        <rect key="frame" x="0.0" y="194" width="540" height="44"/>
+                                        <rect key="frame" x="0.0" y="150" width="540" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y2c-Ka-cDq" id="Ouf-nQ-X7S">
                                             <rect key="frame" x="0.0" y="0.0" width="540" height="43"/>
@@ -191,7 +191,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="lZZ-eA-FrP">
-                                        <rect key="frame" x="0.0" y="238" width="540" height="44"/>
+                                        <rect key="frame" x="0.0" y="194" width="540" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lZZ-eA-FrP" id="hIQ-xE-ebu">
                                             <rect key="frame" x="0.0" y="0.0" width="540" height="43"/>
@@ -238,7 +238,7 @@
         <scene sceneID="cub-Cf-fLQ">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Fvp-1E-nEa" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HWd-8n-Diq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="HWd-8n-Diq">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.2784313725" green="0.66274509800000003" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -258,12 +258,12 @@
             <objects>
                 <tableViewController id="H08-k7-VhF" customClass="MJUProjectViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="iWM-We-ozV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="eEw-ms-M9K">
-                            <rect key="frame" x="0.0" y="64" width="320" height="186"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="186"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Imagefilm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NsU-kT-6I6">
@@ -318,7 +318,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StoryboardCell" textLabel="mJa-SQ-h9D" imageView="ZRV-tg-sfH" style="IBUITableViewCellStyleDefault" id="xaz-hU-aH9">
-                                <rect key="frame" x="0.0" y="305" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="241" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xaz-hU-aH9" id="Q68-7P-vIX">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -373,13 +373,13 @@
             <objects>
                 <tableViewController id="g3q-oR-5ad" customClass="MJUScenesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Tds-uk-Mh1">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="724"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="660"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SceneCell" rowHeight="70" id="VtB-IB-LtI" customClass="MJUSceneCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VtB-IB-LtI" id="58b-57-tVp">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
@@ -452,11 +452,11 @@
                         <viewControllerLayoutGuide type="bottom" id="i26-56-v4u"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="b8h-PN-3hO">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IWc-jf-tSc">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
@@ -505,7 +505,7 @@
                         <viewControllerLayoutGuide type="bottom" id="4RU-QF-Vbn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9DU-o4-Ow5">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="64" width="703" height="704"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -520,7 +520,7 @@
         <scene sceneID="amg-2c-5bu">
             <objects>
                 <navigationController definesPresentationContext="YES" id="xl9-p1-UFg" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cpZ-gv-lan">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="cpZ-gv-lan">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -535,7 +535,7 @@
         <scene sceneID="zhJ-5L-4Gb">
             <objects>
                 <navigationController definesPresentationContext="YES" id="gGi-d1-7d1" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uQr-ZV-BDf">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="uQr-ZV-BDf">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -551,13 +551,13 @@
             <objects>
                 <tableViewController id="Ns3-0m-1O6" customClass="MJUQuestionsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Vtk-OL-utz">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="64" width="703" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SelectableQuestionCell" textLabel="ih7-D7-IEM" detailTextLabel="X52-Xs-ydM" style="IBUITableViewCellStyleValue1" id="UGc-mx-PRf" customClass="MJUSpacedTableViewCell">
-                                <rect key="frame" x="0.0" y="119" width="703" height="44"/>
+                                <rect key="frame" x="0.0" y="55" width="703" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UGc-mx-PRf" id="oHw-hU-6cT">
                                     <rect key="frame" x="0.0" y="0.0" width="670" height="43"/>
@@ -581,7 +581,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="QuestionCell" rowHeight="100" id="i50-eP-tJ4" customClass="MJUQuestionCell">
-                                <rect key="frame" x="0.0" y="163" width="703" height="100"/>
+                                <rect key="frame" x="0.0" y="99" width="703" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i50-eP-tJ4" id="ypl-gP-JLr">
                                     <rect key="frame" x="0.0" y="0.0" width="703" height="99"/>
@@ -639,7 +639,7 @@
         <scene sceneID="mVZ-5f-6sy">
             <objects>
                 <navigationController definesPresentationContext="YES" id="99o-4s-hic" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Aqz-se-bmm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Aqz-se-bmm">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -655,13 +655,13 @@
             <objects>
                 <tableViewController id="fzj-fI-Lrv" customClass="MJUQuestionSelectionViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="xMs-ur-nae">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="64" width="703" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="QuestionSelectionCell" textLabel="SPM-ex-DKI" style="IBUITableViewCellStyleDefault" id="qBb-QV-SNN" customClass="MJUSpacedTableViewCell">
-                                <rect key="frame" x="0.0" y="119" width="703" height="44"/>
+                                <rect key="frame" x="0.0" y="55" width="703" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qBb-QV-SNN" id="YDm-YV-w8X">
                                     <rect key="frame" x="0.0" y="0.0" width="703" height="43"/>
@@ -698,11 +698,11 @@
                         <viewControllerLayoutGuide type="bottom" id="GNg-Ce-NS7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Hom-7N-nYM">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MbT-QY-Wxm">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="760"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="696"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -746,7 +746,7 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="3JK-TH-ueF" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="qXX-K8-wLH"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LRv-sP-lLo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="LRv-sP-lLo">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.2784313725" green="0.66274509800000003" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -766,7 +766,7 @@
             <objects>
                 <tableViewController id="RXt-hj-xbS" customClass="MJUSceneViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="W37-Jt-Kgl">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="64" width="703" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -774,7 +774,7 @@
                             <tableViewSection id="jnm-yn-Vsx">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="dxH-bJ-Nl4" style="IBUITableViewCellStyleDefault" id="NCO-ai-tVn" customClass="MJUSpacedTableViewCell">
-                                        <rect key="frame" x="0.0" y="99" width="703" height="44"/>
+                                        <rect key="frame" x="0.0" y="35" width="703" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NCO-ai-tVn" id="V4V-Aa-DMb">
                                             <rect key="frame" x="0.0" y="0.0" width="703" height="43"/>
@@ -791,7 +791,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="KXL-y2-J2F" style="IBUITableViewCellStyleDefault" id="Mcn-Tc-WPo" customClass="MJUSpacedTableViewCell">
-                                        <rect key="frame" x="0.0" y="143" width="703" height="44"/>
+                                        <rect key="frame" x="0.0" y="79" width="703" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mcn-Tc-WPo" id="H0F-Ed-yN6">
                                             <rect key="frame" x="0.0" y="0.0" width="670" height="43"/>
@@ -812,14 +812,14 @@
                             <tableViewSection headerTitle="PICTURE" id="l1v-Lc-kZv">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="180" id="wMr-1t-0PK" customClass="MJUSpacedTableViewCell">
-                                        <rect key="frame" x="0.0" y="235" width="703" height="180"/>
+                                        <rect key="frame" x="0.0" y="171" width="703" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wMr-1t-0PK" id="Rkf-Ms-Lj6">
                                             <rect key="frame" x="0.0" y="0.0" width="703" height="179"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fXd-hS-Xq9">
-                                                    <rect key="frame" x="-2" y="-6" width="635" height="180"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="703" height="180"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SceneDetailImageOverlayNew" translatesAutoresizingMaskIntoConstraints="NO" id="JrU-7Y-W0e">
@@ -838,7 +838,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="62" id="2OQ-qe-d47" customClass="MJUTextViewCell">
-                                        <rect key="frame" x="0.0" y="415" width="703" height="62"/>
+                                        <rect key="frame" x="0.0" y="351" width="703" height="62"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2OQ-qe-d47" id="Vs9-9t-CVR">
                                             <rect key="frame" x="0.0" y="0.0" width="703" height="61"/>
@@ -868,7 +868,7 @@
                             <tableViewSection headerTitle="SOUND" id="DhR-Qg-27e">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="62" id="iwq-Q7-7rT" customClass="MJUTextViewCell">
-                                        <rect key="frame" x="0.0" y="525" width="703" height="62"/>
+                                        <rect key="frame" x="0.0" y="461" width="703" height="62"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iwq-Q7-7rT" id="VhY-C0-0Zb">
                                             <rect key="frame" x="0.0" y="0.0" width="703" height="61"/>
@@ -923,7 +923,7 @@
         <scene sceneID="I96-us-IfZ">
             <objects>
                 <navigationController definesPresentationContext="YES" id="anF-xX-KW9" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sUQ-BP-eX5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="sUQ-BP-eX5">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -947,7 +947,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JEF-eM-gPb">
-                                <rect key="frame" x="0.0" y="124" width="340" height="216"/>
+                                <rect key="frame" x="0.0" y="104" width="340" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ubL-8t-Y4v" id="PvF-oN-drn"/>
@@ -986,7 +986,7 @@
             <objects>
                 <tableViewController id="BOY-r6-hGa" customClass="MJUSettingsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yX8-uK-DFf">
-                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <rect key="frame" x="0.0" y="44" width="540" height="576"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -994,7 +994,7 @@
                             <tableViewSection id="fVu-Uz-4ib">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Aru-fW-lqH" style="IBUITableViewCellStyleDefault" id="rU0-9V-tCP">
-                                        <rect key="frame" x="0.0" y="44" width="540" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rU0-9V-tCP" id="vwJ-v7-BfB">
                                             <rect key="frame" x="0.0" y="0.0" width="507" height="43"/>
@@ -1034,13 +1034,13 @@
             <objects>
                 <tableViewController id="lRR-E2-yhd" customClass="MJUEditCategoriesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="DCd-nO-7gT">
-                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <rect key="frame" x="0.0" y="44" width="540" height="576"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryEditCell" id="eje-mW-kig">
-                                <rect key="frame" x="0.0" y="66" width="540" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="540" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eje-mW-kig" id="TBt-Jv-p1e">
                                     <rect key="frame" x="0.0" y="0.0" width="507" height="43"/>
@@ -1074,13 +1074,13 @@
             <objects>
                 <tableViewController id="aeY-WN-4jm" customClass="MJUEditSectionsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="osI-vv-qcP">
-                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <rect key="frame" x="0.0" y="44" width="540" height="576"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SectionEditCell" id="h2v-w9-0PQ">
-                                <rect key="frame" x="0.0" y="66" width="540" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="540" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h2v-w9-0PQ" id="hbe-rl-bzs">
                                     <rect key="frame" x="0.0" y="0.0" width="507" height="43"/>
@@ -1114,13 +1114,13 @@
             <objects>
                 <tableViewController id="U1f-HJ-lSb" customClass="MJUEditQuestionsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="TJc-30-XVz">
-                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <rect key="frame" x="0.0" y="44" width="540" height="576"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" restorationIdentifier="QuestionEditCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="QuestionEditCell" id="JJG-IE-MzS">
-                                <rect key="frame" x="0.0" y="66" width="540" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="540" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JJG-IE-MzS" id="PhR-qV-SUP">
                                     <rect key="frame" x="0.0" y="0.0" width="540" height="43"/>
@@ -1153,7 +1153,7 @@
         <scene sceneID="6YH-AA-eNQ">
             <objects>
                 <navigationController definesPresentationContext="YES" id="MTs-Z3-T7X" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dnn-Ug-6wk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="dnn-Ug-6wk">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -1169,7 +1169,7 @@
             <objects>
                 <tableViewController id="JyK-n8-QhK" customClass="MJUTitleInputViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="iZ2-Bm-kSg">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="44" width="1024" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -1177,7 +1177,7 @@
                             <tableViewSection id="E9N-wL-Vvw">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="wbM-cV-0ac" customClass="MJUTextInputCell">
-                                        <rect key="frame" x="0.0" y="79" width="1024" height="44"/>
+                                        <rect key="frame" x="0.0" y="35" width="1024" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wbM-cV-0ac" id="vpq-kh-Ty1">
                                             <rect key="frame" x="0.0" y="0.0" width="1024" height="43"/>
@@ -1225,7 +1225,7 @@
         <scene sceneID="x66-C9-GKT">
             <objects>
                 <navigationController definesPresentationContext="YES" id="irX-AO-feN" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6XY-77-u1I">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="6XY-77-u1I">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.2784313725" green="0.66274509800000003" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -1245,13 +1245,13 @@
             <objects>
                 <tableViewController id="Pnh-jr-qDI" customClass="MJUEditSelectionViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="R23-qj-8gX">
-                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <rect key="frame" x="0.0" y="44" width="540" height="576"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" restorationIdentifier="QuestionEditCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SelectableEditCell" id="pmb-m0-G9x">
-                                <rect key="frame" x="0.0" y="66" width="540" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="540" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pmb-m0-G9x" id="iqR-mM-KK9">
                                     <rect key="frame" x="0.0" y="0.0" width="540" height="43"/>
@@ -1284,7 +1284,7 @@
             <objects>
                 <tableViewController id="U5x-4P-0wI" customClass="MJUCategoryInputViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="1uw-78-TkA">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="44" width="1024" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -1292,7 +1292,7 @@
                             <tableViewSection id="cnn-TC-V0Y">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="2Rj-nT-8h0" customClass="MJUTextInputCell">
-                                        <rect key="frame" x="0.0" y="79" width="1024" height="44"/>
+                                        <rect key="frame" x="0.0" y="35" width="1024" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Rj-nT-8h0" id="R5g-8g-56P">
                                             <rect key="frame" x="0.0" y="0.0" width="1024" height="43"/>
@@ -1319,7 +1319,7 @@
                             <tableViewSection id="8oQ-re-YLA">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="70" id="a2W-nx-cvE" customClass="MJUTextInputCell">
-                                        <rect key="frame" x="0.0" y="143" width="1024" height="70"/>
+                                        <rect key="frame" x="0.0" y="99" width="1024" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a2W-nx-cvE" id="0EY-nW-7Qa">
                                             <rect key="frame" x="0.0" y="0.0" width="1024" height="69"/>
@@ -1415,7 +1415,7 @@
         <scene sceneID="PEJ-st-ird">
             <objects>
                 <navigationController definesPresentationContext="YES" id="0Bi-TH-36L" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uqg-iw-I6Q">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="uqg-iw-I6Q">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.2784313725" green="0.66274509800000003" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
