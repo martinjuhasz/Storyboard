@@ -9,6 +9,7 @@
 #import "MJUSortedDataTableViewController.h"
 #import "MJUProjectsDataModel.h"
 #import "UIAlertView+BlocksKit.h"
+#import "UITableView+Additions.h"
 
 @interface MJUSortedDataTableViewController () {
     bool userDrivenModelChange;
@@ -23,6 +24,7 @@
     [super viewDidLoad];
     
     userDrivenModelChange = NO;
+    [self.tableView hideEmptyCells];
 }
 
 

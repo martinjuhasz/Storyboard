@@ -7,6 +7,7 @@
 //
 
 #import "MJUSettingsTableViewController.h"
+#import "UITableView+Additions.h"
 
 @interface MJUSettingsTableViewController ()
 
@@ -16,6 +17,7 @@
 
 - (void)viewDidLoad
 {
+    [self.tableView hideEmptyCells];
     [super viewDidLoad];
 }
 
