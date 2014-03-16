@@ -2,8 +2,8 @@
 //  MJUAnswer.m
 //  Storyboard
 //
-//  Created by Martin Juhasz on 16/11/13.
-//  Copyright (c) 2013 Martin Juhasz. All rights reserved.
+//  Created by Martin Juhasz on 10/03/14.
+//  Copyright (c) 2014 Martin Juhasz. All rights reserved.
 //
 
 #import "MJUAnswer.h"
@@ -12,9 +12,6 @@
 
 @implementation MJUAnswer
 
-@dynamic questionID;
-@dynamic text;
-@dynamic selected;
 @dynamic project;
 
 @end

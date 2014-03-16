@@ -8,8 +8,6 @@
 
 #import "MJUProject.h"
 #import "MJUScene.h"
-#import "MJUAnswer.h"
-#import "MJUSubQuestion.h"
 
 @implementation MJUProject
 
@@ -28,6 +26,11 @@
     // or [self setPrimitiveDate:[NSDate date]];
     // to avoid triggering KVO notifications
     self.createdAt = [NSDate date];
+}
+
+- (BOOL)hasScenes
+{
+    return (self.scenes.count > 0);
 }
 
 - (NSArray*)orderedScenes
@@ -56,26 +59,6 @@
 - (UIImage*)getCompanyLogo
 {
     return [UIImage imageWithData:self.companyLogo];
-}
-
-- (MJUAnswer*)getAnswerForQuestion:(MJUSubQuestion*)question
-{
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MJUAnswer"];
-    
-    NSPredicate *projectPredicate = [NSPredicate predicateWithFormat:@"project == %@", self];
-    NSPredicate *idPredicate = [NSPredicate predicateWithFormat:@"questionID == %@", question.questionID];
-    NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[projectPredicate, idPredicate]];
-    [fetchRequest setPredicate:predicate];
-    
-    NSError *error = nil;
-    NSArray *array = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    if (array == nil || error || array.count <= 0) {
-        MJUAnswer *answer = (MJUAnswer *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUAnswer" inManagedObjectContext:self.managedObjectContext];
-        answer.questionID = question.questionID;
-        [self addAnswersObject:answer];
-        return answer;
-    }
-    return [array objectAtIndex:0];
 }
 
 - (NSString*)projectLogoSRC

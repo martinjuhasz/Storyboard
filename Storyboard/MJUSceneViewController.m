@@ -67,10 +67,10 @@
     if(self.scene.time > 0) {
         int minutes = self.scene.time / 60;
         int seconds = self.scene.time % 60;
-        NSString *time = [NSString stringWithFormat:@"%02d min, %02d sec", minutes, seconds];
+        NSString *time = [NSString stringWithFormat:NSLocalizedString(@"%02d min, %02d %@", nil), minutes, seconds, NSLocalizedString(@"sec", nil)];
         self.timeCell.textLabel.text = time;
     } else {
-        self.timeCell.textLabel.text = @"00 min, 00 sec";
+        self.timeCell.textLabel.text = [NSString stringWithFormat:@"00 min, 00 %@", NSLocalizedString(@"sec", nil)];
     }
 }
 
@@ -106,7 +106,11 @@
         textViewController.inputText = [self.scene valueForKey:property];
         textViewController.saveString = ^(NSString *saveString) {
             [self.scene setValue:saveString forKey:property];
-            [[[MJUProjectsDataModel sharedDataModel] mainContext] save:nil];
+            NSError *error;
+            [[[MJUProjectsDataModel sharedDataModel] mainContext] save:&error];
+            if(error) {
+                NSLog(@"%@", [error localizedDescription]);
+            }
             [self loadContent];
         };
     } else if ([[segue identifier] isEqualToString:@"TimerViewSegue"]) {
@@ -169,7 +173,11 @@
     [sceneImage addImage:chosenImage];
     [self.scene setImages:nil];
     [self.scene addImagesObject:sceneImage];
-    [context save:nil];
+    NSError *error;
+    [context save:&error];
+    if(error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
     
     [self loadContent];
 }
@@ -270,7 +278,11 @@
     NSManagedObjectContext *context = [[MJUProjectsDataModel sharedDataModel] mainContext];
     NSUInteger time = (minute * 60) + second;
     self.scene.time = time;
-    [context save:nil];
+    NSError *error;
+    [context save:&error];
+    if(error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
     
     [self setTimeValue];
 }

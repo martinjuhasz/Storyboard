@@ -7,18 +7,22 @@
 //
 
 #import "MJUQuestionsViewController.h"
-#import "MJUQuestionHelper.h"
-#import "MJUQuestion.h"
-#import "MJUSubQuestion.h"
 #import "MJUProject.h"
-#import "MJUAnswer.h"
 #import "MJUQuestionCell.h"
-#import "MJUQuestionSelectionViewController.h"
 #import "MJUProjectsDataModel.h"
 #import "MJUTextInputViewController.h"
 #import "UILabel+Additions.h"
 #import "UITableView+Additions.h"
 #import "MJUTableHeaderView.h"
+#import "MJUQuestionCategory.h"
+#import "MJUQuestion.h"
+#import "MJUSelectableQuestion.h"
+#import "MJUTextQuestion.h"
+#import "MJUQuestionSelectionViewController.h"
+#import "MJUTextAnswer.h"
+#import "MJUSelectableAnswer.h"
+#import "MJUSelectable.h"
+#import "MJUQuestionSection.h"
 
 @interface MJUQuestionsViewController ()
 
@@ -33,9 +37,6 @@
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDataModelChange:) name:NSManagedObjectContextObjectsDidChangeNotification object:[[MJUProjectsDataModel sharedDataModel] mainContext]];
-
-    
-    self.questionHelper = [[MJUQuestionHelper alloc] initWithPList:self.plist];
 }
 
 
@@ -44,19 +45,30 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSIndexPath *indexPath = (NSIndexPath*)sender;
+    NSManagedObjectContext *context = [[MJUProjectsDataModel sharedDataModel] mainContext];
     if([segue.identifier isEqualToString:@"QuestionSelectionSegue"]) {
         MJUQuestionSelectionViewController *vc = (MJUQuestionSelectionViewController*)segue.destinationViewController;
-        MJUSubQuestion *question = [self.questionHelper subQuestionForIndexPath:(NSIndexPath*)sender];
-        MJUAnswer *answer = [self.project getAnswerForQuestion:question];
+        MJUSelectableQuestion *question = [self.fetchedResultsController objectAtIndexPath:indexPath];
         vc.question = question;
-        vc.answer = answer;
         vc.project = self.project;
     } else if([[segue identifier] isEqualToString:@"TextInputSegue"]) {
-        MJUSubQuestion *question = [self.questionHelper subQuestionForIndexPath:(NSIndexPath*)sender];
-        MJUAnswer *answer = [self.project getAnswerForQuestion:question];
+        MJUTextQuestion *question = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        __block MJUTextAnswer *answer;
+        answer = [question getSelectedAnswerForProject:self.project];
+        
         MJUTextInputViewController *textViewController = (MJUTextInputViewController*)((UINavigationController*)[segue destinationViewController]).topViewController;
-        textViewController.inputText = answer.text;
+        if(answer) {
+            textViewController.inputText = answer.text;
+        }
+        
         textViewController.saveString = ^(NSString *saveString) {
+            if(!answer) {
+                answer = (MJUTextAnswer *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUTextAnswer" inManagedObjectContext:context];
+                [question addAnswersObject:answer];
+                [self.project addAnswersObject:answer];
+            }
+            
             answer.text = saveString;
             [[[MJUProjectsDataModel sharedDataModel] mainContext] save:nil];
         };
@@ -65,8 +77,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MJUSubQuestion *question = [self.questionHelper subQuestionForIndexPath:indexPath];
-    if(question.isSelectable) {
+    MJUQuestion *question = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    if([question isKindOfClass:[MJUSelectableQuestion class]]) {
         [self performSegueWithIdentifier:@"QuestionSelectionSegue" sender:indexPath];
     } else {
         [self performSegueWithIdentifier:@"TextInputSegue" sender:indexPath];
@@ -80,13 +92,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.questionHelper.questions.count;
+    return [[[self fetchedResultsController] sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    MJUQuestion *question = [self.questionHelper.questions objectAtIndex:section];
-    return question.subQuestions.count;
+    id<NSFetchedResultsSectionInfo> sectionInfo = [[[self fetchedResultsController] sections] objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -94,76 +106,70 @@
     UITableViewCell *cell;
     static NSString *SelectableCellIdentifier = @"SelectableQuestionCell";
     static NSString *CellIdentifier = @"QuestionCell";
-    MJUSubQuestion *subQuestion = [self.questionHelper subQuestionForIndexPath:indexPath];
     
-    if(subQuestion.isSelectable) {
+    MJUQuestion *question = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    if([question isKindOfClass:[MJUSelectableQuestion class]]) {
         cell = [tableView dequeueReusableCellWithIdentifier:SelectableCellIdentifier forIndexPath:indexPath];
-        [self updateSelectableCell:cell atIndexPath:indexPath];
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        [self updateCell:(MJUQuestionCell*)cell atIndexPath:indexPath];
     }
+    [self updateCell:cell withQuestion:question atIndexPath:indexPath];
     return cell;
 }
 
-- (void)updateCell:(MJUQuestionCell*)cell atIndexPath:(NSIndexPath*)indexPath
+- (void)updateCell:(UITableViewCell*)cell withQuestion:(MJUQuestion*)question atIndexPath:(NSIndexPath*)indexPath
 {
-    MJUSubQuestion *subQuestion = [self.questionHelper subQuestionForIndexPath:indexPath];
-    MJUAnswer *answer = [self.project getAnswerForQuestion:subQuestion];
-    MJUQuestionCell *questionCell = (MJUQuestionCell*)cell;
-    
-    questionCell.accessoryType = UITableViewCellAccessoryNone;
-    questionCell.titleLabel.text = subQuestion.title;
-    questionCell.contentLabel.text = answer.text;
+    if([question isKindOfClass:[MJUSelectableQuestion class]]) {
+        [self updateSelectableCell:cell withQuestion:question atIndexPath:indexPath];
+    } else {
+        [self updateTextCell:(MJUQuestionCell*)cell withQuestion:question atIndexPath:indexPath];
+    }
 }
 
-- (void)updateSelectableCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
+- (void)updateTextCell:(MJUQuestionCell*)cell withQuestion:(MJUQuestion*)question atIndexPath:(NSIndexPath*)indexPath
 {
-    MJUSubQuestion *subQuestion = [self.questionHelper subQuestionForIndexPath:indexPath];
-    MJUAnswer *answer = [self.project getAnswerForQuestion:subQuestion];
-    cell.textLabel.text = subQuestion.title;
+    MJUTextQuestion *textQuestion = (MJUTextQuestion*)question;
+    MJUTextAnswer *answer = [textQuestion getSelectedAnswerForProject:self.project];
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.titleLabel.text = textQuestion.title;
+    
+    if(answer) {
+        cell.contentLabel.text = answer.text;
+    } else {
+        cell.contentLabel.text = @"";
+    }
+}
+
+- (void)updateSelectableCell:(UITableViewCell*)cell withQuestion:(MJUQuestion*)question atIndexPath:(NSIndexPath*)indexPath
+{
+    MJUSelectableQuestion *selectableQuestion = (MJUSelectableQuestion*)question;
+    MJUSelectableAnswer *answer = [selectableQuestion getSelectedAnswerForProject:self.project];
+    cell.textLabel.text = selectableQuestion.title;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    if(answer && [answer.selected intValue] >= 0) {
-        cell.detailTextLabel.text = [subQuestion.selections objectAtIndex:[answer.selected intValue]];
+    if(answer) {
+        cell.detailTextLabel.text = ((MJUSelectable*)answer.selected).text;
     } else {
         cell.detailTextLabel.text = @"";
     }
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    MJUSubQuestion *subQuestion = [self.questionHelper subQuestionForIndexPath:indexPath];
-//    MJUAnswer *answer = [self.project getAnswerForQuestion:subQuestion];
-//    if(!subQuestion.isSelectable) {
-//
-//        MJUQuestionCell *cell = (MJUQuestionCell*)[tableView prototypeCellWithReuseIdentifier:@"QuestionCell"];
-//        cell.textLabel.text = answer.text;
-//        CGRect size = [cell.textLabel expectedSize];
-//        
-//        return (size.size.height > 100.0f) ? size.size.height + 55 : 100.0f;
-//    }
-//    return 44;
-
     
     CGFloat height = 44.0f;
+    MJUQuestion *question = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    MJUSubQuestion *subQuestion = [self.questionHelper subQuestionForIndexPath:indexPath];
-    MJUAnswer *answer = [self.project getAnswerForQuestion:subQuestion];
-    
-    if(!subQuestion.isSelectable) {
+    if(![question isKindOfClass:[MJUSelectableQuestion class]]) {
         MJUQuestionCell *metricsCell = (MJUQuestionCell*)[tableView prototypeCellWithReuseIdentifier:@"QuestionCell"];
-        metricsCell.contentLabel.text = answer.text;
-
-        
+        MJUQuestion *question = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [self updateTextCell:metricsCell withQuestion:question atIndexPath:indexPath];
         [metricsCell.contentView setNeedsLayout];
         [metricsCell.contentView layoutIfNeeded];
-        
         CGSize size = [metricsCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
         height = size.height + 1.0f;
     }
-    
     return height;
 }
 
@@ -171,8 +177,9 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     MJUTableHeaderView *aView = [[MJUTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, tableView.frame.size.width, 20.0f)];
-    MJUQuestion *question = [self.questionHelper.questions objectAtIndex:section];
-    aView.titleLabel.text = question.sectionTitle;
+    id<NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController.sections objectAtIndex:section];
+    MJUQuestion *question = [[sectionInfo objects] objectAtIndex:0];
+    aView.titleLabel.text = question.section.title;
     return aView;
 }
 
@@ -183,7 +190,38 @@
 
 
 #pragma mark -
-#pragma mark CoreData
+#pragma mark Core Data
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if (_fetchedResultsController == nil)
+    {
+        _fetchedResultsController = [self newFetchedResultsController];
+    }
+    return _fetchedResultsController;
+}
+
+- (NSFetchedResultsController *)newFetchedResultsController
+{
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MJUQuestion"];
+    NSSortDescriptor *sortBySectionOrder = [NSSortDescriptor sortDescriptorWithKey:@"section.order" ascending:YES];
+    NSSortDescriptor *sortByOrder = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortBySectionOrder, sortByOrder]];
+
+    NSPredicate *categoryPredicate = [NSPredicate predicateWithFormat:@"section.category = %@", self.category];
+    [fetchRequest setPredicate:categoryPredicate];
+    
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[[MJUProjectsDataModel sharedDataModel] mainContext] sectionNameKeyPath:@"section.order" cacheName:nil];
+    
+    aFetchedResultsController.delegate = self;
+    
+    NSError *error = nil;
+    if (![aFetchedResultsController performFetch:&error]) {
+        NSLog(@"%@, %@", error, [error userInfo]);
+    }
+    
+    return aFetchedResultsController;
+}
 
 - (void)handleDataModelChange:(NSNotification *)note
 {

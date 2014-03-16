@@ -2,21 +2,22 @@
 //  MJUQuestion.h
 //  Storyboard
 //
-//  Created by Martin Juhasz on 16/11/13.
-//  Copyright (c) 2013 Martin Juhasz. All rights reserved.
+//  Created by Martin Juhasz on 10/03/14.
+//  Copyright (c) 2014 Martin Juhasz. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
+@class MJUQuestionSection;
 @class MJUProject;
 
-@interface MJUQuestion : NSObject
+@interface MJUQuestion : NSManagedObject
 
-@property (strong, nonatomic) NSString *sectionTitle;
-@property (strong, nonatomic) NSArray *subQuestions;
-@property (strong, nonatomic) MJUProject *project;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) MJUQuestionSection *section;
+@property (nonatomic) int32_t order;
 
-- (id)initWithDict:(NSDictionary*)dict;
-- (id)initWithDict:(NSDictionary*)dict project:(MJUProject*)project;
+- (BOOL)hasAnswerForProject:(MJUProject*)project;
 
 @end

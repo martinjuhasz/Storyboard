@@ -7,15 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class MJUQuestionHelper;
 @class MJUProject;
+@class MJUQuestionCategory;
 
 
-@interface MJUQuestionsViewController : UITableViewController
+@interface MJUQuestionsViewController : UITableViewController<NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) MJUProject *project;
-@property (strong, nonatomic) MJUQuestionHelper *questionHelper;
+@property (strong, nonatomic) MJUQuestionCategory *category;
 @property (strong, nonatomic) NSString *plist;
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end

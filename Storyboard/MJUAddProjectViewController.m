@@ -32,6 +32,7 @@
             _imageField.image = [self.project getCompanyLogo];
             [self.imageButton setBackgroundImage:nil forState:UIControlStateNormal];
         }
+        self.title = NSLocalizedString(@"edit Project", nil);
     }
 
 }
@@ -67,7 +68,11 @@
         [self.project addCompanyLogo:_imageField.image];
     }
     
-    [context save:nil];
+    NSError *error;
+    [context save:&error];
+    if(error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

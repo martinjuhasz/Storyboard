@@ -30,7 +30,7 @@
 
 - (void)setTimeLabelTextWithMinutes:(NSUInteger)minutes seconds:(NSUInteger)seconds
 {
-     self.timeLabel.text = [NSString stringWithFormat:@"%02lu min %02lu sec", (unsigned long)minutes, (unsigned long)seconds];
+     self.timeLabel.text = [NSString stringWithFormat:@"%02lu min %02lu %@", (unsigned long)minutes, (unsigned long)seconds, NSLocalizedString(@"sec", nil)];
 }
 
 
@@ -68,7 +68,7 @@
     if(component == 1) {
         return @"min";
     } else if(component == 3) {
-        return @"sec";
+        return NSLocalizedString(@"sec", nil);
     }
     
     return [NSString stringWithFormat:@"%02ld", (long)row];

@@ -135,93 +135,67 @@
         {{/ project.companyLogo}}
 
 
-        <div class="break"></div>
+        {{#categories}}
+            {{# categoryHasAnswer(., project) }}
+                <div class="break"></div>
+                <h3>{{title}}</h3>
+                {{#sortedSections}}
+                    {{# sectionHasAnswer(., project) }}
+                        <fieldset class="section">
+                            <legend>{{title}}</legend>
+                            {{#sortedQuestions}}
+                                {{# hasTextAnswer(., project) }}
+                                    <div class="question">{{title}}</div>
+                                    <div class="answer">{{# nl2br }}{{text}}{{/ nl2br }}</div>
+                                {{/ }}
+                                {{# hasSelectableAnswer(., project) }}
+                                    <div class="question">{{title}}</div>
+                                    <div class="answer">{{selected.text}}</div>
+                                {{/ }}
+                            {{/sortedQuestions}}
+                        </fieldset>
+                    {{/ }}
+                {{/sortedSections}}
+            {{/ }}
+        {{/categories}}
+
         
-        <h3>Kontaktdaten</h3>
-        {{#contactQuestionHelper.questions}}
-            <fieldset class="section">
-                <legend>{{sectionTitle}}</legend>
-                {{#subQuestions}}
-                        <div class="question">{{title}}</div>
-                        <div class="answer">{{answer.text}}</div>
-            {{/subQuestions}}
-            </fieldset>
-        {{/contactQuestionHelper.questions}}
-
-        <div class="break"></div>
-        
-        <h3>Parameter</h3>
-        {{#parameterQuestionHelper.questions}}
-            <fieldset class="section">
-                <legend>{{sectionTitle}}</legend>
-                {{#subQuestions}}
-                        <div class="question">{{title}}</div>
-                        <div class="answer">{{answer.text}}</div>
-            {{/subQuestions}}
-            </fieldset>
-        {{/parameterQuestionHelper.questions}}
-
-        <div class="break"></div>
-        
-        <h3>Organisation</h3>
-        {{#organisationQuestionHelper.questions}}
-            <fieldset class="section">
-                <legend>{{sectionTitle}}</legend>
-                {{#subQuestions}}
-                        <div class="question">{{title}}</div>
-                        <div class="answer">{{answer.text}}</div>
-            {{/subQuestions}}
-            </fieldset>
-        {{/organisationQuestionHelper.questions}}
-
-        <div class="break"></div>
-        
-        <h3>Post Production</h3>
-        {{#postProductionQuestionHelper.questions}}
-            <fieldset class="section">
-                <legend>{{sectionTitle}}</legend>
-                {{#subQuestions}}
-                        <div class="question">{{title}}</div>
-                        <div class="answer">{{answer.text}}</div>
-            {{/subQuestions}}
-            </fieldset>
-        {{/postProductionQuestionHelper.questions}}
-
-        <div class="break"></div>
-
-        <h3>Scenes</h3>
-        <div id="scenes">
-        {{#project.orderedScenes}}
-            {{# hasImage}}
-                <div class="scene cf">
-                    <h4>{{title}}</h4>
-                    <div class="scene_image">
-                        <img src="{{sceneImageSRC}}" />
+        {{#project.hasScenes}}
+            <div class="break"></div>
+            <h3>Scenes</h3>
+            <div id="scenes">
+            {{#project.orderedScenes}}
+                {{# hasImage}}
+                    <div class="scene cf">
+                        <h4>{{title}}</h4>
+                        <div class="scene_image">
+                            <img src="{{sceneImageSRC}}" />
+                        </div>
+                        <div class="text image">
+                            <h5>Picture</h5>
+                            {{imageText}}
+                        </div>
+                        <div class="text sound">
+                            <h5>Sound</h5>
+                            {{soundText}}
+                        </div>
                     </div>
-                    <div class="text image">
-                        <h5>Picture</h5>
-                        {{imageText}}
+                {{^ hasImage}}
+                    <div class="scene without_image cf">
+                        <h4>{{title}}</h4>
+                        <div class="text image">
+                            <h5>Picture</h5>
+                            {{imageText}}
+                        </div>
+                        <div class="text sound">
+                            <h5>Sound</h5>
+                            {{soundText}}
+                        </div>
                     </div>
-                    <div class="text sound">
-                        <h5>Sound</h5>
-                        {{soundText}}
-                    </div>
-                </div>
-            {{^ hasImage}}
-                <div class="scene without_image cf">
-                    <h4>{{title}}</h4>
-                    <div class="text image">
-                        <h5>Picture</h5>
-                        {{imageText}}
-                    </div>
-                    <div class="text sound">
-                        <h5>Sound</h5>
-                        {{soundText}}
-                    </div>
-                </div>
-            {{/ hasImage}}
-        {{/project.orderedScenes}}
-        </div>
+                {{/ hasImage}}
 
+            {{/project.orderedScenes}}
+            </div>
+        {{/project.hasScenes}}
     </body>
 </html>

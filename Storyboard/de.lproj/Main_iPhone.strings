@@ -44,6 +44,9 @@
 /* Class = "IBUILabel"; text = "Content"; ObjectID = "P1O-EY-YbY"; */
 "P1O-EY-YbY.text" = "Inhalt";
 
+/* Class = "IBUINavigationItem"; title = "Categories"; ObjectID = "Pmv-Fc-Cyv"; */
+"Pmv-Fc-Cyv.title" = "Categories";
+
 /* Class = "IBUINavigationItem"; title = "new Project"; ObjectID = "SH7-7B-1qH"; */
 "SH7-7B-1qH.title" = "neues Projekt";
 
@@ -67,6 +70,9 @@
 
 /* Class = "IBUILabel"; text = "Apple Computers Inc."; ObjectID = "Zl8-K3-4lo"; */
 "Zl8-K3-4lo.text" = "Apple Computers Inc.";
+
+/* Class = "IBUITextField"; placeholder = "Title"; ObjectID = "aKa-I9-HmA"; */
+"aKa-I9-HmA.placeholder" = "Titel";
 
 /* Class = "IBUITableViewSection"; headerTitle = "Picture"; ObjectID = "adh-oe-1s6"; */
 "adh-oe-1s6.headerTitle" = "Bildebene";
@@ -109,3 +115,20 @@
 
 /* Class = "IBUILabel"; text = "Company Name"; ObjectID = "wLO-1B-YgQ"; */
 "wLO-1B-YgQ.text" = "Firmenname";
+
+/* Class = "IBUINavigationItem"; title = "Settings"; ObjectID = "wlj-Ga-y19"; */
+"wlj-Ga-y19.title" = "Einstellungen";
+
+/* Class = "IBUILabel"; text = "edit Questions"; ObjectID = "KBL-eA-Y4B"; */
+"KBL-eA-Y4B.text" = "Fragenkatalog bearbeiten";
+
+/* Class = "IBUINavigationItem"; title = "Sections"; ObjectID = "55f-jg-bIN"; */
+"55f-jg-bIN.title" = "Abschnitte";
+
+/* Class = "IBUINavigationItem"; title = "Questions"; ObjectID = "AlO-AO-eXa"; */
+"AlO-AO-eXa.title" = "Fragen";
+
+/* Class = "IBUINavigationItem"; title = "Categories"; ObjectID = "Pmv-Fc-Cyv"; */
+"Pmv-Fc-Cyv.title" = "Kategorien";
+
+"sR6-TZ-MYx.title" = "Antworten";
