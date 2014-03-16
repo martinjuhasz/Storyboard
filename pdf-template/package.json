@@ -1,0 +1,20 @@
+{
+  "name": "inliner",
+  "version": "0.0.1",
+  "repository": {
+    "type" : "git",
+    "url" : "http://github.com/rnarius/inliner.git"
+  },
+  "dependencies": {
+    "gulp": "*",
+    "gulp-mustache": "systemizer/gulp-mustache#f952f3042ea677e9887b1d66e5dce7125d775bca",
+    "gulp-ruby-sass": "*",
+    "gulp-watch": "*",
+    "gulp-connect": "*",
+    "gulp-clean": "*",
+    "gulp-autoprefixer": "",
+    "gulp-inline-css": "*",
+    "gulp-livereload": "*",
+    "gulp-load-plugins": "*"
+  }
+}
