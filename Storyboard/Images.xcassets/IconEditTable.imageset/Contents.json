@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "IconEditTable.png"
+      "filename" : "navbar-edit.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "IconEditTable@2x.png"
+      "filename" : "navbar-edit@2x.png"
     }
   ],
   "info" : {
