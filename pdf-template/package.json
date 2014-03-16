@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "gulp": "*",
-    "gulp-mustache": "systemizer/gulp-mustache#f952f3042ea677e9887b1d66e5dce7125d775bca",
+    "gulp-mustache": "*",
     "gulp-ruby-sass": "*",
     "gulp-watch": "*",
     "gulp-connect": "*",
