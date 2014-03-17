@@ -226,6 +226,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="companyField" destination="Gox-jZ-QhH" id="zz7-gK-ReV"/>
+                        <outlet property="imageButton" destination="3x2-oA-QQe" id="vAm-Yn-s7q"/>
                         <outlet property="imageField" destination="kke-8H-zWr" id="BK8-W6-dfF"/>
                         <outlet property="titleField" destination="KI8-n8-scT" id="xuj-n0-b2M"/>
                     </connections>
@@ -1347,6 +1348,9 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="didSelectIcon:" destination="U5x-4P-0wI" eventType="touchUpInside" id="5Fc-eA-fKF"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" tag="3101" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNT-xG-Hhm">
                                                     <rect key="frame" x="63" y="20" width="30" height="30"/>
@@ -1354,6 +1358,9 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="didSelectIcon:" destination="U5x-4P-0wI" eventType="touchUpInside" id="X4g-5e-CwG"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" tag="3102" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdF-de-4fM">
                                                     <rect key="frame" x="106" y="20" width="30" height="30"/>
@@ -1361,6 +1368,9 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="didSelectIcon:" destination="U5x-4P-0wI" eventType="touchUpInside" id="JbP-Bk-tua"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" tag="3103" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2q-cU-zhY">
                                                     <rect key="frame" x="152" y="20" width="30" height="30"/>
@@ -1368,6 +1378,9 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="didSelectIcon:" destination="U5x-4P-0wI" eventType="touchUpInside" id="UEU-Pv-rCI"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProjectDetailIconAudio" translatesAutoresizingMaskIntoConstraints="NO" id="1o4-dj-shO">
                                                     <rect key="frame" x="193" y="21" width="29" height="29"/>
@@ -1379,6 +1392,9 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="didSelectIcon:" destination="U5x-4P-0wI" eventType="touchUpInside" id="5Yl-J3-e6x"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProjectDetailIconOrganisation" translatesAutoresizingMaskIntoConstraints="NO" id="OKp-dI-68H">
                                                     <rect key="frame" x="236" y="21" width="29" height="29"/>
@@ -1390,6 +1406,9 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="didSelectIcon:" destination="U5x-4P-0wI" eventType="touchUpInside" id="OZZ-Xt-c0M"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProjectDetailIconPhotos" translatesAutoresizingMaskIntoConstraints="NO" id="aV9-w5-CAJ">
                                                     <rect key="frame" x="279" y="21" width="29" height="29"/>
@@ -1401,6 +1420,9 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="didSelectIcon:" destination="U5x-4P-0wI" eventType="touchUpInside" id="uoi-1c-l2b"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>

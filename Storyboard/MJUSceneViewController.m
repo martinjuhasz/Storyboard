@@ -49,6 +49,8 @@
         if(sceneImage) {
             self.imageView.image = [sceneImage getImage];
         }
+    } else {
+        self.imageView.image = nil;
     }
     
     if(self.scene.imageText) {
@@ -130,6 +132,8 @@
         [self showPhotoPickerForType:UIImagePickerControllerSourceTypePhotoLibrary];
     } else if(buttonIndex == 1) {
         [self showPhotoPickerForType:UIImagePickerControllerSourceTypeCamera];
+    } else if(buttonIndex == 2) {
+        [self saveImage:nil];
     }
 }
 
@@ -168,11 +172,20 @@
 {
     [controller dismissViewControllerAnimated:YES completion:NULL];
     
+    [self saveImage:chosenImage];
+}
+
+- (void)saveImage:(UIImage*)image
+{
     NSManagedObjectContext *context = [[MJUProjectsDataModel sharedDataModel] mainContext];
-    MJUSceneImage *sceneImage = (MJUSceneImage *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUSceneImage" inManagedObjectContext:context];
-    [sceneImage addImage:chosenImage];
     [self.scene setImages:nil];
-    [self.scene addImagesObject:sceneImage];
+    
+    if(image) {
+        MJUSceneImage *sceneImage = (MJUSceneImage *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUSceneImage" inManagedObjectContext:context];
+        [sceneImage addImage:image];
+        [self.scene addImagesObject:sceneImage];
+    }
+    
     NSError *error;
     [context save:&error];
     if(error) {
@@ -261,7 +274,7 @@
     if(indexPath.section == 0 && indexPath.row == 1) {
         [self performSegueWithIdentifier:@"TimerViewSegue" sender:indexPath];
     } else if(indexPath.section == 1 && indexPath.row == 0) {
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"select a Photo", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"add Photo from Library", nil), NSLocalizedString(@"take Photo", nil), nil];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"select a Photo", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"add Photo from Library", nil), NSLocalizedString(@"take Photo", nil), NSLocalizedString(@"delete Photo", nil), nil];
         [actionSheet showInView:self.tableView];
     } else {
         [self performSegueWithIdentifier:@"TextInputSegue" sender:indexPath];

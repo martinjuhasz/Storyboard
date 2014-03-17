@@ -38,7 +38,7 @@
 }
 - (IBAction)didClickImage:(id)sender
 {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"select a Photo", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"add Photo from Library", nil), NSLocalizedString(@"take Photo", nil), nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"select a Photo", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"add Photo from Library", nil), NSLocalizedString(@"take Photo", nil), NSLocalizedString(@"delete Photo", nil), nil];
     [actionSheet showInView:self.tableView];
 }
 
@@ -66,6 +66,8 @@
     
     if(_imageField.image) {
         [self.project addCompanyLogo:_imageField.image];
+    } else {
+        [self.project setCompanyLogo:nil];
     }
     
     NSError *error;
@@ -83,6 +85,9 @@
         [self showPhotoPickerForType:UIImagePickerControllerSourceTypePhotoLibrary];
     } else if(buttonIndex == 1) {
         [self showPhotoPickerForType:UIImagePickerControllerSourceTypeCamera];
+    } else if(buttonIndex == 2) {
+        [self.imageButton setBackgroundImage:[UIImage imageNamed:@"newProjectAddImage"] forState:UIControlStateNormal];
+        _imageField.image = nil;
     }
 }
 
