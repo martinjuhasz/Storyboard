@@ -29,11 +29,6 @@
 {
     [super viewDidLoad];
     
-    // Background IMage
-    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ProjectDetailBackground"]];
-    bgImageView.contentMode = UIViewContentModeTop;
-    [self.tableView setBackgroundView:bgImageView];
-    
     [self.tableView hideEmptyCells];
     
     self.title = _project.title;
