@@ -78,6 +78,7 @@
 
       h4 {
         font-family: HelveticaNeue-Medium;
+        color: #87877E;
       }
 
       h3, h5 {
@@ -105,6 +106,10 @@
       .cover__image img {
         display: inline-block;
         max-width: 420px;
+      }
+
+      .cover__tagline {
+        color: #87877E;
       }
 
 
@@ -136,6 +141,44 @@
         top: -1px;
       }
 
+
+
+
+
+
+      /*------------------------------------*\
+          $CATEGORIES
+      \*------------------------------------*/
+
+      .category {
+        border: 1px solid #E4E4DC; 
+        margin-bottom: 42px;
+      }
+
+      .category__title {
+        border-bottom: 1px solid #E4E4DC;
+        margin: 0;
+        padding: 21px;
+      }
+
+      .category__content {
+        padding: 21px;
+      }
+
+      .question__title {
+        margin-bottom: 0;
+      }
+
+
+
+
+
+
+
+      /*------------------------------------*\
+          $STORYBOARD
+      \*------------------------------------*/
+
       .scenes { page-break-inside:auto }
       .scene  { page-break-inside:avoid; page-break-after:auto }
 
@@ -151,6 +194,13 @@
         page-break-before: always;
         padding-top: 1cm;
       }
+
+      .widget > *:last-child,
+      .widget > *:last-child > *:last-child,
+      .widget > *:last-child > *:last-child > *:last-child {
+        margin-bottom: 0;
+      }
+
 
 
     </style>
@@ -175,21 +225,29 @@
     <div class="section">
     <h2 class="section__title">{{title}}</h2>
     {{#sortedSections}}
-    {{# sectionHasAnswer(., project) }}
-    <section>
-      <h3>{{title}}</h3>
-      {{#sortedQuestions}}
-      {{# hasTextAnswer(., project) }}
-      <h4>{{title}}</h4>
-      <p>{{# nl2br }}{{text}}{{/ nl2br }}</p>
+      {{# sectionHasAnswer(., project) }}
+      <div class="widget category">
+        <h3 class="category__title">{{title}}</h3>
+        
+        <div class="category__content">
+          {{#sortedQuestions}}
+          {{# hasTextAnswer(., project) }}
+          <div class="question">
+            <h4 class="question__title">{{title}}</h4>
+            <p>{{# nl2br }}{{text}}{{/ nl2br }}</p>
+          </div>
+          {{/ }}
+
+          {{# hasSelectableAnswer(., project) }}
+          <div class="question question--selectable">
+            <h4 class="question__title">{{title}}</h4>
+            <p>{{selected.text}}</p>
+          </div>
+          {{/ }}
+          {{/sortedQuestions}}
+        </div><!-- end .category__content -->
+      </div><!-- end .category -->
       {{/ }}
-      {{# hasSelectableAnswer(., project) }}
-      <h4>{{title}}</h4>
-      <p>{{selected.text}}</p>
-      {{/ }}
-      {{/sortedQuestions}}
-    </section>
-    {{/ }}
     {{/sortedSections}}
     </div><!-- end .section -->
     {{/ }}
