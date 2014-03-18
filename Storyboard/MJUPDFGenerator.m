@@ -137,26 +137,8 @@
     GRMustacheTemplate *template = [GRMustacheTemplate templateFromResource:@"pdf_content" bundle:nil error:nil];
     NSString *htmlContent = [template renderObjectsFromArray:@[data, extraKeys] error:nil];
     
-    
-    
-    // TODO: REMOVE, only Debug
-    NSArray *paths = NSSearchPathForDirectoriesInDomains
-    (NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *fileName = [NSString stringWithFormat:@"%@/webview.html",
-                          documentsDirectory];
-    [htmlContent writeToFile:fileName
-              atomically:NO
-                encoding:NSStringEncodingConversionAllowLossy
-                   error:nil];
-    
-    NSLog(@"Output: %@", fileName);
-    NSString *pdfName = [NSString stringWithFormat:@"%@/preview.pdf",
-                          documentsDirectory];
-    
-
     dispatch_async(dispatch_get_main_queue(), ^(){
-        self.pdfCreator = [NDHTMLtoPDF createPDFWithHTML:htmlContent pathForPDF:pdfName pageSize:kPaperSizeA4 margins:UIEdgeInsetsMake(10, 5, 10, 5) successBlock:success errorBlock:error];
+        self.pdfCreator = [NDHTMLtoPDF createPDFWithHTML:htmlContent pathForPDF:nil pageSize:kPaperSizeA4 margins:UIEdgeInsetsMake(10, 5, 10, 5) successBlock:success errorBlock:error];
     });
     
 }

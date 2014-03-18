@@ -42,7 +42,7 @@
         self.titleCell.textLabel.text = self.scene.title;
     }
     
-    [self setTimeValue];
+    self.timeCell.textLabel.text = self.scene.timeAsText;
     
     if(self.scene.images.count > 0) {
         MJUSceneImage *sceneImage = [self.scene getSceneImage];
@@ -62,18 +62,6 @@
     }
     
     [self.tableView reloadData];
-}
-
-- (void)setTimeValue
-{
-    if(self.scene.time > 0) {
-        int minutes = self.scene.time / 60;
-        int seconds = self.scene.time % 60;
-        NSString *time = [NSString stringWithFormat:NSLocalizedString(@"%02d min, %02d %@", nil), minutes, seconds, NSLocalizedString(@"sec", nil)];
-        self.timeCell.textLabel.text = time;
-    } else {
-        self.timeCell.textLabel.text = [NSString stringWithFormat:@"00 min, 00 %@", NSLocalizedString(@"sec", nil)];
-    }
 }
 
 - (NSString*)getPropertyNameForIndexPath:(NSIndexPath*)indexPath
@@ -297,7 +285,7 @@
         NSLog(@"%@", [error localizedDescription]);
     }
     
-    [self setTimeValue];
+    self.timeCell.textLabel.text = self.scene.timeAsText;
 }
 
 @end

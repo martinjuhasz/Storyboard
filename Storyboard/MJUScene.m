@@ -42,4 +42,15 @@
     return [[(MJUSceneImage*)[self.images anyObject] getObjectIDAsString] stringByReplacingOccurrencesOfString:@"x-coredata://" withString:@"mjulocalsceneimage://"];
 }
 
+- (NSString*)timeAsText
+{
+    if(self.time > 0) {
+        int minutes = self.time / 60;
+        int seconds = self.time % 60;
+        return [NSString stringWithFormat:NSLocalizedString(@"%02d min, %02d %@", nil), minutes, seconds, NSLocalizedString(@"sec", nil)];
+    } else {
+        return [NSString stringWithFormat:@"00 min, 00 %@", NSLocalizedString(@"sec", nil)];
+    }
+}
+
 @end

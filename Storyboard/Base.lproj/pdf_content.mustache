@@ -313,7 +313,7 @@
         {{#project.orderedScenes}}
         {{# hasImage}}
         <div class="scene">
-          <h3 class="scene__title">{{title}} <span class="time">00min 30sec</span></h3>
+          <h3 class="scene__title">{{title}} <span class="time">{{timeAsText}}</span></h3>
           
           <div class="grid">
             <div class="grid__item width--1of2">
@@ -341,7 +341,7 @@
         </div><!-- end .scene -->
         {{^ hasImage}}
         <div class="scene">
-          <h3 class="scene__title">{{title}} <span class="time">00min 30sec</span></h3>
+          <h3 class="scene__title">{{title}} <span class="time">{{timeAsText}}</span></h3>
           
           <div class="grid">
             <div class="grid__item width--1of2">

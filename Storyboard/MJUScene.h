@@ -26,6 +26,7 @@
 - (BOOL)hasImage;
 - (UIImage*)getImage;
 - (MJUSceneImage*)getSceneImage;
+- (NSString*)timeAsText;
 
 @end
 
