@@ -1,201 +1,372 @@
 {{% CONTENT_TYPE:HTML }}
 <html>
-    <head>
-        <style type="text/css">
+  <head>
+    <style type="text/css">
+      /*
+      $color-blue: #48C0FB;
+      $color-border: #E4E4DC;
+      $color-headings: #515146;
+      $color-headings-light: #C7C7BF;
+      $color-text: #87877E;
+      */
 
-            body {
-                padding: 20px;
-                font-family: HelveticaNeue;
-                font-weight: normal;
-                font-size: 12px;
-                color: #545454;
-                line-height: 18px;
-            }
+      /*------------------------------------*\
+          $RESET
+      \*------------------------------------*/
 
-            h1 {
-                line-height: 28px;
-                font-size: 24px;
-                margin-top: 10px;
-                margin-bottom: 70px;
-                width: 100%;
-                text-align: center;
-                margin-bottom: 20px;
-            }
+    * { 
+      margin: 0; 
+      padding: 0; 
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+    }
 
-            h2 {
-                width: 100%;
-                text-align: center;
-                color: #D8D8D8;
-                font-weight: normal;
-            }
 
-            #logo {
-                width: 100%;
-                text-align: center;
-                margin-top: 150px;
-            }
 
-            #logo img {
-                width: 100%;
-                width: 300px;
-                display: inline-block;
-            }
 
-            h3 {
-                margin-bottom: 30px;
-                font-size: 18px;
-                margin-top: 20px;
-            }
 
-            fieldset {
-                padding: 0 15px 15px;
-                margin-top: 25px;
-                border: 1px solid #D8D8D8;
-            }
 
-            fieldset legend {
-                font-weight: bold;
-                font-size: 14px;
-            }
+      /*------------------------------------*\
+          $BASE
+      \*------------------------------------*/
 
-            .question {
-                font-weight: bold;
-                margin-top: 15px;
-            }
+      h1, h2, h3, h4, h5, h6,
+      ul, ol, dl,
+      blockquote, p, address,
+      table,
+      fieldset, figure,
+      pre {
+        margin-bottom: 21px;
+      }
+
+      ul, ol, dd {
+        margin-left: 21px;
+      }
+
+      li > ul,
+      li > ol {
+        margin-bottom: 0;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      html {
+        font-family: HelveticaNeue-Light;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #87877E;
+      }
+
+      body {
+        padding: 42px;
+      }
+
+      .grid {
+        margin-left: -21px; 
+      }
+
+      .grid__item {
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+        padding-left: 21px;
+      }
+
+      .width--1of2 { width: 50%; }
+      .width--1of3 { width: 33.33333%; }
+      .width--1of3 { width: 66.66666%; }
+
+
+
+
+
+
+      /*------------------------------------*\
+          $TYPOGRAPHY
+      \*------------------------------------*/
+
+      h1 { font-size: 36px; }
+      h2 { font-size: 21px; }
+      h3 { font-size: 18px; }
+      h4 { font-size: 14px; }
+      h5 { font-size: 12px; }
+
+      h1, h2, h3, h4, h5 {
+        font-weight: normal;
+        color: #515146;
+      }
+
+      h1, h2 {
+        font-family: HelveticaNeue-Light;
+      }
+
+      h4 {
+        font-family: HelveticaNeue-Medium;
+        color: #87877E;
+      }
+
+      h3, h5 {
+        font-family: HelveticaNeue;
+      }
+
+
+      
+
+
+
+      /*------------------------------------*\
+          $COVER
+      \*------------------------------------*/
+
+
+      .cover {
+        text-align: center;
+        padding-top: 84px;
+      }
+
+      .cover__image {
+        padding-bottom: 42px;
+        margin-bottom: 42px;
+        border-bottom: 1px solid #E4E4DC;
+      }
+
+      .cover__image img {
+        display: inline-block;
+        max-width: 420px;
+      }
+
+      .cover__tagline {
+        color: #87877E;
+      }
+
+
+
+
+
+
+      /*------------------------------------*\
+          $SECTIONS
+      \*------------------------------------*/
+
+      .section {
+        border-top: 1px solid #E4E4DC;
+      }
+
+      .section__title {
+        padding-top: 10px;
+        position: relative;
+        margin-bottom: 42px;
+      }
+
+      .section__title:before {
+        content: "";
+        display: block;
+        width: 210px;
+        height: 4px;
+        background: #48C0FB;
+        position: absolute;
+        left: 0;
+        top: -1px;
+      }
+
+
+
+
+
+
+      /*------------------------------------*\
+          $CATEGORIES
+      \*------------------------------------*/
+
+      .category {
+        border: 1px solid #E4E4DC; 
+        margin-bottom: 42px;
+      }
+
+      .category__title {
+        border-bottom: 1px solid #E4E4DC;
+        margin: 0;
+        padding: 21px;
+      }
+
+      .category__content {
+        padding: 21px;
+      }
+
+      .question__title {
+        margin-bottom: 0;
+      }
+
+
+
+
+
+
+      /*------------------------------------*\
+          $STORYBOARD
+      \*------------------------------------*/
+
+      .storyboard { 
+        page-break-inside: auto;
+      }
+
+      .scene  { 
+        page-break-inside: avoid; 
+        page-break-after: auto;
+        border-top: 1px solid #E4E4DC;
+        padding-top: 21px;
+        margin-bottom: 42px;
+      }
+
+      .time {
+        font-size: 0.5em;
+        color: #C7C7BF;
+      }
+
+      .scene__layer__title {
+        color: #C7C7BF;
+        margin-bottom: 10px;
+      }
+
+
+
+
+
+
+      /*------------------------------------*\
+          $HELPER
+      \*------------------------------------*/
+
+      .page-break { 
+        page-break-before: always;
+        padding-top: 42px;
+      }
+
+      .widget > *:last-child,
+      .widget > *:last-child > *:last-child,
+      .widget > *:last-child > *:last-child > *:last-child {
+        margin-bottom: 0;
+      }
+
+
+
+    </style>
+  </head>
+
+  <body>
+    <div class="cover">
+      {{# project.companyLogo}}
+      <div class="cover__image">
+        <img src="{{project.projectLogoSRC}}" alt="" />
+      </div>
+      {{/ project.companyLogo}}
+
+      <h1 class="cover__title">{{project.title}}</h1>
+      <h3 class="cover__tagline">{{project.companyName}}</h3>
+    </div>
+
+    {{#categories}}
+    {{# categoryHasAnswer(., project) }}
+    <div class="page-break"></div>
+
+    <div class="section">
+    <h2 class="section__title">{{title}}</h2>
+    {{#sortedSections}}
+      {{# sectionHasAnswer(., project) }}
+      <div class="widget category">
+        <h3 class="category__title">{{title}}</h3>
         
-            #scenes .scene {
-                border-top: 1px solid #D8D8D8;
-                margin-top: 30px;
-                min-height: 230px;
-            }
+        <div class="category__content">
+          {{#sortedQuestions}}
+          {{# hasTextAnswer(., project) }}
+          <div class="question">
+            <h4 class="question__title">{{title}}</h4>
+            <p>{{# nl2br }}{{text}}{{/ nl2br }}</p>
+          </div>
+          {{/ }}
 
-            #scenes .scene h4 {
-                font-family: HelveticaNeue-Bold;
-                font-size: 18px;
-                color: #000000;
-                line-height: 23px;
-                margin: 15px 0 20px;
-            }
-
-            #scenes .scene .scene_image {
-                float: left;
-                width: 45%;
-            }
-
-            #scenes .scene .scene_image img {
-                width: 92%;
-            }
-
-            #scenes .scene .text {
-                float: right;
-                width: 53%;
-                padding-left: 2%;
-                margin-bottom: 20px;
-            }
-
-            #scenes .scene .text h5 {
-                color: #D8D8D8;
-                font-size: 12px;
-                line-height: 14px;
-                text-transform: uppercase;
-                font-weight: normal;
-                margin: 0px 0px 10px 0px;
-            }
-
-            #scenes .scene.without_image .text.image {
-                width: 45%;
-                float: left;
-                padding-left: 0%;
-            }
-
-            .cf:before,
-            .cf:after {
-                content: " ";
-                display: table;
-            }
-
-            .cf:after {
-                clear: both;
-            }
-
-            .break {
-                page-break-before: always;
-            }
-
-            #scenes  { page-break-inside:auto }
-            #scenes .scene { page-break-inside:avoid; page-break-after:auto }
-        </style>
-    </head>
-    
-    <body>
-        <h1>{{project.title}}</h1>
-        <h2>{{project.companyName}}</h2>
-        {{# project.companyLogo}}
-            <div id="logo"><img src="{{project.projectLogoSRC}}" alt="" /></div>
-        {{/ project.companyLogo}}
+          {{# hasSelectableAnswer(., project) }}
+          <div class="question question--selectable">
+            <h4 class="question__title">{{title}}</h4>
+            <p>{{selected.text}}</p>
+          </div>
+          {{/ }}
+          {{/sortedQuestions}}
+        </div><!-- end .category__content -->
+      </div><!-- end .category -->
+      {{/ }}
+    {{/sortedSections}}
+    </div><!-- end .section -->
+    {{/ }}
+    {{/categories}}
 
 
-        {{#categories}}
-            {{# categoryHasAnswer(., project) }}
-                <div class="break"></div>
-                <h3>{{title}}</h3>
-                {{#sortedSections}}
-                    {{# sectionHasAnswer(., project) }}
-                        <fieldset class="section">
-                            <legend>{{title}}</legend>
-                            {{#sortedQuestions}}
-                                {{# hasTextAnswer(., project) }}
-                                    <div class="question">{{title}}</div>
-                                    <div class="answer">{{# nl2br }}{{text}}{{/ nl2br }}</div>
-                                {{/ }}
-                                {{# hasSelectableAnswer(., project) }}
-                                    <div class="question">{{title}}</div>
-                                    <div class="answer">{{selected.text}}</div>
-                                {{/ }}
-                            {{/sortedQuestions}}
-                        </fieldset>
-                    {{/ }}
-                {{/sortedSections}}
-            {{/ }}
-        {{/categories}}
+    {{#project.hasScenes}}
+    <div class="page-break"></div>
 
-        
-        {{#project.hasScenes}}
-            <div class="break"></div>
-            <h3>Scenes</h3>
-            <div id="scenes">
-            {{#project.orderedScenes}}
-                {{# hasImage}}
-                    <div class="scene cf">
-                        <h4>{{title}}</h4>
-                        <div class="scene_image">
-                            <img src="{{sceneImageSRC}}" />
-                        </div>
-                        <div class="text image">
-                            <h5>Picture</h5>
-                            {{imageText}}
-                        </div>
-                        <div class="text sound">
-                            <h5>Sound</h5>
-                            {{soundText}}
-                        </div>
-                    </div>
-                {{^ hasImage}}
-                    <div class="scene without_image cf">
-                        <h4>{{title}}</h4>
-                        <div class="text image">
-                            <h5>Picture</h5>
-                            {{imageText}}
-                        </div>
-                        <div class="text sound">
-                            <h5>Sound</h5>
-                            {{soundText}}
-                        </div>
-                    </div>
-                {{/ hasImage}}
+    <div class="section">
+      <h2 class="section__title">Scenes</h2>
+      <div class="storyboard">
+        {{#project.orderedScenes}}
+        {{# hasImage}}
+        <div class="scene">
+          <h3 class="scene__title">{{title}} <span class="time">00min 30sec</span></h3>
+          
+          <div class="grid">
+            <div class="grid__item width--1of2">
+              <div class="scene__image">
+                <img src="{{sceneImageSRC}}" />
+              </div> 
+            </div><!--
+         --><div class="grid__item width--1of2">
+              <div class="scene__layer">
+                <h5 class="scene__layer__title">Picture</h5>
+                <p>
+                  {{imageText}}
+                </p>
+              </div>
 
-            {{/project.orderedScenes}}
+              <div class="scene__layer">
+                <h5 class="scene__layer__title">Sound</h5>
+                <p>
+                  {{soundText}}
+                </p>
+              </div>
             </div>
-        {{/project.hasScenes}}
-    </body>
+
+          </div><!-- end .grid -->
+        </div><!-- end .scene -->
+        {{^ hasImage}}
+        <div class="scene">
+          <h3 class="scene__title">{{title}} <span class="time">00min 30sec</span></h3>
+          
+          <div class="grid">
+            <div class="grid__item width--1of2">
+              <div class="scene__layer">
+                <h5 class="scene__layer__title">Picture</h5>
+                <p>
+                  {{imageText}}
+                </p>
+              </div>
+            </div><!--
+         --><div class="grid__item width--1of2">
+              <div class="scene__layer">
+                <h5 class="scene__layer__title">Sound</h5>
+                <p>
+                  {{soundText}}
+                </p>
+              </div>
+            </div>
+
+          </div><!-- end .grid -->
+        </div><!-- end .scene -->
+        {{/ hasImage}}
+
+        {{/project.orderedScenes}}
+      </div>
+    </div><!-- end .section -->
+    {{/project.hasScenes}}
+  </body>
 </html>
