@@ -3,16 +3,83 @@
   <head>
     <style type="text/css">
 
-      body {
+
+      /*------------------------------------*\
+          $RESET
+      \*------------------------------------*/
+
+      * { margin: 0; padding: 0; -webkit-box-sizing: border-box; }
+
+
+
+
+
+      /*------------------------------------*\
+          $BASE
+      \*------------------------------------*/
+
+      h1, h2, h3, h4, h5, h6,
+      ul, ol, dl,
+      blockquote, p, address,
+      table,
+      fieldset, figure,
+      pre {
+        margin-bottom: 21px;
+      }
+
+      ul, ol, dd {
+        margin-left: 21px;
+      }
+
+      li > ul,
+      li > ol {
+        margin-bottom: 0;
+      }
+
+      html {
+        font-family: HelveticaNeue-Light;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      h1 { font-size: 36px; }
+      h2 { font-size: 21px; }
+      h3 { font-size: 18px; }
+      h4 { font-size: 14px; }
+      h5 { font-size: 12px; }
+
+      h1, h2, h3, h4, h5 {
+        font-weight: normal;
+      }
+
+      h1, h2 {
         font-family: HelveticaNeue-Light;
       }
 
-      .page-break {
-        page-break-before: always;
+      h3, h4, h5 {
+        font-family: HelveticaNeue;
       }
+
+
+
+      /*------------------------------------*\
+          $SKIN
+      \*------------------------------------*/
+
 
       .scenes { page-break-inside:auto }
       .scene  { page-break-inside:avoid; page-break-after:auto }
+
+
+
+
+
+      /*------------------------------------*\
+          $HELPER
+      \*------------------------------------*/
+
+      .page-break { page-break-before: always; }
+
     </style>
   </head>
 
@@ -34,11 +101,11 @@
       {{#sortedQuestions}}
       {{# hasTextAnswer(., project) }}
       <div class="question">{{title}}</div>
-      <div class="answer">{{# nl2br }}{{text}}{{/ nl2br }}</div>
+      <p>{{# nl2br }}{{text}}{{/ nl2br }}</p>
       {{/ }}
       {{# hasSelectableAnswer(., project) }}
       <div class="question">{{title}}</div>
-      <div class="answer">{{selected.text}}</div>
+      <p>{{selected.text}}</p>
       {{/ }}
       {{/sortedQuestions}}
     </section>
@@ -61,11 +128,15 @@
         </div>
         <div class="text image">
           <h5>Picture</h5>
-          {{imageText}}
+          <p>
+            {{imageText}}
+          </p>
         </div>
         <div class="text sound">
           <h5>Sound</h5>
-          {{soundText}}
+          <p>
+            {{soundText}}
+          </p>
         </div>
       </div>
       {{^ hasImage}}
@@ -73,11 +144,15 @@
         <h4>{{title}}</h4>
         <div class="text image">
           <h5>Picture</h5>
-          {{imageText}}
+          <p>
+            {{imageText}}
+          </p>
         </div>
         <div class="text sound">
           <h5>Sound</h5>
-          {{soundText}}
+          <p>
+            {{soundText}}
+          </p>
         </div>
       </div>
       {{/ hasImage}}
