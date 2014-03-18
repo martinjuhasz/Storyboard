@@ -32,10 +32,6 @@
     // Bar Button Items
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonClicked:)];
     addButton.tintColor = [UIColor whiteColor];
-//    UIBarButtonItem *moveButon = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(moveButtonClicked:)];
-//    moveButon.tintColor = [UIColor whiteColor];
-    
-    
     
     self.totalTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0 , 0.0f, 200.0f, 21.0f)];
     [self.totalTimeLabel setFont:[UIFont systemFontOfSize:11.0f]];
@@ -56,15 +52,14 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self.navigationController setToolbarHidden:NO animated:animated];
-//    [[self.navigationController toolbar] setTranslucent:NO];
     [super viewWillAppear:animated];
+    [self.navigationController setToolbarHidden:NO animated:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self.navigationController setToolbarHidden:YES animated:animated];
     [super viewWillDisappear:animated];
+    [self.navigationController setToolbarHidden:YES animated:animated];
 }
 
 - (void)updateTimeLabel
@@ -237,14 +232,6 @@
 }
 
 #pragma mark Moving
-
-//- (UITableViewCellEditingStyle) tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if(self.tableView.editing) {
-//        return UITableViewCellEditingStyleNone;
-//    }
-//    return UITableViewCellEditingStyleDelete;
-//}
 
 - (BOOL) tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {

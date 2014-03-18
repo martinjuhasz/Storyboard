@@ -139,7 +139,7 @@
     
     
     
-    // TODO: REMOVE, only Debgu
+    // TODO: REMOVE, only Debug
     NSArray *paths = NSSearchPathForDirectoriesInDomains
     (NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -151,10 +151,12 @@
                    error:nil];
     
     NSLog(@"Output: %@", fileName);
+    NSString *pdfName = [NSString stringWithFormat:@"%@/preview.pdf",
+                          documentsDirectory];
     
 
     dispatch_async(dispatch_get_main_queue(), ^(){
-        self.pdfCreator = [NDHTMLtoPDF createPDFWithHTML:htmlContent pathForPDF:nil pageSize:kPaperSizeA4 margins:UIEdgeInsetsMake(10, 5, 10, 5) successBlock:success errorBlock:error];
+        self.pdfCreator = [NDHTMLtoPDF createPDFWithHTML:htmlContent pathForPDF:pdfName pageSize:kPaperSizeA4 margins:UIEdgeInsetsMake(10, 5, 10, 5) successBlock:success errorBlock:error];
     });
     
 }
