@@ -14,7 +14,13 @@
           $RESET
       \*------------------------------------*/
 
-      * { margin: 0; padding: 0; -webkit-box-sizing: border-box; }
+    * { 
+      margin: 0; 
+      padding: 0; 
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+    }
+
 
 
 
@@ -54,7 +60,7 @@
       }
 
       body {
-        padding: 1cm;
+        padding: 42px;
       }
 
       .grid {
@@ -71,6 +77,9 @@
       .width--1of2 { width: 50%; }
       .width--1of3 { width: 33.33333%; }
       .width--1of3 { width: 66.66666%; }
+
+
+
 
 
 
@@ -103,6 +112,9 @@
       }
 
 
+      
+
+
 
       /*------------------------------------*\
           $COVER
@@ -128,6 +140,7 @@
       .cover__tagline {
         color: #87877E;
       }
+
 
 
 
@@ -191,7 +204,6 @@
 
 
 
-
       /*------------------------------------*\
           $STORYBOARD
       \*------------------------------------*/
@@ -208,14 +220,18 @@
         margin-bottom: 42px;
       }
 
-      .scene__layer {
-      
+      .time {
+        font-size: 0.5em;
+        color: #C7C7BF;
       }
 
       .scene__layer__title {
         color: #C7C7BF;
-        margin-bottom: 0;
+        margin-bottom: 10px;
       }
+
+
+
 
 
 
@@ -225,7 +241,7 @@
 
       .page-break { 
         page-break-before: always;
-        padding-top: 1cm;
+        padding-top: 42px;
       }
 
       .widget > *:last-child,
@@ -296,7 +312,7 @@
         {{#project.orderedScenes}}
         {{# hasImage}}
         <div class="scene">
-          <h3 class="scene__title">{{title}}</h3>
+          <h3 class="scene__title">{{title}} <span class="time">00min 30sec</span></h3>
           
           <div class="grid">
             <div class="grid__item width--1of2">
@@ -324,7 +340,7 @@
         </div><!-- end .scene -->
         {{^ hasImage}}
         <div class="scene">
-          <h3 class="scene__title">{{title}}</h3>
+          <h3 class="scene__title">{{title}} <span class="time">00min 30sec</span></h3>
           
           <div class="grid">
             <div class="grid__item width--1of2">
