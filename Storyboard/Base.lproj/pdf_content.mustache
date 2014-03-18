@@ -42,6 +42,10 @@
         margin-bottom: 0;
       }
 
+      img {
+        max-width: 100%;
+      }
+
       html {
         font-family: HelveticaNeue-Light;
         font-size: 14px;
@@ -53,7 +57,20 @@
         padding: 1cm;
       }
 
+      .grid {
+        margin-left: -21px; 
+      }
 
+      .grid__item {
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+        padding-left: 21px;
+      }
+
+      .width--1of2 { width: 50%; }
+      .width--1of3 { width: 33.33333%; }
+      .width--1of3 { width: 66.66666%; }
 
 
 
@@ -179,10 +196,26 @@
           $STORYBOARD
       \*------------------------------------*/
 
-      .scenes { page-break-inside:auto }
-      .scene  { page-break-inside:avoid; page-break-after:auto }
+      .storyboard { 
+        page-break-inside: auto;
+      }
 
+      .scene  { 
+        page-break-inside: avoid; 
+        page-break-after: auto;
+        border-top: 1px solid #E4E4DC;
+        padding-top: 21px;
+        margin-bottom: 42px;
+      }
 
+      .scene__layer {
+      
+      }
+
+      .scene__layer__title {
+        color: #C7C7BF;
+        margin-bottom: 0;
+      }
 
 
 
@@ -256,50 +289,68 @@
 
     {{#project.hasScenes}}
     <div class="page-break"></div>
-    <div class="section">
-    <h2 class="section__title">Scenes</h2>
-    <div class="scenes">
-      {{#project.orderedScenes}}
-      {{# hasImage}}
-      <div class="scene cf">
-        <h4>{{title}}</h4>
-        <div class="scene_image">
-          <img src="{{sceneImageSRC}}" />
-        </div>
-        <div class="text image">
-          <h5>Picture</h5>
-          <p>
-            {{imageText}}
-          </p>
-        </div>
-        <div class="text sound">
-          <h5>Sound</h5>
-          <p>
-            {{soundText}}
-          </p>
-        </div>
-      </div>
-      {{^ hasImage}}
-      <div class="scene without_image cf">
-        <h4>{{title}}</h4>
-        <div class="text image">
-          <h5>Picture</h5>
-          <p>
-            {{imageText}}
-          </p>
-        </div>
-        <div class="text sound">
-          <h5>Sound</h5>
-          <p>
-            {{soundText}}
-          </p>
-        </div>
-      </div>
-      {{/ hasImage}}
 
-      {{/project.orderedScenes}}
-    </div>
-    </div>
+    <div class="section">
+      <h2 class="section__title">Scenes</h2>
+      <div class="storyboard">
+        {{#project.orderedScenes}}
+        {{# hasImage}}
+        <div class="scene">
+          <h3 class="scene__title">{{title}}</h3>
+          
+          <div class="grid">
+            <div class="grid__item width--1of2">
+              <div class="scene__image">
+                <img src="{{sceneImageSRC}}" />
+              </div> 
+            </div><!--
+         --><div class="grid__item width--1of2">
+              <div class="scene__layer">
+                <h5 class="scene__layer__title">Picture</h5>
+                <p>
+                  {{imageText}}
+                </p>
+              </div>
+
+              <div class="scene__layer">
+                <h5 class="scene__layer__title">Sound</h5>
+                <p>
+                  {{soundText}}
+                </p>
+              </div>
+            </div>
+
+          </div><!-- end .grid -->
+        </div><!-- end .scene -->
+        {{^ hasImage}}
+        <div class="scene">
+          <h3 class="scene__title">{{title}}</h3>
+          
+          <div class="grid">
+            <div class="grid__item width--1of2">
+              <div class="scene__layer">
+                <h5 class="scene__layer__title">Picture</h5>
+                <p>
+                  {{imageText}}
+                </p>
+              </div>
+            </div><!--
+         --><div class="grid__item width--1of2">
+              <div class="scene__layer">
+                <h5 class="scene__layer__title">Sound</h5>
+                <p>
+                  {{soundText}}
+                </p>
+              </div>
+            </div>
+
+          </div><!-- end .grid -->
+        </div><!-- end .scene -->
+        {{/ hasImage}}
+
+        {{/project.orderedScenes}}
+      </div>
+    </div><!-- end .section -->
     {{/project.hasScenes}}
   </body>
 </html>
