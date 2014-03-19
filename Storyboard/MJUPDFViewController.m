@@ -9,6 +9,7 @@
 #import "MJUPDFViewController.h"
 #import "NDHTMLtoPDF.h"
 #import "MJUPDFGenerator.h"
+#import "UIBarButtonItem+BlocksKit.h"
 
 @interface MJUPDFViewController ()
 
@@ -31,6 +32,13 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    // Share Icon
+    UIImage *shareImage = [[UIImage imageNamed:@"IconShare"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithImage:shareImage style:UIBarButtonItemStylePlain target:self action:@selector(shareButtonClicked:)];
+    self.navigationItem.rightBarButtonItem = shareButton;
+    
+    // Load PDF
     if(self.project) {
         [self setConditionsForPDF:NO];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -49,8 +57,6 @@
                 });
             }];
         });
-        
-        
     }
 }
 
@@ -72,7 +78,7 @@
     NSLog(@"%@", [error localizedDescription]);
 }
 
-- (IBAction)emaiButtonClicked:(id)sender
+- (IBAction)shareButtonClicked:(id)sender
 {
     UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:@[@"", self.pdfGenerator.pdfCreator.PDFdata] applicationActivities:nil];
     [self presentViewController:controller animated:YES completion:nil];

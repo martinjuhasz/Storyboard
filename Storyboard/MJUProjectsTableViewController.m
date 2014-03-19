@@ -14,6 +14,7 @@
 #import "UITableView+Additions.h"
 #import "MJUProjectCell.h"
 #import "UIColor+Additions.h"
+#import "UIBarButtonItem+BlocksKit.h"
 
 @interface MJUProjectsTableViewController ()
 
@@ -30,7 +31,20 @@
     // load emtpy view
     UIView *emptyView = [[[NSBundle mainBundle] loadNibNamed:@"EmptyProjectView" owner:self options:nil] objectAtIndex:0];
     self.tableView.nxEV_emptyView = emptyView;
-
+    
+    // settings button
+    UIImage *settingsImage = [[UIImage imageNamed:@"IconSettings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] bk_initWithImage:settingsImage style:UIBarButtonItemStylePlain handler:^(id sender) {
+        [self performSegueWithIdentifier:@"SettingsSegue" sender:sender];
+    }];
+    self.navigationItem.leftBarButtonItem = settingsButton;
+    
+    // add button
+    UIImage *addImage = [[UIImage imageNamed:@"IconAdd"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] bk_initWithImage:addImage style:UIBarButtonItemStylePlain handler:^(id sender) {
+        [self performSegueWithIdentifier:@"ProjectAddSegue" sender:sender];
+    }];
+    self.navigationItem.rightBarButtonItem = addButton;
 }
 
 - (void)viewDidAppear:(BOOL)animated

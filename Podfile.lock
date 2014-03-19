@@ -16,14 +16,14 @@ PODS:
   - BlocksKit/UIKit (2.2.0):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - GRMustache (6.8.3):
+  - GRMustache (7.0.0):
     - JRSwizzle (~> 1.0)
-  - HockeySDK (3.5.0)
+  - HockeySDK (3.5.4)
   - iOS-htmltopdf (0.0.2)
   - JRSwizzle (1.0)
   - NYXImagesKit (2.3)
   - PEPhotoCropEditor (1.2.1)
-  - UITableView-NXEmptyView (0.1.4)
+  - UITableView-NXEmptyView (0.1.5)
 
 DEPENDENCIES:
   - BlocksKit
@@ -42,12 +42,12 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   BlocksKit: 1b106f407a11997fd79e1da31453758e51277613
-  GRMustache: 90fc77ae45a5b8b5a4cf13874cae811461a1c930
-  HockeySDK: 685e6ca0b78668ef8b595fba17fe087ea6074b05
+  GRMustache: 89f50becf0b5b9e020d640ffbbbd46f31edbc9dc
+  HockeySDK: 4f7f7e15c1f594e8ca1e16a09f04e7418289de7a
   iOS-htmltopdf: 690a3a27b668065211329002522209903b5c66c4
   JRSwizzle: 6242ff38485d870fc2636899048ee1ab883ae587
   NYXImagesKit: bdcd82ed61e55ad95a2e95675c2f6b84f039c423
   PEPhotoCropEditor: a412a037992dd785fdc6281442c24f5722eb387f
-  UITableView-NXEmptyView: 034e5162ce7b8e3584d720d0d925c27ea7711220
+  UITableView-NXEmptyView: 7d5238a79357f58b6a2b486f45a5915635824941
 
 COCOAPODS: 0.29.0

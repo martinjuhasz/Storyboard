@@ -460,6 +460,7 @@
 			children = (
 				7A018B151855E5AB004E5657 /* iPad */,
 				7A195C4D183E092000E2F944 /* PDF */,
+				7A84E92518D9A67B00919A89 /* General */,
 				7AC4A01F1837B3EB0027BEAB /* Questions */,
 				7A95203818352C27002EC307 /* SceneDetail */,
 				7A95202E1834E47E002EC307 /* Project */,
@@ -528,6 +529,13 @@
 				7A435865182CF40300534588 /* MJUScenesTableViewController.m */,
 			);
 			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		7A84E92518D9A67B00919A89 /* General */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = General;
 			sourceTree = "<group>";
 		};
 		7A9520241834CFB7002EC307 /* Helper */ = {
@@ -1042,6 +1050,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1060,6 +1069,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

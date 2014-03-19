@@ -98,9 +98,11 @@
 - (void)setNavBarButtonsToEditMode:(BOOL)editing
 {
     if(!editing) {
-        self.editModeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"IconEditTable"] style:UIBarButtonItemStylePlain target:self action:@selector(moveButtonClicked:)];
+        UIImage *editImage = [[UIImage imageNamed:@"IconEditTable"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        self.editModeButton = [[UIBarButtonItem alloc] initWithImage:editImage style:UIBarButtonItemStylePlain target:self action:@selector(moveButtonClicked:)];
     } else {
-        self.editModeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"IconCheckmark"] style:UIBarButtonItemStylePlain target:self action:@selector(moveButtonClicked:)];
+        UIImage *editImage = [[UIImage imageNamed:@"IconCheckmark"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        self.editModeButton = [[UIBarButtonItem alloc] initWithImage:editImage style:UIBarButtonItemStylePlain target:self action:@selector(moveButtonClicked:)];
     }
     self.navigationItem.rightBarButtonItems = @[self.editModeButton];
 }

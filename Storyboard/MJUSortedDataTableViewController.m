@@ -10,6 +10,7 @@
 #import "MJUProjectsDataModel.h"
 #import "UIAlertView+BlocksKit.h"
 #import "UITableView+Additions.h"
+#import "UIBarButtonItem+BlocksKit.h"
 
 @interface MJUSortedDataTableViewController () {
     bool userDrivenModelChange;
@@ -35,8 +36,17 @@
     if(self.tableView.editing) {
         self.tableView.editing = NO;
     }
+    
+    UIImage *editImage = [[UIImage imageNamed:@"IconActions"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithImage:editImage style:UIBarButtonItemStylePlain target:self action:@selector(actionButtonClicked:)];
+    self.navigationItem.rightBarButtonItem = editButton;
+    
 }
 
+- (IBAction)actionButtonClicked:(id)sender
+{
+    
+}
 
 
 #pragma mark -

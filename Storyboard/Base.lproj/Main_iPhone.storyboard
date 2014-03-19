@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FPm-nf-Nus">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FPm-nf-Nus">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -104,25 +104,16 @@
                             <outlet property="delegate" destination="oMO-yP-3gr" id="xI3-nM-i8L"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Projects" id="lci-wO-rO8">
-                        <barButtonItem key="leftBarButtonItem" image="IconSettings" id="gtV-6T-grs">
-                            <connections>
-                                <segue destination="KuO-re-761" kind="modal" id="EMI-5k-DS4"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8aL-Tw-7qJ">
-                            <connections>
-                                <segue destination="fah-9k-NJ4" kind="modal" id="j1U-uE-2E6"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Projects" id="lci-wO-rO8"/>
                     <connections>
                         <segue destination="SGW-Yu-8KV" kind="push" identifier="ProjectDetailSegue" id="CDn-Uk-B3A"/>
+                        <segue destination="KuO-re-761" kind="modal" identifier="SettingsSegue" id="pg1-oc-sqd"/>
+                        <segue destination="fah-9k-NJ4" kind="modal" identifier="ProjectAddSegue" id="xwg-8p-6Pt"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gfT-qg-g0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="395" y="203"/>
+            <point key="canvasLocation" x="515" y="499"/>
         </scene>
         <!--Add Project View Controller - new Project-->
         <scene sceneID="KnF-3M-9Wl">
@@ -306,13 +297,7 @@
                             <outlet property="delegate" destination="3nK-X5-BZI" id="NZE-ab-Mrj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Categories" id="Pmv-Fc-Cyv">
-                        <barButtonItem key="rightBarButtonItem" image="IconActions" id="tz3-lE-47z">
-                            <connections>
-                                <action selector="actionButtonClicked:" destination="3nK-X5-BZI" id="92P-ph-Zzw"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Categories" id="Pmv-Fc-Cyv"/>
                     <connections>
                         <segue destination="xfo-Dp-9NB" kind="push" identifier="EditSectionsSegue" id="Txd-Ts-Chg"/>
                         <segue destination="lQk-gE-F1C" kind="modal" identifier="TitleInputSegue" id="cKu-1q-BiA"/>
@@ -345,13 +330,7 @@
                             <outlet property="delegate" destination="xfo-Dp-9NB" id="fgQ-P2-FU9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Sections" id="55f-jg-bIN">
-                        <barButtonItem key="rightBarButtonItem" image="IconActions" id="3pu-V2-ROg">
-                            <connections>
-                                <action selector="actionButtonClicked:" destination="xfo-Dp-9NB" id="G3d-Mj-Vd9"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Sections" id="55f-jg-bIN"/>
                     <connections>
                         <segue destination="tQw-EX-5L3" kind="push" identifier="EditQuestionsSegue" id="5no-Kw-JJq"/>
                         <segue destination="KYe-Or-Gw7" kind="modal" identifier="TitleInputSegue" id="b7K-ZP-gv0"/>
@@ -384,13 +363,7 @@
                             <outlet property="delegate" destination="tQw-EX-5L3" id="3Mg-sM-Oz2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Questions" id="AlO-AO-eXa">
-                        <barButtonItem key="rightBarButtonItem" image="IconActions" id="JnX-2K-lDC">
-                            <connections>
-                                <action selector="actionButtonClicked:" destination="tQw-EX-5L3" id="k46-Si-7WL"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Questions" id="AlO-AO-eXa"/>
                     <connections>
                         <segue destination="KYe-Or-Gw7" kind="modal" identifier="TitleInputSegue" id="4ew-mY-iLd"/>
                         <segue destination="RWd-94-pa1" kind="push" identifier="EditSelectablesSegue" id="AMR-uR-RVg"/>
@@ -506,15 +479,7 @@
                             <outlet property="delegate" destination="SGW-Yu-8KV" id="l9m-bt-Ch7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="KSy-U5-poJ">
-                        <barButtonItem key="rightBarButtonItem" image="IconEditTable" id="yPp-5M-rhl">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="editButtonClicked:" destination="SGW-Yu-8KV" id="EH9-Nz-Nni"/>
-                                <segue destination="fah-9k-NJ4" kind="modal" identifier="EditProjectSegue" id="524-x0-WLN"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="KSy-U5-poJ"/>
                     <connections>
                         <outlet property="companyTitle" destination="Zl8-K3-4lo" id="Xqm-Xt-nve"/>
                         <outlet property="lengthLabel" destination="JjI-iq-qm2" id="fM5-dM-9Z7"/>
@@ -523,6 +488,7 @@
                         <segue destination="OXk-R5-3QZ" kind="push" identifier="QuestionsSegue" id="O85-qK-d6B"/>
                         <segue destination="8ea-lb-7Iz" kind="modal" identifier="PDFSegue" id="rPb-zf-xoD"/>
                         <segue destination="WaW-Ob-KZb" kind="push" identifier="StoryboardSegue" id="vKw-IS-dTg"/>
+                        <segue destination="fah-9k-NJ4" kind="modal" identifier="EditProjectSegue" id="U1b-ds-8Th"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sQm-cg-7Oo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -654,15 +620,8 @@
                                 <action selector="doneButtonClicked:" destination="Rpy-ZP-h3H" id="VQa-Ao-PR2"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="IconShare" id="mWg-5A-NRV">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="emaiButtonClicked:" destination="Rpy-ZP-h3H" id="0bW-GK-eKG"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="shareButton" destination="mWg-5A-NRV" id="jIV-Mc-0Hi"/>
                         <outlet property="webView" destination="lSz-GM-p0i" id="bgv-Eb-gfL"/>
                     </connections>
                 </viewController>
@@ -1160,13 +1119,7 @@
                             <outlet property="delegate" destination="RWd-94-pa1" id="hub-F8-oOe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Answers" id="sR6-TZ-MYx">
-                        <barButtonItem key="rightBarButtonItem" image="IconActions" id="g79-7Y-8Xb">
-                            <connections>
-                                <action selector="actionButtonClicked:" destination="RWd-94-pa1" id="w61-56-uuK"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Answers" id="sR6-TZ-MYx"/>
                     <connections>
                         <segue destination="KYe-Or-Gw7" kind="modal" identifier="TitleInputSegue" id="Jej-Lj-eEv"/>
                     </connections>
@@ -1369,10 +1322,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="IconActions" width="24" height="24"/>
-        <image name="IconEditTable" width="24" height="24"/>
-        <image name="IconSettings" width="24" height="24"/>
-        <image name="IconShare" width="24" height="24"/>
         <image name="ProjectDetailIconAudio" width="29" height="29"/>
         <image name="ProjectDetailIconCalendar" width="29" height="29"/>
         <image name="ProjectDetailIconContact" width="29" height="29"/>
@@ -1390,8 +1339,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="j1U-uE-2E6"/>
         <segue reference="Jej-Lj-eEv"/>
+        <segue reference="U1b-ds-8Th"/>
         <segue reference="e9W-d3-afM"/>
     </inferredMetricsTieBreakers>
 </document>

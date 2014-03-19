@@ -17,6 +17,7 @@
 #import "MJUHelper.h"
 #import "MJUAddProjectViewController.h"
 #import "MJUQuestionCategory.h"
+#import "UIBarButtonItem+BlocksKit.h"
 
 @interface MJUProjectViewController ()
 
@@ -36,6 +37,14 @@
     self.companyTitle.text = _project.companyName;
     [self updateHeader];
     [self checkExportButton];
+    
+    // Edit Icon
+    UIImage *editImage = [[UIImage imageNamed:@"IconEditTable"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] bk_initWithImage:editImage style:UIBarButtonItemStylePlain handler:^(id sender) {
+        [self performSegueWithIdentifier:@"EditProjectSegue" sender:sender];
+    }];
+    self.navigationItem.rightBarButtonItem = editButton;
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDataModelChange:) name:NSManagedObjectContextObjectsDidChangeNotification object:[[MJUProjectsDataModel sharedDataModel] mainContext]];
 }
@@ -71,11 +80,6 @@
 
 #pragma mark -
 #pragma mark Button Actions
-
-- (IBAction)editButtonClicked:(id)sender
-{
-    
-}
 
 - (void)addDummyContent
 {
