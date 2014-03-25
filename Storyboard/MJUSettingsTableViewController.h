@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface MJUSettingsTableViewController : UITableViewController
+@interface MJUSettingsTableViewController : UITableViewController<MFMailComposeViewControllerDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *howToCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *helpCell;
 
 @end
