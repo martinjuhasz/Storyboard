@@ -267,10 +267,12 @@
       <h1 class="cover__title">{{project.title}}</h1>
       <h3 class="cover__tagline">{{project.companyName}}</h3>
     </div>
+    
+    <div class="page-break"></div>
+
 
     {{#categories}}
     {{# categoryHasAnswer(., project) }}
-    <div class="page-break"></div>
 
     <div class="section">
     <h2 class="section__title">{{title}}</h2>
@@ -305,7 +307,9 @@
 
 
     {{#project.hasScenes}}
+    
     <div class="page-break"></div>
+
 
     <div class="section">
       <h2 class="section__title">Scenes</h2>

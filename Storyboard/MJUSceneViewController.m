@@ -278,7 +278,7 @@
 {
     NSManagedObjectContext *context = [[MJUProjectsDataModel sharedDataModel] mainContext];
     NSUInteger time = (minute * 60) + second;
-    self.scene.time = time;
+    self.scene.time = (int32_t)time;
     NSError *error;
     [context save:&error];
     if(error) {

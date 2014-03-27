@@ -40,7 +40,7 @@
             if(!editMode || ![sender isKindOfClass:[NSIndexPath class]]) {
                 category = (MJUQuestionCategory *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUQuestionCategory" inManagedObjectContext:context];
                 NSUInteger count = [[[self fetchedResultsController] fetchedObjects] count];
-                category.order = count;
+                category.order = (int32_t)count;
             }
             
             category.iconID = icon;

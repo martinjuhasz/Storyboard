@@ -28,7 +28,7 @@
 {
     if(![sender isKindOfClass:[UIButton class]]) return;
     
-    int icon = ((UIButton*)sender).tag - 3100;
+    int icon = (int)((UIButton*)sender).tag - 3100;
     if(icon >= 0) {
         self.iconView.image = [MJUQuestionCategory icon:icon];
         self.categoryIcon = icon;

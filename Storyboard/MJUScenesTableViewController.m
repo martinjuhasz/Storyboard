@@ -114,7 +114,7 @@
     
     scene.title = NSLocalizedString(@"Scene", nil);
     NSUInteger sceneCount = [[[self fetchedResultsController] fetchedObjects] count];
-    scene.order = sceneCount;
+    scene.order = (int32_t)sceneCount;
     [self.project addScenesObject:scene];
     NSError *error;
     [context save:&error];

@@ -136,7 +136,13 @@
     };
     
     GRMustacheTemplate *template = [GRMustacheTemplate templateFromResource:@"pdf_content" bundle:nil error:nil];
-    NSString *htmlContent = [template renderObjectsFromArray:@[data, extraKeys] error:nil];
+    
+    NSError *renderError = nil;
+    NSString *htmlContent = [template renderObjectsFromArray:@[data, extraKeys] error:&renderError];
+    if(renderError) {
+        NSLog(@"%@", [renderError localizedDescription]);
+    }
+    
     
     dispatch_async(dispatch_get_main_queue(), ^(){
         self.pdfCreator = [NDHTMLtoPDF createPDFWithHTML:htmlContent pathForPDF:nil pageSize:kPaperSizeA4 margins:UIEdgeInsetsMake(10, 5, 10, 5) successBlock:success errorBlock:error];

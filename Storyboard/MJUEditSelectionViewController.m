@@ -38,7 +38,7 @@
             if(!editMode || ![sender isKindOfClass:[NSIndexPath class]]) {
                 selectable = (MJUSelectable *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUSelectable" inManagedObjectContext:context];
                 NSUInteger count = [[[self fetchedResultsController] fetchedObjects] count];
-                selectable.order = count;
+                selectable.order = (int32_t)count;
                 [self.question addSelectablesObject:selectable];
             }
             

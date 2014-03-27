@@ -90,7 +90,7 @@
         
         MJUScene *scene = (MJUScene *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUScene" inManagedObjectContext:context];
         scene.title = [NSString stringWithFormat:@"Scene %d", (int)(preCount + i)];
-        scene.order = preCount + i;
+        scene.order = (int32_t)(preCount + i);
         
         MJUSceneImage *sceneImage = (MJUSceneImage *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUSceneImage" inManagedObjectContext:context];
         

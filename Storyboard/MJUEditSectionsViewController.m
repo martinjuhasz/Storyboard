@@ -38,7 +38,7 @@
                 section = (MJUQuestionSection *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUQuestionSection" inManagedObjectContext:context];
                 [self.category addSectionsObject:section];
                 NSUInteger count = [[[self fetchedResultsController] fetchedObjects] count];
-                section.order = count;
+                section.order = (int32_t)count;
             }
             [section setValue:saveString forKey:@"title"];
             NSError *error;

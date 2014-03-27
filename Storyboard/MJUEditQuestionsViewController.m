@@ -46,7 +46,7 @@
                     question = (MJUSelectableQuestion *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUSelectableQuestion" inManagedObjectContext:context];
                 }
                 NSUInteger count = [[[self fetchedResultsController] fetchedObjects] count];
-                question.order = count;
+                question.order = (int32_t)count;
                 [self.section addQuestionsObject:question];
             }
             

@@ -47,7 +47,7 @@
     [categories enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSDictionary *categoryDict = (NSDictionary*)obj;
         MJUQuestionCategory *category = (MJUQuestionCategory *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUQuestionCategory" inManagedObjectContext:self.context];
-        category.order = idx;
+        category.order = (int32_t)idx;
         category.title = [categoryDict objectForKey:@"title"];
         category.iconID = [(NSNumber*)[categoryDict objectForKey:@"icon"] intValue];
         [self importSections:[categoryDict objectForKey:@"section"] intoCategory:category];
@@ -59,7 +59,7 @@
     [sections enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSDictionary *sectionDict = (NSDictionary*)obj;
         MJUQuestionSection *section = (MJUQuestionSection *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUQuestionSection" inManagedObjectContext:self.context];
-        section.order = idx;
+        section.order = (int32_t)idx;
         section.title = [sectionDict objectForKey:@"title"];
         [category addSectionsObject:section];
         
@@ -79,7 +79,7 @@
             question = (MJUTextQuestion *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUTextQuestion" inManagedObjectContext:self.context];
         }
         question.title = [questionDict objectForKey:@"title"];
-        question.order = idx;
+        question.order = (int32_t)idx;
         [section addQuestionsObject:question];
         
         if(selections) {
@@ -94,7 +94,7 @@
         NSString *title = (NSString*)obj;
         MJUSelectable *selectable = (MJUSelectable *)[NSEntityDescription insertNewObjectForEntityForName:@"MJUSelectable" inManagedObjectContext:self.context];
         selectable.text = title;
-        selectable.order = idx;
+        selectable.order = (int32_t)idx;
         [question addSelectablesObject:selectable];
     }];
 }
