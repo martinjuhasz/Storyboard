@@ -1,22 +1,20 @@
 PODS:
-  - BlocksKit (2.2.0):
+  - BlocksKit (2.2.2):
     - BlocksKit/All
-  - BlocksKit/All (2.2.0):
+  - BlocksKit/All (2.2.2):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
     - BlocksKit/MessageUI
     - BlocksKit/UIKit
-  - BlocksKit/Core (2.2.0)
-  - BlocksKit/DynamicDelegate (2.2.0):
-    - BlocksKit/MiniFFI
-  - BlocksKit/MessageUI (2.2.0):
+  - BlocksKit/Core (2.2.2)
+  - BlocksKit/DynamicDelegate (2.2.2)
+  - BlocksKit/MessageUI (2.2.2):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - BlocksKit/MiniFFI (2.2.0)
-  - BlocksKit/UIKit (2.2.0):
+  - BlocksKit/UIKit (2.2.2):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - GRMustache (7.0.0):
+  - GRMustache (6.8.4):
     - JRSwizzle (~> 1.0)
   - HockeySDK (3.5.4)
   - iOS-htmltopdf (0.0.2)
@@ -27,7 +25,7 @@ PODS:
 
 DEPENDENCIES:
   - BlocksKit
-  - GRMustache
+  - GRMustache (~> 6.8.3)
   - HockeySDK
   - iOS-htmltopdf (from `https://raw.github.com/martinjuhasz/iOS-htmltopdf/master/iOS-htmltopdf.podspec`)
   - NYXImagesKit
@@ -41,9 +39,9 @@ EXTERNAL SOURCES:
     :podspec: https://raw.github.com/martinjuhasz/PEPhotoCropEditor/master/PEPhotoCropEditor.podspec
 
 SPEC CHECKSUMS:
-  BlocksKit: 1b106f407a11997fd79e1da31453758e51277613
-  GRMustache: 89f50becf0b5b9e020d640ffbbbd46f31edbc9dc
-  HockeySDK: 4f7f7e15c1f594e8ca1e16a09f04e7418289de7a
+  BlocksKit: 125e4e69a62e3b85bacc5175737dae000b00b9fb
+  GRMustache: 7b2520d67b6373484c8b2c08b9788af90a461d61
+  HockeySDK: aa28abb106de7804d31acf515f2c9aa4e6481fd0
   iOS-htmltopdf: 690a3a27b668065211329002522209903b5c66c4
   JRSwizzle: 6242ff38485d870fc2636899048ee1ab883ae587
   NYXImagesKit: bdcd82ed61e55ad95a2e95675c2f6b84f039c423

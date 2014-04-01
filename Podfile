@@ -7,7 +7,7 @@ pod 'iOS-htmltopdf', :podspec => 'https://raw.github.com/martinjuhasz/iOS-htmlto
 pod 'HockeySDK'
 pod 'PEPhotoCropEditor', :podspec => 'https://raw.github.com/martinjuhasz/PEPhotoCropEditor/master/PEPhotoCropEditor.podspec'
 pod 'NYXImagesKit'
-pod 'GRMustache'
+pod 'GRMustache', '~> 6.8.3'   
 pod 'BlocksKit'
 
 # debug

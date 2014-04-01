@@ -56,7 +56,7 @@
             };
     
     id extraKeys = @{
-                     @"answerForProject": [GRMustacheRendering renderingObjectWithBlock:^NSString *(GRMustacheTag *tag, GRMustacheContext *context, BOOL *HTMLSafe, NSError *__autoreleasing *error) {
+                     @"answerForProject": [GRMustache renderingObjectWithBlock:^NSString *(GRMustacheTag *tag, GRMustacheContext *context, BOOL *HTMLSafe, NSError *__autoreleasing *error) {
                          
         // load the question, and the project from the context stack
         MJUProject *project = [context valueForMustacheKey:@"project"];
@@ -128,7 +128,7 @@
                          }
                          return nil;
                      }],
-                     @"nl2br": [GRMustacheRendering renderingObjectWithBlock:^NSString *(GRMustacheTag *tag, GRMustacheContext *context, BOOL *HTMLSafe, NSError *__autoreleasing *error) {
+                     @"nl2br": [GRMustache renderingObjectWithBlock:^NSString *(GRMustacheTag *tag, GRMustacheContext *context, BOOL *HTMLSafe, NSError *__autoreleasing *error) {
                          NSString *rawRendering = [tag renderContentWithContext:context HTMLSafe:HTMLSafe error:error];
                          
                          return [rawRendering stringByReplacingOccurrencesOfString:@"\n" withString:@"<br />"];
